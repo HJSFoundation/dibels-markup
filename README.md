@@ -9,7 +9,7 @@ Getting Started
 - make sure you have node installed
   + node --version
     - if you see a version #, you have it
-    - if not, (install it)[https://nodejs.org/]
+    - if not, [install it](https://nodejs.org/)
 - Next, do the node version of "bundling for Ruby". This will read the package.json and gather your dependencies.
   + npm install
 - Next install the Karma testing framework command line tools
