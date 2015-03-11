@@ -1,5 +1,5 @@
-var Ifl = Ifl || {};
-Ifl.login = {
+var IFL = IFL || {};
+IFL.Login = {
 
   initialize: function(callback) {
     _.bindAll(this);
@@ -12,11 +12,11 @@ Ifl.login = {
   },
 
   setProductionUrl: function() {
-    this.productionApiUrl = 'https://iflauthexample-webapp.herokuapp.com';
+    this.productionApiUrl = IFL.Settings.productionApiUrl;
   },
 
   setDevelopmentUrl: function () {
-    this.developmentApiUrl = 'http://localhost:3000';
+    this.developmentApiUrl = ;
   },
 
   cacheElements: function() {
@@ -32,7 +32,7 @@ Ifl.login = {
   },
 
   setCurrentUser: function(responseData) {
-    Ifl.currentUser = responseData;
+    IFL.currentUser = responseData;
   },
 
   loginUser: function() {
@@ -55,7 +55,7 @@ Ifl.login = {
 
   loginSuccess: function(responseData) {
     this.setCurrentUser(responseData);
-    this.$loginContainer.hide();
+    // this.$loginContainer.hide();
     this.$gameContainer.show();
     this.successCallback();
   },
@@ -63,6 +63,13 @@ Ifl.login = {
   loginFailure: function() {
     alert("There was a problem, please try again.");
   }
+};
+
+var IFL = IFL || {};
+IFL.Settings = {
+  productionApiUrl: 'https://IFLauthexample-webapp.herokuapp.com',
+  developmentApiUrl: 'http://localhost:3000'
+
 };
 
 // Platform: ios

@@ -25,14 +25,15 @@
       <script type="text/javascript" src="js/vendor/cordova.js"></script>
       <script src="js/vendor/lodash.min.js"></script>
       <script type="text/javascript" src="js/login.js"></script>
+      <script type="text/javascript" src="js/settings.js"></script>
       <script>
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
-          // Ifl.login.initialize(game.start);
+          // IFL.login.initialize(game.start);
           var callback = function() {
                   console.log("Success");
           };
-          Ifl.login.initialize(callback);
+          IFL.login.initialize(callback);
         }, false);
       </script>
     </body>
