@@ -22,3 +22,10 @@
 + If you look at the window that Karma opened, you will see a debug button on the upper right hand corner of the screen. If you click that, you will see a second tab open at the address of `/debug`.
   - The `karma-mocha-debug` module that we added gives us a nice html report (like the Ruby world's `teaspoon`) that would before only be visible in the console or command line without the plugin.
   - Feel free to pop `debugger` statments in your code. Refresh the debug page and poke around in the console.
+
+## Running the server/watching the files for changes
+  + Our system is using gulp to watch the source files and then wrap them up into minified, uglified, files for us. To make sure this is working properly, we need to be running gulp. This app is also setup with BrowserSync so that our changes will be reloaded in the browser on save. It uses a browserSync server so you do not need to manage your own server environment.
+    - starting the server and watching the files is as easy as typing `gulp` on the command line. Then just leave this tab open and do any necessary command line work in a new tab.
+- Fastclick
+  +[Fastclick](https://github.com/ftlabs/fastclick) is a library that allows us to bypass the 300ms delay between a physical tap and the firing of a click event on mobile browsers. You will see that it has been added inside the index page and is being used inside the `deviceReady` listener. After that is should just work and if we need to turn it off for specific elements, we can do that manually. (see the documentation.)
+
