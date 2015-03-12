@@ -24,7 +24,7 @@
   - Feel free to pop `debugger` statments in your code. Refresh the debug page and poke around in the console.
 
 ## Running the server/watching the files for changes
-  + Our system is using gulp to watch the source files and then wrap them up into minified, uglified, files for us. To make sure this is working properly, we need to be running gulp. This app is also setup with [BrowserSync](http://www.browsersync.io/) so that our changes will be reloaded in the browser on save. It uses a browserSync server so you do not need to manage your own server environment.
+  +  Our system is using gulp and [BrowserSync](http://www.browsersync.io/) so that our changes will be reloaded in the browser on save. To make sure this is working properly, we need to be running gulp.  BrowserSync runs a server so you do not need to manage your own server environment.
     - starting the server and watching the files is as easy as typing `gulp` on the command line. Then just leave this tab open and do any necessary command line work in a new tab.
 
 ## Fastclick
@@ -42,3 +42,10 @@
     - A new window will open up in your window with a QR code.Scan the QR code. The reader is buggy sometimes and can take 3-4 scans to work. I find it works better if you move in a little closer.
     - Now make sure you are also running the gulp command in a separate console tab and when you make changes and the gulp task `recompiles` our files, the changes should also update on your device.
     - LOVE! (Let's hope this stands the test of us moving forward)
+
+## [cordova-minify](https://www.npmjs.com/package/cordova-minify)
+  + A Cordova hook that uglifies and minifies your app's Javascript files, minifies CSS files, and compresses your image files. It hooks into the Cordova `build` and `prepare` commands so the uglification and minification will take place in your platforms directory but will not touch files in your `www` directory. To get set up with it, there is one step you will need to take.
+  - change the permissions on your hooks directory.
+    + from the root of the project:
+      - chmod -R 755 hooks
+  - now it will run whenever you `build` or `prepare`

@@ -19,7 +19,7 @@ module.exports = function(config) {
       'www/js/vendor/lodash.min.js',
       'node_modules/chai-jquery/chai-jquery.js',
       'spec/support/spec_helper.js',
-      'www/js/*.js',
+      'www/js/**/*.js',
       'spec/*_spec.js'
     ],
 
