@@ -55,8 +55,8 @@ IFL.Login = {
 
   loginSuccess: function(responseData) {
     this.setCurrentUser(responseData);
-    this.$loginContainer.hide();
-    this.$gameContainer.show();
+    this.$loginContainer.addClass("hidden");
+    this.$gameContainer.removeClass("hidden");
     this.successCallback();
   },
 

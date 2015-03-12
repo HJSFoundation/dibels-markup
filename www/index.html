@@ -19,21 +19,17 @@
         <br />
         <input type="button" value="Submit" id="submit">
       </div>
-      <div id="gameContainer"></div>
+      <div id="gameContainer" class="hidden"></div>
 
-      <script type="text/javascript" src="js/vendor/jquery-2.1.3.min.js"></script>
-      <script type="text/javascript" src="js/vendor/cordova.js"></script>
-      <script src="js/vendor/lodash.min.js"></script>
-      <script type="text/javascript" src="js/login.js"></script>
-      <script type="text/javascript" src="js/settings.js"></script>
+      <script type="text/javascript" src="js/main.min.js"></script>
       <script>
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
           // IFL.login.initialize(game.start);
           var callback = function() {
-                  console.log("Success");
+            console.log("Success");
           };
-          IFL.login.initialize(callback);
+          IFL.Login.initialize(callback);
         }, false);
       </script>
     </body>

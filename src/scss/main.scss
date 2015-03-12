@@ -89,7 +89,11 @@ h1 {
   -webkit-animation: fade 3000ms infinite;
 }
 
-.logincontainer {
+.loginContainer {
     width: 400px;
     margin: 0 auto;
+}
+
+.hidden {
+  visibility: hidden;
 }

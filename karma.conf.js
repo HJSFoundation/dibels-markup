@@ -15,8 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/javascript/vendor/jquery-2.1.3.min.js',
-      'src/javascript/vendor/lodash.min.js',
+      'www/js/vendor/jquery-2.1.3.min.js',
+      'www/js/vendor/lodash.min.js',
       'node_modules/chai-jquery/chai-jquery.js',
       'spec/support/spec_helper.js',
       'src/javascript/*.js',
