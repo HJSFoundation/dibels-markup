@@ -9,6 +9,12 @@
 * Consider an application token as well
 * Add email for Token Authentication
 
+### Refresh
+
+http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html  
+
+### Testing
+
 ```
 curl -d '{ "email":"randy-tutor@test.org", "password":"12345678" }' http://localhost:3000/api/v1/sign_in --header "Content-Type:application/json"
 
