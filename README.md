@@ -2,6 +2,21 @@
 
 [![Code Climate](https://codeclimate.com/repos/54fe11c6e30ba025e60019b9/badges/f3aec3044ba82c49c0e7/gpa.svg)](https://codeclimate.com/repos/54fe11c6e30ba025e60019b9/feed)
 
+## AirPair Notes
+
+* Consider unique token hex
+* Callback to generate token if necessary
+* Consider an application token as well
+* Add email for Token Authentication
+
+```
+curl -d '{ "email":"randy-tutor@test.org", "password":"12345678" }' http://localhost:3000/api/v1/sign_in --header "Content-Type:application/json"
+
+curl http://localhost:3000/api/v1/users/1 --header "Content-Type:application/json" -H 'Authorization: Token token="828108a0be55df2c8abb368cad17bb3b"'
+
+curl http://localhost:3000/api/v1/users/1 --header "Content-Type:application/json" -H 'Authorization: Token token="828108a0be55df2c8abb368cad17bb3b", email="randy-tutor@test.org"'
+```
+
 ## Getting Started
 
 - Clone this repo and `cd` into it
