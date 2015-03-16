@@ -1,5 +1,5 @@
 var App = App || {};
-App.settings = {
-  productionApiUrl: 'https://IFLauthexample-webapp.herokuapp.com',
-  developmentApiUrl: 'http://localhost:3000'
+App.Settings = function(){
+  var productionApiUrl = 'https://IFLauthexample-webapp.herokuapp.com';
+  var developmentApiUrl = 'http://localhost:3000';
 };
