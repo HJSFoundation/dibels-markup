@@ -56,7 +56,7 @@ gulp.task('styles', function () {
 });
 
 gulp.task('templates', function(){
-  gulp.src(src + '/templates/*.hbs')
+  gulp.src(src + '/templates/**/*.hbs')
     .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
     .pipe(declare({
@@ -69,7 +69,7 @@ gulp.task('templates', function(){
 
 gulp.task('partials', function() {
   // Assume all partials start with an underscore
-  gulp.src([src + '/templates/_*.hbs'])
+  gulp.src([src + '/templates/**/_*.hbs'])
     .pipe(handlebars())
     .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
       imports: {
