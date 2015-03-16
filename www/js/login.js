@@ -1,34 +1,33 @@
 var App = App || {};
-App.login = {
-  template: App.templates.login,
+App.Login = function() {
 
-  initialize: function(callback) {
+  this.initialize = function(callback) {
     _.bindAll(this);
     this.successCallback = callback;
     this.$appliactionContainer = $("#applicationContainer");
     this.$appliactionContainer.html(this.template());
     this.cacheElements();
     this.registerEvents();
-  },
+  };
 
-  cacheElements: function() {
+  this.cacheElements = function() {
     this.$email = $("#email-field");
     this.$password = $("#password-field");
     this.$submit = $("#submit");
-  },
+  };
 
-  registerEvents: function() {
+  this.registerEvents = function() {
     this.$submit.on("click", this.loginUser);
-  },
+  };
 
-  setCurrentUser: function(responseData) {
+  this.setCurrentUser = function(responseData) {
     App.currentUser = responseData;
-  },
+  };
 
-  loginUser: function() {
+  this.loginUser = function() {
     var request = $.ajax({
       type: 'POST',
-      url: App.settings.productionApiUrl + '/users/sign_in.json',  // need url switching
+      url: App.Settings.productionApiUrl + '/users/sign_in.json',  // need url switching
       // url: 'http://localhost:3000/users/sign_in.json',
       crossDomain: true,
       data: {
@@ -41,14 +40,16 @@ App.login = {
     });
     request.done(this.loginSuccess);
     request.fail(this.loginFailure);
-  },
+  };
 
-  loginSuccess: function(responseData) {
+  this.loginSuccess = function(responseData) {
     this.setCurrentUser(responseData);
     this.successCallback();
-  },
+  };
 
-  loginFailure: function() {
+  this.loginFailure = function() {
     alert("There was a problem, please try again.");
-  }
+  };
 };
+
+App.Login.prototype.template = App.templates.login;
