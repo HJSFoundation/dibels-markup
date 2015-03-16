@@ -11,7 +11,7 @@
 
 ### Refresh
 
-http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html  
+http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
 
 ### Testing
 
@@ -70,3 +70,16 @@ curl http://localhost:3000/api/v1/users/1 --header "Content-Type:application/jso
     + from the root of the project:
       - chmod -R 755 hooks
   - now it will run whenever you `build` or `prepare`
+
+## Templating
+  + for our templating system we are using [handlebars](http://handlebarsjs.com/) and [gulp-handlebars](https://github.com/lazd/gulp-handlebars)
+  + handlebars will be used for our templates but gulp-handlebars will be used to precompile our templates so there will be some differences between how the templates are used/called due to that precompile that may seem different than the basic handlbars documentation. I suggest reading about handlebars and then also reading about gulp handlbars to get a better picture.
+  + To get familiar with the basic handlebars needs, check out the handlebars documentation or this [post](http://javascriptissexy.com/handlebars-js-tutorial-learn-everything-about-handlebars-js-javascript-templating/) which I think has a more in depth walkthrough.
+ + To create a template to be used, place in in the appropriate templates directory, either the template directory or partials directory and give the file the extension of .hbs. If the file is a partial, it must be prefixed with an _. example: _filename.hbs.  In the template file you will place your raw html and add in the {{data-placeholders}} as necessary.
+ + The gulp handlebars will compile up all of our templates and place them in the App namespace. Now when we want to reference them, we will call App.templates.templatename
+ + In your javascript, generally, each object will have it's own template attached to it's protype. For example, let's look at login:
+  - When defining login, we would append the template to the prototype. We do this outside of the object as to create a template at the class level so that we are not having to create a new one for each instance of the object since the template itself does not actually change.
+    + `App.Login.prototype.template = App.templates.login`
+  - When you want to use/call the template, you will want to render it to the universal application div the controls the Single Page App and you would do so like this...
+    + `this.$appliactionContainer.html(this.template(students));`
+      - In this case `$applicationContainer` is a reference to `this.$appliactionContainer = $("#applicationContainer");`
