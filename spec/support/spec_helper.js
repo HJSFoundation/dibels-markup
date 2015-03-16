@@ -14,15 +14,15 @@ function renderFixture(nodeType, attrs, content) {
 }
 
 function appendFixture(nodeType, attrs, content) {
-  $("#fixtures").append(renderFixture(nodeType, attrs, content));
+  $("#applicationContainer").append(renderFixture(nodeType, attrs, content));
 }
 
 window.expect = chai.expect;
 
 beforeEach(function() {
-  $("body").append("<div id='fixtures'/>");
+  $("body").append("<div id='applicationContainer'/>");
 });
 
 afterEach(function() {
-  $("#fixtures").remove();
+  $("#applicationContainer").remove();
 });

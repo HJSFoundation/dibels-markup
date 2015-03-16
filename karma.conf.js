@@ -17,8 +17,10 @@ module.exports = function(config) {
     files: [
       'www/js/vendor/jquery-2.1.3.min.js',
       'www/js/vendor/lodash.min.js',
+      'www/js/vendor/handlebars-v3.0.0.js',
       'node_modules/chai-jquery/chai-jquery.js',
       'spec/support/spec_helper.js',
+      'www/js/compiled_templates/*.js',
       'www/js/**/*.js',
       'spec/*_spec.js'
     ],

@@ -1,30 +1,20 @@
-var IFL = IFL || {};
-IFL.Login = {
+var App = App || {};
+App.login = {
+  template: App.templates.login,
 
   initialize: function(callback) {
     _.bindAll(this);
     this.successCallback = callback;
-    this.setProductionUrl();
-    this.setDevelopmentUrl();
+    this.$appliactionContainer = $("#applicationContainer");
+    this.$appliactionContainer.html(this.template());
     this.cacheElements();
-    this.$gameContainer.hide();
     this.registerEvents();
   },
 
-  setProductionUrl: function() {
-    this.productionApiUrl = IFL.Settings.productionApiUrl;
-  },
-
-  setDevelopmentUrl: function () {
-    this.developmentApiUrl = IFL.Settings.developmentApiUrl;
-  },
-
   cacheElements: function() {
-    this.$loginContainer = $("#loginContainer");
     this.$email = $("#email-field");
     this.$password = $("#password-field");
     this.$submit = $("#submit");
-    this.$gameContainer = $("#gameContainer");
   },
 
   registerEvents: function() {
@@ -32,13 +22,13 @@ IFL.Login = {
   },
 
   setCurrentUser: function(responseData) {
-    IFL.currentUser = responseData;
+    App.currentUser = responseData;
   },
 
   loginUser: function() {
     var request = $.ajax({
       type: 'POST',
-      url: this.productionApiUrl + '/users/sign_in.json',  // need url switching
+      url: App.settings.productionApiUrl + '/users/sign_in.json',  // need url switching
       // url: 'http://localhost:3000/users/sign_in.json',
       crossDomain: true,
       data: {
@@ -55,8 +45,6 @@ IFL.Login = {
 
   loginSuccess: function(responseData) {
     this.setCurrentUser(responseData);
-    this.$loginContainer.addClass("hidden");
-    this.$gameContainer.removeClass("hidden");
     this.successCallback();
   },
 
