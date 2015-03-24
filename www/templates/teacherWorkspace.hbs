@@ -1,0 +1,29 @@
+<div class="workspace">
+  <div class="stage">
+    {{> buttonToggle}}
+    <div class="stage__stimulus">
+      <span>a</span>
+    </div>
+    <div class="stage__menu stage__menu--left grid">
+      {{> buttonFlip}}
+      {{> buttonTimer}}
+    </div>
+    <div class="stage__menu stage__menu--right grid">
+      {{> buttonPhrases}}
+      {{> buttonTiles}}
+    </div>
+    {{> menuAssessment}}
+  </div>
+  <div class="matrix">
+    <nav class="matrix__menu">
+      {{> menuTabs}}
+      <!-- <button class="button button-primary">arrow</button> -->
+    </nav>
+    <section class="matrix__stimuli">
+      {{> stimuliTiles}}
+    </section>
+    <nav class="matrix__student-selector">
+      {{> menuTabs}}
+    </nav>
+  </div>
+</div>

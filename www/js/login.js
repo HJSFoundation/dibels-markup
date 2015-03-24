@@ -52,4 +52,4 @@ App.Login = function() {
   };
 };
 
-App.Login.prototype.template = App.templates.login;
+App.Login.prototype.template = App.templates.teacherWorkspace;

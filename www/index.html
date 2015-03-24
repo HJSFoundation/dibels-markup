@@ -30,7 +30,8 @@
           var callback = function() {
             console.log("Success");
           };
-          App.Login.initialize(callback);
+          var login = new App.Login();
+          login.initialize(callback);
         }, false);
       </script>
     </body>
