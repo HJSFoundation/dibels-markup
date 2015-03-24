@@ -18,6 +18,16 @@ App.Login = function() {
 
   this.registerEvents = function() {
     this.$submit.on("click", this.loginUser);
+    $(".js-drawer-toggle").click( function() {
+      var drawer = $(".js-drawer");
+      if (drawer.hasClass("st-closed")) {
+        drawer.removeClass("st-closed");
+        drawer.addClass("st-open");
+      } else {
+        drawer.addClass("st-closed");
+        drawer.removeClass("st-open");
+      }
+    });
   };
 
   this.setCurrentUser = function(responseData) {

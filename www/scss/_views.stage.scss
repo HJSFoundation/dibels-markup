@@ -1,0 +1,46 @@
+.workspace {
+  height: 768px;
+  max-width: 1024px;
+  margin: 0 auto;
+  // TODO: delete this
+  border: 1px solid gray;
+}
+
+.stage {
+  height: 568px;
+  position: relative;
+  padding: 10px;
+  z-index: 0;
+}
+
+.matrix {
+  background: $bg-drawer;
+}
+
+.stage__menu {
+  flex-direction: column;
+  position: absolute;
+}
+
+.stage__menu--left {
+  left: 0;
+  bottom: 10px;
+}
+
+.stage__menu--right {
+  right: 0;
+  bottom: 10px;
+}
+
+.stage__stimulus {
+  font-size: 300px;
+  font-weight: 700;
+  font-family: $font-secondary;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}

@@ -1,0 +1,18 @@
+.tile {
+  background: $matrix-tile;
+  border: 1px solid lighten(#000, 20%);
+  width: auto;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 1%;
+}
+
+.tile__title {
+  font-size: 32px;
+  display: block;
+  color: white;
+
+  &:hover {
+    color: darken(#fff, 20%);
+  }
+}

@@ -1,0 +1,26 @@
+.drawer {
+  width: 300px;
+  background-color: $bg-drawer;
+  color: white;
+  height: 768px;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+
+  &.st-closed {
+    display: none;
+  }
+
+  &.st-open {
+    display: block;
+  }
+}
+
+.drawer__title {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 400;
+  font-size: 26px;
+}

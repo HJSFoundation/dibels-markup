@@ -1,0 +1,17 @@
+.menu--tab {
+  background-color: #3d3e40;
+  border-right: 1px solid lightgray;
+  color: lighten(#000, 50%);
+  padding: 10px 0;
+  text-transform: uppercase;
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  &.is-active,
+  &:hover {
+    background: $matrix-tab;
+    color: white;
+  }
+}

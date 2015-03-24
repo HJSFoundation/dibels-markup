@@ -1,0 +1,23 @@
+// RULE: DO NOT USE THESE VARIABLES. ONLY USE THE SEMANTIC ONES BELOW
+$white: #fff;
+$black: #232425;
+$gray-dark: #3D3E40;
+$gray-light: darken(#fff, 50%);
+
+$orange: orange;
+$red: #e64c3b;
+$green: #4eb96e;
+$yellow: #efc319;
+
+
+// RULE: USE THESE VARIABLES FOR COLOR STYLING
+$primary: $orange;
+$warning: $red;
+$go: $green;
+$learning: $yellow;
+
+$matrix-tile: $black;
+$matrix-tab: $black;
+
+$button-text-light: $white;
+$bg-drawer: $gray-dark;

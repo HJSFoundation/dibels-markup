@@ -1,0 +1,58 @@
+// RULE: Only @extend a class (or placeholder) in the same stylesheet (NOT ACROSS STYLES)
+button,
+.button,
+%button {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-image: none;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+}
+
+.button--primary {
+  @extend %button;
+  background: $primary;
+  color: $button-text-light;
+  font-size: 22px;
+  padding: 1% 2%;
+  text-transform: uppercase;
+}
+
+.button--warning {
+  @extend %button;
+  background: $warning;
+  color: $button-text-light;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 1% 2%;
+  border-radius: 16px;
+}
+
+.button--drawer-toggle {
+  @extend %button;
+  font-size: 26px;
+  text-align: right;
+  display: inline-block;
+  position: absolute;
+  z-index: 100;
+
+  &.st-closed {
+      color: lighten(#000, 50%);
+  }
+  &.st-open {
+      color: #fff;
+  }
+}
+
+.button--timer {
+  @extend %button;
+
+  .icon.is-set {
+    color: $warning;
+  }
+}
+
