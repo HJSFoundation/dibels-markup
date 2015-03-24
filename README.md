@@ -83,3 +83,6 @@ curl http://localhost:3000/api/v1/users/1 --header "Content-Type:application/jso
   - When you want to use/call the template, you will want to render it to the universal application div the controls the Single Page App and you would do so like this...
     + `this.$appliactionContainer.html(this.template(students));`
       - In this case `$applicationContainer` is a reference to `this.$appliactionContainer = $("#applicationContainer");`
+
+## Styleguide
++ A styleguide can be found [here](http://innovationsforlearning.github.io/tn-styleguide/dist/)
