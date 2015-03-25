@@ -6,6 +6,9 @@ this["App"]["templates"]["_button"] = Handlebars.template({"compiler":[6,">= 2.0
 this["App"]["templates"]["_buttonClear"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-forbidden\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
+this["App"]["templates"]["_buttonDrawerToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<button class=\"button button--drawer-toggle js-drawer-toggle\">\n  <span class=\"icon icon-menu-toggle\"></span>\n</button>";
+},"useData":true});
 this["App"]["templates"]["_buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
@@ -30,11 +33,8 @@ this["App"]["templates"]["_buttonTiles"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["_buttonTimer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-timer\"></span>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
-this["App"]["templates"]["_buttonToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"button button--drawer-toggle js-drawer-toggle\">\n  <span class=\"icon icon-menu-toggle\"></span>\n</button>";
-},"useData":true});
 this["App"]["templates"]["_drawer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"drawer js-drawer st-closed\">\n  <header class=\"drawer__header grid grid--center\">\n    <h1 class=\"drawer__title\">MENU</h1>\n    <button class=\"button button--drawer-toggle js-drawer-toggle st-open\"><span class=\"icon icon-menu-toggle\"></span></button>\n  </header>\n    <nav class=\"menu--vertical\">\n    <div class=\"icon-text--horizontal\">\n      <span class=\"icon icon-reading\"></span>\n      <span class=\"icon-text__title\">Reading Stage</span>\n    </div>\n    <div class=\"icon-text--horizontal\">\n      <span class=\"icon icon-assessments\"></span>\n      <span class=\"icon-text__title\">Assessments</span>\n    </div>\n    <div class=\"icon-text--horizontal\">\n      <span class=\"icon icon-assignments\"></span>\n      <span class=\"icon-text__title\">Assignments</span>\n    </div>\n    <div class=\"icon-text--horizontal\">\n      <span class=\"icon icon-whiteboard\"></span>\n      <span class=\"icon-text__title\">Whiteboard</span>\n    </div>\n    <div class=\"icon-text--horizontal\">\n      <span class=\"icon icon-stories\"></span>\n      <span class=\"icon-text__title\">Leveled Stories</span>\n    </div>\n  </nav>\n</div>\n\n";
+    return "<div class=\"drawer js-drawer st-closed\">\n  <header class=\"drawer__header grid grid--center\">\n    <h1 class=\"drawer__title\">MENU</h1>\n    <button class=\"button button--drawer-toggle js-drawer-toggle st-open\"><span class=\"icon icon-menu-toggle\"></span></button>\n  </header>\n    <nav class=\"menu--vertical\">\n    <div class=\"icon-text--horizontal js-reading-stage\">\n      <span class=\"icon icon-reading\"></span>\n      <span class=\"icon-text__title\">Reading Stage</span>\n    </div>\n    <div class=\"icon-text--horizontal js-assessments\">\n      <span class=\"icon icon-assessments\"></span>\n      <span class=\"icon-text__title\">Assessments</span>\n    </div>\n    <div class=\"icon-text--horizontal js-assignments\">\n      <span class=\"icon icon-assignments\"></span>\n      <span class=\"icon-text__title\">Assignments</span>\n    </div>\n    <div class=\"icon-text--horizontal js-whiteboard\">\n      <span class=\"icon icon-whiteboard\"></span>\n      <span class=\"icon-text__title\">Whiteboard</span>\n    </div>\n    <div class=\"icon-text--horizontal js-leveled-stories\">\n      <span class=\"icon icon-stories\"></span>\n      <span class=\"icon-text__title\">Leveled Stories</span>\n    </div>\n  </nav>\n</div>\n\n";
 },"useData":true});
 this["App"]["templates"]["_menu-horizontal"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -122,7 +122,7 @@ this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[
     var stack1;
 
   return "<div class=\"workspace\">\n  <div class=\"stage\">\n"
-    + ((stack1 = this.invokePartial(partials.buttonToggle,depth0,{"name":"buttonToggle","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.buttonDrawerToggle,depth0,{"name":"buttonDrawerToggle","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials.drawer,depth0,{"name":"drawer","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    <div class=\"stage__stimulus\">\n      <span>a</span>\n    </div>\n    <div class=\"stage__menu stage__menu--left grid\">\n"
     + ((stack1 = this.invokePartial(partials.buttonFlip,depth0,{"name":"buttonFlip","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
