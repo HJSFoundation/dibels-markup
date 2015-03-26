@@ -20,16 +20,4 @@ App.Views.TeacherWorkspace = Backbone.View.extend({
     this.$el.html(this.template());
 
   }
-
-  // openDrawer: function(){
-  //   this.$drawer = $(".js-drawer");
-  //   this.$drawer.removeClass("st-closed");
-  //   this.$drawer.addClass("st-open");
-  // },
-
-  // closeDrawer: function(){
-  //   this.$drawer = $(".js-drawer");
-  //   this.$drawer.removeClass("st-open");
-  //   this.$drawer.addClass("st-closed");
-  // }
 });

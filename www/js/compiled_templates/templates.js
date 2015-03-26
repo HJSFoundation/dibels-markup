@@ -6,9 +6,6 @@ this["App"]["templates"]["_button"] = Handlebars.template({"compiler":[6,">= 2.0
 this["App"]["templates"]["_buttonClear"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-forbidden\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
-this["App"]["templates"]["_buttonDrawerToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"button button--drawer-toggle js-drawer-toggle\">\n  <span class=\"icon icon-menu-toggle\"></span>\n</button>";
-},"useData":true});
 this["App"]["templates"]["_buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
@@ -33,9 +30,6 @@ this["App"]["templates"]["_buttonTiles"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["_buttonTimer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-timer\"></span>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
-this["App"]["templates"]["_drawer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"drawer js-drawer st-closed\">\n  <header class=\"drawer__header grid grid--center\">\n    <h1 class=\"drawer__title\">MENU</h1>\n    <button class=\"button button--drawer-toggle js-drawer-toggle st-open\"><span class=\"icon icon-menu-toggle\"></span></button>\n  </header>\n    <nav class=\"menu--vertical\">\n    <div class=\"icon-text--horizontal js-reading-stage\">\n      <span class=\"icon icon-reading\"></span>\n      <span class=\"icon-text__title\">Reading Stage</span>\n    </div>\n    <div class=\"icon-text--horizontal js-assessments\">\n      <span class=\"icon icon-assessments\"></span>\n      <span class=\"icon-text__title\">Assessments</span>\n    </div>\n    <div class=\"icon-text--horizontal js-assignments\">\n      <span class=\"icon icon-assignments\"></span>\n      <span class=\"icon-text__title\">Assignments</span>\n    </div>\n    <div class=\"icon-text--horizontal js-whiteboard\">\n      <span class=\"icon icon-whiteboard\"></span>\n      <span class=\"icon-text__title\">Whiteboard</span>\n    </div>\n    <div class=\"icon-text--horizontal js-leveled-stories\">\n      <span class=\"icon icon-stories\"></span>\n      <span class=\"icon-text__title\">Leveled Stories</span>\n    </div>\n  </nav>\n</div>\n\n";
-},"useData":true});
 this["App"]["templates"]["_menu-horizontal"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
@@ -49,16 +43,6 @@ this["App"]["templates"]["_menu-horizontal"] = Handlebars.template({"compiler":[
     + alias3(((helper = (helper = helpers['icon-text-v'] || (depth0 != null ? depth0['icon-text-v'] : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"icon-text-v","hash":{},"data":data}) : helper)))
     + "\n  </nav>";
 },"useData":true});
-this["App"]["templates"]["_menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<nav class=\"stage__menu--assessment grid grid--bottom\">\n"
-    + ((stack1 = this.invokePartial(partials.buttonMastered,depth0,{"name":"buttonMastered","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.buttonLearning,depth0,{"name":"buttonLearning","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.buttonNeedsWork,depth0,{"name":"buttonNeedsWork","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.buttonClear,depth0,{"name":"buttonClear","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "</nav>\n";
-},"usePartial":true,"useData":true});
 this["App"]["templates"]["_menuTabs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
@@ -114,6 +98,12 @@ this["App"]["templates"]["assessments"] = Handlebars.template({"compiler":[6,">=
 this["App"]["templates"]["assignments"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<p>Assignments</p>";
 },"useData":true});
+this["App"]["templates"]["buttonDrawerToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<button class=\"button button--drawer-toggle js-drawer-toggle\">\n  <span class=\"icon icon-menu-toggle\"></span>\n</button>";
+},"useData":true});
+this["App"]["templates"]["drawer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"drawer js-drawer st-closed\">\n  <header class=\"drawer__header grid grid--center\">\n    <h1 class=\"drawer__title\">MENU</h1>\n    <button class=\"button button--drawer-toggle js-drawer-toggle st-open\"><span class=\"icon icon-menu-toggle\"></span></button>\n  </header>\n    <nav class=\"menu--vertical\">\n    <div class=\"icon-text--horizontal js-reading-stage\">\n      <span class=\"icon icon-reading\"></span>\n      <span class=\"icon-text__title\">Reading Stage</span>\n    </div>\n    <div class=\"icon-text--horizontal js-assessments\">\n      <span class=\"icon icon-assessments\"></span>\n      <span class=\"icon-text__title\">Assessments</span>\n    </div>\n    <div class=\"icon-text--horizontal js-assignments\">\n      <span class=\"icon icon-assignments\"></span>\n      <span class=\"icon-text__title\">Assignments</span>\n    </div>\n    <div class=\"icon-text--horizontal js-whiteboard\">\n      <span class=\"icon icon-whiteboard\"></span>\n      <span class=\"icon-text__title\">Whiteboard</span>\n    </div>\n    <div class=\"icon-text--horizontal js-leveled-stories\">\n      <span class=\"icon icon-stories\"></span>\n      <span class=\"icon-text__title\">Leveled Stories</span>\n    </div>\n  </nav>\n</div>\n\n";
+},"useData":true});
 this["App"]["templates"]["example"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -138,23 +128,34 @@ this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.
     + ((stack1 = this.invokePartial(partials.menuTabs,depth0,{"name":"menuTabs","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </nav>\n";
 },"usePartial":true,"useData":true});
+this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    <div class=\"stage__menu stage__menu--right grid\">\n"
+    + ((stack1 = this.invokePartial(partials.buttonPhrases,depth0,{"name":"buttonPhrases","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.buttonTiles,depth0,{"name":"buttonTiles","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "    </div>\n";
+},"usePartial":true,"useData":true});
+this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<nav class=\"stage__menu--assessment grid grid--bottom\">\n"
+    + ((stack1 = this.invokePartial(partials.buttonMastered,depth0,{"name":"buttonMastered","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.buttonLearning,depth0,{"name":"buttonLearning","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.buttonNeedsWork,depth0,{"name":"buttonNeedsWork","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.buttonClear,depth0,{"name":"buttonClear","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "</nav>\n";
+},"usePartial":true,"useData":true});
 this["App"]["templates"]["readingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<p>Reading Stage</p>";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "\n"
-    + ((stack1 = this.invokePartial(partials.buttonDrawerToggle,depth0,{"name":"buttonDrawerToggle","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.drawer,depth0,{"name":"drawer","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "    <div class=\"stage__stimulus\">\n      <span>a</span>\n    </div>\n    <div class=\"stage__menu stage__menu--left grid\">\n"
+  return "\n    <div class=\"js-buttonDrawerToggle\"></div>\n    <div class=\"js-stageDrawer\"></div>\n    <div class=\"stage__stimulus\">\n      <span>a</span>\n    </div>\n    <div class=\"stage__menu stage__menu--left grid\">\n"
     + ((stack1 = this.invokePartial(partials.buttonFlip,depth0,{"name":"buttonFlip","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials.buttonTimer,depth0,{"name":"buttonTimer","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "    </div>\n    <div class=\"stage__menu stage__menu--right grid\">\n"
-    + ((stack1 = this.invokePartial(partials.buttonPhrases,depth0,{"name":"buttonPhrases","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.buttonTiles,depth0,{"name":"buttonTiles","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "    </div>\n"
-    + ((stack1 = this.invokePartial(partials.menuAssessment,depth0,{"name":"menuAssessment","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+    + "    </div>\n    <div class=\"js-menuActivity\"></div>\n    <div class=\"js-menuAssessment\"></div>\n";
 },"usePartial":true,"useData":true});
 this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"workspace\">\n  <div class=\"stage\">\n  </div>\n  <div class=\"matrix\">\n  </div>\n</div>\n";
