@@ -1,4 +1,3 @@
-
 App.Views.Login = Backbone.View.extend({
   template: App.templates.login,
   events: {
