@@ -108,6 +108,12 @@ this["App"]["templates"]["_tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-
 this["App"]["templates"]["_tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"tile grid-cell u-text-center\">\n  <a href=\"\" class=\"tile__title\">tile</a>\n</div>\n";
 },"useData":true});
+this["App"]["templates"]["assessments"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p>Assessments</p>";
+},"useData":true});
+this["App"]["templates"]["assignments"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p>Assignments</p>";
+},"useData":true});
 this["App"]["templates"]["example"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -115,13 +121,30 @@ this["App"]["templates"]["example"] = Handlebars.template({"compiler":[6,">= 2.0
     + this.escapeExpression(((helper = (helper = helpers['paragraph-text'] || (depth0 != null ? depth0['paragraph-text'] : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"paragraph-text","hash":{},"data":data}) : helper)))
     + "</p>\n</div>\n";
 },"useData":true});
+this["App"]["templates"]["leveledStories"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p>Leveled Stories</p>";
+},"useData":true});
 this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div id=\"loginContainer\">\n  <p>email</p>\n  <input type=\"text\" name=\"email\" id=\"email-field\">\n  <p>password:</p>\n  <input type=\"password\" name=\"password\" id=\"password-field\">\n  <br />\n  <input type=\"button\" value=\"Submit\" id=\"submit\">\n</div>\n";
 },"useData":true});
-this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"workspace\">\n  <div class=\"stage\">\n"
+  return "    <nav class=\"matrix__menu\">\n"
+    + ((stack1 = this.invokePartial(partials.menuTabs,depth0,{"name":"menuTabs","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "      <!-- <button class=\"button button-primary\">arrow</button> -->\n    </nav>\n    <section class=\"matrix__stimuli\">\n"
+    + ((stack1 = this.invokePartial(partials.stimuliTiles,depth0,{"name":"stimuliTiles","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "    </section>\n    <nav class=\"matrix__student-selector\">\n"
+    + ((stack1 = this.invokePartial(partials.menuTabs,depth0,{"name":"menuTabs","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "    </nav>\n";
+},"usePartial":true,"useData":true});
+this["App"]["templates"]["readingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p>Reading Stage</p>";
+},"useData":true});
+this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "\n"
     + ((stack1 = this.invokePartial(partials.buttonDrawerToggle,depth0,{"name":"buttonDrawerToggle","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials.drawer,depth0,{"name":"drawer","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    <div class=\"stage__stimulus\">\n      <span>a</span>\n    </div>\n    <div class=\"stage__menu stage__menu--left grid\">\n"
@@ -131,12 +154,11 @@ this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[
     + ((stack1 = this.invokePartial(partials.buttonPhrases,depth0,{"name":"buttonPhrases","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials.buttonTiles,depth0,{"name":"buttonTiles","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n"
-    + ((stack1 = this.invokePartial(partials.menuAssessment,depth0,{"name":"menuAssessment","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "  </div>\n  <div class=\"matrix\">\n    <nav class=\"matrix__menu\">\n"
-    + ((stack1 = this.invokePartial(partials.menuTabs,depth0,{"name":"menuTabs","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "      <!-- <button class=\"button button-primary\">arrow</button> -->\n    </nav>\n    <section class=\"matrix__stimuli\">\n"
-    + ((stack1 = this.invokePartial(partials.stimuliTiles,depth0,{"name":"stimuliTiles","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "    </section>\n    <nav class=\"matrix__student-selector\">\n"
-    + ((stack1 = this.invokePartial(partials.menuTabs,depth0,{"name":"menuTabs","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "    </nav>\n  </div>\n</div>\n";
+    + ((stack1 = this.invokePartial(partials.menuAssessment,depth0,{"name":"menuAssessment","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"usePartial":true,"useData":true});
+this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"workspace\">\n  <div class=\"stage\">\n  </div>\n  <div class=\"matrix\">\n  </div>\n</div>\n";
+},"useData":true});
+this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<p>Whiteboard</p>";
+},"useData":true});

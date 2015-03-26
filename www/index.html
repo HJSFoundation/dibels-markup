@@ -25,18 +25,19 @@
       <script type="text/javascript" src="js/vendor/handlebars-v3.0.0.js"></script>
       <script type="text/javascript" src="js/vendor/backbone-1.1.2.js"></script>
 
+      <script type="text/javascript" src="js/app.js"></script>
       <script type="text/javascript" src="js/compiled_templates/templates.js"></script>
       <script type="text/javascript" src="js/compiled_templates/partials.js"></script>
-      <script type="text/javascript" src="js/settings.js"></script>
-      <script type="text/javascript" src="js/login.js"></script>
-      <script type="text/javascript" src="js/teacherWorkspace.js"></script>
+      <script type="text/javascript" src="js/views/applicationView.js"></script>
+      <script type="text/javascript" src="js/views/loginView.js"></script>
+      <script type="text/javascript" src="js/views/stageView.js"></script>
+      <script type="text/javascript" src="js/views/matrixView.js"></script>
+      <script type="text/javascript" src="js/views/teacherWorkspaceView.js"></script>
       <script>
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
 
-          window.dispatcher = _.clone(Backbone.Events);
-          new App.TeacherWorkspace();
-          new App.Login();
+          new App.Views.ApplicationView({ el: "#applicationContainer" });
 
         }, false);
       </script>
