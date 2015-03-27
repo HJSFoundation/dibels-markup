@@ -147,7 +147,7 @@ this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,
     + "</nav>\n";
 },"usePartial":true,"useData":true});
 this["App"]["templates"]["readingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p>Reading Stage</p>";
+    return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Reading Stage</p>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
@@ -158,7 +158,7 @@ this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0
     + "    </div>\n    <div class=\"js-menuActivity\"></div>\n    <div class=\"js-menuAssessment\"></div>\n";
 },"usePartial":true,"useData":true});
 this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"workspace\">\n  <div class=\"stage\">\n  </div>\n  <div class=\"matrix\">\n  </div>\n</div>\n";
+    return "<div class=\"workspace\">\n  <div class=\"stage\">\n  </div>\n  <div class=\"matrix\">\n  </div>\n  <div class=\"overlay\">\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<p>Whiteboard</p>";

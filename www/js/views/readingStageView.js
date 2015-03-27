@@ -1,26 +1,24 @@
-App.ReadingStage = Backbone.View.extend({
-
+App.Views.ReadingStage = Backbone.View.extend({
+  template: App.templates.readingStage,
 
   events: {
-    "click ": "initWorkspace"
+    "click ": "exit"
   },
 
   initialize: function() {
     _.bindAll(this);
-    this.listenTo(dispatcher, "initReadingStage", this.render);
+    $(".overlay").html("<div class='js-reading-stage-overlay'></div>");
+    this.$el = $(".js-reading-stage-overlay");
+    // this.setElement(".js-reading-stage");
+    this.render();
   },
 
   render:  function() {
-    this.$el = $("#applicationContainer");
     this.$el.html(this.template());
-    // good practice to include return this in render to accomodate chained calls
-    return this;
   },
 
+  exit: function (){
+    this.remove();
+  }
+
 });
-
-App.ReadingStage.prototype.template = App.templates.readingStage;
-
-
-
-

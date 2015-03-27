@@ -33,6 +33,7 @@
       <script type="text/javascript" src="js/views/stageView.js"></script>
       <script type="text/javascript" src="js/views/buttonDrawerToggleView.js"></script>
       <script type="text/javascript" src="js/views/drawerView.js"></script>
+      <script type="text/javascript" src="js/views/readingStageView.js"></script>
       <script type="text/javascript" src="js/views/matrixView.js"></script>
       <script type="text/javascript" src="js/views/menuAssessmentView.js"></script>
       <script type="text/javascript" src="js/views/menuActivityView.js"></script>
@@ -41,7 +42,7 @@
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
 
-          new App.Views.ApplicationView({ el: "#applicationContainer" });
+          new App.Views.ApplicationView({ el: App.Config.el });
 
         }, false);
       </script>
