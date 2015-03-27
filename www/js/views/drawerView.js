@@ -26,13 +26,13 @@ App.Views.Drawer = Backbone.View.extend({
   },
 
   cacheElements: function(){
-      this.$drawer = $(".js-drawer");    
+    this.$drawer = $(".js-drawer");
   },
 
   open: function () {
-      this.$drawer.removeClass("st-closed");
-      this.$drawer.addClass("st-open");
-      this.isOpen = true;
+    this.$drawer.removeClass("st-closed");
+    this.$drawer.addClass("st-open");
+    this.isOpen = true;
   },
 
   close: function () {
@@ -60,6 +60,5 @@ App.Views.Drawer = Backbone.View.extend({
   },
 
   handleLeveledStoriesRequest: function() {
-  },
-
+  }
 });

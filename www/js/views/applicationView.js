@@ -1,8 +1,7 @@
-App.Views.ApplicationView = Backbone.View.extend({
+App.Views.Application = Backbone.View.extend({
   initialize: function() {
     this.loginView = new App.Views.Login({ el: this.$el });
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
-
   },
 
   handleLoggedIn: function() {
