@@ -124,10 +124,10 @@ this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.
 this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "\n<div class=\"stage__menu stage__menu--right grid\">\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n</div>\n\n<!-- <div class=\"stage__menu stage__menu--right grid\">\n"
+  return "\n<!-- <div class=\"stage__menu stage__menu--right grid\">\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n</div> -->\n\n<div class=\"stage__menu stage__menu--right grid\">\n"
     + ((stack1 = this.invokePartial(partials.buttonPhrases,depth0,{"name":"buttonPhrases","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + ((stack1 = this.invokePartial(partials.buttonTiles,depth0,{"name":"buttonTiles","data":data,"indent":"  ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "</div>\n -->\n";
+    + "</div>\n\n";
 },"usePartial":true,"useData":true});
 this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
