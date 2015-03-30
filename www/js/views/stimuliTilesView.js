@@ -1,13 +1,15 @@
 App.Views.StimuliTiles = Backbone.View.extend({
   template: App.templates.stimuliTiles,
 
+  config: { tileCount: 26},
+  
   initialize: function() {
     _.bindAll(this);
     this.render();
-    
-    // this.tileView = new App.Views.Tile({ el: ".js-tile"});
-
-
+    this.tileViews=[];
+    for(var i=0;i<this.config.tileCount;i++){
+      this.tileViews[i] = new App.Views.Tile({ el: ".js-stimuliTile"});
+    }
   },
 
   render:  function() {
