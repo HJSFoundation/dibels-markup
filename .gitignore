@@ -1,2 +1,4 @@
 node_modules
 www/js/.DS_Store
+www/js/compiled_templates/partials.js
+www/js/compiled_templates/templates.js
