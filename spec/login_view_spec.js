@@ -37,15 +37,10 @@
 //     expect(subject.$el).not.to.be.empty;
 //   });
 
-//   it("handles login success", function() {
-//     loginSuccessSpy = sinon.spy();
-//     App.Dispatcher.on('loginSuccess', loginSuccessSpy);
-//     subject.handleLoginSuccess();
-//     expect(loginSuccessSpy).to.have.been.called;
-
-
-        // sinon.spy(App.Dispatcher, "trigger");
-        // subject.handleLoginSuccess();
-        // expect(App.Dispatcher.trigger).to.have.been.calledWith("loginSuccess");
-//   });
+  // it("handles login success", function() {
+  //   loginSuccessSpy = sinon.spy();
+  //   sinon.spy(App.Dispatcher, "trigger");
+  //   subject.handleLoginSuccess();
+  //   expect(App.Dispatcher.trigger).to.have.been.calledWith("loginSuccessSpy");
+  // });
 // });
