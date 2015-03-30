@@ -10,7 +10,8 @@ config: {
     this.render();
     this.tabViews=[];
     for(var i=0;i<this.config.tabCount;i++){
-      this.tabViews[i] = new App.Views.Tab({ el: ".js-matrixStudentSelectorTab"});
+      this.tabViews[i] = new App.Views.Tab({el: ".js-matrixStudentSelectorTabs"});
+      this.$el.append(this.tabViews[i].el); 
     }
   },
 

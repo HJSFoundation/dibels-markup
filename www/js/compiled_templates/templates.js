@@ -76,10 +76,10 @@ this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.
     return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n  <section class=\"matrix__stimuli\">\n    <div class=\"js-stimuliTiles\"></div>\n  </section>\n  <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["matrixMenu"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"menu--tabs grid u-text-center js-matrixMenuTab\">\n</div>\n";
+    return "<div class=\"menu--tabs grid u-text-center js-matrixMenuTabs\"> \n  <div class='js-lettersTab'></div>\n  <div class='js-sightWordsTab'></div>\n  <div class='js-onsetRimesTab'></div>\n  <div class='js-affixesTab'></div>\n  <div class='js-storiesTab'></div>\n</div> ";
 },"useData":true});
 this["App"]["templates"]["matrixStudentSelector"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"menu--tabs grid u-text-center js-matrixStudentSelectorTab\">\n</div>\n";
+    return "<div class=\"menu--tabs grid u-text-center js-matrixStudentSelectorTabs\">\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__menu stage__menu--right grid\">\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n</div>\n\n";
