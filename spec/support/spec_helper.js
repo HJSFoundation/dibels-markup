@@ -21,7 +21,6 @@ window.expect = chai.expect;
 
 beforeEach(function() {
   $("body").append("<div id='applicationContainer'/>");
-  // new App.Views.ApplicationView({ el: "#applicationContainer" });
 });
 
 afterEach(function() {

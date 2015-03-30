@@ -2,21 +2,17 @@ App.Views.ReadingStage = Backbone.View.extend({
   template: App.templates.readingStage,
 
   events: {
-    "click ": "exit"
+    "click" : "remove"
   },
 
   initialize: function() {
     _.bindAll(this);
-    $(".overlay").html("<div class='js-reading-stage-overlay'></div>");
-    this.$el = $(".js-reading-stage-overlay");
+    $(".js-overlay").html("<div class='js-readingStageOverlay'></div>");
+    this.$el = $(".js-readingStageOverlay");
     this.render();
   },
 
   render:  function() {
     this.$el.html(this.template());
-  },
-
-  exit: function (){
-    this.remove();
   }
 });

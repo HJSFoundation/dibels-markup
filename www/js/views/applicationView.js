@@ -7,4 +7,4 @@ App.Views.Application = Backbone.View.extend({
   handleLoggedIn: function() {
     this.teacherWorkspaceView = new App.Views.TeacherWorkspace({ el: this.$el});
   }
-})
+});

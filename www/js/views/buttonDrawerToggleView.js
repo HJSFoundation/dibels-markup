@@ -1,7 +1,7 @@
 App.Views.ButtonDrawerToggle = Backbone.View.extend({
   template: App.templates.buttonDrawerToggle,
     events: {
-    "click " : "handleToggleDrawerRequest",
+    "click" : "handleToggleDrawerRequest",
   },
 
   initialize: function() {

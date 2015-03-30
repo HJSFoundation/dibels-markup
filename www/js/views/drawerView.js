@@ -12,7 +12,7 @@ App.Views.Drawer = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.listen();
-    this.isOpen=false;
+    this.isOpen = false;
     this.render();
   },
 
@@ -42,9 +42,9 @@ App.Views.Drawer = Backbone.View.extend({
   },
 
   handleToggleDrawerRequest: function() {
-    if(this.isOpen){
+    if (this.isOpen) {
       this.close();
-    }else{
+    } else {
       this.open();
     }
   },
@@ -54,11 +54,18 @@ App.Views.Drawer = Backbone.View.extend({
   },
 
   handleAssessmentsRequest: function() {
+    this.assessmentView = new App.Views.Assessment();
   },
 
   handleAssignmentsRequest: function() {
+    this.assignmentsView = new App.Views.Assignment();
+  },
+
+  handleWhiteboardRequest: function() {
+    this.whiteboardView = new App.Views.Whiteboard();
   },
 
   handleLeveledStoriesRequest: function() {
+    this.leveledStoriesView = new App.Views.LeveledStories();
   }
 });
