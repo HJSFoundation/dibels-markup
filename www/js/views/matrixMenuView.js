@@ -5,7 +5,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.bindAll(this);
     this.render();
 
-    var $tabs = $(".js-matrixMenuTabs");
     this.lettersTab = new App.Views.MatrixMenuTab({el: ".js-lettersTab"});
     this.sightWordsTab = new App.Views.MatrixMenuTab({el: ".js-sightWordsTab"});
     this.onsetRimesTab = new App.Views.MatrixMenuTab({el: ".js-onsetRimesTab"});
