@@ -5,19 +5,15 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.bindAll(this);
     this.render();
 
-    this.lettersTab = new App.Views.Tab({el: ".js-matrixMenuTabs"});
-    this.$el.append(this.lettersTab.el); 
-    this.sightWordsTab = new App.Views.Tab({el: ".js-matrixMenuTabs"});
-    this.$el.append(this.sightWordsTab.el); 
-    this.onsetRimesTab = new App.Views.Tab({el: ".js-matrixMenuTabs"});
-    this.$el.append(this.onsetRimesTab.el); 
-    this.affixesTab = new App.Views.Tab({el: ".js-matrixMenuTabs"});
-    this.$el.append(this.affixesTab.el); 
-    this.storiesTab = new App.Views.Tab({el: ".js-matrixMenuTabs"});
-    this.$el.append(this.storiesTab.el); 
+    var $tabs = $(".js-matrixMenuTabs");
+    this.lettersTab = new App.Views.MatrixMenuTab({el: ".js-lettersTab"});
+    this.sightWordsTab = new App.Views.MatrixMenuTab({el: ".js-sightWordsTab"});
+    this.onsetRimesTab = new App.Views.MatrixMenuTab({el: ".js-onsetRimesTab"});
+    this.affixesTab = new App.Views.MatrixMenuTab({el: ".js-affixesTab"});
+    this.storiesTab = new App.Views.MatrixMenuTab({el: ".js-storiesTab"});
 
 
-    this.onsetRimesTab.makeActive();
+    this.lettersTab.makeActive();
   },
 
   render:  function() {

@@ -100,7 +100,11 @@ this["App"]["templates"]["stimuliTiles"] = Handlebars.template({"compiler":[6,">
     return "<div class=\"grid grid--wrap grid--fit u-text-center js-stimuliTile\">\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<a href=\"\" class=\"menu--tab grid-cell\">\n  <span>tab</span>\n</a>\n";
+    var helper;
+
+  return "<a href=\"\" class=\"menu--tab grid-cell "
+    + this.escapeExpression(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
+    + "\">\n  <span>tab</span>\n</a>\n";
 },"useData":true});
 this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"workspace\">\n  <div class=\"js-stage\"></div>\n  <div class=\"js-matrix\"></div>\n  <div class=\"js-overlay\"></div>\n</div>\n";

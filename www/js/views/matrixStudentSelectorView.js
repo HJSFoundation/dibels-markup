@@ -13,6 +13,8 @@ config: {
       this.tabViews[i] = new App.Views.Tab({el: ".js-matrixStudentSelectorTabs"});
       this.$el.append(this.tabViews[i].el); 
     }
+    this.tabViews[0].makeActive();
+
   },
 
   render:  function() {
