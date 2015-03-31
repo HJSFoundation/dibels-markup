@@ -1,0 +1,39 @@
+.stage__stimulus {
+  font-family: $font-secondary;
+  position: absolute;
+  top: 0;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+
+  &.stage__stimulus--letters {
+    font-size: 300px;
+    font-weight: 700;
+    height: 300px;
+    line-height: 300px;
+
+    img {
+      width: 200px;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &.stage__stimulus--words {
+    color: $text-orange;
+    font-size: 250px;
+    font-weight: 500;
+    height: 250px;
+    line-height: 250px;
+  }
+
+  &.stage__stimulus--phrases {
+    color: $text-purple;
+    font-size: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+}

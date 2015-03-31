@@ -2,9 +2,29 @@
   background: $matrix-tile;
   border: 1px solid lighten(#000, 20%);
   width: auto;
-  height: 60px;
-  line-height: 60px;
+  height: 65px;
+  line-height: 65px;
   padding: 0 1%;
+
+  .stimuli-tiles--stories__tiles & {
+    min-width: 33.3333%;
+  }
+
+  .stimuli-tiles--letters & {
+    min-width: 7.6923%;
+  }
+
+  .stimuli-tiles--onsets & {
+    min-width: 25%;
+  }
+
+  .stimuli-tiles--rimes & {
+    min-width: 14.2857%;
+  }
+
+  .stimuli-tiles--words & {
+    min-width: 11.1111%;
+  }
 }
 
 .tile__title {
@@ -16,3 +36,5 @@
     color: darken(#fff, 20%);
   }
 }
+
+

@@ -1,20 +1,9 @@
-.workspace {
-  height: 768px;
-  max-width: 1024px;
-  margin: 0 auto;
+.stage {
+  height: 430px;
+  position: relative;
+  padding: 15px;
   // TODO: delete this
   border: 1px solid gray;
-}
-
-.stage {
-  height: 568px;
-  position: relative;
-  padding: 10px;
-  z-index: 0;
-}
-
-.matrix {
-  background: $bg-drawer;
 }
 
 .stage__menu {
@@ -32,15 +21,34 @@
   bottom: 10px;
 }
 
-.stage__stimulus {
-  font-size: 300px;
-  font-weight: 700;
-  font-family: $font-secondary;
+.matrix {
+  background: $bg-drawer;
+  height: 340px;
+  position: relative;
+}
+
+.matrix__menu,
+.matrix__student-selector {
+  max-height: 40px;
+  width: 100%;
+}
+
+.matrix__menu {
   position: absolute;
   top: 0;
+  left: 0;
+}
+
+.matrix__stimuli {
+  height: 260px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: $matrix-tile;
+}
+.matrix__student-selector {
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  text-align: center;
-  margin: auto;
+  max-height: 40px;
 }

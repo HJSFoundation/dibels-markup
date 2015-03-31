@@ -1,17 +1,35 @@
 .menu--tab {
   background-color: #3d3e40;
-  border-right: 1px solid lightgray;
+  border-right: 1px solid $matrix-tab;
   color: lighten(#000, 50%);
+  font-size: 13px;
   padding: 10px 0;
   text-transform: uppercase;
+  height: 40px;
+
+  .menu--tabs--student-selector & {
+    &.st-active,
+    &:hover {
+      background-color: $orange;
+    }
+  }
 
   &:last-child {
     border-right: 0;
   }
 
-  &.is-active,
+  &.st-active,
   &:hover {
     background: $matrix-tab;
-    color: white;
+    color: $button-text-light;
+  }
+
+  .menu--number {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 32px;
+    line-height: 30px;
+    margin-right: 20px;
+    font-weight: 400;
   }
 }

@@ -2,20 +2,18 @@
   height: auto;
 }
 
-.menu--horizontal {
-}
-
-.stage__menu--assessment {
+.menu--assessment {
   flex-direction: row;
   max-width: 40%;
   margin: auto;
   align-self: flex-end;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
 
-  .icon-text-vertical {
 
+  &.menu--assessment--stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
   }
+
 }

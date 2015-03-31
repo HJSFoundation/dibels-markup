@@ -2,22 +2,43 @@
 $white: #fff;
 $black: #232425;
 $gray-dark: #3D3E40;
-$gray-light: darken(#fff, 50%);
+$gray-med: lighten(#000, 50%);
+$gray-light: #9ca1a5;
 
-$orange: orange;
+$orange: #e47d24;
 $red: #e64c3b;
 $green: #4eb96e;
 $yellow: #efc319;
+$blue-light: #44c5f2;
+$purple: #955aa4;
 
 
 // RULE: USE THESE VARIABLES FOR COLOR STYLING
-$primary: $orange;
+$words-color: $orange;
+$phrases-color: $purple;
+$tiles-color: $blue-light;
+$primary: green;
 $warning: $red;
 $go: $green;
 $learning: $yellow;
 
+$text-dark: $black;
+$text-light: $white;
+$text-medium: $gray-med;
+$text-orange: $orange;
+$text-red: $red;
+$text-blue: $blue-light;
+$text-purple: $purple;
+
+$bg-drawer: $gray-dark;
+$bg-dark: $black;
+
+
+$menu-button: $gray-light;
+
 $matrix-tile: $black;
 $matrix-tab: $black;
+$matrix-border: $gray-dark;
 
 $button-text-light: $white;
-$bg-drawer: $gray-dark;
+$button-text-dark: $gray-med;

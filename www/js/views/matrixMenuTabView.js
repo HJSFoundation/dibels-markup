@@ -8,9 +8,10 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
 
   render:  function() {
     this.$el.replaceWith(this.template({jsClass:this.$el.attr("class")}));
-  },
-
-  makeActive: function(){
-    this.$el.addClass("is-active");
   }
+  // ,
+
+  // makeActive: function(){
+  //   this.$el.addClass("is-active");
+  // }
 });

@@ -51,6 +51,9 @@ this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,
 this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-mastered\"></span>\n  <span class=\"icon-text__title\">mastered</span>\n</button>\n";
 },"useData":true});
+this["App"]["templates"]["buttonMatrixToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<a href=\"#\" class=\"button button--matrix-toggle grid-cell\">\n    <span class=\"icon icon-triangle-down\"></span>\n</a>";
+},"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-needs-work\"></span>\n  <span class=\"icon-text__title\">needs work</span>\n</button>\n";
 },"useData":true});
@@ -73,19 +76,10 @@ this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0
     return "<div id=\"loginContainer\">\n  <p>email</p>\n  <input type=\"text\" name=\"email\" id=\"email-field\">\n  <p>password:</p>\n  <input type=\"password\" name=\"password\" id=\"password-field\">\n  <br />\n  <input type=\"button\" value=\"Submit\" id=\"submit\">\n  <input type=\"button\" value=\"Forgot Password\" id=\"reset\">\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n  <section class=\"matrix__stimuli\">\n    <div class=\"js-stimuliTiles\"></div>\n  </section>\n  <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n\n<!-- <div class=\"matrix\">\n  <nav class=\"matrix--menu js-matrix-menu\">\n    <div class=\"menu--tabs grid u-text-center\">\n      <a href=\"#\" class=\"menu--tab grid-cell js-letter-tab st-active\">\n        <span>letter names & sounds</span>\n      </a>\n      <a href=\"#\" class=\"menu--tab grid-cell js-words-tab\">\n        <span>sight words</span>\n      </a>\n      <a href=\"#\" class=\"menu--tab grid-cell js-onset-rimes-tab\">\n        <span>onsets & rimes</span>\n      </a>\n      <a href=\"#\" class=\"menu--tab grid-cell js-affixes-tab\">\n        <span>affixes</span>\n      </a>\n      <a href=\"#\" class=\"menu--tab grid-cell js-stories-tab\">\n        <span>stories</span>\n      </a>\n      <a href=\"#\" class=\"button button--matrix-toggle grid-cell js-matrix-toggle\">\n        <span class=\"icon icon-triangle-down\"></span>\n      </a>\n    </div>\n  </nav>\n"
-    + ((stack1 = this.invokePartial(partials.stimuliTilesLetters,depth0,{"name":"stimuliTilesLetters","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.stimuliTilesWords,depth0,{"name":"stimuliTilesWords","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.stimuliTilesOnsetRimes,depth0,{"name":"stimuliTilesOnsetRimes","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + ((stack1 = this.invokePartial(partials.stimuliTilesStories,depth0,{"name":"stimuliTilesStories","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "  <nav class=\"matrix__student-selector\">\n"
-    + ((stack1 = this.invokePartial(partials.studentSelector,depth0,{"name":"studentSelector","data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
-    + "  </nav>\n</div>\n -->\n";
-},"usePartial":true,"useData":true});
+    return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n  <section class=\"matrix__stimuli\">\n    <div class=\"js-stimuliTiles\"></div>\n  </section>\n  <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
+},"useData":true});
 this["App"]["templates"]["matrixMenu"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"menu--tabs grid u-text-center js-matrixMenuTabs\"> \n  <div class='js-lettersTab'></div>\n  <div class='js-sightWordsTab'></div>\n  <div class='js-onsetRimesTab'></div>\n  <div class='js-affixesTab'></div>\n  <div class='js-storiesTab'></div>\n</div> ";
+    return "<div class=\"menu--tabs grid u-text-center js-matrixMenuTabs\"> \n  <div class='js-lettersTab'></div>\n  <div class='js-sightWordsTab'></div>\n  <div class='js-onsetRimesTab'></div>\n  <div class='js-affixesTab'></div>\n  <div class='js-storiesTab'></div>\n  <div class='js-buttonMatrixToggle'></div>\n</div> ";
 },"useData":true});
 this["App"]["templates"]["matrixStudentSelector"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"menu--tabs grid u-text-center js-matrixStudentSelectorTabs\">\n</div>\n";
@@ -94,7 +88,7 @@ this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">
     return "<div class=\"stage__menu stage__menu--right grid\">\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n</div>\n\n";
 },"useData":true});
 this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<nav class=\"stage__menu--assessment grid grid--bottom\">\n  <div class=\"js-buttonMastered\"></div>\n  <div class=\"js-buttonLearning\"></div>\n  <div class=\"js-buttonNeedsWork\"></div>\n  <div class=\"js-buttonClear\"></div>\n</nav>\n";
+    return "<nav class=\"menu--assessment menu--assessment--stage grid grid--bottom\">\n  <div class=\"js-buttonMastered\"></div>\n  <div class=\"js-buttonLearning\"></div>\n  <div class=\"js-buttonNeedsWork\"></div>\n  <div class=\"js-buttonClear\"></div>\n</nav>\n";
 },"useData":true});
 this["App"]["templates"]["readingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Reading Stage</p>\n</div>";
@@ -111,7 +105,7 @@ this["App"]["templates"]["stimuliTiles"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<a href=\"\" class=\"menu--tab grid-cell "
+  return "<a href=\"#\" class=\"menu--tab grid-cell "
     + this.escapeExpression(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
     + "\">\n  <span>tab</span>\n</a>\n";
 },"useData":true});

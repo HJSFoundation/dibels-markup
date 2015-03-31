@@ -10,9 +10,9 @@ App.Views.MatrixMenu = Backbone.View.extend({
     this.onsetRimesTab = new App.Views.MatrixMenuTab({el: ".js-onsetRimesTab"});
     this.affixesTab = new App.Views.MatrixMenuTab({el: ".js-affixesTab"});
     this.storiesTab = new App.Views.MatrixMenuTab({el: ".js-storiesTab"});
+    this.toggleTab = new App.Views.ButtonMatrixToggle({el: ".js-buttonMatrixToggle"});
 
-
-    this.lettersTab.makeActive();
+    // this.lettersTab.makeActive();
   },
 
   render:  function() {

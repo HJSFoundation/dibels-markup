@@ -1,0 +1,21 @@
+.story {
+  position: relative;
+}
+
+.story__image {
+  img {
+    width: 100%;
+  }
+}
+
+.story__text {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.story__flip {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 22px;
+}

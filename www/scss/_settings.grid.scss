@@ -45,9 +45,16 @@
   align-content: flex-end;
 }
 
+.grid--column {
+  flex-direction: column;
+}
+.grid--row {
+  flex-direction: row;
+}
+
 .grid--wrap > .grid-cell,
 .grid--wrap > .g-cell {
-  flex: none;
+  flex: 1 1 auto;
   display: block;
 }
 
@@ -87,6 +94,10 @@
 }
 .u-1of4 {
   width: 25%!important;
+  flex: none!important;
+}
+.u-2of3 {
+  width: 66.6666%!important;
   flex: none!important;
 }
 

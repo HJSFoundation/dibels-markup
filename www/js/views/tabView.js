@@ -8,9 +8,10 @@ App.Views.Tab = Backbone.View.extend({
 
   render:  function() {
     this.$el.append(this.template());
-  },
-
-  makeActive: function(){
-    this.$el.addClass("is-active");
   }
+  // ,
+
+  // makeActive: function(){
+  //   this.$el.addClass("is-active");
+  // }
 });
