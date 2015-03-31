@@ -38,10 +38,17 @@ describe('App.Views.ButtonDrawerToggle', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#handleToggleDrawerRequest", function() {
-    toggleDrawerRequest = sinon.spy();
-    sinon.spy(App.Dispatcher, "trigger");
-    subject.handleToggleDrawerRequest();
-    expect(App.Dispatcher.trigger).to.have.been.calledWith("toggleDrawerRequest");
+  describe("handlers", function() {
+
+    afterEach(function() {
+      App.Dispatcher.trigger.restore();
+    });
+
+    it("#handleToggleDrawerRequest", function() {
+      var toggleDrawerRequest = sinon.spy();
+      sinon.spy(App.Dispatcher, "trigger");
+      subject.handleToggleDrawerRequest();
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("toggleDrawerRequest");
+    });
   });
 });

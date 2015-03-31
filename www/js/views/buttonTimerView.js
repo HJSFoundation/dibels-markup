@@ -1,6 +1,10 @@
 App.Views.ButtonTimer = Backbone.View.extend({
   template: App.templates.buttonTimer,
 
+  events: {
+    'click' : 'handleDisplayTimer'
+  },
+
   initialize: function() {
     _.bindAll(this);
     this.render();
@@ -8,5 +12,9 @@ App.Views.ButtonTimer = Backbone.View.extend({
 
   render:  function() {
     this.$el.html(this.template());
+  },
+
+  handleDisplayTimer: function() {
+    App.Dispatcher.trigger('displayTimer');
   }
 });

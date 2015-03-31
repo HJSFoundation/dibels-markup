@@ -52,7 +52,7 @@ describe('App.Views.Drawer', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("listens to", function() {
+  it("#listen", function() {
     sinon.spy(subject, "listenTo");
     subject.listen();
     expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "toggleDrawerRequest", subject.handleToggleDrawerRequest);
