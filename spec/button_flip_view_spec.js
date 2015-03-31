@@ -22,6 +22,12 @@ describe('App.Views.ButtonFlip', function() {
     expect(subject.template()).to.exist;
   });
 
+  describe("events", function() {
+    it("handles a click event", function() {
+      expect(subject.events.click).to.equal('handleflipScreen');
+    });
+  });
+
   it("calls render on initialize", function() {
     subject.initialize();
     expect(subject.$el).not.to.be.empty;
@@ -30,5 +36,19 @@ describe('App.Views.ButtonFlip', function() {
   it("renders", function() {
     subject.initialize();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  describe("handlers", function() {
+
+    afterEach(function() {
+      App.Dispatcher.trigger.restore();
+    });
+
+    it("#handleflip", function() {
+      var flipScreen = sinon.spy();
+      sinon.spy(App.Dispatcher, "trigger");
+      subject.handleflipScreen();
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("flipScreen");
+    });
   });
 });
