@@ -102,6 +102,12 @@ this["App"]["templates"]["stageStimulus"] = Handlebars.template({"compiler":[6,"
 this["App"]["templates"]["stimuliTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"grid grid--wrap grid--fit u-text-center js-stimuliTile\">\n</div>\n";
 },"useData":true});
+this["App"]["templates"]["story"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"story\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"js-storyImage\"></div>\n  <div class=\"story__text\">\n    Here is a bunch of text for the story.\n  </div>\n  <nav class=\"menu--assessment menu--assessment--story grid\">\n    <div class=\"js-storyMenuAssessment\">\n  </nav>\n  <button class=\"story__flip icon-flip\"></button>\n</div>";
+},"useData":true});
+this["App"]["templates"]["storyImage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"story__image u-text-center\">\n  <img src=\"img/dentist1.jpg\" alt=\"dentist\">\n</div>";
+},"useData":true});
 this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
