@@ -22,6 +22,12 @@ describe('App.Views.ButtonMastered', function() {
     expect(subject.template()).to.exist;
   });
 
+  describe("events", function() {
+    it("handles the click event", function(){
+      expect(subject.events.click).to.equal('handleClick');
+    });
+  });  
+
   it("calls render on initialize", function() {
     subject.initialize();
     expect(subject.$el).not.to.be.empty;
@@ -31,4 +37,10 @@ describe('App.Views.ButtonMastered', function() {
     subject.initialize();
     expect(subject.$el).not.to.be.empty;
   });
+
+  describe("handlers", function() {
+    xit("#handleClick", function(){
+      expect(subject.handleClick).to.return(false);
+    });
+  });  
 });

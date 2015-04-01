@@ -1,6 +1,10 @@
 App.Views.Story = Backbone.View.extend({
   template: App.templates.story,
 
+  events:{
+    "click" : "remove"
+  },
+
   initialize: function() {
     _.bindAll(this);
     this.render();

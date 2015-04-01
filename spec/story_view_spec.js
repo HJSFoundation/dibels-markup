@@ -22,6 +22,12 @@ describe('App.Views.Story', function() {
     expect(subject.template()).to.exist;
   });
 
+  describe("events", function() {
+    it("handles the click event", function(){
+      expect(subject.events.click).to.equal('remove');
+    });
+  });
+
   describe("initialize", function() {
     it("calls render on initialize", function() {
       expect(subject.$el).not.to.be.empty;
@@ -34,8 +40,6 @@ describe('App.Views.Story', function() {
     it("creates a story menu assessment view", function() {
       expect(subject.storyMenuAssessmentView).not.to.be.undefined;
     });
-
-
   });
 
   it("renders", function() {
