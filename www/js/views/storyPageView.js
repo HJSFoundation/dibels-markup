@@ -10,7 +10,7 @@ App.Views.StoryPage = Backbone.View.extend({
     this.render();
     this.storyImageView = new App.Views.StoryImage({ el: ".js-storyImage"});
     this.storyMenuAssessmentView = new App.Views.MenuAssessment({ el: ".js-storyMenuAssessment"});
-    this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip"});
+    this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", cssClass: "story__flip"});
 
   },
 

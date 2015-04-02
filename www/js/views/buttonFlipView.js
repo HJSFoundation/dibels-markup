@@ -5,13 +5,14 @@ App.Views.ButtonFlip = Backbone.View.extend({
     'click' : 'handleflipScreen'
   },
 
-  initialize: function() {
-    _.bindAll(this);
+  initialize: function(options) {
+     this.options = options;
+   _.bindAll(this);
     this.render();
   },
 
   render:  function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({cssClass: this.options.cssClass, text: this.options.text}));
   },
 
   handleflipScreen: function() {
