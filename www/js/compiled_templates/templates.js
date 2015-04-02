@@ -43,7 +43,11 @@ this["App"]["templates"]["buttonDrawerToggle"] = Handlebars.template({"compiler"
     return "<button class=\"button button--drawer-toggle js-drawer-toggle\">\n  <span class=\"icon icon-menu-toggle\"></span>\n</button>";
 },"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical "
+    + this.escapeExpression(((helper = (helper = helpers['class'] || (depth0 != null ? depth0['class'] : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"class","hash":{},"data":data}) : helper)))
+    + "\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-learning\"></span>\n  <span class=\"icon-text__title\">learning</span>\n</button>\n";
@@ -102,11 +106,11 @@ this["App"]["templates"]["stageStimulus"] = Handlebars.template({"compiler":[6,"
 this["App"]["templates"]["stimuliTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"grid grid--wrap grid--fit u-text-center js-stimuliTile\">\n</div>\n";
 },"useData":true});
-this["App"]["templates"]["story"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"story\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"js-storyImage\"></div>\n  <div class=\"story__text\">\n    Here is a bunch of text for the story.\n  </div>\n  <nav class=\"menu--assessment menu--assessment--story grid\">\n    <div class=\"js-storyMenuAssessment\">\n  </nav>\n  <button class=\"story__flip icon-flip\"></button>\n</div>";
-},"useData":true});
 this["App"]["templates"]["storyImage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"story__image u-text-center\">\n  <img src=\"img/dentist1.jpg\" alt=\"dentist\">\n</div>";
+},"useData":true});
+this["App"]["templates"]["storyPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<!--  style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n -->\n <div class=\"story\">\n  <div class=\"js-storyImage\"></div>\n  <footer class=\"story__footer\">\n    <div class=\"story__text story__text--footer js-storyTextFooter\">\n      Here is a bunch of text for the story.\n    </div>\n    <nav class=\"menu--assessment menu--assessment--story grid\">\n    <div class=\"js-storyMenuAssessment\">\n    </nav>\n    <div class=\"js-storyButtonFlip\"></div>\n  </footer>\n</div>";
 },"useData":true});
 this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -115,7 +119,9 @@ this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias3(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
     + " "
     + alias3(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"status","hash":{},"data":data}) : helper)))
-    + "\">\n  <span>tab</span>\n</a>\n";
+    + "\">\n  <span>"
+    + alias3(((helper = (helper = helpers.label || (depth0 != null ? depth0.label : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"label","hash":{},"data":data}) : helper)))
+    + "</span>\n</a>\n";
 },"useData":true});
 this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"workspace\">\n  <div class=\"js-stage\"></div>\n  <div class=\"js-matrix\"></div>\n  <div class=\"js-overlay\"></div>\n</div>\n";

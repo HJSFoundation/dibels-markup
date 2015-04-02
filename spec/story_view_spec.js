@@ -1,4 +1,4 @@
-describe('App.Views.Story', function() {
+describe('App.Views.StoryPage', function() {
   var subject;
   var xhr;
   var requests;
@@ -10,8 +10,8 @@ describe('App.Views.Story', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-story" });
-    subject = new App.Views.Story({el: '.js-story'});
+    appendFixture("div", { class: "js-storyPage" });
+    subject = new App.Views.StoryPage({el: '.js-storyPage'});
   });
 
   it("has a reference to the element", function() {
@@ -33,12 +33,16 @@ describe('App.Views.Story', function() {
       expect(subject.$el).not.to.be.empty;
     });
 
-    it("creates a story image view", function() {
+    it("creates a story page image view", function() {
       expect(subject.storyImageView).not.to.be.undefined;
     });
 
-    it("creates a story menu assessment view", function() {
+    it("creates a story page menu assessment view", function() {
       expect(subject.storyMenuAssessmentView).not.to.be.undefined;
+    });
+
+    it("creates a story page image flip button view", function() {
+      expect(subject.storyButtonFlipView).not.to.be.undefined;
     });
   });
 

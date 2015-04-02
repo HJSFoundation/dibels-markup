@@ -1,9 +1,10 @@
 App.Views.MatrixMenuTab = Backbone.View.extend({
   template: App.templates.tab,
 
-  initialize: function() {
+  initialize: function(options) {
+    this.options = options;
     _.bindAll(this);
-    this.templateContext = {jsClass:this.$el.attr("class")};
+    this.templateContext = {jsClass:this.$el.attr("class"), label:this.options.label};
     this.render();
   },
 
@@ -16,4 +17,5 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
     this.templateContext.status="st-active";
     this.render();
   }
+
 });
