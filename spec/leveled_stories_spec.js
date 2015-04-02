@@ -10,8 +10,8 @@ describe('App.Views.LeveledStories', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-overlay" });
-    subject = new App.Views.LeveledStories({ el: '.js-overlay' });
+    appendFixture("div", { class: "js-drawerOverlay" });
+    subject = new App.Views.LeveledStories({ el: '.js-drawerOverlay' });
   });
 
   it("has a reference to the element", function() {

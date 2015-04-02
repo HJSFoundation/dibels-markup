@@ -10,8 +10,8 @@ describe('App.Views.Whiteboard', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-overlay" });
-    subject = new App.Views.Whiteboard({el: '.js-overlay'});
+    appendFixture("div", { class: "js-drawerOverlay" });
+    subject = new App.Views.Whiteboard({el: '.js-drawerOverlay'});
   });
 
   it("has a reference to the element", function() {

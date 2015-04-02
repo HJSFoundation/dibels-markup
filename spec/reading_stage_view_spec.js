@@ -10,13 +10,12 @@ describe('App.Views.ReadingStage', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-overlay" });
-    subject = new App.Views.ReadingStage({el: '.js-overlay'});
+    appendFixture("div", { class: "js-drawerOverlay" });
+    subject = new App.Views.ReadingStage({el: '.js-drawerOverlay'});
   });
 
   it("has a reference to the element", function() {
     expect(subject.$el).to.exist;
-    expect(subject.$el).to.have.class("js-readingStageOverlay");
   });
 
   it("has a template", function() {

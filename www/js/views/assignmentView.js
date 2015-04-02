@@ -7,7 +7,7 @@ App.Views.Assignment = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    $(".js-overlay").html("<div class='js-assignmentOverlay'></div>");
+    $(".js-drawerOverlay").html("<div class='js-assignmentOverlay'></div>");
     this.$el = $(".js-assignmentOverlay");
     this.render();
   },

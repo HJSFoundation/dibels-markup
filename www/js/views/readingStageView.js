@@ -7,7 +7,7 @@ App.Views.ReadingStage = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    $(".js-overlay").html("<div class='js-readingStageOverlay'></div>");
+    $(".js-drawerOverlay").html("<div class='js-readingStageOverlay'></div>");
     this.$el = $(".js-readingStageOverlay");
     this.render();
   },

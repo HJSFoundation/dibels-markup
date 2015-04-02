@@ -10,8 +10,8 @@ describe('App.Views.Assessment', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-overlay" });
-    subject = new App.Views.Assessment({el: '.js-overlay'});
+    appendFixture("div", { class: "js-drawerOverlay" });
+    subject = new App.Views.Assessment({el: '.js-drawerOverlay'});
   });
 
   it("has a reference to the element", function() {

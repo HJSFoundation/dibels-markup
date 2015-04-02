@@ -7,7 +7,7 @@ App.Views.LeveledStories = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    $(".js-overlay").html("<div class='js-leveledStoriesOverlay'></div>");
+    $(".js-drawerOverlay").html("<div class='js-leveledStoriesOverlay'></div>");
     this.$el = $(".js-leveledStoriesOverlay");
     this.render();
   },

@@ -10,8 +10,8 @@ describe('App.Views.StoryPage', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-storyPage" });
-    subject = new App.Views.StoryPage({el: '.js-storyPage'});
+    appendFixture("div", { class: "js-storyOverlay" });
+    subject = new App.Views.StoryPage({el: '.js-storyOverlay'});
   });
 
   it("has a reference to the element", function() {
@@ -24,7 +24,7 @@ describe('App.Views.StoryPage', function() {
 
   describe("events", function() {
     it("handles the click event", function(){
-      expect(subject.events.click).to.equal('remove');
+      expect(subject.events.click).to.equal('removeView');
     });
   });
 

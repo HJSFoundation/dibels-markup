@@ -7,7 +7,7 @@ App.Views.Whiteboard = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    $(".js-overlay").html("<div class='js-whiteboardOverlay'></div>");
+    $(".js-drawerOverlay").html("<div class='js-whiteboardOverlay'></div>");
     this.$el = $(".js-whiteboardOverlay");
     this.render();
   },

@@ -2,7 +2,7 @@ App.Views.StoryPage = Backbone.View.extend({
   template: App.templates.storyPage,
 
   events:{
-    "click" : "remove"
+    "click" : "removeView"
   },
 
   initialize: function() {
@@ -17,4 +17,8 @@ App.Views.StoryPage = Backbone.View.extend({
   render:  function() {
     this.$el.html(this.template());
   },
+
+  removeView: function(){
+    this.$el.html("");
+  }
 });
