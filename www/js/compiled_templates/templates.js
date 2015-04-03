@@ -123,7 +123,7 @@ this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + alias3(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"status","hash":{},"data":data}) : helper)))
     + "\">\n  <span>"
     + alias3(((helper = (helper = helpers.label || (depth0 != null ? depth0.label : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"label","hash":{},"data":data}) : helper)))
-    + "</span>\n</a>\n";
+    + "</span>\n</a>\n\n\n\n";
 },"useData":true});
 this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"workspace\">\n  <div class=\"js-stage\"></div>\n  <div class=\"js-matrix\"></div>\n  <div class=\"js-drawerOverlay\"></div>\n  <div class=\"js-storyOverlay\"></div>\n</div>\n";

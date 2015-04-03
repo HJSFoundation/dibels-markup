@@ -16,6 +16,6 @@ App.Views.ButtonFlip = Backbone.View.extend({
   },
 
   handleflipScreen: function() {
-    App.Dispatcher.trigger('flipScreen');
+    App.Dispatcher.trigger('flipScreenButtonTapped');
   }
 });

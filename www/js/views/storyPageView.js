@@ -11,7 +11,6 @@ App.Views.StoryPage = Backbone.View.extend({
     this.storyImageView = new App.Views.StoryImage({ el: ".js-storyImage"});
     this.storyMenuAssessmentView = new App.Views.MenuAssessment({ el: ".js-storyMenuAssessment"});
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", cssClass: "story__flip"});
-
   },
 
   render:  function() {
@@ -19,6 +18,6 @@ App.Views.StoryPage = Backbone.View.extend({
   },
 
   removeView: function(){
-    this.$el.html("");
+    this.$el.empty();
   }
 });

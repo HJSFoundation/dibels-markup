@@ -48,7 +48,7 @@ describe('App.Views.ButtonTimer', function() {
       var displayTimer = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleDisplayTimer();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("displayTimer");
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("displayTimerButtonTapped");
     });
   });
 });

@@ -48,7 +48,7 @@ describe('App.Views.ButtonFlip', function() {
       var flipScreen = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleflipScreen();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("flipScreen");
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("flipScreenButtonTapped");
     });
   });
 });
