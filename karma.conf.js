@@ -18,13 +18,16 @@ module.exports = function(config) {
       'www/js/vendor/jquery-2.1.3.min.js',
       'www/js/vendor/lodash.min.js',
       'www/js/vendor/backbone-1.1.2.js',
+      'www/js/vendor/backbone-localStorage.js',
       'www/js/vendor/handlebars-v3.0.0.js',
       'node_modules/chai-jquery/chai-jquery.js',
       'www/js/app.js',
       'www/js/compiled_templates/*.js',
+      'www/js/models/*.js',
+      'www/js/collections/*.js',
       'www/js/views/*.js',
       'spec/support/spec_helper.js',
-      'spec/*_spec.js'
+      'spec/**/*_spec.js'
     ],
 
 

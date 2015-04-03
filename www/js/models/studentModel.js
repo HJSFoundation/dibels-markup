@@ -1,14 +1,10 @@
-var Todo = Backbone.Model.extend({
+App.Models.Student = Backbone.Model.extend({
 
-  defaults: function() {
-    return {
-      title: "empty todo...",
-      order: Todos.nextOrder(),
-      done: false
-    };
+  defaults:  {
+    grade: 1
   },
 
-  toggle: function() {
-    this.save({done: !this.get("done")});
+  shortName: function() {
+    return (this.get("firstName")+" "+this.get("lastName")[0]+".").toUpperCase();
   }
 });
