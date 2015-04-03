@@ -5,3 +5,4 @@ App.Collections.Students = Backbone.Collection.extend({
   localStorage: new Backbone.LocalStorage("students")
 
 });
+

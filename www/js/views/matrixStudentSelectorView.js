@@ -32,13 +32,16 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     students.fetch();
     if(students.length===0){
       students.create({firstname: "Bernie", lastname: "Bivins"});
+      students.create({firstname: "Matt", lastname: "Bivins"});
+      students.create({firstname: "Evan", lastname: "Bivins"});
+      students.create({firstname: "Clint", lastname: "Eastman"});
+      students.create({firstname: "Hugo", lastname: "Bloch"});
 
     }
 
     this.render();
     students.each(function(student){
       var view = new App.Views.Tab({model: student, el: ".js-matrixStudentSelectorTabs"}); 
-      this.$el.append(view.el); 
     });
   },
 
