@@ -2,17 +2,19 @@ App.Views.Assessment = Backbone.View.extend({
   template: App.templates.assessments,
 
   events: {
-    "click" : "remove"
+    "click" : "removeView"
   },
 
   initialize: function() {
     _.bindAll(this);
-    $(".js-drawerOverlay").html("<div class='js-assessmentOverlay'></div>");
-    this.$el = $(".js-assessmentOverlay");
     this.render();
   },
 
   render:  function() {
     this.$el.html(this.template());
+  },
+
+  removeView: function() {
+    this.$el.empty();
   }
 });

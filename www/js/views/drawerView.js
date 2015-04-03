@@ -50,22 +50,22 @@ App.Views.Drawer = Backbone.View.extend({
   },
 
   handleReadingStageRequest: function() {
-    this.readingStageView = new App.Views.ReadingStage();
+    this.readingStageView = new App.Views.ReadingStage({ el: ".js-drawerOverlay" });
   },
 
   handleAssessmentsRequest: function() {
-    this.assessmentView = new App.Views.Assessment();
+    this.assessmentView = new App.Views.Assessment({ el: ".js-drawerOverlay" });
   },
 
   handleAssignmentsRequest: function() {
-    this.assignmentsView = new App.Views.Assignment();
+    this.assignmentsView = new App.Views.Assignment({ el: ".js-drawerOverlay" });
   },
 
   handleWhiteboardRequest: function() {
-    this.whiteboardView = new App.Views.Whiteboard();
+    this.whiteboardView = new App.Views.Whiteboard({ el: ".js-drawerOverlay" });
   },
 
   handleLeveledStoriesRequest: function() {
-    this.leveledStoriesView = new App.Views.LeveledStories();
+    this.leveledStoriesView = new App.Views.LeveledStories({ el: ".js-drawerOverlay" });
   }
 });

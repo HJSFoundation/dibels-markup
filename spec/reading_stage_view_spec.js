@@ -24,7 +24,7 @@ describe('App.Views.ReadingStage', function() {
 
   describe("events", function() {
     it("handles a click event", function() {
-      expect(subject.events.click).to.equal("remove");
+      expect(subject.events.click).to.equal("removeView");
     });
   });
 
@@ -36,5 +36,12 @@ describe('App.Views.ReadingStage', function() {
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  describe("handlers", function() {
+    it("#removeView", function() {
+      subject.removeView();
+      expect(subject.$el.html()).to.be.empty;
+    });
   });
 });

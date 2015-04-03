@@ -16,7 +16,6 @@ describe('App.Views.Assessment', function() {
 
   it("has a reference to the element", function() {
     expect(subject.$el).to.exist;
-    expect(subject.$el).to.have.class("js-assessmentOverlay");
   });
 
   it("has a template", function() {
@@ -25,7 +24,7 @@ describe('App.Views.Assessment', function() {
 
   describe("events", function() {
     it("handles a click event", function() {
-      expect(subject.events.click).to.equal("remove");
+      expect(subject.events.click).to.equal("removeView");
     });
   });
 
@@ -37,5 +36,12 @@ describe('App.Views.Assessment', function() {
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  describe("handlers", function() {
+    it("#removeView", function() {
+      subject.removeView();
+      expect(subject.$el.html()).to.be.empty;
+    });
   });
 });

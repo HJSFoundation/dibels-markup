@@ -2,17 +2,19 @@ App.Views.Whiteboard = Backbone.View.extend({
   template: App.templates.whiteboard,
 
   events: {
-    "click" : "remove"
+    "click" : "removeView"
   },
 
   initialize: function() {
     _.bindAll(this);
-    $(".js-drawerOverlay").html("<div class='js-whiteboardOverlay'></div>");
-    this.$el = $(".js-whiteboardOverlay");
     this.render();
   },
 
   render:  function() {
     return this.$el.html(this.template());
+  },
+
+  removeView: function() {
+    this.$el.empty();
   }
 });
