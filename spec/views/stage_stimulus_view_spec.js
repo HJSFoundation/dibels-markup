@@ -23,12 +23,11 @@ describe('App.Views.StageStimulus', function() {
   });
 
   it("calls render on initialize", function() {
-    subject.initialize();
     expect(subject.$el).not.to.be.empty;
   });
 
   it("renders", function() {
-    subject.initialize();
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 });

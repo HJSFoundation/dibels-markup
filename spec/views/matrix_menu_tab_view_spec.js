@@ -11,7 +11,7 @@ describe('App.Views.MatrixMenuTab', function() {
     };
 
     appendFixture("div", { class: "js-tab" });
-    subject = new App.Views.Tab({el: '.js-tab'});
+    subject = new App.Views.MatrixMenuTab({el: '.js-tab'});
   });
 
   it("has a reference to the element", function() {
@@ -22,13 +22,11 @@ describe('App.Views.MatrixMenuTab', function() {
     expect(subject.template()).to.exist;
   });
 
-  xit("calls render on initialize", function() {
-    subject.initialize();
+  it("calls render on initialize", function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  xit("renders", function() {
-    subject.initialize();
+  it("renders", function() {
     expect(subject.$el).not.to.be.empty;
   });
 

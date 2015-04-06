@@ -23,12 +23,10 @@ describe('App.Views.ButtonClear', function() {
   });
 
   it("calls render on initialize", function() {
-    subject.initialize();
     expect(subject.$el).not.to.be.empty;
   });
 
   it("renders", function() {
-    subject.initialize();
     expect(subject.$el).not.to.be.empty;
   });
 });

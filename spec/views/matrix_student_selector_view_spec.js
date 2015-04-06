@@ -28,13 +28,13 @@ describe('App.Views.MatrixStudentSelector', function() {
     });
 
     it("creates a tab view", function() {
-      expect(subject.tabViews[0]).not.to.be.undefined;
+      expect(subject.$el.first()).not.to.be.undefined;
     });
 
   });
 
   it("renders", function() {
-    subject.initialize();
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 });

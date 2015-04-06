@@ -34,10 +34,6 @@ describe('App.Views.Drawer', function() {
   });
 
   describe("initalize", function() {
-    beforeEach(function() {
-      subject.initialize();
-    });
-
     it("calls render on initialize", function() {
       expect(subject.$el).not.to.be.empty;
     });

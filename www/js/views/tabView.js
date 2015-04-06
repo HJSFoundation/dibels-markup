@@ -1,9 +1,8 @@
 App.Views.Tab = Backbone.View.extend({
   template: App.templates.tab,
 
-  initialize: function(options) {
+  initialize: function() {
     _.bindAll(this);
-    this.model = options.model;
     this.render();
   },
 

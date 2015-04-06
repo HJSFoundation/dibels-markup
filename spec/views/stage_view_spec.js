@@ -57,7 +57,7 @@ describe('App.Views.Stage', function() {
   });
 
   it("renders", function() {
-    subject.initialize();
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 });

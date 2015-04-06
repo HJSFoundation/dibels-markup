@@ -54,7 +54,7 @@ describe('App.Views.MatrixMenu', function() {
   });
 
   it("renders", function() {
-    subject.initialize();
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 });

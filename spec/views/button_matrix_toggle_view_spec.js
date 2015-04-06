@@ -29,12 +29,11 @@ describe('App.Views.ButtonMatrixToggle', function() {
   });
 
   xit("calls render on initialize", function() {
-    subject.initialize();
     expect(subject.$el).not.to.be.empty;
   });
 
   xit("renders", function() {
-    subject.initialize();
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 

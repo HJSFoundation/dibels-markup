@@ -46,7 +46,7 @@ describe('App.Views.MenuAssessment', function() {
   });
 
   it("renders", function() {
-    subject.initialize();
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 });

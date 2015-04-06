@@ -29,7 +29,6 @@ describe('App.Views.ReadingStage', function() {
   });
 
   it("calls render on initialize", function() {
-    subject.initialize();
     expect(subject.$el).not.to.be.empty;
   });
 
