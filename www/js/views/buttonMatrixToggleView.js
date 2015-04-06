@@ -11,10 +11,11 @@ App.Views.ButtonMatrixToggle = Backbone.View.extend({
   },
 
   render:  function() {
-    this.$el.replaceWith(this.template({jsClass:this.$el.attr("class")}));
+    this.$el.append(this.template());
   },
 
   handleToggleMatrix: function() {
     App.Dispatcher.trigger('toggleMatrix');
+    console.log("click");
   }
 });

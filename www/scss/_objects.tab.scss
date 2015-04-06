@@ -39,7 +39,7 @@
     flex: 1;
     background-color: #3d3e40;
     border-right: 1px solid $matrix-tab;
-    color: lighten(#000, 50%);
+    color: $button-text-dark;
     font-size: 13px;
     padding: 10px 0;
     text-transform: uppercase;
@@ -47,13 +47,28 @@
     cursor: pointer;
 
     a {
-      color: white;
+      color: $button-text-dark;
+    
     }
 
     &.st-active,
     &:hover {
-    background: $matrix-tab;
-    color: $button-text-light;
-  }
+      background: $matrix-tab;
+      a {
+
+        color: $button-text-light;
+      }
+    }
+
+    &:last-child {
+      width: 50px;
+      flex: none;
+      color: $button-text-dark;
+
+      .icon {
+        font-size: 32px;
+      }
+
+    }
  
 }

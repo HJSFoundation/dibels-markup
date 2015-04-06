@@ -58,7 +58,7 @@ this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-mastered\"></span>\n  <span class=\"icon-text__title\">mastered</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<a href=\"#\" class=\"button button--matrix-toggle grid-cell\">\n    <span class=\"icon icon-triangle-down\"></span>\n</a>";
+    return "<a href=\"#\" >\n    <span class=\"icon icon-triangle-down\"></span>\n</a>";
 },"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-needs-work\"></span>\n  <span class=\"icon-text__title\">needs work</span>\n</button>\n";
