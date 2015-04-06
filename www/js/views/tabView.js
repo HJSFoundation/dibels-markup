@@ -7,7 +7,7 @@ App.Views.Tab = Backbone.View.extend({
   },
 
   render:  function() {
-    this.$el.append(this.template({label: this.model.get("firstname")}));
+    this.$el.append(this.template({jsClass: "menu--tab grid-cell", label: this.model.get("firstname")}));
   }
   // ,
 

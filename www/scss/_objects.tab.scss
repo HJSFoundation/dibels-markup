@@ -33,3 +33,27 @@
     font-weight: 400;
   }
 }
+
+.menu--tabs > div{
+ 
+    flex: 1;
+    background-color: #3d3e40;
+    border-right: 1px solid $matrix-tab;
+    color: lighten(#000, 50%);
+    font-size: 13px;
+    padding: 10px 0;
+    text-transform: uppercase;
+    height: 40px;
+    cursor: pointer;
+
+    a {
+      color: white;
+    }
+
+    &.st-active,
+    &:hover {
+    background: $matrix-tab;
+    color: $button-text-light;
+  }
+ 
+}
