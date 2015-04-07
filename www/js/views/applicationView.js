@@ -3,16 +3,15 @@ App.Views.Application = Backbone.View.extend({
     this.loginView = new App.Views.Login({ el: this.$el });
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
   
-    App.stimuli = new App.Collections.Stimuli();
-    App.stimuli.fetch();
-    if(App.stimuli.length===0){
+    App.stimuliLetters = new App.Collections.Stimuli({localStorageName: "stimuliLetters"});
+    App.stimuliLetters.fetch();
+    if(App.stimuliLetters.length===0){
 
-      var letters = [];
       var a="a".charCodeAt(0);
       var z="z".charCodeAt(0);
       var c;
-      for( c = a; c <= z; c = c + 1){
-        App.stimuli.create({stage: 0, skill:"letter sounds", stimulus: String.fromCharCode(c), assessment:"clear"});
+      for( c = a; c <= z; c = c + 1){ +
+        App.stimuliLetters.create({stage: 0, skill:"letter sounds", stimulus: String.fromCharCode(c), assessment:"clear"});
       }
 
       var A="A".charCodeAt(0);
@@ -20,11 +19,29 @@ App.Views.Application = Backbone.View.extend({
 
       for(  
         c=A; c<=Z;c=c+1){
-        App.stimuli.create({stage: 0, skill:"letter sounds", stimulus: String.fromCharCode(c), assessment:"clear"});
+        App.stimuliLetters.create({stage: 0, skill:"letter sounds", stimulus: String.fromCharCode(c), assessment:"clear"});
       }
 
-      console.log(App.stimuli);
+      console.log(App.stimuliLetters);
     }
+
+    App.stimuliWords = new App.Collections.Stimuli({localStorageName: "stimuliWords"});
+    App.stimuliWords.fetch();
+    if(App.stimuliWords.length===0){
+
+      var a="a".charCodeAt(0);
+      var z="z".charCodeAt(0);
+      var c;
+      for( c = a; c <= z; c = c + 1){ +
+        App.stimuliWords.create({stage: 0, skill:"sight words", stimulus: String.fromCharCode(c)+"asdas", assessment:"clear"});
+      }
+
+      console.log(App.stimuliWords);
+    }
+
+
+
+
     App.students = new App.Collections.Students();
     App.students.fetch();
     if(App.students.length===0){

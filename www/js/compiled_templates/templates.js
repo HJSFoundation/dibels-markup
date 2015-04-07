@@ -82,10 +82,10 @@ this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0
     return "<div id=\"loginContainer\">\n  <p>email</p>\n  <input type=\"text\" name=\"email\" id=\"email-field\">\n  <p>password:</p>\n  <input type=\"password\" name=\"password\" id=\"password-field\">\n  <br />\n  <input type=\"button\" value=\"Submit\" id=\"submit\">\n  <input type=\"button\" value=\"Forgot Password\" id=\"reset\">\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n  <section class=\"matrix__stimuli\">\n    <div class=\"js-stimuliTiles\"></div>\n  </section>\n  <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
+    return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n <div class=\"js-stimuliTiles\"></div>\n <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
 },"useData":true});
 this["App"]["templates"]["matrixMenu"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"menu--tabs grid u-text-center js-matrixMenuTabs\"> \n  <div class='js-lettersTab'></div>\n  <div class='js-sightWordsTab'></div>\n  <div class='js-onsetRimesTab'></div>\n  <div class='js-affixesTab'></div>\n  <div class='js-storiesTab'></div>\n  <div class='js-buttonMatrixToggle'></div>\n</div> ";
+    return "<div class=\"menu--tabs grid u-text-center\"> \n  <div class='js-lettersTab'></div>\n  <div class='js-sightWordsTab'></div>\n  <div class='js-onsetRimesTab'></div>\n  <div class='js-affixesTab'></div>\n  <div class='js-storiesTab'></div>\n  <div class='js-buttonMatrixToggle'></div>\n</div> ";
 },"useData":true});
 this["App"]["templates"]["matrixStudentSelector"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"menu--tabs grid u-text-center js-matrixStudentSelectorTabs\">\n</div>\n";
@@ -105,8 +105,75 @@ this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0
 this["App"]["templates"]["stageStimulus"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus\">\n  <span>a</span>\n</div>\n";
 },"useData":true});
-this["App"]["templates"]["stimuliTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"grid grid--wrap grid--fit u-text-center js-stimuliTile\">\n</div>\n";
+this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<section class=\"matrix__stimuli matrix__stimuli--letters grid st-active\">\n  <div class=\"stimuli-tiles stimuli-tiles--letters\">\n    <div class=\"grid grid--wrap u-text-center js-stimuliTile\">\n    </div>\n  </div>\n</section>";
+},"useData":true});
+this["App"]["templates"]["stimuliTilesOnsetRime"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<section class=\"matrix__stimuli matrix__stimuli--stories grid js-stimuli js-stimuli-onsets-rimes st-inactive\">\n  <div class=\"grid-cell stimuli-tiles stimuli-tiles stimuli-tiles--onsets u-1of3\">\n    <div class=\"grid grid--wrap u-text-center\">\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">a</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">b</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">c</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">d</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">e</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">f</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">g</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">h</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">i</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">j</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">k</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">l</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">w</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">e</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">t</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">b</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">n</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">m</a></div>\n    </div>\n  </div>\n  <div class=\"stimuli-tiles stimuli-tiles--rimes grid-cell u-2of3\">\n    <div class=\"grid grid--wrap u-text-center\">\n"
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + ((stack1 = this.invokePartial(partials.tile,depth0,{"name":"tile","data":data,"indent":"      ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
+    + "    </div>\n  </div>\n</section>";
+},"usePartial":true,"useData":true});
+this["App"]["templates"]["stimuliTilesStories"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<section class=\"matrix__stimuli matrix__stimuli--stories grid js-stimuli-stories js-stimuli st-inactive\">\n  <div class=\"grid-cell grid-cell--center stimuli-tiles--stories__title u-1of3\">\n    <div class=\"grid u-text-center\">\n      <p class=\"grid-cell\">Words I Know Stories</p>\n    </div>\n  </div>\n  <div class=\"stimuli-tiles stimuli-tiles--stories__tiles grid-cell u-2of3\">\n    <div class=\"grid grid--wrap u-text-center\">\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">1.Dentist</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">2.Chores</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">3.Digging</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">4.Getting Dressed</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">5.I Don't Like It</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">6.In Our House</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">7.Lost Keys</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">8.My Baby Chick</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">9.No More Training Wheels</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">10.Picture Album</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">11.Rex</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">12.Sick</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">13.Mr. and Mrs. Orange</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">14.Dancing Like a Monkey</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">15.The Last Hurrah</a></div>\n      <div class=\"tile grid-cell u-text-center\"><a href=\"#\" class=\"tile__title\">16.My Forgone Solution</a></div>\n.\n    </div>\n  </div>\n</section>";
+},"useData":true});
+this["App"]["templates"]["stimuliTilesWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<section class=\"matrix__stimuli matrix__stimuli--words grid st-active\">\n  <div class=\"stimuli-tiles stimuli-tiles--words\">\n    <div class=\"grid grid--wrap u-text-center js-stimuliTile\">\n    </div>\n  </div>\n</section>";
 },"useData":true});
 this["App"]["templates"]["storyImage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"story__image u-text-center\">\n  <img src=\"img/dentist1.jpg\" alt=\"dentist\">\n</div>";

@@ -5,7 +5,8 @@ App.Views.Matrix = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.matrixMenuView = new App.Views.MatrixMenu({ el: ".js-matrixMenu"});
-    this.stimuliTilesView = new App.Views.StimuliTiles({ el: ".js-stimuliTiles"});
+    // this.stimuliTilesView = new App.Views.StimuliTilesLetters({ el: ".js-stimuliTiles"});
+    this.stimuliTilesView = new App.Views.StimuliTilesWords({ el: ".js-stimuliTiles"});
     this.matrixStudentSelectorView = new App.Views.MatrixStudentSelector({ el: ".js-matrixStudentSelector"});
 
   },
