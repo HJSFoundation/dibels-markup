@@ -11,7 +11,8 @@ describe('App.Views.Tile', function() {
     };
 
     appendFixture("div", { class: "js-tile" });
-    subject = new App.Views.Tile({el: '.js-tile'});
+    var m=new Backbone.Model({stimulus: "a"});
+    subject = new App.Views.Tile({model: m, el: '.js-tile'});
   });
 
   it("has a reference to the element", function() {

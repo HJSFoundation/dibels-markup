@@ -1,15 +1,16 @@
 App.Views.StimuliTiles = Backbone.View.extend({
   template: App.templates.stimuliTiles,
-
-  config: { tileCount: 55},
   
   initialize: function() {
     _.bindAll(this);
     this.render();
-    this.tileViews=[];
-    for(var i=0;i<this.config.tileCount;i++){
-      this.tileViews[i] = new App.Views.Tile({ el: ".js-stimuliTile"});
-    }
+
+    // convert App.students[x].letters to collection of model stimulus
+    // activeStudent.letters.each(function(stimulus))
+    App.stimuli.each(function(stimulus){
+      new App.Views.Tile({ model: stimulus, el: ".js-stimuliTile"});
+
+    });
   },
 
   render:  function() {

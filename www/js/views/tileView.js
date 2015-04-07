@@ -7,6 +7,6 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   render:  function() {
-    this.$el.append(this.template());
+    this.$el.append(this.template({stimulus: this.model.get("stimulus")}));
   }
 });

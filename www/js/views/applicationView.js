@@ -3,30 +3,36 @@ App.Views.Application = Backbone.View.extend({
     this.loginView = new App.Views.Login({ el: this.$el });
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
   
-    App.students = new App.Collections.Students();
-    App.students.fetch();
-    if(App.students.length===0){
-      var letters = {};
+    App.stimuli = new App.Collections.Stimuli();
+    App.stimuli.fetch();
+    if(App.stimuli.length===0){
+
+      var letters = [];
       var a="a".charCodeAt(0);
       var z="z".charCodeAt(0);
-
-      for( var c=a; c<=z;c++){
-        letters[String.fromCharCode(c)]={assessment:"clear"};
+      var c;
+      for( c = a; c <= z; c = c + 1){
+        App.stimuli.create({stage: 0, skill:"letter sounds", stimulus: String.fromCharCode(c), assessment:"clear"});
       }
 
       var A="A".charCodeAt(0);
       var Z="Z".charCodeAt(0);
 
-      for( var c=A; c<=Z;c++){
-        letters[String.fromCharCode(c)]={assessment:"clear"};
+      for(  
+        c=A; c<=Z;c=c+1){
+        App.stimuli.create({stage: 0, skill:"letter sounds", stimulus: String.fromCharCode(c), assessment:"clear"});
       }
 
-      console.log(letters);
-      App.students.create({firstname: "Bernie", lastname: "Bivins", letters: letters});
-      App.students.create({firstname: "Matt", lastname: "Bivins", letters: letters});
-      App.students.create({firstname: "Evan", lastname: "Bivins", letters: letters});
-      App.students.create({firstname: "Clint", lastname: "Eastman", letters: letters});
-      App.students.create({firstname: "Hugo", lastname: "Bloch", letters: letters});
+      console.log(App.stimuli);
+    }
+    App.students = new App.Collections.Students();
+    App.students.fetch();
+    if(App.students.length===0){
+      App.students.create({id: 1, firstname: "Bernie", lastname: "Bivins"});
+      App.students.create({id: 2, firstname: "Matt", lastname: "Bivins"});
+      App.students.create({id: 3, firstname: "Evan", lastname: "Bivins"});
+      App.students.create({id: 4, firstname: "Clint", lastname: "Eastman"});
+      App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch"});
 
     }
 
