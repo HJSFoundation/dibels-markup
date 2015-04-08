@@ -105,6 +105,9 @@ this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus stage__stimulus--letters animated slideInRight\">\n  <span>a</span>\n  <img src=\"img/apple.svg\" alt=\"apple\">\n</div>";
 },"useData":true});
+this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"stage__stimulus stage__stimulus--phrases animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";
+},"useData":true});
 this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus stage__stimulus--words animated slideInRight\">\n  <span>bear</span>\n</div>";
 },"useData":true});
@@ -141,10 +144,11 @@ this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[
     return "<div class=\"workspace\">\n  <div class=\"js-stage\"></div>\n  <div class=\"js-matrix\"></div>\n  <div class=\"js-drawerOverlay\"></div>\n  <div class=\"js-storyOverlay\"></div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"tile grid-cell u-text-center\">\n  <a href=\"#\" class=\"tile__title\">"
-    + this.escapeExpression(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.index || (depth0 != null ? depth0.index : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
     + "</a>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

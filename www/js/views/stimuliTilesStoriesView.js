@@ -5,8 +5,9 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     _.bindAll(this);
     this.render();
 
+    var i=1;
     App.stimuliStories.each(function(stimulus){
-      new App.Views.Tile({ model: stimulus, el: ".js-stimuliTile"});
+      new App.Views.Tile({ model: stimulus, el: ".js-stimuliTile", index: (i++)+". "});
     });
   },
 
