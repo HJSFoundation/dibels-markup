@@ -39,6 +39,27 @@ App.Views.Application = Backbone.View.extend({
       console.log(App.stimuliWords);
     }
 
+    App.stimuliOnsets = new App.Collections.Stimuli({localStorageName: "stimuliOnsets"});
+    App.stimuliOnsets.fetch();
+    if(App.stimuliOnsets.length===0){
+      _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o){
+        App.stimuliOnsets.create({stage: 0, skill:"onsets and rimes", stimulus: o, assessment:"clear"});
+      });
+
+      console.log(App.stimuliOnsets);
+    }
+
+
+    App.stimuliRimes = new App.Collections.Stimuli({localStorageName: "stimuliRimes"});
+    App.stimuliRimes.fetch();
+    if(App.stimuliRimes.length===0){
+      _.forEach(["at","ap","ad","am","an","id","im","in","ip","it","od","op","om","ot","ud","un","up","ut","ed","em","en","ep","et","on"], function(o){
+        App.stimuliRimes.create({stage: 0, skill:"onsets and rimes", stimulus: o, assessment:"clear"});
+      });
+
+      console.log(App.stimuliOnsets);
+    }
+
 
 
 
