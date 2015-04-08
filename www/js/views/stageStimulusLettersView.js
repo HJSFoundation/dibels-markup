@@ -1,5 +1,5 @@
-App.Views.StageStimulus = Backbone.View.extend({
-  template: App.templates.stageStimulus,
+App.Views.StageStimulusLetters = Backbone.View.extend({
+  template: App.templates.stageStimulusLetters,
 
   initialize: function() {
     _.bindAll(this);

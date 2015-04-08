@@ -1,4 +1,4 @@
-describe('App.Views.StageStimulus', function() {
+describe('App.Views.StageStimulusLetters', function() {
   var subject;
   var xhr;
   var requests;
@@ -11,7 +11,7 @@ describe('App.Views.StageStimulus', function() {
     };
 
     appendFixture("div", { class: "js-stageStimulus" });
-    subject = new App.Views.StageStimulus({el: '.js-stageStimulus'});
+    subject = new App.Views.StageStimulusLetters({el: '.js-stageStimulus'});
   });
 
   it("has a reference to the element", function() {
