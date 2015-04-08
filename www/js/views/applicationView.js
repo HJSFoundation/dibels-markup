@@ -57,7 +57,21 @@ App.Views.Application = Backbone.View.extend({
         App.stimuliRimes.create({stage: 0, skill:"onsets and rimes", stimulus: o, assessment:"clear"});
       });
 
-      console.log(App.stimuliOnsets);
+      console.log(App.stimuliRimes);
+    }
+
+
+    App.stimuliStories = new App.Collections.Stimuli({localStorageName: "stimuliStories"});
+    App.stimuliStories.fetch();
+    if(App.stimuliStories.length===0){
+      _.forEach(["Dentist","Chores","Digging","Getting Dressed","I Don't Like It",
+        "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
+        "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
+        "The Last Hurrah","My Forgone Solution"], function(title){
+        App.stimuliStories.create({stage: 0, skill:"stories", stimulus: title, assessment:"clear"});
+      });
+
+      console.log(App.stimuliStories);
     }
 
 
