@@ -88,7 +88,11 @@ this["App"]["templates"]["matrixMenu"] = Handlebars.template({"compiler":[6,">= 
     return "<div class=\"menu--tabs grid u-text-center\"> \n  <div class='js-lettersTab'></div>\n  <div class='js-sightWordsTab'></div>\n  <div class='js-onsetRimesTab'></div>\n  <div class='js-affixesTab'></div>\n  <div class='js-storiesTab'></div>\n  <div class='js-buttonMatrixToggle'></div>\n</div> ";
 },"useData":true});
 this["App"]["templates"]["matrixStudentSelector"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"menu--tabs grid u-text-center js-matrixStudentSelectorTabs\">\n</div>\n";
+    var helper;
+
+  return "<div class=\"menu--tabs grid u-text-center "
+    + this.escapeExpression(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
+    + "\">\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__menu stage__menu--right grid\">\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n</div>\n\n";
@@ -132,7 +136,7 @@ this["App"]["templates"]["storyPage"] = Handlebars.template({"compiler":[6,">= 2
 this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<a href=\"#\" class=\""
+  return "<a href=\"#\" class=\"menu--tab grid-cell "
     + alias3(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
     + " "
     + alias3(((helper = (helper = helpers.status || (depth0 != null ? depth0.status : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"status","hash":{},"data":data}) : helper)))
