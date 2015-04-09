@@ -1,13 +1,32 @@
 App.Views.Tile = Backbone.View.extend({
   template: App.templates.tile,
+  events: {
+    "click": "handleClick"
+  },
 
   initialize: function(options) {
     _.bindAll(this);
-    this.index = options.index
-    this.render();
+    this.index = options.index;
   },
 
   render:  function() {
-    this.$el.append(this.template({index: this.index, stimulus: this.model.get("stimulus")}));
+    this.$el.html(this.template(this.templateJSON()));
+    return this;
+  },
+
+  templateJSON: function() {
+    return {
+      index: this.index,
+      stimulus: this.model.get("stimulus")
+    };
+  },
+
+  // makeActive: function(f){
+  //   this.status = (f?"st-active":"");
+  //   this.render();
+  // },
+
+  handleClick: function(){
+    console.log("stimulus: "+this.model.get("stimulus"));
   }
 });

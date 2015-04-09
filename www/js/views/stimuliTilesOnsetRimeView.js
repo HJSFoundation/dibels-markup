@@ -1,21 +1,39 @@
 App.Views.StimuliTilesOnsetRime = Backbone.View.extend({
   template: App.templates.stimuliTilesOnsetRime,
   
+  gridClassOnset: "js-stimuliTileOnset",
+  gridClassRime: "js-stimuliTileRime",
+
+
   initialize: function() {
     _.bindAll(this);
     this.render();
+  },
 
+  render: function() {
+    this.$el.html(this.template(this.templateJSON()));
+    var that = this;
+
+    this.$gridClass = $("."+this.gridClassOnset);
     App.stimuliOnsets.each(function(stimulus){
-      new App.Views.Tile({ model: stimulus, el: ".js-stimuliTileOnset"});
+      var view = new App.Views.Tile({ model: stimulus});
+      that.$gridClass.append(view.render().el);
+
     });
 
+    this.$gridClass = $("."+this.gridClassRime);
     App.stimuliRimes.each(function(stimulus){
-      new App.Views.Tile({ model: stimulus, el: ".js-stimuliTileRime"});
+      var view = new App.Views.Tile({ model: stimulus});
+      that.$gridClass.append(view.render().el);
+
     });
 
   },
-
-  render:  function() {
-    this.$el.html(this.template());
+  templateJSON: function() {
+    return {
+      jsClassOnset: this.gridClassOnset,
+      jsClassRime: this.gridClassRime,
+    };
   }
+
 });

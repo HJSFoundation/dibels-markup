@@ -26,7 +26,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls render on initialize", function() {
+  xit("calls render on initialize", function() {
     expect(subject.$el).not.to.be.empty;
   });
 
