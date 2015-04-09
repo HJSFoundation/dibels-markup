@@ -1,4 +1,4 @@
-describe('App.Views.Tab', function() {
+describe('App.Views.MatrixStudentSelectorTab', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.Tab', function() {
     };
 
     appendFixture("div", { class: "js-tab" });
-    subject = new App.Views.Tab({      
+    subject = new App.Views.MatrixStudentSelectorTab({      
       model: new Backbone.Model({firstName: "Bernie"}),
       el: '.js-tab'
     });

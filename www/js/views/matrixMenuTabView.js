@@ -1,10 +1,14 @@
 App.Views.MatrixMenuTab = Backbone.View.extend({
   template: App.templates.tab,
 
+  events: {
+    "click": "handleClick"
+  },
+
   initialize: function(options) {
     _.bindAll(this);
-    // this.status = "st-inactive";
     this.label = options.label;
+    this.status = "";
     this.render();
   },
 
@@ -19,8 +23,12 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
     };
   },
 
-  makeActive: function(){
-    this.status = "st-active";
+  makeActive: function(f){
+    this.status = (f?"st-active":"");
     this.render();
+  },
+
+  handleClick: function(){
+    this.makeActive(true);
   }
 });

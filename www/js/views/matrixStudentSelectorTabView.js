@@ -1,4 +1,4 @@
-App.Views.Tab = Backbone.View.extend({
+App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   template: App.templates.tab,
 
   initialize: function() {

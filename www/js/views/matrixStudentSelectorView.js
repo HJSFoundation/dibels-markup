@@ -8,7 +8,7 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
 
     this.render();
     App.students.each(function(student){
-      var view = new App.Views.Tab({model: student, el: ".js-matrixStudentSelectorTabs"}); 
+      var view = new App.Views.MatrixStudentSelectorTab({model: student, el: ".js-matrixStudentSelectorTabs"}); 
     });
   },
 
