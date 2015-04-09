@@ -9,11 +9,11 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
     _.bindAll(this);
     this.label = options.label;
     this.status = "";
-    this.render();
   },
 
   render:  function() {
     this.$el.html(this.template(this.templateJSON()));
+    return this;
   },
 
   templateJSON: function() {

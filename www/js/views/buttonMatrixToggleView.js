@@ -7,11 +7,12 @@ App.Views.ButtonMatrixToggle = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.render();
+    // this.render();
   },
 
   render:  function() {
     this.$el.append(this.template());
+    return this;
   },
 
   handleToggleMatrix: function() {
