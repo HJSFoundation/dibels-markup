@@ -1,9 +1,9 @@
 .menu--tab {
-  background-color: #3d3e40;
+  // background-color: #3d3e40;
   border-right: 1px solid $matrix-tab;
   color: lighten(#000, 50%);
   font-size: 13px;
-  padding: 10px 0;
+  
   text-transform: uppercase;
   height: 40px;
 
@@ -18,10 +18,18 @@
     border-right: 0;
   }
 
-  &.st-active,
-  &:hover {
-    background: $matrix-tab;
-    color: $button-text-light;
+  .menu__label {
+    background-color: #3d3e40;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+
+    &.st-active,
+    &:hover {
+      background-color: $matrix-tab;
+      color: $button-text-light;
+    }
   }
 
   .menu--number {

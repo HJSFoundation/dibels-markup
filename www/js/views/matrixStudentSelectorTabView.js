@@ -23,7 +23,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
 
   makeActive: function(f){
     this.status = (f?"st-active":"");
-    this.render();
+    this.render(); 
   },
 
   handleClick: function(){
