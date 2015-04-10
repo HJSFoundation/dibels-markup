@@ -34,7 +34,6 @@ describe('App.Views.StimuliTilesOnsetRime', function() {
     it("creates a rime tiles view", function() {
       expect(subject.$el.find(".js-stimuliTileRime")).not.to.be.undefined;
     });
-
   });
 
   it("renders", function() {

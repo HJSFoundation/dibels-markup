@@ -10,8 +10,8 @@ App.Views.ReadingStage = Backbone.View.extend({
     this.render();
   },
 
-  render:  function() {
-    this.$el.html(this.template())
+  render: function() {
+    this.$el.html(this.template());
   },
 
   removeView: function() {

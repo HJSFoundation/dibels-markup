@@ -1,5 +1,6 @@
 App.Views.Login = Backbone.View.extend({
   template: App.templates.login,
+
   events: {
     "click #submit" : "handleLoginSuccess",
   },
@@ -9,7 +10,7 @@ App.Views.Login = Backbone.View.extend({
     this.render();
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   },
 

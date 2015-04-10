@@ -10,8 +10,8 @@ describe('App.Views.MatrixMenuTab', function() {
       requests.push(xhr);
     };
     var options = {
-        tagName: "a", 
-        className:  "menu--tab grid-cell", 
+        tagName: "a",
+        className:  "menu--tab grid-cell",
         label: "STORIES"
       };
     appendFixture("div", { class: options.className });
@@ -60,6 +60,4 @@ describe('App.Views.MatrixMenuTab', function() {
       expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixMenuTabActiveRequest");
     });
   });
-
 });
-

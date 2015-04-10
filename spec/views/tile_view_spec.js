@@ -11,7 +11,7 @@ describe('App.Views.Tile', function() {
     };
 
     appendFixture("div", { class: "js-tile" });
-    var m=new Backbone.Model({stimulus: "a"});
+    var m = new Backbone.Model({stimulus: "a"});
     subject = new App.Views.Tile({model: m, el: '.js-tile'});
   });
 
@@ -32,4 +32,3 @@ describe('App.Views.Tile', function() {
     expect(subject.$el).not.to.be.empty;
   });
 });
-

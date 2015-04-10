@@ -11,7 +11,7 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
     this.status = "";
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template(this.templateJSON()));
     return this;
   },
@@ -35,6 +35,5 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
 
   handleClick: function(){
     App.Dispatcher.trigger("matrixMenuTabActiveRequest", this);
-  },
-
+  }
 });

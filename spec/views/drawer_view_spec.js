@@ -99,7 +99,6 @@ describe('App.Views.Drawer', function() {
       });
     });
 
-
     it("#handleReadingStageRequest", function() {
       expect(subject.readingStageView).to.be.undefined;
       subject.handleReadingStageRequest();

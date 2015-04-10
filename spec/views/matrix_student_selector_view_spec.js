@@ -30,7 +30,6 @@ describe('App.Views.MatrixStudentSelector', function() {
     it("creates a tab view", function() {
       expect(subject.$el.first()).not.to.be.undefined;
     });
-
   });
 
   it("renders", function() {

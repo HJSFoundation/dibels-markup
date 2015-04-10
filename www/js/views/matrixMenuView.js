@@ -13,8 +13,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
     { label: "STORIES", key: App.Config.skill.stories}
   ],
 
-
- 
   initialize: function() {
     _.bindAll(this);
     this.render();
@@ -27,23 +25,21 @@ App.Views.MatrixMenu = Backbone.View.extend({
   },
 
   render: function(){
-
     this.$el.html(this.template(this.templateJSON()));
-    this.$gridClass = $("."+this.gridClass);
+    this.$gridClass = $("." + this.gridClass);
     var that = this;
     _.each(this.tabs, function(tab){
       var options = {
-        tagName: that.tabTag, 
-        className: that.tabClassName, 
+        tagName: that.tabTag,
+        className: that.tabClassName,
         label: tab.label
       };
-      var view = that[tab.key] = new App.Views.MatrixMenuTab(options); 
+      var view = that[tab.key] = new App.Views.MatrixMenuTab(options);
       that.$gridClass.append(view.render().el);
     });
 
     this.toggleTab = new App.Views.ButtonMatrixToggle({el: ".js-buttonMatrixToggle"});
     this.$gridClass.append(this.toggleTab.render().el);
-
   },
 
   templateJSON: function() {
@@ -55,13 +51,12 @@ App.Views.MatrixMenu = Backbone.View.extend({
   handleMatrixMenuTabActveRequest: function(selectedTab){
     var that = this;
     _.each(this.tabs, function(tab){
-      if(selectedTab.label==tab.label){
+      if(selectedTab.label === tab.label) {
         selectedTab.makeActive();
         App.Dispatcher.trigger("stimuliTilesViewRequest", tab.key);
-      }else{
+      } else {
         that[tab.key].makeInactive();
       }
     });
   }
-
 });

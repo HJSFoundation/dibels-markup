@@ -17,7 +17,7 @@ App.Views.Matrix = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "stimuliTilesViewRequest", this.handleStimuliTilesViewRequest);
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   },
 

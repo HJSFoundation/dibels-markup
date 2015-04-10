@@ -11,7 +11,7 @@ App.Views.ButtonFlip = Backbone.View.extend({
     this.render();
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template({cssClass: this.options.cssClass, text: this.options.text}));
   },
 

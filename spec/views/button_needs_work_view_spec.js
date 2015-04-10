@@ -31,4 +31,3 @@ describe('App.Views.ButtonNeedsWork', function() {
     expect(subject.$el).not.to.be.empty;
   });
 });
-

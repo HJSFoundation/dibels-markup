@@ -10,7 +10,7 @@ App.Views.Whiteboard = Backbone.View.extend({
     this.render();
   },
 
-  render:  function() {
+  render: function() {
     return this.$el.html(this.template());
   },
 

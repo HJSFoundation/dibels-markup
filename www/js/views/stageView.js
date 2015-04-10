@@ -19,7 +19,7 @@ App.Views.Stage = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "changeSkillRequest", this.handlechangeSkillRequest);
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   },
 });

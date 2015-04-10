@@ -30,4 +30,3 @@ describe('App.Views.ButtonClear', function() {
     expect(subject.$el).not.to.be.empty;
   });
 });
-

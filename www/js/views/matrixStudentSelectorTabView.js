@@ -1,5 +1,6 @@
 App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   template: App.templates.tab,
+
   events: {
     "click": "handleClick"
   },
@@ -9,7 +10,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     this.label = this.model.get("firstname");
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template(this.templateJSON()));
     return this;
   },
@@ -22,8 +23,8 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   },
 
   makeActive: function(f){
-    this.status = (f?"st-active":"");
-    this.render(); 
+    this.status = (f ? "st-active" : "");
+    this.render();
   },
 
   handleClick: function(){

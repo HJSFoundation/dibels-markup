@@ -3,7 +3,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
   var xhr;
   var requests;
 
-  
+
   beforeEach(function() {
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
@@ -12,7 +12,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     };
 
     appendFixture("div", { class: "js-tab" });
-    subject = new App.Views.MatrixStudentSelectorTab({      
+    subject = new App.Views.MatrixStudentSelectorTab({
       model: new Backbone.Model({firstName: "Bernie"}),
       el: '.js-tab'
     });
@@ -34,13 +34,4 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
-
 });
-
-
-
-
-
-
-
-

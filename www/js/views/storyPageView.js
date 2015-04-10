@@ -13,7 +13,7 @@ App.Views.StoryPage = Backbone.View.extend({
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", cssClass: "story__flip"});
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   },
 

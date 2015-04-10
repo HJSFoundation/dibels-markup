@@ -42,7 +42,6 @@ describe('App.Views.MenuAssessment', function() {
     it("creates a button clear view", function() {
       expect(subject.buttonClearView).not.to.be.undefined;
     });
-
   });
 
   it("renders", function() {

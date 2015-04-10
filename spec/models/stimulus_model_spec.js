@@ -16,12 +16,12 @@ describe('App.Models.Stimulus', function() {
   it("has a stimulus", function() {
     expect(subject.get("stimulus")).to.equal("a");
   });
+
   it("has a stage", function() {
     expect(subject.get("stage")).to.equal(1);
   });
+
   it("has a skill", function() {
     expect(subject.get("skill")).to.equal("letters");
   });
-
 });
-

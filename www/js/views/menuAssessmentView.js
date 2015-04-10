@@ -14,7 +14,7 @@ App.Views.MenuAssessment = Backbone.View.extend({
     this.buttonClearView = new App.Views.ButtonClear({ el: ".js-buttonClear"});
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   },
 

@@ -38,7 +38,6 @@ describe('App.Views.Matrix', function() {
     it("creates a student selector view", function() {
       expect(subject.matrixStudentSelectorView).not.to.be.undefined;
     });
-
   });
 
   it("renders", function() {

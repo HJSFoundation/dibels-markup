@@ -50,7 +50,6 @@ describe('App.Views.MatrixMenu', function() {
     it("creates a toggle tab view", function() {
       expect(subject.toggleTab).not.to.be.undefined;
     });
-
   });
 
   it("renders", function() {
@@ -76,20 +75,20 @@ describe('App.Views.MatrixMenu', function() {
         subject.render();
       });
 
-      it("activates the clicked tab", function() { 
+      it("activates the clicked tab", function() {
         var makeActive = sinon.spy();
         var event_payload = {label: "STORIES", makeActive: makeActive};
         subject.handleMatrixMenuTabActveRequest(event_payload);
         expect(makeActive).to.have.been.called;
       });
 
-      it("inactivates the non clicked tabs", function(){ 
+      it("inactivates the non clicked tabs", function(){
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
         subject.Affixes.makeInactive = makeInactive;
         var event_payload = {label: "STORIES", makeActive: makeActive};
         subject.handleMatrixMenuTabActveRequest(event_payload);
-        expect(makeInactive).to.have.been.called;    
+        expect(makeInactive).to.have.been.called;
       });
     });
   });

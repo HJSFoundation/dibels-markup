@@ -6,7 +6,7 @@ App.Views.ButtonTiles = Backbone.View.extend({
     this.render();
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   }
 });

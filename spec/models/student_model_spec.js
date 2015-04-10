@@ -23,4 +23,3 @@ describe('App.Models.Student', function() {
     });
   });
 });
-

@@ -9,7 +9,7 @@ App.Views.TeacherWorkspace = Backbone.View.extend({
     this.storyPageView = new App.Views.StoryPage({ el: ".js-storyOverlay"});
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   }
 });

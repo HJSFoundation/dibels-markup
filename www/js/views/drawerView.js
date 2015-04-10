@@ -1,5 +1,6 @@
 App.Views.Drawer = Backbone.View.extend({
   template: App.templates.drawer,
+
   events: {
     "click .js-drawer-toggle" : "handleToggleDrawerRequest",
     "click .js-reading-stage" : "handleReadingStageRequest",
@@ -20,7 +21,7 @@ App.Views.Drawer = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "toggleDrawerRequest", this.handleToggleDrawerRequest);
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
     this.cacheElements();
   },

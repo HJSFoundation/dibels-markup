@@ -1,5 +1,6 @@
 App.Views.Tile = Backbone.View.extend({
   template: App.templates.tile,
+
   events: {
     "click": "handleClick"
   },
@@ -9,7 +10,7 @@ App.Views.Tile = Backbone.View.extend({
     this.index = options.index;
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template(this.templateJSON()));
     return this;
   },
@@ -27,7 +28,7 @@ App.Views.Tile = Backbone.View.extend({
   // },
 
   handleClick: function(){
-    console.log("stimulus: "+this.model.get("stimulus"));
+    console.log("stimulus: " + this.model.get("stimulus"));
     App.Dispatcher.trigger("changeStimulus", this.model);
   }
 });
