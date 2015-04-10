@@ -18,6 +18,12 @@ App.Views.MatrixMenu = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.render();
+    this.listen();
+    this.lettersTab.makeActive();
+  },
+
+  listen: function (){
+    this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleMatrixMenuTabActveRequest);
   },
 
   render: function(){
@@ -44,6 +50,17 @@ App.Views.MatrixMenu = Backbone.View.extend({
     return {
       jsClass: this.gridClass
     };
+  },
+
+  handleMatrixMenuTabActveRequest: function(e){
+    var that = this;
+    _.each(this.tabs, function(tab){
+      if(e.label==tab.label){
+        e.makeActive();
+      }else{
+        that[tab.key].makeInactive();
+      }
+    });
   }
 
 });

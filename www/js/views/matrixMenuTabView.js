@@ -23,12 +23,18 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
     };
   },
 
-  makeActive: function(f){
-    this.status = (f?"st-active":"");
+  makeActive: function(){
+    this.status = "st-active";
+    this.render();
+  },
+
+  makeInactive: function(){
+    this.status = "";
     this.render();
   },
 
   handleClick: function(){
-    this.makeActive(true);
-  }
+    App.Dispatcher.trigger("matrixMenuTabActiveRequest", this);
+  },
+
 });
