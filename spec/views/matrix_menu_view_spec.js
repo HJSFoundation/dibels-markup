@@ -28,23 +28,23 @@ describe('App.Views.MatrixMenu', function() {
     });
 
     it("creates a letters tab view", function() {
-      expect(subject.lettersTab).not.to.be.undefined;
+      expect(subject.Letters).not.to.be.undefined;
     });
 
     it("creates a sight words tab view", function() {
-      expect(subject.sightWordsTab).not.to.be.undefined;
+      expect(subject.SightWords).not.to.be.undefined;
     });
 
     it("creates a  onset rimes tab view", function() {
-      expect(subject.onsetRimesTab).not.to.be.undefined;
+      expect(subject.OnsetRime).not.to.be.undefined;
     });
 
     it("creates a affixes tab view", function() {
-      expect(subject.affixesTab).not.to.be.undefined;
+      expect(subject.Affixes).not.to.be.undefined;
     });
 
     it("creates a stories tab view", function() {
-      expect(subject.storiesTab).not.to.be.undefined;
+      expect(subject.Stories).not.to.be.undefined;
     });
 
     it("creates a toggle tab view", function() {
@@ -86,7 +86,7 @@ describe('App.Views.MatrixMenu', function() {
       it("inactivates the non clicked tabs", function(){ 
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
-        subject.affixesTab.makeInactive = makeInactive;
+        subject.Affixes.makeInactive = makeInactive;
         var event_payload = {label: "STORIES", makeActive: makeActive};
         subject.handleMatrixMenuTabActveRequest(event_payload);
         expect(makeInactive).to.have.been.called;    

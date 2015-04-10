@@ -28,5 +28,6 @@ App.Views.Tile = Backbone.View.extend({
 
   handleClick: function(){
     console.log("stimulus: "+this.model.get("stimulus"));
+    App.Dispatcher.trigger("changeStimulus", this.model);
   }
 });
