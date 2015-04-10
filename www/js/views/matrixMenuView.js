@@ -5,13 +5,14 @@ App.Views.MatrixMenu = Backbone.View.extend({
   gridClass: "js-matrixMenuTabs",
   tabClassName: "menu--tab grid-cell",
   tabTag: "a",
-  labels: [
-    "LETTER NAMES & SOUNDS",
-    "SIGHT WORDS",
-    "ONSETS & RIMES",
-    "AFFIXES",
-    "STORIES"
+  tabs: [
+    { label: "LETTER NAMES & SOUNDS", key: "lettersTab"},
+    { label: "SIGHT WORDS", key: "sightWordsTab"},
+    { label: "ONSETS & RIMES", key: "onsetRimesTab"},
+    { label: "AFFIXES", key: "affixesTab"},
+    { label: "STORIES", key: "storiesTab"}
   ],
+
 
  
   initialize: function() {
@@ -24,13 +25,18 @@ App.Views.MatrixMenu = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("."+this.gridClass);
     var that = this;
-    _.each(this.labels, function(label){
-      var view = new App.Views.MatrixMenuTab({tagName: that.tabTag, className: that.tabClassName, label: label}); 
+    _.each(this.tabs, function(tab){
+      var options = {
+        tagName: that.tabTag, 
+        className: that.tabClassName, 
+        label: tab.label
+      };
+      var view = that[tab.key] = new App.Views.MatrixMenuTab(options); 
       that.$gridClass.append(view.render().el);
     });
 
-    var view = new App.Views.ButtonMatrixToggle({el: ".js-buttonMatrixToggle"});
-    that.$gridClass.append(view.render().el);
+    this.toggleTab = new App.Views.ButtonMatrixToggle({el: ".js-buttonMatrixToggle"});
+    this.$gridClass.append(this.toggleTab.render().el);
 
   },
 

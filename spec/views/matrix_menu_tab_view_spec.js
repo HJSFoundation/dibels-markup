@@ -9,9 +9,13 @@ describe('App.Views.MatrixMenuTab', function() {
     xhr.onCreate = function(xhr) {
       requests.push(xhr);
     };
-
-    appendFixture("div", { class: "js-tab" });
-    subject = new App.Views.MatrixMenuTab({el: '.js-tab'});
+    var options = {
+        tagName: "a", 
+        className:  "menu--tab grid-cell", 
+        label: "STORIES"
+      };
+    appendFixture("div", { class: options.className });
+    subject = new App.Views.MatrixMenuTab(options);
   });
 
   it("has a reference to the element", function() {
@@ -22,11 +26,8 @@ describe('App.Views.MatrixMenuTab', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
-  });
-
   it("renders", function() {
+    subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
