@@ -57,4 +57,40 @@ describe('App.Views.MatrixMenu', function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
+
+  describe("helper functions", function() {
+    it("#listen", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixMenuTabActiveRequest", subject.handleMatrixMenuTabActveRequest);
+    });
+
+    it("#templateJSON", function() {
+      expect(subject.templateJSON().jsClass).to.equal(subject.gridClass);
+    });
+  });
+
+  describe("dispatcher handlers", function() {
+    describe("#handleMatrixMenuTabActveRequest", function () {
+      beforeEach(function() {
+        subject.render();
+      });
+
+      it("activates the clicked tab", function() { 
+        var makeActive = sinon.spy();
+        var event_payload = {label: "STORIES", makeActive: makeActive};
+        subject.handleMatrixMenuTabActveRequest(event_payload);
+        expect(makeActive).to.have.been.called;
+      });
+
+      it("inactivates the non clicked tabs", function(){ 
+        var makeActive = sinon.spy();
+        var makeInactive = sinon.spy();
+        subject.affixesTab.makeInactive = makeInactive;
+        var event_payload = {label: "STORIES", makeActive: makeActive};
+        subject.handleMatrixMenuTabActveRequest(event_payload);
+        expect(makeInactive).to.have.been.called;    
+      });
+    });
+  });
 });
