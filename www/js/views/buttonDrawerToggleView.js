@@ -11,9 +11,11 @@ App.Views.ButtonDrawerToggle = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+    return this;
   },
 
   handleToggleDrawerRequest: function() {
     App.Dispatcher.trigger("toggleDrawerRequest");
+    console.log("toggleDrawerRequest");
   }
 });
