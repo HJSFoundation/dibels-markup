@@ -6,11 +6,11 @@ App.Views.MatrixMenu = Backbone.View.extend({
   tabClassName: "menu--tab grid-cell",
   tabTag: "a",
   tabs: [
-    { label: "LETTER NAMES & SOUNDS", key: "lettersTab"},
-    { label: "SIGHT WORDS", key: "sightWordsTab"},
-    { label: "ONSETS & RIMES", key: "onsetRimesTab"},
-    { label: "AFFIXES", key: "affixesTab"},
-    { label: "STORIES", key: "storiesTab"}
+    { label: "LETTER NAMES & SOUNDS", key: App.Config.skill.letters},
+    { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
+    { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
+    { label: "AFFIXES", key: App.Config.skill.affixes},
+    { label: "STORIES", key: App.Config.skill.stories}
   ],
 
 
@@ -19,7 +19,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.listen();
-    this.lettersTab.makeActive();
+    this.Letters.makeActive();
   },
 
   listen: function (){
@@ -52,11 +52,12 @@ App.Views.MatrixMenu = Backbone.View.extend({
     };
   },
 
-  handleMatrixMenuTabActveRequest: function(e){
+  handleMatrixMenuTabActveRequest: function(selectedTab){
     var that = this;
     _.each(this.tabs, function(tab){
-      if(e.label==tab.label){
-        e.makeActive();
+      if(selectedTab.label==tab.label){
+        selectedTab.makeActive();
+        App.Dispatcher.trigger("stimuliTilesViewRequest", tab.key);
       }else{
         that[tab.key].makeInactive();
       }

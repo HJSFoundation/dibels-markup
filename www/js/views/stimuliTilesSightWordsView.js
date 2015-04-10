@@ -1,9 +1,8 @@
-App.Views.StimuliTilesStories = Backbone.View.extend({
-  template: App.templates.stimuliTilesStories,
+App.Views.StimuliTilesSightWords = Backbone.View.extend({
+  template: App.templates.stimuliTilesSightWords,
   
-  gridClass: "js-stimuliTilesStories",
+  gridClass: "js-stimuliTilesSightWords",
   tileClass: "tile grid-cell u-text-center",
-
 
   initialize: function() {
     _.bindAll(this);
@@ -14,10 +13,10 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("."+this.gridClass);
     var that = this;
-    var i=1;
-    App.stimuliStories.each(function(stimulus){
-      var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i++)+". "});
+    App.stimuliWords.each(function(stimulus){
+      var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.$gridClass.append(view.render().el);
+
     });
   },
   templateJSON: function() {
