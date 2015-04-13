@@ -35,8 +35,16 @@ describe('App.Views.Stage', function() {
       expect(subject.drawerView).not.to.be.undefined;
     });
 
-    it("creates a stage stimulus view", function() {
-      expect(subject.stageStimulusView).not.to.be.undefined;
+    it("creates a stage stimulus letters view", function() {
+      expect(subject.stageStimulusLettersView).to.be.an.instanceOf(App.Views.StageStimulusLetters);
+    });
+
+    it("creates a stage stimulus words view", function() {
+      expect(subject.stageStimulusWordsView).to.be.an.instanceOf(App.Views.StageStimulusWords);
+    });
+
+    it("creates a stage stimulus phrases view", function() {
+      expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
     });
 
     it("creates a button flip view", function() {

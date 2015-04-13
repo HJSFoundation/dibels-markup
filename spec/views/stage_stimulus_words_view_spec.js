@@ -22,12 +22,22 @@ describe('App.Views.StageStimulusWords', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+  it("#listen", function() {
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillChangeRequest);
   });
 
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
+
+  it("#handleSkillChangeRequest", function() {
+    sinon.spy(subject, "render");
+    var stimulus = "cool";
+    subject.handleSkillChangeRequest(stimulus);
+    expect(subject.render).to.have.been.calledWith(stimulus);
+  });
+
 });

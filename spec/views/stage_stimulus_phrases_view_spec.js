@@ -22,10 +22,6 @@ describe('App.Views.StageStimulusPhrases', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
-  });
-
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;

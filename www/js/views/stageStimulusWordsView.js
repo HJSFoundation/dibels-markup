@@ -3,10 +3,20 @@ App.Views.StageStimulusWords = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.render();
+    this.listen();
   },
 
-  render: function() {
-    this.$el.html(this.template());
+  listen: function(){
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, this.handleSkillChangeRequest)
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.onsetRimes, this.handleSkillChangeRequest)
+  },
+
+  render: function(stimulus) {
+    this.$el.html(this.template(stimulus));
+  },
+
+  handleSkillChangeRequest: function  (stimulus) {
+    this.render(stimulus);
   }
+
 });

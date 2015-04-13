@@ -117,7 +117,11 @@ this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compile
     return "<div class=\"stage__stimulus stage__stimulus--phrases animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage__stimulus stage__stimulus--words animated slideInRight\">\n  <span>bear</span>\n</div>";
+    var helper;
+
+  return "<div class=\"stage__stimulus stage__stimulus--words animated slideInRight\">\n  <span>"
+    + this.escapeExpression(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
+    + "</span>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
