@@ -1,9 +1,9 @@
 .menu--tab {
-  // background-color: #3d3e40;
+  background-color: #3d3e40;
   border-right: 1px solid $matrix-tab;
   color: lighten(#000, 50%);
   font-size: 13px;
-  
+  line-height: 40px;
   text-transform: uppercase;
   height: 40px;
 
@@ -19,64 +19,38 @@
   }
 
   .menu__label {
-    background-color: #3d3e40;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 10px 0;
+   background-color: #3d3e40 ;
+   display: block;
+   width: 100%;
+   height: 100%;
 
-    &.st-active,
-    &:hover {
-      background-color: $matrix-tab;
-      color: $button-text-light;
-    }
-  }
+   &.st-active,
+   &:hover {
+     background-color: $matrix-tab;
+     color: $button-text-light;
+   }
+ }
 
   .menu--number {
     display: inline-block;
     vertical-align: middle;
     font-size: 32px;
-    line-height: 30px;
+    line-height: 40px;
     margin-right: 20px;
     font-weight: 400;
   }
-}
 
-.menu--tabs > div{
- 
-    flex: 1;
-    background-color: #3d3e40;
-    border-right: 1px solid $matrix-tab;
-    color: $button-text-dark;
-    font-size: 13px;
-    padding: 10px 0;
-    text-transform: uppercase;
-    height: 40px;
-    cursor: pointer;
+  .menu__icon {
+    font-size: 25px;
+    margin-left: 30px;
+    vertical-align: middle;
+  }
 
-    a {
-      color: $button-text-dark;
-    
-    }
-
-    &.st-active,
-    &:hover {
-      background: $matrix-tab;
-      a {
-
-        color: $button-text-light;
-      }
-    }
-
-    &:last-child {
-      width: 50px;
-      flex: none;
-      color: $button-text-dark;
-
-      .icon {
-        font-size: 32px;
-      }
-
-    }
- 
+  &.menu--tab--edit-student {
+    background: $primary;
+    color: $text-light;
+    width: 200px;
+    padding: 20px;
+    border: 0;
+  }
 }

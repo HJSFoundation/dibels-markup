@@ -18,12 +18,20 @@
 @import "components.menus";
 @import "components.stimuli";
 @import "components.stimulus";
+@import "components.matrix";
+@import "components.timer";
+@import "components.reading-stage-chooser";
+@import "components.edit-archive-list";
+@import "components.magnet";
 
 @import "utilities.text";
+@import "utilities.functions";
 
-// RULE: These styles should be incorporated into the above
+
 @import "views.stage";
 @import "views.login";
 @import "views.story";
-
+@import "views.edit-student";
+@import "views.device-select";
+@import "views.whiteboard";
 @import "vendor.animate";

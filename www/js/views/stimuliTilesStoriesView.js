@@ -18,7 +18,7 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    var i=1;
+    var i=0;
     App.stimuliStories.each(function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.$gridClass.append(view.render().el);

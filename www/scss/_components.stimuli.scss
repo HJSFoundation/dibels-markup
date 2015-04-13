@@ -1,4 +1,6 @@
 .matrix__stimuli {
+  width: 100%;
+
   .st-active {
     display: flex;
   }
@@ -6,6 +8,7 @@
 
 .stimuli-tiles {
   overflow: auto;
+  width: 100%;
 }
 
 .stimuli-tiles--stories__title {

@@ -3,19 +3,42 @@
 }
 
 .story__image {
+  margin: 0;
   img {
     width: 100%;
+  }
+  &.st-flipped {
+    -webkit-transform: rotateX(180deg);
+    transform-style: preserve-3d;
+    transition: all 0.50s linear;
+    figcaption {
+      -webkit-transform: scale(-1,1);
+      transition: all 0.0s linear; // this doesn't work that well.
+    }
   }
 }
 
 .story__text {
   font-size: 48px;
   margin-bottom: 20px;
+
+  &.story__text--teacher {
+    font-size: 14px;
+    margin-bottom: 0;
+    display: none;
+    position: absolute;
+    left: 20px;
+    bottom: 70px; // magic number
+
+    &.st-visible {
+      display: block;
+    }
+  }
 }
 
 .story__flip {
   position: absolute;
-  bottom: 10px;
+  bottom: 50px; // magic number
   right: 10px;
   font-size: 22px;
 }

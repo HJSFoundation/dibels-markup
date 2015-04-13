@@ -40,6 +40,10 @@
   align-items: center;
   justify-content: center;
 }
+.grid--space-between {
+  align-items: center;
+  justify-content: space-between;
+}
 .grid--wrap {
   flex-wrap: wrap;
   align-content: flex-end;
@@ -54,7 +58,7 @@
 
 .grid--wrap > .grid-cell,
 .grid--wrap > .g-cell {
-  flex: 1 1 auto;
+  flex: 0;
   display: block;
 }
 
@@ -98,6 +102,11 @@
 }
 .u-2of3 {
   width: 66.6666%!important;
+  flex: none!important;
+}
+
+.u-3of4 {
+  width: 75%!important;
   flex: none!important;
 }
 

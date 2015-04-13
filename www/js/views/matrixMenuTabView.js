@@ -1,6 +1,9 @@
 App.Views.MatrixMenuTab = Backbone.View.extend({
   template: App.templates.tab,
 
+  tagName: "a",
+  className: "menu--tab grid-cell",
+  
   events: {
     "click": "handleClick"
   },

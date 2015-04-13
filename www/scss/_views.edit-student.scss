@@ -1,0 +1,35 @@
+// RELATED FILES:
+//   _components.reading-stage-chooser.scss
+//   _components.edit-archive-list.scss
+
+.stage--edit {
+  padding: 0;
+  height: 600px;
+}
+
+.stage--edit__menu {
+  border-bottom: 1px solid $gray-light;
+  height: 50px;
+  margin: 0;
+}
+
+.stage--edit__title {
+  color: $text-medium;
+  font-size: 22px;
+  font-weight: 100;
+  margin: 0;
+  max-width: 33.3333%;
+  text-transform: uppercase;
+}
+
+.edit-notes__header {
+  font-size: 14px;
+  padding: 15px 0 0 40px;
+  text-transform: uppercase;
+}
+
+.stage--edit__content {
+  height: 550px;
+}
+
+

@@ -1,6 +1,9 @@
 App.Views.ButtonMatrixToggle = Backbone.View.extend({
   template: App.templates.buttonMatrixToggle,
 
+  tagName: "a",
+  className: "button--matrix-toggle",
+
   events: {
     'click' : 'handleToggleMatrix'
   },

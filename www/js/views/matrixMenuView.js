@@ -3,8 +3,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
   template: App.templates.matrixMenu,
 
   gridClass: "js-matrixMenuTabs",
-  tabClassName: "menu--tab grid-cell",
-  tabTag: "a",
   tabs: [
     { label: "LETTER NAMES & SOUNDS", key: App.Config.skill.letters},
     { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
@@ -29,15 +27,13 @@ App.Views.MatrixMenu = Backbone.View.extend({
     var that = this;
     _.each(this.tabs, function(tab){
       var options = {
-        tagName: that.tabTag,
-        className: that.tabClassName,
         label: tab.label
       };
       var view = that[tab.key] = new App.Views.MatrixMenuTab(options);
       that.$gridClass.append(view.render().el);
     });
 
-    this.toggleTab = new App.Views.ButtonMatrixToggle({el: ".js-buttonMatrixToggle"});
+    this.toggleTab = new App.Views.ButtonMatrixToggle();
     this.$gridClass.append(this.toggleTab.render().el);
   },
 

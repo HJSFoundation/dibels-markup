@@ -1,0 +1,33 @@
+.stage--device-select {
+  min-height: 683px;
+}
+
+.device-select__title {
+  color: $primary;
+  font-size: 72px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.device-select__option {
+  width: 740px;
+  height: 100%;
+
+  &:hover {
+    color: $primary;
+    fill: $primary;
+  }
+
+  .select--teacher {
+    width: 350px;
+    margin-right: -66px; // magic number
+  }
+  .select--student {
+    width: 288px;
+  }
+
+  .icon-text__title {
+    font-size: 35px;
+    font-weight: 100;
+  }
+}
