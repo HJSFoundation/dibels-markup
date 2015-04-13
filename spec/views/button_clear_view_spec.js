@@ -10,8 +10,13 @@ describe('App.Views.ButtonClear', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonClear" });
     subject = new App.Views.ButtonClear({el: '.js-buttonClear'});
+  });
+
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a reference to the element", function() {
@@ -20,6 +25,7 @@ describe('App.Views.ButtonClear', function() {
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
+    expect(subject.template).to.equal(App.templates.buttonClear);
   });
 
   it("calls render on initialize", function() {

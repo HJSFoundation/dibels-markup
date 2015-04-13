@@ -10,8 +10,13 @@ describe('App.Views.ButtonDrawerToggle', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-drawer-toggle" });
     subject = new App.Views.ButtonDrawerToggle({el: '.js-drawer-toggle'});
+  });
+
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a reference to the element", function() {
@@ -20,6 +25,7 @@ describe('App.Views.ButtonDrawerToggle', function() {
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
+    expect(subject.template).to.equal(App.templates.buttonDrawerToggle);
   });
 
   describe("events", function() {

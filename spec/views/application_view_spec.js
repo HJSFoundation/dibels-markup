@@ -10,7 +10,12 @@ describe('App.Views.Application', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     subject = new App.Views.Application({el: '#applicationContainer'});
+  });
+
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a reference to the application container", function() {

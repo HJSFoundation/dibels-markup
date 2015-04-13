@@ -10,8 +10,13 @@ describe('App.Views.Assignment', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-drawerOverlay" });
     subject = new App.Views.Assignment({el: '.js-drawerOverlay'});
+  });
+
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a reference to the element", function() {
@@ -20,6 +25,7 @@ describe('App.Views.Assignment', function() {
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
+    expect(subject.template).to.equal(App.templates.assignments);
   });
 
   describe("events", function() {
