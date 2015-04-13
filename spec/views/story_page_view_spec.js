@@ -77,5 +77,6 @@ describe('App.Views.StoryPage', function() {
     expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, subject.handleSkillChangeRequest);
   });
 
+
  
 });

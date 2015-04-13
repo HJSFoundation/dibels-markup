@@ -8,6 +8,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   initialize: function(options) {
     _.bindAll(this);
     this.label = this.model.get("firstname");
+    this.id = this.model.get("id");
   },
 
   render: function() {
@@ -22,12 +23,17 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     };
   },
 
-  makeActive: function(f){
-    this.status = (f ? "st-active" : "");
+  makeActive: function(){
+    this.status = "st-active";
+    this.render();
+  },
+
+  makeInactive: function(){
+    this.status = "";
     this.render();
   },
 
   handleClick: function(){
-    this.makeActive(true);
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this);
   }
 });
