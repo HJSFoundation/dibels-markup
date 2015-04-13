@@ -6,7 +6,11 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.render();
+    this.listen();
+  },
+
+  listen: function(){
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillChangeRequest)
   },
 
   render:  function() {
@@ -23,5 +27,9 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
     return {
       jsClass: this.gridClass
     };
+  },
+
+  handleSkillChangeRequest: function  () {
+    this.render();
   }
 });

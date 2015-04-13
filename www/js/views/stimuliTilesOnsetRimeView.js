@@ -7,7 +7,11 @@ App.Views.StimuliTilesOnsetRime = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.render();
+    this.listen();
+  },
+
+  listen: function(){
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRime", this.handleSkillChangeRequest)
   },
 
   render: function() {
@@ -31,5 +35,10 @@ App.Views.StimuliTilesOnsetRime = Backbone.View.extend({
       jsClassOnset: this.gridClassOnset,
       jsClassRime: this.gridClassRime,
     };
+  },
+
+  handleSkillChangeRequest: function  () {
+    this.render();
   }
+
 });

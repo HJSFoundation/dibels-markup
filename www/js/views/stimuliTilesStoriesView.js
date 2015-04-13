@@ -6,7 +6,12 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.render();
+    this.listen();
+
+  },
+
+  listen: function(){
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillChangeRequest)
   },
 
   render: function() {
@@ -24,5 +29,10 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     return {
       jsClass: this.gridClass
     };
+  },
+
+  handleSkillChangeRequest: function  () {
+    this.render();
   }
+
 });

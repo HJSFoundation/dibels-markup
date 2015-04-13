@@ -23,9 +23,6 @@ describe('App.Views.StimuliTilesStories', function() {
   });
 
   describe("initialize", function() {
-    it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
-    });
 
     it("creates a tab view", function() {
       expect(subject.$el.first()).not.to.be.undefined;
@@ -36,4 +33,18 @@ describe('App.Views.StimuliTilesStories', function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
+
+  it("#listen", function() {
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Stories", subject.handleSkillChangeRequest);
+  });
+
+  it("#handleSkillChangeRequest", function() {
+    sinon.spy(subject, "render");
+    subject.handleSkillChangeRequest();
+    expect(subject.render).to.have.been.called;
+  });
+
+
 });

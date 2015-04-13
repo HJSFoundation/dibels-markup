@@ -6,8 +6,14 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.render();
+    this.listen();
+
   },
+
+  listen: function(){
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillChangeRequest)
+  },
+
 
   render:  function() {
     this.$el.html(this.template(this.templateJSON()));
@@ -23,6 +29,11 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
     return {
       jsClass: this.gridClass
     };
+  },
+
+  handleSkillChangeRequest: function  () {
+    this.render();
   }
+
 
 });

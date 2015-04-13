@@ -23,9 +23,6 @@ describe('App.Views.StimuliTilesOnsetRime', function() {
   });
 
   describe("initialize", function() {
-    it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
-    });
 
     it("creates a onset tiles view", function() {
       expect(subject.$el.find(".js-stimuliTileOnset")).not.to.be.undefined;
@@ -40,4 +37,18 @@ describe('App.Views.StimuliTilesOnsetRime', function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
+
+  it("#listen", function() {
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:OnsetRime", subject.handleSkillChangeRequest);
+  });
+
+  it("#handleSkillChangeRequest", function() {
+    sinon.spy(subject, "render");
+    subject.handleSkillChangeRequest();
+    expect(subject.render).to.have.been.called;
+  });
+
+
 });

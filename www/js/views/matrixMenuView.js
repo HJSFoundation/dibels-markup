@@ -17,7 +17,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.listen();
-    this.Letters.makeActive();
   },
 
   listen: function (){
@@ -53,7 +52,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.each(this.tabs, function(tab){
       if(selectedTab.label === tab.label) {
         selectedTab.makeActive();
-        App.Dispatcher.trigger("stimuliTilesViewRequest", tab.key);
+        App.Dispatcher.trigger("SkillChangeRequested:"+tab.key);
       } else {
         that[tab.key].makeInactive();
       }
