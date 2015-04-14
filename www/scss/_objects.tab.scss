@@ -12,18 +12,20 @@
     padding-left: 10px;
     position: relative;
 
+    span.icon-edit {
+      display: none;
+      position: absolute;
+      right: 10px;
+      font-size: 21px;
+    }
+
     &.st-active,
     &:hover {
       background-color: $orange;
       color: $white;
 
-      &::after {
-        content: "A";
-        font-family: 'teachermate';
-        position: absolute;
-        top: -2px; // magic number?
-        right: 10px;
-        font-size: 21px;
+      span.icon-edit {
+        display: inline-block;
       }
     }
   }

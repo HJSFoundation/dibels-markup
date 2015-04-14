@@ -27,7 +27,7 @@ App.Views.Stage = Backbone.View.extend({
   },
 
   handleCloseMatrix: function (){
-    this.$el.addClass("animated slideOutDown");
+    this.$el.addClass("stage--workspace--full");
   }
-  
+
 });

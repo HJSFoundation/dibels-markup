@@ -22,7 +22,7 @@ App.Views.Matrix = Backbone.View.extend({
   },
 
   handleCloseMatrix: function (){
-    this.$el.addClass("animated slideOutDown");
+    // this.$el.addClass("animated slideOutDown");
   }
 
 });
