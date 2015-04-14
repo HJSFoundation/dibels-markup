@@ -13,7 +13,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
 
     appendFixture("div", { class: "js-tab" });
     subject = new App.Views.MatrixStudentSelectorTab({
-      model: new Backbone.Model({firstName: "Bernie"}),
+      model: new App.Models.Student({firstname: "Bernie", lastname: "Bivins"}),
       el: '.js-tab'
     });
   });

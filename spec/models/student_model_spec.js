@@ -10,7 +10,7 @@ describe('App.Models.Student', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Student({firstName: "Bernie", lastName: "Bivins"});
+    subject = new App.Models.Student({firstname: "Bernie", lastname: "Bivins"});
   });
 
   it("has a default grade", function() {

@@ -10,7 +10,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
 
   initialize: function(options) {
     _.bindAll(this);
-    this.label = this.model.get("firstname");
+    this.label = this.model.shortName();
     this.id = this.model.get("id");
     this.readingStage = this.model.get("readingStage");
   },
