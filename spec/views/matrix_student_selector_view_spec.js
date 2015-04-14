@@ -63,10 +63,6 @@ describe('App.Views.MatrixStudentSelector', function() {
     expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleMatrixStudentSelectorTabActiveRequest);
   });
 
-  it("#templateJSON", function() {
-    expect(subject.templateJSON().jsClass).to.equal(subject.gridClass);
-  });
-
   describe("dispatcher handlers", function() {
     describe("#handleMatrixStudentSelectorTabActiveRequest", function () {
       beforeEach(function() {

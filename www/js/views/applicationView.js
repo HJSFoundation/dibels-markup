@@ -77,11 +77,11 @@ App.Views.Application = Backbone.View.extend({
     App.students = new App.Collections.Students();
     App.students.fetch();
     if(App.students.length===0){
-      App.students.create({id: 1, firstname: "Bernie", lastname: "Bivins"});
-      App.students.create({id: 2, firstname: "Matt", lastname: "Bivins"});
-      App.students.create({id: 3, firstname: "Evan", lastname: "Bivins"});
-      App.students.create({id: 4, firstname: "Clint", lastname: "Eastman"});
-      App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch"});
+      App.students.create({id: 1, firstname: "Bernie", lastname: "Bivins", readingStage: 1});
+      App.students.create({id: 2, firstname: "Matt", lastname: "Bivins", readingStage: 2});
+      App.students.create({id: 3, firstname: "Evan", lastname: "Bivins", readingStage: 3});
+      App.students.create({id: 4, firstname: "Clint", lastname: "Eastman", readingStage: 4});
+      App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch", readingStage: 5});
     }
   },
 

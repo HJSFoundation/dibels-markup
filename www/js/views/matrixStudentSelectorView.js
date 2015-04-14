@@ -1,7 +1,6 @@
 App.Views.MatrixStudentSelector = Backbone.View.extend({
   template: App.templates.matrixStudentSelector,
 
-  gridClass: "js-matrixStudentSelectorTabs",
   tabs:{},
 
   initialize: function() {
@@ -15,19 +14,12 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.templateJSON()));
-    this.$gridClass = $("." + this.gridClass);
+    this.$el.html(this.template());
     var that = this;
     App.students.each(function(student){
-      var view = that.tabs[student.id] = (new App.Views.MatrixStudentSelectorTab({model: student}));
-      that.$gridClass.append(view.render().el);
+      var view = that.tabs[student.id] = (new App.Views.MatrixStudentSelectorTab({ model: student}));
+      $('.js-matrixStudentSelectorTabs').append(view.render().el);
     });
-  },
-
-  templateJSON: function() {
-    return {
-      jsClass: this.gridClass
-    };
   },
 
   handleMatrixStudentSelectorTabActiveRequest: function(selectedTab){
