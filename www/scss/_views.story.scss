@@ -7,15 +7,6 @@
   img {
     width: 100%;
   }
-  &.st-flipped {
-    -webkit-transform: rotateX(180deg);
-    transform-style: preserve-3d;
-    transition: all 0.50s linear;
-    figcaption {
-      -webkit-transform: scale(-1,1);
-      transition: all 0.0s linear; // this doesn't work that well.
-    }
-  }
 }
 
 .story__text {
@@ -41,4 +32,24 @@
   bottom: 50px; // magic number
   right: 10px;
   font-size: 22px;
+}
+
+.st-flipped {
+    -webkit-transform: rotateX(180deg);
+    transform-style: preserve-3d;
+    transition: all 0.20s linear;
+    figcaption {
+      -webkit-transform: scaleX(-1);
+      transition: all 0.0s linear; // this doesn't work that well.
+    }
+  }
+
+.st-unflipped {
+  -webkit-transform: rotateX(360deg);
+    transform-style: preserve-3d;
+    transition: all 0.20s linear;
+    figcaption {
+      -webkit-transform: scaleX(1);
+      transition: all 0.0s linear; // this doesn't work that well.
+    }
 }

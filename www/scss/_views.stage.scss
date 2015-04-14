@@ -10,6 +10,10 @@
   &.stage--workspace {
     height: 430px;
   }
+
+  &.stage--story {
+    padding: 0;
+  }
 }
 
 .stage__menu {
