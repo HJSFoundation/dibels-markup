@@ -47,7 +47,7 @@ describe('App.Views.ButtonMatrixToggle', function() {
       var toggleMatrix = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleToggleMatrix();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("toggleMatrix");
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("closeMatrix");
     });
   });
 });

@@ -28,16 +28,31 @@ describe('App.Views.MenuActivity', function() {
     });
 
     it("creates a button phrases view", function() {
-      expect(subject.buttonPhrasesView).not.to.be.undefined;
+      expect(subject.buttonPhrasesView).to.be.an.instanceOf(App.Views.ButtonPhrases);
     });
 
     it("creates a button tiles view", function() {
-      expect(subject.buttonTilesView).not.to.be.undefined;
+      expect(subject.buttonTilesView).to.be.an.instanceOf(App.Views.ButtonTiles);
+    });
+
+    it("creates a button words view", function() {
+      expect(subject.buttonWordsView).to.be.an.instanceOf(App.Views.ButtonWords);
     });
   });
 
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  it("#listen", function (){
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+  });
+
+  it("#handleCloseMatrix", function(){
+    subject.handleCloseMatrix();
+    expect(subject.$el).to.have.class("animated slideOutRight");
   });
 });
