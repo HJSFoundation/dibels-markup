@@ -39,15 +39,25 @@ describe('App.Views.ButtonFlip', function() {
 
   describe("handlers", function() {
 
-    afterEach(function() {
-      App.Dispatcher.trigger.restore();
-    });
-
     it("#handleflip", function() {
-      var flipScreen = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleflipScreen();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("flipScreenButtonTapped");
+      App.Dispatcher.trigger.restore();
+    });
+
+    it("#handleCloseMatrix", function(){
+      subject.handleCloseMatrix();
+      expect(subject.$el).to.have.class("animated slideOutLeft");
     });
   });
+
+  it("#listen", function (){
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+  });
+
+
+
 });

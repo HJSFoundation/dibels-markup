@@ -39,15 +39,24 @@ describe('App.Views.ButtonTimer', function() {
 
   describe("handlers", function() {
 
-    afterEach(function() {
-      App.Dispatcher.trigger.restore();
-    });
-
     it("#handleDisplayTimer", function() {
       var displayTimer = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleDisplayTimer();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("displayTimerButtonTapped");
+      App.Dispatcher.trigger.restore();
     });
+
+    it("#handleCloseMatrix", function(){
+      subject.handleCloseMatrix();
+      expect(subject.$el).to.have.class("animated slideOutLeft");
+    });
+  });    
+
+  it("#listen", function (){
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
   });
+  
 });
