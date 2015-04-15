@@ -63,9 +63,4 @@ describe('App.Views.Matrix', function() {
     expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
   });
 
-  it("#handleCloseMatrix", function(){
-    subject.handleCloseMatrix();
-    expect(subject.$el).to.have.class("animated slideOutDown");
-  });
-
 });

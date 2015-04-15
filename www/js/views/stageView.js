@@ -9,7 +9,7 @@ App.Views.Stage = Backbone.View.extend({
     this.stageStimulusLettersView = new App.Views.StageStimulusLetters({ el: ".js-stageStimulus"});
     this.stageStimulusWordsView = new App.Views.StageStimulusWords({ el: ".js-stageStimulus"});
     this.stageStimulusPhrasesView = new App.Views.StageStimulusPhrases({ el: ".js-stageStimulus"});
-    this.storyPageView = new App.Views.StoryPage({ el: ".js-storyOverlay"});
+    this.storyPageView = new App.Views.StoryPage({ el: ".js-overlay"});
 
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", text:"Flip"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});

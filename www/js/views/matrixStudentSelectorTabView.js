@@ -16,7 +16,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     this.label = this.model.shortName();
     this.id = this.model.get("id");
     this.readingStage = this.model.get("readingStage");
-    this.editStudent = new App.Views.EditStudent({el: ".js-studentEditOverlay"});
+    this.editStudent = new App.Views.EditStudent({el: ".js-overlay"});
   },
 
   render: function() {

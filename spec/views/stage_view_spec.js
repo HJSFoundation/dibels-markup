@@ -77,7 +77,7 @@ describe('App.Views.Stage', function() {
 
   it("#handleCloseMatrix", function(){
     subject.handleCloseMatrix();
-    expect(subject.$el).to.have.class("animated slideOutDown");
+    expect(subject.$el).to.have.class("stage--workspace--full");
   });
 
 });
