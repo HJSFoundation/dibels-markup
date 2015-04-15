@@ -33,8 +33,8 @@ App.Views.MatrixMenu = Backbone.View.extend({
       that.$gridClass.append(view.render().el);
     });
 
-    this.toggleTab = new App.Views.ButtonMatrixToggle();
-    this.$gridClass.append(this.toggleTab.render().el);
+    this.closeTab = new App.Views.ButtonMatrixClose();
+    this.$gridClass.append(this.closeTab.render().el);
   },
 
   templateJSON: function() {

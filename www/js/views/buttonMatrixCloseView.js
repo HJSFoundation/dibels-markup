@@ -1,11 +1,11 @@
-App.Views.ButtonMatrixToggle = Backbone.View.extend({
-  template: App.templates.buttonMatrixToggle,
+App.Views.ButtonMatrixClose = Backbone.View.extend({
+  template: App.templates.buttonMatrixClose,
 
   tagName: "a",
-  className: "button--matrix-toggle",
+  className: "button--matrix-close",
 
   events: {
-    'click' : 'handleToggleMatrix'
+    'click' : 'handleCloseMatrix'
   },
 
   initialize: function() {
@@ -17,7 +17,7 @@ App.Views.ButtonMatrixToggle = Backbone.View.extend({
     return this;
   },
 
-  handleToggleMatrix: function() {
+  handleCloseMatrix: function() {
     App.Dispatcher.trigger('closeMatrix');
   }
 });

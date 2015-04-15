@@ -1,4 +1,4 @@
-describe('App.Views.ButtonMatrixToggle', function() {
+describe('App.Views.ButtonMatrixClose', function() {
   var subject;
   var xhr;
   var requests;
@@ -10,8 +10,8 @@ describe('App.Views.ButtonMatrixToggle', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-buttonMatrixToggle" });
-    subject = new App.Views.ButtonMatrixToggle({el: '.js-buttonMatrixToggle'});
+    appendFixture("div", { class: "js-buttonMatrixClose" });
+    subject = new App.Views.ButtonMatrixClose({el: '.js-buttonMatrixClose'});
   });
 
   it("has a reference to the element", function() {
@@ -24,7 +24,7 @@ describe('App.Views.ButtonMatrixToggle', function() {
 
   describe("events", function() {
     it("handles a click event", function() {
-      expect(subject.events.click).to.equal('handleToggleMatrix');
+      expect(subject.events.click).to.equal('handleCloseMatrix');
     });
   });
 
@@ -43,10 +43,9 @@ describe('App.Views.ButtonMatrixToggle', function() {
       App.Dispatcher.trigger.restore();
     });
 
-    it("#handleToggleMatrix", function() {
-      var toggleMatrix = sinon.spy();
+    it("#handleCloseMatrix", function() {
       sinon.spy(App.Dispatcher, "trigger");
-      subject.handleToggleMatrix();
+      subject.handleCloseMatrix();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("closeMatrix");
     });
   });

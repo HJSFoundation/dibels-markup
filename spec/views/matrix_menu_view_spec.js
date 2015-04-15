@@ -47,8 +47,8 @@ describe('App.Views.MatrixMenu', function() {
       expect(subject.Stories).not.to.be.undefined;
     });
 
-    it("creates a toggle tab view", function() {
-      expect(subject.toggleTab).not.to.be.undefined;
+    it("creates a close tab view", function() {
+      expect(subject.closeTab).not.to.be.undefined;
     });
   });
 
