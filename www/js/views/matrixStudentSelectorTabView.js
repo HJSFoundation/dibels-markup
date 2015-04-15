@@ -5,14 +5,18 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   className: "menu--tab grid-cell",
 
   events: {
+    "click .icon": "handleIconClick",
     "click": "handleClick"
   },
+
+  status: "inactive",
 
   initialize: function(options) {
     _.bindAll(this);
     this.label = this.model.shortName();
     this.id = this.model.get("id");
     this.readingStage = this.model.get("readingStage");
+    this.editStudent = new App.Views.EditStudent({el: ".js-studentEditOverlay"});
   },
 
   render: function() {
@@ -35,7 +39,16 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     this.$el.removeClass("st-active");
   },
 
-  handleClick: function(){
+  handleClick: function(event){
+    console.log("click tab");
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this);
+    return false;
+  },
+
+  handleIconClick: function(event){
+    App.Dispatcher.trigger("matrixStudentSelectorTabEditRequest", this);
+    console.log("click icon");
+    this.editStudent.render();
+    return false;
   }
 });
