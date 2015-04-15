@@ -45,14 +45,4 @@ describe('App.Views.MenuActivity', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#listen", function (){
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
-  });
-
-  it("#handleCloseMatrix", function(){
-    subject.handleCloseMatrix();
-    expect(subject.$el).to.have.class("animated slideOutRight");
-  });
 });

@@ -8,7 +8,7 @@
   text-align: center;
   margin: auto;
 
-  &.stage__stimulus--letters {
+  .stage__stimulus--letters {
     font-size: 300px;
     font-weight: 700;
     height: 300px;
@@ -27,7 +27,7 @@
     }
   }
 
-  &.stage__stimulus--words {
+  .stage__stimulus--words {
     color: $words-color;
     font-size: 250px;
     font-weight: 500;
@@ -35,14 +35,14 @@
     line-height: 250px;
   }
 
-  &.stage__stimulus--phrases {
+  .stage__stimulus--phrases {
     color: $phrases-color;
     font-size: 100px;
     height: 100px;
     line-height: 100px;
   }
 
-  &.stage__stimulus--tiles {
+  .stage__stimulus--tiles {
     max-width: 80%;
     height: 430px;
     bottom: 0;

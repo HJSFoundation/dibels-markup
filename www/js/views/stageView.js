@@ -11,15 +11,17 @@ App.Views.Stage = Backbone.View.extend({
     this.stageStimulusPhrasesView = new App.Views.StageStimulusPhrases({ el: ".js-stageStimulus"});
     this.storyPageView = new App.Views.StoryPage({ el: ".js-overlay"});
 
-    this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", text:"Flip"});
+    this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});
     this.menuAssessmentView = new App.Views.MenuAssessment({ el: ".js-menuAssessment"});
     this.menuActivityView = new App.Views.MenuActivity({ el: ".js-menuActivity"});
+    this.buttonMatrixOpenView = new App.Views.ButtonMatrixOpen({ el: ".js-buttonMatrixOpen"});
     this.listen();
   },
 
   listen: function(){
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
+    this.listenTo(App.Dispatcher, "openMatrix", this.handleOpenMatrix);
   },
 
   render: function() {
@@ -28,6 +30,10 @@ App.Views.Stage = Backbone.View.extend({
 
   handleCloseMatrix: function (){
     this.$el.addClass("stage--workspace--full");
+  },
+
+  handleOpenMatrix: function (){
+    this.$el.removeClass("stage--workspace--full");
   }
 
 });

@@ -2,7 +2,7 @@ App.Views.ButtonMatrixClose = Backbone.View.extend({
   template: App.templates.buttonMatrixClose,
 
   tagName: "a",
-  className: "button--matrix-close",
+  className: "button--matrix-toggle button--matrix-toggle--close",
 
   events: {
     'click' : 'handleCloseMatrix'

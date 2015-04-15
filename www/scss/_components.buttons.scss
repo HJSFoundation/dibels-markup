@@ -71,6 +71,16 @@ button,
   .icon {
     font-size: 32px;
   }
+
+  &.button--matrix-toggle--open {
+    bottom: -5px;
+    right: 100px;
+    position: absolute;
+
+    &:hover {
+      color: $orange;
+    }
+  }
 }
 
 .button--timer {
@@ -86,5 +96,11 @@ button,
     content: 'z';
     color: green;
   }
+}
+
+.flip-button--full {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 

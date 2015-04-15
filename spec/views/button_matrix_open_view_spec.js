@@ -1,4 +1,4 @@
-describe('App.Views.ButtonFlip', function() {
+describe('App.Views.ButtonMatrixOpen', function() {
   var subject;
   var xhr;
   var requests;
@@ -10,8 +10,8 @@ describe('App.Views.ButtonFlip', function() {
       requests.push(xhr);
     };
 
-    appendFixture("div", { class: "js-stageButtonFlip" });
-    subject = new App.Views.ButtonFlip({el: '.js-stageButtonFlip'});
+    appendFixture("div", { class: "js-buttonMatrixOpen" });
+    subject = new App.Views.ButtonMatrixOpen({el: '.js-buttonMatrixOpen'});
   });
 
   it("has a reference to the element", function() {
@@ -24,12 +24,8 @@ describe('App.Views.ButtonFlip', function() {
 
   describe("events", function() {
     it("handles a click event", function() {
-      expect(subject.events.click).to.equal('handleflipScreen');
+      expect(subject.events.click).to.equal('handleOpenMatrix');
     });
-  });
-
-  it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
   });
 
   it("renders", function() {
@@ -39,11 +35,14 @@ describe('App.Views.ButtonFlip', function() {
 
   describe("handlers", function() {
 
-    it("#handleflip", function() {
-      sinon.spy(App.Dispatcher, "trigger");
-      subject.handleflipScreen();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("flipScreenButtonTapped");
+    afterEach(function() {
       App.Dispatcher.trigger.restore();
+    });
+
+    it("#handleOpenMatrix", function() {
+      sinon.spy(App.Dispatcher, "trigger");
+      subject.handleOpenMatrix();
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("openMatrix");
     });
   });
 });

@@ -1,7 +1,7 @@
 App.Views.StageStimulusLetters = Backbone.View.extend({
   template: App.templates.stageStimulusLetters,
 
-  flipState: "st-unflipped",
+  flipped: false,
 
   initialize: function() {
     _.bindAll(this);
@@ -30,11 +30,16 @@ App.Views.StageStimulusLetters = Backbone.View.extend({
   handleSkillChangeRequest: function  (stimulus) {
     // this.stimulus = stimulus;
     this.render(stimulus);
+  },
+
+  handleFlipScreenRequest: function (){letters
+    if(this.flipped){
+      this.$el.removeClass("st-flipped");
+    }else{
+      this.$el.addClass("st-flipped");
+    }
+    this.flipped=  !this.flipped;
   }
 
-  // handleFlipScreenRequest: function (){
-  //   this.flipState = (this.flipState==="st-unflipped"? "st-flipped":"st-unflipped");
-  //   this.render();
-  // }
   
 });

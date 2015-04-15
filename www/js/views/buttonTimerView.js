@@ -8,11 +8,6 @@ App.Views.ButtonTimer = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.render();
-    this.listen();
-  },
-
-  listen: function(){
-    this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
   },
 
   render: function() {
@@ -21,10 +16,6 @@ App.Views.ButtonTimer = Backbone.View.extend({
 
   handleDisplayTimer: function() {
     App.Dispatcher.trigger('displayTimerButtonTapped');
-  },
-
-  handleCloseMatrix: function () {
-    this.$el.addClass("animated slideOutLeft");
   }
 
 });

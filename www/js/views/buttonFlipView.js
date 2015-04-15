@@ -5,28 +5,17 @@ App.Views.ButtonFlip = Backbone.View.extend({
     'click' : 'handleflipScreen'
   },
 
-  initialize: function(options) {
-    this.cssClass = options.cssClass;
-    this.text = options.text;
+  initialize: function() {
    _.bindAll(this);
     this.render();
-    this.listen();
-  },
-
-  listen: function(){
-    this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
   },
 
   render: function() {
-    this.$el.html(this.template({cssClass: this.cssClass, text: this.text}));
+    this.$el.html(this.template());
   },
 
   handleflipScreen: function() {
     App.Dispatcher.trigger('flipScreenButtonTapped');
-  },
-
-  handleCloseMatrix: function () {
-    this.$el.addClass("animated slideOutLeft");
   }
 
 });
