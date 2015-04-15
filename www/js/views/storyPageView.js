@@ -10,7 +10,7 @@ App.Views.StoryPage = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, this.handleSkillChangeRequest);
   },
 
@@ -21,13 +21,11 @@ App.Views.StoryPage = Backbone.View.extend({
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", cssClass: "story__flip"});
   },
 
-  removeView: function(){
+  removeView: function() {
     this.$el.empty();
   },
 
-  handleSkillChangeRequest: function  (stimulus) {
+  handleSkillChangeRequest: function(stimulus) {
     this.render(stimulus);
   }
-
-
 });

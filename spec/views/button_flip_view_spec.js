@@ -10,8 +10,13 @@ describe('App.Views.ButtonFlip', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageButtonFlip" });
     subject = new App.Views.ButtonFlip({el: '.js-stageButtonFlip'});
+  });
+
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a reference to the element", function() {
@@ -29,7 +34,9 @@ describe('App.Views.ButtonFlip', function() {
   });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
   });
 
   it("renders", function() {
@@ -38,7 +45,6 @@ describe('App.Views.ButtonFlip', function() {
   });
 
   describe("handlers", function() {
-
     it("#handleflip", function() {
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleflipScreen();

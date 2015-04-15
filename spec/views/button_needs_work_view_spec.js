@@ -10,12 +10,13 @@ describe('App.Views.ButtonNeedsWork', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonNeedsWork" });
     subject = new App.Views.ButtonNeedsWork({el: '.js-buttonNeedsWork'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -23,7 +24,9 @@ describe('App.Views.ButtonNeedsWork', function() {
   });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
   });
 
   it("renders", function() {

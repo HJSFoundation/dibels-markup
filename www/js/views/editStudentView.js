@@ -4,7 +4,7 @@ App.Views.EditStudent = Backbone.View.extend({
   events: {
     "click": "handleClick"
   },
-  
+
   initialize: function() {
     _.bindAll(this);
   },
@@ -13,8 +13,7 @@ App.Views.EditStudent = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  handleClick: function(){
+  handleClick: function() {
     this.$el.empty();
   }
-
 });

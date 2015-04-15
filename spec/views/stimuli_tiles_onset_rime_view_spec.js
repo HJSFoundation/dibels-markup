@@ -10,12 +10,13 @@ describe('App.Views.StimuliTilesOnsetRime', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
     subject = new App.Views.StimuliTilesOnsetRime({el: '.js-stimuliTiles'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -23,17 +24,14 @@ describe('App.Views.StimuliTilesOnsetRime', function() {
   });
 
   describe("initialize", function() {
-
-    it("creates a onset tiles view", function() {
-      expect(subject.$el.find(".js-stimuliTileOnset")).not.to.be.undefined;
-    });
-
-    it("creates a rime tiles view", function() {
-      expect(subject.$el.find(".js-stimuliTileRime")).not.to.be.undefined;
+    it("calls listen on initialize", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
     });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
@@ -50,5 +48,13 @@ describe('App.Views.StimuliTilesOnsetRime', function() {
     expect(subject.render).to.have.been.called;
   });
 
+  describe("#templateJSON", function() {
+    it("returns a jsClassOnset", function() {
+      expect(subject.templateJSON().jsClassOnset).to.equal(subject.gridClassOnset);
+    });
 
+    it("returns a jsClassRime", function() {
+      expect(subject.templateJSON().jsClassRime).to.equal(subject.gridClassRime);
+    });
+  });
 });

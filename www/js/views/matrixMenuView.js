@@ -1,5 +1,4 @@
 App.Views.MatrixMenu = Backbone.View.extend({
-
   template: App.templates.matrixMenu,
 
   gridClass: "js-matrixMenuTabs",
@@ -17,15 +16,15 @@ App.Views.MatrixMenu = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function (){
+  listen: function() {
     this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleMatrixMenuTabActveRequest);
   },
 
-  render: function(){
+  render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    _.each(this.tabs, function(tab){
+    _.each(this.tabs, function(tab) {
       var options = {
         label: tab.label
       };
@@ -43,10 +42,10 @@ App.Views.MatrixMenu = Backbone.View.extend({
     };
   },
 
-  handleMatrixMenuTabActveRequest: function(selectedTab){
+  handleMatrixMenuTabActveRequest: function(selectedTab) {
     var that = this;
-    _.each(this.tabs, function(tab){
-      if(selectedTab.label === tab.label) {
+    _.each(this.tabs, function(tab) {
+      if (selectedTab.label === tab.label) {
         selectedTab.makeActive();
         App.Dispatcher.trigger("SkillChangeRequested:"+tab.key);
       } else {

@@ -10,16 +10,23 @@ describe('App.Views.StageStimulusLetters', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageStimulus" });
     subject = new App.Views.StageStimulusLetters({el: '.js-stageStimulus'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
+  });
+
+  it("calls listen on initialize", function() {
+    sinon.spy(subject, "listen");
+    subject.initialize();
+    expect(subject.listen).to.have.been.called;
   });
 
   it("#listen", function() {
@@ -28,8 +35,7 @@ describe('App.Views.StageStimulusLetters', function() {
     expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, subject.handleSkillChangeRequest);
   });
 
-
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
@@ -41,4 +47,7 @@ describe('App.Views.StageStimulusLetters', function() {
     expect(subject.render).to.have.been.calledWith(stimulus);
   });
 
+  xit("#handleFlipScreenRequest", function() {
+
+  });
 });

@@ -10,25 +10,34 @@ describe('App.Views.StageStimulusWords', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageStimulus" });
     subject = new App.Views.StageStimulusWords({el: '.js-stageStimulus'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillChangeRequest);
+  describe("#listen", function() {
+    it("listens to the stimulus change request for sight words", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillChangeRequest);
+    });
+
+    it("listens to the stimulus change request for onset rimes", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.onsetRimes, subject.handleSkillChangeRequest);
+    });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
@@ -39,5 +48,4 @@ describe('App.Views.StageStimulusWords', function() {
     subject.handleSkillChangeRequest(stimulus);
     expect(subject.render).to.have.been.calledWith(stimulus);
   });
-
 });

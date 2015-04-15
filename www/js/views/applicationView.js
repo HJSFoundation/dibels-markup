@@ -1,7 +1,7 @@
 App.Views.Application = Backbone.View.extend({
   initialize: function() {
     this.loginView = new App.Views.Login({ el: this.$el });
-    this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
+    this.listen();
 
     App.stimuliLetters = new App.Collections.Stimuli({localStorageName: "stimuliLetters"});
     App.stimuliLetters.fetch();
@@ -83,6 +83,10 @@ App.Views.Application = Backbone.View.extend({
       App.students.create({id: 4, firstname: "Clint", lastname: "Eastman", readingStage: 4});
       App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch", readingStage: 5});
     }
+  },
+
+  listen: function() {
+    this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
   },
 
   handleLoggedIn: function() {

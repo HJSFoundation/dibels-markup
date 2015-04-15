@@ -10,12 +10,13 @@ describe('App.Views.ButtonTimer', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonTimer" });
     subject = new App.Views.ButtonTimer({el: '.js-buttonTimer'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -29,16 +30,17 @@ describe('App.Views.ButtonTimer', function() {
   });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
   describe("handlers", function() {
-
     it("#handleDisplayTimer", function() {
       var displayTimer = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
@@ -46,8 +48,5 @@ describe('App.Views.ButtonTimer', function() {
       expect(App.Dispatcher.trigger).to.have.been.calledWith("displayTimerButtonTapped");
       App.Dispatcher.trigger.restore();
     });
-
-  });    
-
-  
+  });
 });

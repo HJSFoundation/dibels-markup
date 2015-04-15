@@ -17,7 +17,7 @@ App.Views.Drawer = Backbone.View.extend({
     this.render();
   },
 
-  listen: function (){
+  listen: function() {
     this.listenTo(App.Dispatcher, "toggleDrawerRequest", this.handleToggleDrawerRequest);
   },
 
@@ -26,17 +26,17 @@ App.Views.Drawer = Backbone.View.extend({
     this.cacheElements();
   },
 
-  cacheElements: function(){
+  cacheElements: function() {
     this.$drawer = $(".js-drawer");
   },
 
-  open: function () {
+  open: function() {
     this.$drawer.removeClass("st-closed");
     this.$drawer.addClass("st-open");
     this.isOpen = true;
   },
 
-  close: function () {
+  close: function() {
     this.$drawer.removeClass("st-open");
     this.$drawer.addClass("st-closed");
     this.isOpen = false;

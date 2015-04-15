@@ -19,17 +19,14 @@ describe('App.Views.ButtonClear', function() {
     _.bindAll.restore();
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
-  });
-
   it("has a template", function() {
     expect(subject.template()).to.exist;
-    expect(subject.template).to.equal(App.templates.buttonClear);
   });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
   });
 
   it("renders", function() {

@@ -9,11 +9,11 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function(){
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillChangeRequest)
+  listen: function() {
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillChangeRequest);
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
@@ -29,7 +29,7 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
     };
   },
 
-  handleSkillChangeRequest: function  () {
+  handleSkillChangeRequest: function() {
     this.render();
   }
 });

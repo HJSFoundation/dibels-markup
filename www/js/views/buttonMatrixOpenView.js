@@ -10,7 +10,7 @@ App.Views.ButtonMatrixOpen = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function (){
+  listen: function() {
     this.listenTo(App.Dispatcher, "closeMatrix", this.render);
   },
 
@@ -23,5 +23,4 @@ App.Views.ButtonMatrixOpen = Backbone.View.extend({
     this.$el.empty();
     App.Dispatcher.trigger('openMatrix');
   }
-
 });

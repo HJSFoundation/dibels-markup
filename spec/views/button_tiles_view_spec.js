@@ -10,12 +10,13 @@ describe('App.Views.ButtonTiles', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonTiles" });
     subject = new App.Views.ButtonTiles({el: '.js-buttonTiles'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -23,7 +24,9 @@ describe('App.Views.ButtonTiles', function() {
   });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
   });
 
   it("renders", function() {

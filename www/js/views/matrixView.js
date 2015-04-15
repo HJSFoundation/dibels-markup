@@ -13,12 +13,11 @@ App.Views.Matrix = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function () {
+  listen: function() {
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
   },
 
   render: function() {
     this.$el.html(this.template());
   }
-
 });

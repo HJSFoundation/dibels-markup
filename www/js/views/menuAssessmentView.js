@@ -18,7 +18,7 @@ App.Views.MenuAssessment = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  handleClick: function(){
+  handleClick: function() {
     console.log("clicked");
     return false;
   }

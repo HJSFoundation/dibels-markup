@@ -17,5 +17,4 @@ App.Views.ButtonTimer = Backbone.View.extend({
   handleDisplayTimer: function() {
     App.Dispatcher.trigger('displayTimerButtonTapped');
   }
-
 });

@@ -19,7 +19,7 @@ App.Views.Stage = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
     this.listenTo(App.Dispatcher, "openMatrix", this.handleOpenMatrix);
   },
@@ -28,12 +28,11 @@ App.Views.Stage = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  handleCloseMatrix: function (){
+  handleCloseMatrix: function() {
     this.$el.addClass("stage--workspace--full");
   },
 
-  handleOpenMatrix: function (){
+  handleOpenMatrix: function() {
     this.$el.removeClass("stage--workspace--full");
   }
-
 });

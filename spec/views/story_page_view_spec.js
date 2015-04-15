@@ -19,13 +19,8 @@ describe('App.Views.StoryPage', function() {
     _.bindAll.restore();
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
-  });
-
   it("has a template", function() {
     expect(subject.template()).to.exist;
-    expect(subject.template).to.equal(App.templates.storyPage);
   });
 
   describe("events", function() {
@@ -41,8 +36,7 @@ describe('App.Views.StoryPage', function() {
   });
 
 
-  describe("render", function() {
-
+  describe("#render", function() {
     beforeEach(function() {
       subject.render();
     });
@@ -64,19 +58,21 @@ describe('App.Views.StoryPage', function() {
     });
   });
 
-  it("#removeView", function(){
-
+  it("#removeView", function() {
     subject.render();
     subject.removeView();
     expect(subject.$el).to.be.empty;
   });
 
-  it("#listen", function(){
+  it("#listen", function() {
     subject.listenTo = sinon.spy();
     subject.listen();
     expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, subject.handleSkillChangeRequest);
   });
 
-
- 
+  it("#handleSkillChangeRequest", function() {
+    sinon.spy(subject, "render");
+    subject.handleSkillChangeRequest();
+    expect(subject.render).to.have.been.called;
+  });
 });

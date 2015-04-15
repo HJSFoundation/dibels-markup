@@ -3,9 +3,9 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
 
   tagName: "a",
   className: "menu--tab grid-cell",
-  
+
   events: {
-    "click": "handleClick"
+    "click" : "handleClick"
   },
 
   initialize: function(options) {
@@ -26,18 +26,17 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
     };
   },
 
-  makeActive: function(){
+  makeActive: function() {
     this.status = "st-active";
     this.render();
   },
 
-  makeInactive: function(){
+  makeInactive: function() {
     this.status = "";
     this.render();
   },
 
-  handleClick: function(){
+  handleClick: function() {
     App.Dispatcher.trigger("matrixMenuTabActiveRequest", this);
   }
-
 });

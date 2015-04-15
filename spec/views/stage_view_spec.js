@@ -10,12 +10,13 @@ describe('App.Views.Stage', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stage" });
     subject = new App.Views.Stage({el: '.js-stage'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -24,15 +25,23 @@ describe('App.Views.Stage', function() {
 
   describe("initialize", function() {
     it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
+    });
+
+    it("calls listen on initialize", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
     });
 
     it("creates a button drawer toggle view", function() {
-      expect(subject.buttonDrawerToggleView).not.to.be.undefined;
+      expect(subject.buttonDrawerToggleView).to.be.an.instanceOf(App.Views.ButtonDrawerToggle);
     });
 
     it("creates a drawer view", function() {
-      expect(subject.drawerView).not.to.be.undefined;
+      expect(subject.drawerView).to.be.an.instanceOf(App.Views.Drawer);
     });
 
     it("creates a stage stimulus letters view", function() {
@@ -47,37 +56,59 @@ describe('App.Views.Stage', function() {
       expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
     });
 
+    it("creates a story page view", function() {
+      expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
+    });
+
     it("creates a button flip view", function() {
-      expect(subject.buttonFlipView).not.to.be.undefined;
+      expect(subject.buttonFlipView).to.be.an.instanceOf(App.Views.ButtonFlip);
     });
 
     it("creates a button timer view", function() {
-      expect(subject.buttonTimerView).not.to.be.undefined;
+      expect(subject.buttonTimerView).to.be.an.instanceOf(App.Views.ButtonTimer);
     });
 
     it("creates a menu assessment view", function() {
-      expect(subject.menuAssessmentView).not.to.be.undefined;
+      expect(subject.menuAssessmentView).to.be.an.instanceOf(App.Views.MenuAssessment);
     });
 
     it("creates a menu activity view", function() {
-      expect(subject.menuActivityView).not.to.be.undefined;
+      expect(subject.menuActivityView).to.be.an.instanceOf(App.Views.MenuActivity);
+    });
+
+    it("creates a button matrix open view", function() {
+      expect(subject.menuActivityView).to.be.an.instanceOf(App.Views.MenuActivity);
     });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#listen", function (){
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+  describe("#listen", function() {
+    it("listens for the close matrix event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+    });
+
+    it("listens for the open matrix event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "openMatrix", subject.handleOpenMatrix);
+    });
   });
 
-  it("#handleCloseMatrix", function(){
-    subject.handleCloseMatrix();
-    expect(subject.$el).to.have.class("stage--workspace--full");
-  });
+  describe("handlers", function() {
+    it("#handleCloseMatrix", function() {
+      subject.handleCloseMatrix();
+      expect(subject.$el).to.have.class("stage--workspace--full");
+    });
 
+    it("#handleOpenMatrix", function() {
+      subject.handleOpenMatrix();
+      expect(subject.$el).not.to.have.class("stage--workspace--full");
+    });
+  });
 });

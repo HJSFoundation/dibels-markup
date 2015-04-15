@@ -33,13 +33,16 @@ describe('App.Views.Application', function() {
       expect(subject.loginView.$el.find('#loginContainer')).to.exist;
     });
 
-    // it("listens for the loginSuccess event", function() {
-    //   var listenTo = sinon.spy;
-    //   subject.listen();
-    //   expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "toggleDrawerRequest", subject.handleToggleDrawerRequest);
-      // var handleLoggedIn = sinon.spy();
-      // App.Dispatcher.trigger('loginSuccess', handleLoggedIn);
-      // expect(handleLoggedIn).to.have.been.called;
-    // });
+    it("calls listen", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
+    });
+  });
+
+  it("#listen", function() {
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "loginSuccess", subject.handleLoggedIn);
   });
 });

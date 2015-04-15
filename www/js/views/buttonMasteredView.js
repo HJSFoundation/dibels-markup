@@ -14,7 +14,7 @@ App.Views.ButtonMastered = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  handleClick: function (){
+  handleClick: function() {
     console.log("buttonMasterd clicked");
     return false;
   }

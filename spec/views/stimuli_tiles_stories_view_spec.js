@@ -10,12 +10,13 @@ describe('App.Views.StimuliTilesStories', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
     subject = new App.Views.StimuliTilesStories({el: '.js-stimuliTiles'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -23,9 +24,10 @@ describe('App.Views.StimuliTilesStories', function() {
   });
 
   describe("initialize", function() {
-
-    it("creates a tab view", function() {
-      expect(subject.$el.first()).not.to.be.undefined;
+    it("calls listen on initialize", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
     });
   });
 
@@ -46,5 +48,10 @@ describe('App.Views.StimuliTilesStories', function() {
     expect(subject.render).to.have.been.called;
   });
 
+  describe("#templateJSON", function() {
+    it("returns a jsClass", function() {
+      expect(subject.templateJSON().jsClass).to.equal(subject.gridClass);
+    });
+  });
 
 });

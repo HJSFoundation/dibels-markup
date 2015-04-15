@@ -10,8 +10,13 @@ describe('App.Views.Matrix', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrix" });
     subject = new App.Views.Matrix({el: '.js-matrix'});
+  });
+
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a reference to the element", function() {
@@ -24,7 +29,9 @@ describe('App.Views.Matrix', function() {
 
   describe("initialize", function() {
     it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
     });
 
     it("creates a matrix menu view", function() {
@@ -50,6 +57,12 @@ describe('App.Views.Matrix', function() {
     it("creates a student selector view", function() {
       expect(subject.matrixStudentSelectorView).not.to.be.undefined;
     });
+
+    it("calls listen on initialize", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
+    });
   });
 
   it("renders", function() {
@@ -57,10 +70,9 @@ describe('App.Views.Matrix', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#listen", function (){
+  it("#listen", function () {
     sinon.spy(subject, "listenTo");
     subject.listen();
     expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
   });
-
 });

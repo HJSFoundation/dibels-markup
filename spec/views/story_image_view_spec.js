@@ -10,20 +10,25 @@ describe('App.Views.StoryImage', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-storyImage" });
     subject = new App.Views.StoryImage({el: '.js-storyImage'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+  describe("#initialize", function() {
+    it("calls render on initialize", function() {
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
+    });
   });
 
   it("renders", function() {

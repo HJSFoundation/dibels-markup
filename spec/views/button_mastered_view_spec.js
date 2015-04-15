@@ -10,12 +10,13 @@ describe('App.Views.ButtonMastered', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonMastered" });
     subject = new App.Views.ButtonMastered({el: '.js-buttonMastered'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -26,10 +27,12 @@ describe('App.Views.ButtonMastered', function() {
     it("handles the click event", function(){
       expect(subject.events.click).to.equal('handleClick');
     });
-  });  
+  });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
   });
 
   it("renders", function() {
@@ -38,8 +41,8 @@ describe('App.Views.ButtonMastered', function() {
   });
 
   describe("handlers", function() {
-    xit("#handleClick", function(){
-      expect(subject.handleClick).to.return(false);
+    it("#handleClick", function(){
+      expect(subject.handleClick()).to.equal(false);
     });
-  });  
+  });
 });

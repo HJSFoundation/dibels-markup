@@ -7,19 +7,18 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.listen();
-
   },
 
-  listen: function(){
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillChangeRequest)
+  listen: function() {
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillChangeRequest);
   },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    var i=0;
-    App.stimuliStories.each(function(stimulus){
+    var i = 0;
+    App.stimuliStories.each(function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.$gridClass.append(view.render().el);
     });
@@ -31,8 +30,7 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     };
   },
 
-  handleSkillChangeRequest: function  () {
+  handleSkillChangeRequest: function() {
     this.render();
   }
-
 });

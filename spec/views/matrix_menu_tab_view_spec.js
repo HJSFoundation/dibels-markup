@@ -9,36 +9,40 @@ describe('App.Views.MatrixMenuTab', function() {
     xhr.onCreate = function(xhr) {
       requests.push(xhr);
     };
+
     var options = {
-        tagName: "a",
-        className:  "menu--tab grid-cell",
-        label: "STORIES"
-      };
+      tagName: "a",
+      className:  "menu--tab grid-cell",
+      label: "STORIES",
+      status: ""
+    };
+
     appendFixture("div", { class: options.className });
     subject = new App.Views.MatrixMenuTab(options);
-  });
-
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
   });
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
+  it("#templateJSON", function() {
+    expect(subject.templateJSON().label).to.equal(subject.label);
+    expect(subject.templateJSON().status).to.equal(subject.status);
+  });
+
   describe('helper functions', function() {
-    it("#makeActive", function(){
+    it("#makeActive", function() {
       subject.render();
       subject.makeActive();
       expect(subject.el.firstChild.className).to.contain("st-active");
     });
 
-    it("#makeInactive", function(){
+    it("#makeInactive", function() {
       subject.render();
       subject.makeActive();
       expect(subject.el.firstChild.className).to.contain("st-active");
@@ -48,16 +52,12 @@ describe('App.Views.MatrixMenuTab', function() {
   });
 
   describe("handlers", function() {
-
-    afterEach(function() {
-      App.Dispatcher.trigger.restore();
-    });
-
     it("#handleClick", function() {
       var matrixMenuTabActiveRequest = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleClick();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixMenuTabActiveRequest");
+      App.Dispatcher.trigger.restore();
     });
   });
 });

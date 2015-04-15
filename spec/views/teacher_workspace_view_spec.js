@@ -10,11 +10,12 @@ describe('App.Views.TeacherWorkspace', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     subject = new App.Views.TeacherWorkspace({el: '#applicationContainer'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -23,19 +24,21 @@ describe('App.Views.TeacherWorkspace', function() {
 
   describe("initialize", function() {
     it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
     });
 
     it("creates a stage view", function() {
-      expect(subject.stageView).not.to.be.undefined;
+      expect(subject.stageView).to.be.an.instanceOf(App.Views.Stage);
     });
 
     it("creates a matrix view", function() {
-      expect(subject.matrixView).not.to.be.undefined;
+      expect(subject.matrixView).to.be.an.instanceOf(App.Views.Matrix);
     });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });

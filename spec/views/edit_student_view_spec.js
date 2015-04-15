@@ -19,10 +19,6 @@ describe('App.Views.EditStudent', function() {
     _.bindAll.restore();
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
-  });
-
   it("has a template", function() {
     expect(subject.template()).to.exist;
     expect(subject.template).to.equal(App.templates.editStudent);
@@ -45,6 +41,4 @@ describe('App.Views.EditStudent', function() {
     subject.handleClick();
     expect(subject.$el).to.be.empty;
   });
-
 });
-// 

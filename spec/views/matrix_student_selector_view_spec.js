@@ -28,22 +28,17 @@ describe('App.Views.MatrixStudentSelector', function() {
   });
 
   describe("initialize", function() {
-    it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
-    });
-
     it("calls render", function() {
       sinon.spy(subject, "render");
       subject.initialize();
       expect(subject.render).to.have.been.called;
-    }); 
+    });
 
     it("calls listen", function() {
       sinon.spy(subject, "listen");
       subject.initialize();
       expect(subject.listen).to.have.been.called;
     });
-
   });
 
   describe("#render", function() {
@@ -76,7 +71,7 @@ describe('App.Views.MatrixStudentSelector', function() {
         expect(makeActive).to.have.been.called;
       });
 
-      it("inactivates the non clicked tabs", function(){
+      it("inactivates the non clicked tabs", function() {
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
         subject.tabs[4].makeInactive = makeInactive;
@@ -86,5 +81,4 @@ describe('App.Views.MatrixStudentSelector', function() {
       });
     });
   });
-
 });

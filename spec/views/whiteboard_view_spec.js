@@ -10,12 +10,13 @@ describe('App.Views.Whiteboard', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-drawerOverlay" });
     subject = new App.Views.Whiteboard({el: '.js-drawerOverlay'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -29,10 +30,14 @@ describe('App.Views.Whiteboard', function() {
   });
 
   it("calls render on initialize", function() {
-    expect(subject.$el).not.to.be.empty;
+    it("calls render on initialize", function() {
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
+    });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });

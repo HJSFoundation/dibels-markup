@@ -9,23 +9,23 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function (){
+  listen: function() {
     this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleMatrixStudentSelectorTabActiveRequest);
   },
 
   render: function() {
     this.$el.html(this.template());
     var that = this;
-    App.students.each(function(student){
+    App.students.each(function(student) {
       var view = that.tabs[student.id] = (new App.Views.MatrixStudentSelectorTab({ model: student}));
       $('.js-matrixStudentSelectorTabs').append(view.render().el);
     });
   },
 
-  handleMatrixStudentSelectorTabActiveRequest: function(selectedTab){
+  handleMatrixStudentSelectorTabActiveRequest: function(selectedTab) {
     var that = this;
-    _.each(this.tabs, function(tab){
-      if(selectedTab.id === tab.id) {
+    _.each(this.tabs, function(tab) {
+      if (selectedTab.id === tab.id) {
         selectedTab.makeActive();
         // App.Dispatcher.trigger("StudentChangeRequested");
       } else {
@@ -33,5 +33,4 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
       }
     });
   }
-
 });

@@ -12,4 +12,3 @@ App.Views.TeacherWorkspace = Backbone.View.extend({
     this.$el.html(this.template());
   }
 });
-

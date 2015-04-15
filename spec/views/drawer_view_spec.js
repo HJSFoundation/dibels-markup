@@ -10,12 +10,13 @@ describe('App.Views.Drawer', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageDrawer" });
     subject = new App.Views.Drawer({el: '.js-stageDrawer'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -33,17 +34,25 @@ describe('App.Views.Drawer', function() {
     });
   });
 
-  describe("initalize", function() {
+  describe("#initalize", function() {
     it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
     });
 
     it("creates an isOpen property", function() {
       expect(subject.isOpen).to.equal(false);
     });
+
+    it("calls listen on initialize", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
+    });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
@@ -102,31 +111,31 @@ describe('App.Views.Drawer', function() {
     it("#handleReadingStageRequest", function() {
       expect(subject.readingStageView).to.be.undefined;
       subject.handleReadingStageRequest();
-      expect(subject.readingStageView).not.to.be.undefined;
+      expect(subject.readingStageView).to.be.an.instanceOf(App.Views.ReadingStage);
     });
 
     it("#handleAssessmentsRequest", function() {
       expect(subject.assessmentView).to.be.undefined;
       subject.handleAssessmentsRequest();
-      expect(subject.assessmentView).not.to.be.undefined;
+      expect(subject.assessmentView).to.be.an.instanceOf(App.Views.Assessment);
     });
 
     it("#handleAssignmentsRequest", function() {
       expect(subject.assignmentsView).to.be.undefined;
       subject.handleAssignmentsRequest();
-      expect(subject.assignmentsView).not.to.be.undefined;
+      expect(subject.assignmentsView).to.be.an.instanceOf(App.Views.Assignment);
     });
 
     it("#handleWhiteboardRequest", function() {
       expect(subject.whiteboardView).to.be.undefined;
       subject.handleWhiteboardRequest();
-      expect(subject.whiteboardView).not.to.be.undefined;
+      expect(subject.whiteboardView).to.be.an.instanceOf(App.Views.Whiteboard);
     });
 
     it("#handleLeveledStoriesRequest", function() {
       expect(subject.leveledStoriesView).to.be.undefined;
       subject.handleLeveledStoriesRequest();
-      expect(subject.leveledStoriesView).not.to.be.undefined;
+      expect(subject.leveledStoriesView).to.be.an.instanceOf(App.Views.LeveledStories);
     });
   });
 });

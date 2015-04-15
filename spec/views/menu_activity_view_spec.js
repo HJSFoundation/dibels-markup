@@ -10,12 +10,13 @@ describe('App.Views.MenuActivity', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-menuActivity" });
     subject = new App.Views.MenuActivity({el: '.js-menuActivity'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -24,7 +25,9 @@ describe('App.Views.MenuActivity', function() {
 
   describe("initialize", function() {
     it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
     });
 
     it("creates a button phrases view", function() {
@@ -44,5 +47,4 @@ describe('App.Views.MenuActivity', function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
-
 });

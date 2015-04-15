@@ -14,10 +14,6 @@ describe('App.Views.StageStimulusPhrases', function() {
     subject = new App.Views.StageStimulusPhrases({el: '.js-stageStimulus'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
-  });
-
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });

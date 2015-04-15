@@ -10,12 +10,13 @@ describe('App.Views.MenuAssessment', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-menuAssessment" });
     subject = new App.Views.MenuAssessment({el: '.js-menuAssessment'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -24,23 +25,25 @@ describe('App.Views.MenuAssessment', function() {
 
   describe("initialize", function() {
     it("calls render on initialize", function() {
-      expect(subject.$el).not.to.be.empty;
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
     });
 
     it("creates a button mastered view", function() {
-      expect(subject.buttonMasteredView).not.to.be.undefined;
+      expect(subject.buttonMasteredView).to.be.an.instanceOf(App.Views.ButtonMastered);
     });
 
     it("creates a button learning view", function() {
-      expect(subject.buttonLearningView).not.to.be.undefined;
+      expect(subject.buttonLearningView).to.be.an.instanceOf(App.Views.ButtonLearning);
     });
 
     it("creates a button needs work view", function() {
-      expect(subject.buttonNeedsWorkView).not.to.be.undefined;
+      expect(subject.buttonNeedsWorkView).to.be.an.instanceOf(App.Views.ButtonNeedsWork);
     });
 
     it("creates a button clear view", function() {
-      expect(subject.buttonClearView).not.to.be.undefined;
+      expect(subject.buttonClearView).to.be.an.instanceOf(App.Views.ButtonClear);
     });
   });
 

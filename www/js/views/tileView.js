@@ -2,7 +2,7 @@ App.Views.Tile = Backbone.View.extend({
   template: App.templates.tile,
 
   events: {
-    "click": "handleClick"
+    "click" : "handleClick"
   },
 
   initialize: function(options) {
@@ -27,7 +27,7 @@ App.Views.Tile = Backbone.View.extend({
   //   this.render();
   // },
 
-  handleClick: function(){
+  handleClick: function() {
     console.log(this.model.get('stimulus'));
     App.Dispatcher.trigger("StimulusChangeRequested:"+this.model.get("skill"), {stimulus: this.model.get("stimulus")});
   }

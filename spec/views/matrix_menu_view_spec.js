@@ -10,20 +10,36 @@ describe('App.Views.MatrixMenu', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrixMenu" });
     subject = new App.Views.MatrixMenu({el: '.js-matrixMenu'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });
 
-  describe("initialize", function() {
+  describe("#initialize", function() {
     it("calls render on initialize", function() {
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
+    });
+
+    it("calls listen on initialize", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
+    });
+  });
+
+  describe("#render", function() {
+    it("renders when render is called", function() {
+      subject.render();
       expect(subject.$el).not.to.be.empty;
     });
 
@@ -52,11 +68,6 @@ describe('App.Views.MatrixMenu', function() {
     });
   });
 
-  it("renders", function() {
-    subject.render();
-    expect(subject.$el).not.to.be.empty;
-  });
-
   describe("helper functions", function() {
     it("#listen", function() {
       sinon.spy(subject, "listenTo");
@@ -70,7 +81,7 @@ describe('App.Views.MatrixMenu', function() {
   });
 
   describe("dispatcher handlers", function() {
-    describe("#handleMatrixMenuTabActveRequest", function () {
+    describe("#handleMatrixMenuTabActveRequest", function() {
       beforeEach(function() {
         subject.render();
       });
@@ -82,7 +93,7 @@ describe('App.Views.MatrixMenu', function() {
         expect(makeActive).to.have.been.called;
       });
 
-      it("inactivates the non clicked tabs", function(){
+      it("inactivates the non clicked tabs", function() {
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
         subject.Affixes.makeInactive = makeInactive;

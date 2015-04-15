@@ -10,12 +10,13 @@ describe('App.Views.ButtonMatrixOpen', function() {
       requests.push(xhr);
     };
 
+    sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonMatrixOpen" });
     subject = new App.Views.ButtonMatrixOpen({el: '.js-buttonMatrixOpen'});
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
+  afterEach(function() {
+    _.bindAll.restore();
   });
 
   it("has a template", function() {
@@ -28,21 +29,25 @@ describe('App.Views.ButtonMatrixOpen', function() {
     });
   });
 
-  it("renders", function() {
+  describe("#initialize", function() {
+    it("calls listen", function() {
+      sinon.spy(subject, "listen");
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
+    });
+  });
+
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
   describe("handlers", function() {
-
-    afterEach(function() {
-      App.Dispatcher.trigger.restore();
-    });
-
     it("#handleOpenMatrix", function() {
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleOpenMatrix();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("openMatrix");
+      App.Dispatcher.trigger.restore();
     });
   });
 });

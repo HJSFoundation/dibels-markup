@@ -6,14 +6,12 @@ App.Views.StageStimulusLetters = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.listen();
-
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(App.Dispatcher, "flipScreenButtonTapped", this.handleFlipScreenRequest);
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, this.handleSkillChangeRequest);
   },
-
 
   render: function(stimulus) {
     // this.$el.html(this.template(this.templateJSON()));
@@ -27,19 +25,17 @@ App.Views.StageStimulusLetters = Backbone.View.extend({
   //   }
   // },
 
-  handleSkillChangeRequest: function  (stimulus) {
+  handleSkillChangeRequest: function(stimulus) {
     // this.stimulus = stimulus;
     this.render(stimulus);
   },
 
-  handleFlipScreenRequest: function (){letters
-    if(this.flipped){
+  handleFlipScreenRequest: function() {
+    if (this.flipped) {
       this.$el.removeClass("st-flipped");
-    }else{
+    } else {
       this.$el.addClass("st-flipped");
     }
-    this.flipped=  !this.flipped;
+    this.flipped = !this.flipped;
   }
-
-  
 });
