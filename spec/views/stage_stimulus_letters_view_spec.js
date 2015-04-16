@@ -29,11 +29,14 @@ describe('App.Views.StageStimulusLetters', function() {
     expect(subject.listen).to.have.been.called;
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, subject.handleSkillChangeRequest);
+  describe("#listen", function() {
+    it("listens for the StimulusChangeRequested:Letters", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, subject.handleSkillChangeRequest);
+    });
   });
+
 
   it("#render", function() {
     subject.render();
@@ -45,9 +48,5 @@ describe('App.Views.StageStimulusLetters', function() {
     var stimulus = "a";
     subject.handleSkillChangeRequest(stimulus);
     expect(subject.render).to.have.been.calledWith(stimulus);
-  });
-
-  xit("#handleFlipScreenRequest", function() {
-
   });
 });

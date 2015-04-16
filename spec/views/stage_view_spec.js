@@ -98,6 +98,12 @@ describe('App.Views.Stage', function() {
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "openMatrix", subject.handleOpenMatrix);
     });
+
+    it("listens for the flipScreenButtonTapped", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "flipScreenButtonTapped", subject.handleFlipScreenRequest);
+    });
   });
 
   describe("handlers", function() {
@@ -109,6 +115,13 @@ describe('App.Views.Stage', function() {
     it("#handleOpenMatrix", function() {
       subject.handleOpenMatrix();
       expect(subject.$el).not.to.have.class("stage--workspace--full");
+    });
+
+    it("#handleFlipScreenRequest", function() {
+      subject.handleFlipScreenRequest();
+      expect($(subject.stageStimulusEl)).to.have.class("st-flipped");
+      subject.handleFlipScreenRequest();
+      expect($(subject.stageStimulusEl)).to.have.class("st-unflipped");
     });
   });
 });

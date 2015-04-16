@@ -1,14 +1,17 @@
 App.Views.Stage = Backbone.View.extend({
   template: App.templates.stage,
 
+  flipped: false,
+  stageStimulusEl: ".js-stageStimulus",
+
   initialize: function() {
     _.bindAll(this);
     this.render();
     this.buttonDrawerToggleView = new App.Views.ButtonDrawerToggle({ el: ".js-buttonDrawerToggle"});
     this.drawerView = new App.Views.Drawer({ el: ".js-stageDrawer"});
-    this.stageStimulusLettersView = new App.Views.StageStimulusLetters({ el: ".js-stageStimulus"});
-    this.stageStimulusWordsView = new App.Views.StageStimulusWords({ el: ".js-stageStimulus"});
-    this.stageStimulusPhrasesView = new App.Views.StageStimulusPhrases({ el: ".js-stageStimulus"});
+    this.stageStimulusLettersView = new App.Views.StageStimulusLetters({ el: this.stageStimulusEl});
+    this.stageStimulusWordsView = new App.Views.StageStimulusWords({ el: this.stageStimulusEl});
+    this.stageStimulusPhrasesView = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
     this.storyPageView = new App.Views.StoryPage({ el: ".js-overlay"});
 
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip"});
@@ -22,6 +25,7 @@ App.Views.Stage = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
     this.listenTo(App.Dispatcher, "openMatrix", this.handleOpenMatrix);
+    this.listenTo(App.Dispatcher, "flipScreenButtonTapped", this.handleFlipScreenRequest);
   },
 
   render: function() {
@@ -34,5 +38,17 @@ App.Views.Stage = Backbone.View.extend({
 
   handleOpenMatrix: function() {
     this.$el.removeClass("stage--workspace--full");
+  },
+
+  handleFlipScreenRequest: function() {
+    var $sel = $(this.stageStimulusEl);
+    if (this.flipped) {
+      $sel.addClass("st-unflipped");
+      $sel.removeClass("st-flipped");
+    } else {
+      $sel.addClass("st-flipped");
+      $sel.removeClass("st-unflipped");
+    }
+    this.flipped = !this.flipped;
   }
 });
