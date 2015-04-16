@@ -15,7 +15,8 @@ App.Views.ButtonMastered = Backbone.View.extend({
   },
 
   handleClick: function() {
-    console.log("buttonMasterd clicked");
+    console.log("buttonMastered clicked");
+    App.Dispatcher.trigger("buttonAssessmentClicked","Mastered");
     return false;
   }
 });
