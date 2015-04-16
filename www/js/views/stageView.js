@@ -14,7 +14,7 @@ App.Views.Stage = Backbone.View.extend({
     this.stageStimulusPhrasesView = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
     this.storyPageView = new App.Views.StoryPage({ el: ".js-overlay"});
 
-    this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip"});
+    this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", eventName: "flipStageButtonTapped"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});
     this.menuAssessmentView = new App.Views.MenuAssessment({ el: ".js-menuAssessment"});
     this.menuActivityView = new App.Views.MenuActivity({ el: ".js-menuActivity"});
@@ -25,7 +25,7 @@ App.Views.Stage = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
     this.listenTo(App.Dispatcher, "openMatrix", this.handleOpenMatrix);
-    this.listenTo(App.Dispatcher, "flipScreenButtonTapped", this.handleFlipScreenRequest);
+    this.listenTo(App.Dispatcher, "flipStageButtonTapped", this.handleFlipStageRequest);
   },
 
   render: function() {
@@ -40,7 +40,7 @@ App.Views.Stage = Backbone.View.extend({
     this.$el.removeClass("stage--workspace--full");
   },
 
-  handleFlipScreenRequest: function() {
+  handleFlipStageRequest: function() {
     var $sel = $(this.stageStimulusEl);
     if (this.flipped) {
       $sel.addClass("st-unflipped");

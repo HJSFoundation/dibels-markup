@@ -1,6 +1,8 @@
 App.Views.Tile = Backbone.View.extend({
   template: App.templates.tile,
 
+  selected: "",
+
   events: {
     "click" : "handleClick"
   },
@@ -28,7 +30,9 @@ App.Views.Tile = Backbone.View.extend({
   templateJSON: function() {
     return {
       index: this.index,
-      stimulus: this.model.get("stimulus")
+      stimulus: this.model.get("stimulus"),
+      assessment: this.assessment,
+      selected: this.selected
     };
   },
 
@@ -38,29 +42,19 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   handleButtonAssessmentClicked: function(assessment){
-
-    switch(assessment){
-      case "Mastered":
-      this.$el.css("background-color","green");
-      break;
-      case "Learning":
-      this.$el.css("background-color","yellow");
-      break;
-      case "NeedsWork":
-      this.$el.css("background-color","red");
-      break;
-      case "Clear":
-      this.$el.css("background-color","");
-      break;
-    }
+    this.assessment = "st-"+assessment;
+    this.render();
     console.log(this.model.get("stimulus"));
   },
 
   handleStimulusChangeRequested: function(options){
     if(options.stimulus === this.model.get("stimulus")){
+      this.selected = "st-selected";
       this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
     }else{
+      this.selected = "";
       this.stopListening(App.Dispatcher, "buttonAssessmentClicked");
     }
+    this.render();
   }
 });

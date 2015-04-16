@@ -5,8 +5,9 @@ App.Views.ButtonFlip = Backbone.View.extend({
     'click' : 'handleflipScreen'
   },
 
-  initialize: function() {
+  initialize: function(options) {
    _.bindAll(this);
+   this.eventName = options.eventName;
     this.render();
   },
 
@@ -15,6 +16,7 @@ App.Views.ButtonFlip = Backbone.View.extend({
   },
 
   handleflipScreen: function() {
-    App.Dispatcher.trigger('flipScreenButtonTapped');
+    App.Dispatcher.trigger(this.eventName);
+    return false;
   }
 });

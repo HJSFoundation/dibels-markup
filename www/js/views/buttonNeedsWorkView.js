@@ -16,7 +16,7 @@ App.Views.ButtonNeedsWork = Backbone.View.extend({
 
   handleClick: function() {
     console.log("buttonMastered clicked");
-    App.Dispatcher.trigger("buttonAssessmentClicked","NeedsWork");
+    App.Dispatcher.trigger("buttonAssessmentClicked","needsWork");
     return false;
   }
 

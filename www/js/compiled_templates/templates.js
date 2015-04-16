@@ -166,10 +166,10 @@ this["App"]["templates"]["stimuliTilesStories"] = Handlebars.template({"compiler
     + "\">\n    </div>\n  </div>\n</section>";
 },"useData":true});
 this["App"]["templates"]["storyImage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"story__image u-text-center\">\n  <img src=\"img/dentist1.jpg\" alt=\"dentist\">\n</div>";
+    return "<!-- \n<div class=\"story__image u-text-center\">\n  <img src=\"img/dentist1.jpg\" alt=\"dentist\">\n</div>\n\n\n -->\n<figure class=\"story__image js-storyFlip\">\n  <img src=\"img/dentist1.jpg\" alt=\"dentist\">\n  <figcaption class=\"story__text\">Here is a bunch of text for the story.</figcaption>\n</figure>\n<div class=\"story__text story__text--teacher js-storyTextTeacher\">\n  Here is a bunch of text for the story.\n</div>";
 },"useData":true});
 this["App"]["templates"]["storyPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"story\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"js-storyImage\"></div>\n  <footer class=\"story__footer\">\n    <div class=\"story__text story__text--footer js-storyTextFooter\">\n      Here is a bunch of text for the story.\n    </div>\n    <nav class=\"menu--assessment menu--assessment--story grid\">\n    <div class=\"js-storyMenuAssessment\">\n    </nav>\n    <div class=\"js-storyButtonFlip\"></div>\n  </footer>\n</div>";
+    return "<!-- <div class=\"story\"  style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\"> -->\n\n\n<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"js-storyImage\"></div>\n    <footer class=\"story__footer\">\n      <nav class=\"menu--assessment menu--assessment--story grid\">\n        <div class=\"js-storyMenuAssessment\"></div>\n      </nav>\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n    </footer>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -186,7 +186,11 @@ this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[
 this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<a href=\"#\" class=\"tile__title\">"
+  return "<a href=\"#\" class=\"tile__title  "
+    + alias3(((helper = (helper = helpers.assessment || (depth0 != null ? depth0.assessment : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"assessment","hash":{},"data":data}) : helper)))
+    + " "
+    + alias3(((helper = (helper = helpers.selected || (depth0 != null ? depth0.selected : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"selected","hash":{},"data":data}) : helper)))
+    + "\">"
     + alias3(((helper = (helper = helpers.index || (depth0 != null ? depth0.index : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
     + alias3(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
     + "</a>\n\n";
