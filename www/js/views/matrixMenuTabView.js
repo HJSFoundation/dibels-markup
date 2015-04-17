@@ -11,6 +11,7 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
   initialize: function(options) {
     _.bindAll(this);
     this.label = options.label;
+    this.key = options.key;
     this.status = "";
   },
 

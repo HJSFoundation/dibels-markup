@@ -26,7 +26,8 @@ App.Views.MatrixMenu = Backbone.View.extend({
     var that = this;
     _.each(this.tabs, function(tab) {
       var options = {
-        label: tab.label
+        label: tab.label,
+        key: tab.key
       };
       var view = that[tab.key] = new App.Views.MatrixMenuTab(options);
       that.$gridClass.append(view.render().el);
@@ -47,7 +48,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.each(this.tabs, function(tab) {
       if (selectedTab.label === tab.label) {
         selectedTab.makeActive();
-        App.Dispatcher.trigger("SkillChangeRequested:"+tab.key);
+        App.Dispatcher.trigger("SkillChangeRequested:"+tab.key);  
       } else {
         that[tab.key].makeInactive();
       }

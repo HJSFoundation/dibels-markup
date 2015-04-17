@@ -1,5 +1,5 @@
-App.Views.ButtonPhrases = Backbone.View.extend({
-  template: App.templates.buttonPhrases,
+App.Views.ButtonLetters = Backbone.View.extend({
+  template: App.templates.buttonLetters,
 
   initialize: function() {
     _.bindAll(this);
@@ -9,5 +9,4 @@ App.Views.ButtonPhrases = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template());
   }
-
 });
