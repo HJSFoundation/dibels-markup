@@ -3,6 +3,7 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
 
   gridClass: "js-stimuliTilesLetters",
   tileClass: "tile grid-cell u-text-center",
+  tiles: {},
 
   initialize: function() {
     _.bindAll(this);
@@ -19,7 +20,11 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
     var that = this;
     App.stimuliLetters.each(function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
+      that.tiles[stimulus.get("stimulus")] = view;
       that.$gridClass.append(view.render().el);
+    });
+    App.assessments.each(function(assessment){
+      that.tiles[assessment.get("stimulus")].setAssessment(assessment.get("assessment"));
     });
   },
 

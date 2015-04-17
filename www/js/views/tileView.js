@@ -36,15 +36,19 @@ App.Views.Tile = Backbone.View.extend({
     };
   },
 
+  setAssessment: function(assessment){
+    this.assessment = "st-"+assessment;
+    this.render();
+    console.log(this.model.get("stimulus"));
+  },
+
   handleClick: function() {
     console.log(this.model.get('stimulus'));
     App.Dispatcher.trigger("StimulusChangeRequested:"+this.model.get("skill"), {stimulus: this.model.get("stimulus")});
   },
 
   handleButtonAssessmentClicked: function(assessment){
-    this.assessment = "st-"+assessment;
-    this.render();
-    console.log(this.model.get("stimulus"));
+    this.setAssessment(assessment);
   },
 
   handleStimulusChangeRequested: function(options){

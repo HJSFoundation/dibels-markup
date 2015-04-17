@@ -83,7 +83,16 @@ App.Views.Application = Backbone.View.extend({
       App.students.create({id: 4, firstname: "Clint", lastname: "Eastman", readingStage: 4});
       App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch", readingStage: 5});
     }
-  },
+
+    App.assessments = new App.Collections.Assessments();
+    App.assessments.fetch();
+    // if(App.assessments.length===0){
+      App.assessments.create({stimulus: "a", assessment: "mastered"});
+      App.assessments.create({stimulus: "e", assessment: "learning"});
+      App.assessments.create({stimulus: "f", assessment: "needsWork"});
+      App.assessments.create({stimulus: "J", assessment: "clear"});
+    // }
+},
 
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
