@@ -37,6 +37,34 @@ describe('App.Views.Tile', function() {
     expect(subject.listen).to.have.been.called;
   });
 
+  describe("#listen", function() {
+    it("listens to stimulus change requested letters", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, subject.handleStimulusChangeRequested);
+    });
+    it("listens to stimulus change requested sight words", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleStimulusChangeRequested);
+    });
+    it("listens to stimulus change requested onset rimes", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.onsetRimes, subject.handleStimulusChangeRequested);
+    });
+    it("listens to stimulus change requested affixes", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.affixes, subject.handleStimulusChangeRequested);
+    });
+    it("listens to stimulus change requested stories", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, subject.handleStimulusChangeRequested);
+    });
+  });
+
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;

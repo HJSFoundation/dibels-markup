@@ -64,15 +64,50 @@ describe('App.Views.StoryPage', function() {
     expect(subject.$el).to.be.empty;
   });
 
-  it("#listen", function() {
-    subject.listenTo = sinon.spy();
-    subject.listen();
-    expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, subject.handleSkillChangeRequest);
+  describe("#listen", function() {
+    it("listens for stimulus change request for stories", function() {
+      subject.listenTo = sinon.spy();
+      subject.listen();
+      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, subject.handleSkillChangeRequest);
+    });
+    it("listens for flip story button tapped", function() {
+      subject.listenTo = sinon.spy();
+      subject.listen();
+      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "flipStoryButtonTapped", subject.handleFlipStoryRequest);
+    });
   });
 
-  it("#handleSkillChangeRequest", function() {
-    sinon.spy(subject, "render");
-    subject.handleSkillChangeRequest();
-    expect(subject.render).to.have.been.called;
+  describe("handlers", function() {
+    it("#handleSkillChangeRequest", function() {
+      sinon.spy(subject, "render");
+      subject.handleSkillChangeRequest();
+      expect(subject.render).to.have.been.called;
+    });
+
+    describe("#handleFlipStoryRequest", function() {
+      beforeEach(function() {
+        appendFixture("div", { class: "js-storyFlip" });
+        appendFixture("div", { class: "js-storyTextTeacher" });
+      });
+
+      it("handles flip story request from the flipped state", function() {
+        subject.flipped=true;
+        subject.handleFlipStoryRequest();
+        expect(subject.flipped).to.equal(false);
+        expect($(subject.storyStimulusEl)).to.have.class("st-unflipped");
+        expect($(subject.storyStimulusEl)).not.to.have.class("st-flipped");
+        expect($(".js-storyTextTeacher")).to.be.hidden;
+
+      });
+      it("handles flip story request from the unflipped state", function() {
+        subject.flipped=false;
+        subject.handleFlipStoryRequest();
+        expect(subject.flipped).to.equal(true);
+        expect($(subject.storyStimulusEl)).to.have.class("st-flipped");
+        expect($(subject.storyStimulusEl)).not.to.have.class("st-unflipped");
+        expect($(".js-storyTextTeacher")).not.to.be.hidden;
+      });
+    });
+
   });
 });

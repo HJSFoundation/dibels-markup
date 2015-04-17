@@ -40,9 +40,10 @@ describe('App.Views.ButtonMastered', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  describe("handlers", function() {
-    it("#handleClick", function(){
-      expect(subject.handleClick()).to.equal(false);
-    });
+  it("#handleClick", function() {
+    sinon.spy(App.Dispatcher, "trigger");
+    subject.handleClick();
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","mastered");
+    App.Dispatcher.trigger.restore();
   });
 });

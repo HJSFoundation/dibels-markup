@@ -6,8 +6,8 @@ App.Views.ButtonFlip = Backbone.View.extend({
   },
 
   initialize: function(options) {
-   _.bindAll(this);
-   this.eventName = options.eventName;
+    _.bindAll(this);
+    this.eventName = options.eventName;
     this.render();
   },
 

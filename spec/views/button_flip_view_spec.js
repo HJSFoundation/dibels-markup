@@ -35,7 +35,7 @@ describe('App.Views.ButtonFlip', function() {
 
   it("calls render on initialize", function() {
     sinon.spy(subject, "render");
-    subject.initialize();
+    subject.initialize({eventName: "somethingCool"});
     expect(subject.render).to.have.been.called;
   });
 
@@ -47,8 +47,9 @@ describe('App.Views.ButtonFlip', function() {
   describe("handlers", function() {
     it("#handleflip", function() {
       sinon.spy(App.Dispatcher, "trigger");
+      subject.eventName = "somethingCool";
       subject.handleflipScreen();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("flipScreenButtonTapped");
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("somethingCool");
       App.Dispatcher.trigger.restore();
     });
   });

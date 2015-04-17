@@ -99,10 +99,10 @@ describe('App.Views.Stage', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "openMatrix", subject.handleOpenMatrix);
     });
 
-    it("listens for the flipScreenButtonTapped", function() {
+    it("listens for the flipStageButtonTapped", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "flipScreenButtonTapped", subject.handleFlipScreenRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "flipStageButtonTapped", subject.handleFlipStageRequest);
     });
   });
 
@@ -117,11 +117,26 @@ describe('App.Views.Stage', function() {
       expect(subject.$el).not.to.have.class("stage--workspace--full");
     });
 
-    it("#handleFlipScreenRequest", function() {
-      subject.handleFlipScreenRequest();
-      expect($(subject.stageStimulusEl)).to.have.class("st-flipped");
-      subject.handleFlipScreenRequest();
-      expect($(subject.stageStimulusEl)).to.have.class("st-unflipped");
+    describe("#handleFlipStageRequest", function() {
+      beforeEach(function() {
+        appendFixture("div", { class: "js-stageStimulus" });
+      });
+
+      it("handles flip stage request from the flipped state", function() {
+        subject.flipped=true;
+        subject.handleFlipStageRequest();
+        expect(subject.flipped).to.equal(false);
+        expect($(subject.stageStimulusEl)).to.have.class("st-unflipped");
+        expect($(subject.stageStimulusEl)).not.to.have.class("st-flipped");
+
+      });
+      it("handles flip stage request from the unflipped state", function() {
+        subject.flipped=false;
+        subject.handleFlipStageRequest();
+        expect(subject.flipped).to.equal(true);
+        expect($(subject.stageStimulusEl)).to.have.class("st-flipped");
+        expect($(subject.stageStimulusEl)).not.to.have.class("st-unflipped");
+      });
     });
   });
 });

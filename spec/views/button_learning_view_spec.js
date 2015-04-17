@@ -23,14 +23,25 @@ describe('App.Views.ButtonLearning', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls render on initialize", function() {
-     sinon.spy(subject, "render");
-     subject.initialize();
-     expect(subject.render).to.have.been.called;
+  it("handles a click event", function() {
+    expect(subject.events.click).to.equal("handleClick");
   });
 
-  it("renders", function() {
+  it("calls render on initialize", function() {
+    sinon.spy(subject, "render");
+    subject.initialize();
+    expect(subject.render).to.have.been.called;
+  });
+
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  it("#handleClick", function() {
+    sinon.spy(App.Dispatcher, "trigger");
+    subject.handleClick();
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","learning");
+    App.Dispatcher.trigger.restore();
   });
 });

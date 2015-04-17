@@ -41,15 +41,11 @@ describe('App.Views.ButtonDrawerToggle', function() {
   });
 
   describe("handlers", function() {
-    afterEach(function() {
-      App.Dispatcher.trigger.restore();
-    });
-
     it("#handleToggleDrawerRequest", function() {
-      var toggleDrawerRequest = sinon.spy();
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleToggleDrawerRequest();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("toggleDrawerRequest");
+      App.Dispatcher.trigger.restore();
     });
   });
 });
