@@ -23,9 +23,6 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
       that.tiles[stimulus.get("stimulus")] = view;
       that.$gridClass.append(view.render().el);
     });
-    App.assessments.each(function(assessment){
-      that.tiles[assessment.get("stimulus")].setAssessment(assessment.get("assessment"));
-    });
   },
 
   templateJSON: function() {

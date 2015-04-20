@@ -1,7 +1,7 @@
 App.Views.Tile = Backbone.View.extend({
   template: App.templates.tile,
 
-  selected: "",
+  selectedClass: "",
 
   events: {
     "click" : "handleClick"
@@ -31,13 +31,14 @@ App.Views.Tile = Backbone.View.extend({
     return {
       index: this.index,
       stimulus: this.model.get("stimulus"),
-      assessment: this.assessment,
-      selected: this.selected
+      assessmentClass: "st-"+this.model.get("assessment"),
+      selectedClass: this.selectedClass
     };
   },
 
   setAssessment: function(assessment){
-    this.assessment = "st-"+assessment;
+    this.model.set("assessment", assessment);
+    this.model.save({assessment: assessment});
     this.render();
     console.log(this.model.get("stimulus"));
   },
@@ -53,10 +54,10 @@ App.Views.Tile = Backbone.View.extend({
 
   handleStimulusChangeRequested: function(options){
     if(options.stimulus === this.model.get("stimulus")){
-      this.selected = "st-selected";
+      this.selectedClass = "st-selected";
       this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
     }else{
-      this.selected = "";
+      this.selectedClass = "";
       this.stopListening(App.Dispatcher, "buttonAssessmentClicked");
     }
     this.render();

@@ -5,5 +5,7 @@ App.Collections.Stimuli = Backbone.Collection.extend({
     this.localStorage = new Backbone.LocalStorage(this.localStorageName);
   },
 
+  url: "/stimuli",
+  
   model: App.Models.Stimulus
 });

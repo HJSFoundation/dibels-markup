@@ -3,6 +3,7 @@ describe('App.Views.Tile', function() {
   var xhr;
   var requests;
   var model;
+  var collection;
 
   beforeEach(function() {
     xhr = sinon.useFakeXMLHttpRequest();
@@ -13,8 +14,13 @@ describe('App.Views.Tile', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-tile" });
-    model = new App.Models.Stimulus({stimulus: "a", skill: "Letters", stage: 0});
-    subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0});
+
+    collection = new App.Collections.Stimuli({localStorageName: "stimuliLetters"});
+    App.stimuliLetters.create({stage: 0, skill:App.Config.skill.letters, stimulus: "a", assessment:"clear"});
+    // model = new App.Models.Stimulus({stimulus: "a", skill: "Letters", stage: 0, assessment: "mastered"});
+    model = collection.at(0);
+    subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0, selectedClass: ""});
+
   });
 
   afterEach(function() {
@@ -73,6 +79,16 @@ describe('App.Views.Tile', function() {
   it("#templateJSON", function(){
     expect(subject.templateJSON().index).to.equal(subject.index);
     expect(subject.templateJSON().stimulus).to.equal(subject.model.get("stimulus"));
+    expect(subject.templateJSON().assessmentClass).to.equal("st-"+subject.model.get("assessment"));
+    expect(subject.templateJSON().selected).to.equal(subject.selected);
+
+  });
+
+  it("#setAssessment", function() {
+    sinon.spy(subject, "render");
+    subject.setAssessment("mastered");
+    expect(subject.render).to.have.been.called;
+    expect(subject.model.get("assessment")).to.equal("mastered");
   });
 
   describe("handlers", function() {
@@ -84,8 +100,10 @@ describe('App.Views.Tile', function() {
     });
 
     describe("#handleButtonAssessmentClicked", function() {
-      xit("sets mastered class", function() {
-        
+      it("calls setAssessment", function() {
+        sinon.spy(subject, "setAssessment");
+        subject.handleButtonAssessmentClicked("mastered");
+        expect(subject.setAssessment).to.have.been.calledWith("mastered");
       });
     });
 

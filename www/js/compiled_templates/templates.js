@@ -190,9 +190,9 @@ this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<a href=\"#\" class=\"tile__title  "
-    + alias3(((helper = (helper = helpers.assessment || (depth0 != null ? depth0.assessment : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"assessment","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.assessmentClass || (depth0 != null ? depth0.assessmentClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"assessmentClass","hash":{},"data":data}) : helper)))
     + " "
-    + alias3(((helper = (helper = helpers.selected || (depth0 != null ? depth0.selected : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"selected","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
     + "\">"
     + alias3(((helper = (helper = helpers.index || (depth0 != null ? depth0.index : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
     + alias3(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
