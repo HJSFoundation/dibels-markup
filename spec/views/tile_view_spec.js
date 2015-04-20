@@ -16,7 +16,7 @@ describe('App.Views.Tile', function() {
     appendFixture("div", { class: "js-tile" });
 
     collection = new App.Collections.Stimuli({localStorageName: "stimuliLetters"});
-    App.stimuliLetters.create({stage: 0, skill:App.Config.skill.letters, stimulus: "a", assessment:"clear"});
+    App.stimuli.create({stage: 0, skill:App.Config.skill.letters, stimulus: "a", assessment:"clear"});
     // model = new App.Models.Stimulus({stimulus: "a", skill: "Letters", stage: 0, assessment: "mastered"});
     model = collection.at(0);
     subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0, selectedClass: ""});

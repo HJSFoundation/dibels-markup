@@ -3,79 +3,7 @@ App.Views.Application = Backbone.View.extend({
     this.loginView = new App.Views.Login({ el: this.$el });
     this.listen();
 
-    App.stimuliLetters = new App.Collections.Stimuli({localStorageName: "stimuliLetters"});
-    App.stimuliLetters.fetch();
-    if(App.stimuliLetters.length===0){
-
-      var a="a".charCodeAt(0);
-      var z="z".charCodeAt(0);
-      var c;
-      for( c = a; c <= z; c = c + 1){ +
-        App.stimuliLetters.create({stage: 0, skill:App.Config.skill.letters, stimulus: String.fromCharCode(c), assessment:"clear"});
-      }
-
-      var A="A".charCodeAt(0);
-      var Z="Z".charCodeAt(0);
-
-      for(
-        c=A; c<=Z;c=c+1){
-        App.stimuliLetters.create({stage: 0, skill:App.Config.skill.letters, stimulus: String.fromCharCode(c), assessment:"clear"});
-      }
-
-      console.log(App.stimuliLetters);
-    }
-    var m = App.stimuliLetters.where({stimulus: "a"});
-    m[0].set("assessment","mastered");
-    m[0].save();
-
-    App.stimuliWords = new App.Collections.Stimuli({localStorageName: "stimuliWords"});
-    App.stimuliWords.fetch();
-    if(App.stimuliWords.length===0){
-
-      var a="a".charCodeAt(0);
-      var z="z".charCodeAt(0);
-      var c;
-      for( c = a; c <= z; c = c + 1){ +
-        App.stimuliWords.create({stage: 0, skill:App.Config.skill.sightWords, stimulus: String.fromCharCode(c)+"asdas", assessment:"clear"});
-      }
-
-      console.log(App.stimuliWords);
-    }
-
-    App.stimuliOnsets = new App.Collections.Stimuli({localStorageName: "stimuliOnsets"});
-    App.stimuliOnsets.fetch();
-    if(App.stimuliOnsets.length===0){
-      _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o){
-        App.stimuliOnsets.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear"});
-      });
-
-      console.log(App.stimuliOnsets);
-    }
-
-
-    App.stimuliRimes = new App.Collections.Stimuli({localStorageName: "stimuliRimes"});
-    App.stimuliRimes.fetch();
-    if(App.stimuliRimes.length===0){
-      _.forEach(["at","ap","ad","am","an","id","im","in","ip","it","od","op","om","ot","ud","un","up","ut","ed","em","en","ep","et","on"], function(o){
-        App.stimuliRimes.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear"});
-      });
-
-      console.log(App.stimuliRimes);
-    }
-
-
-    App.stimuliStories = new App.Collections.Stimuli({localStorageName: "stimuliStories"});
-    App.stimuliStories.fetch();
-    if(App.stimuliStories.length===0){
-      _.forEach(["Dentist","Chores","Digging","Getting Dressed","I Don't Like It",
-        "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
-        "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
-        "The Last Hurrah","My Forgone Solution"], function(title){
-        App.stimuliStories.create({stage: 0, skill: App.Config.skill.stories, stimulus: title, assessment:"clear"});
-      });
-
-      console.log(App.stimuliStories);
-    }
+    // localStorage.clear();
 
     App.students = new App.Collections.Students();
     App.students.fetch();
@@ -85,6 +13,59 @@ App.Views.Application = Backbone.View.extend({
       App.students.create({id: 3, firstname: "Evan", lastname: "Bivins", readingStage: 3});
       App.students.create({id: 4, firstname: "Clint", lastname: "Eastman", readingStage: 4});
       App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch", readingStage: 5});
+    }
+  
+
+    App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
+    App.stimuli.fetch();
+    if(App.stimuli.length===0){
+
+      App.students.each(function(student){
+
+        var id= student.get("id");
+
+        var a="a".charCodeAt(0);
+        var z="z".charCodeAt(0);
+        var c;
+        for( c = a; c <= z; c = c + 1){ +
+          App.stimuli.create({stage: 0, skill:App.Config.skill.letters, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
+        }
+
+        var A="A".charCodeAt(0);
+        var Z="Z".charCodeAt(0);
+
+        for(
+          c=A; c<=Z;c=c+1){
+          App.stimuli.create({stage: 0, skill:App.Config.skill.letters, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
+        }
+
+        var a="a".charCodeAt(0);
+        var z="z".charCodeAt(0);
+        var c;
+        for( c = a; c <= z; c = c + 1){ +
+          App.stimuli.create({stage: 0, skill:App.Config.skill.sightWords, stimulus: String.fromCharCode(c)+"asdas", assessment:"clear", studentId: id});
+        }
+
+        _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o){
+          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear", studentId: id});
+        });
+
+        _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o){
+          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear", studentId: id});
+        });
+
+        _.forEach(["at","ap","ad","am","an","id","im","in","ip","it","od","op","om","ot","ud","un","up","ut","ed","em","en","ep","et","on"], function(o){
+          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear", studentId: id});
+        });
+
+        _.forEach(["Dentist","Chores","Digging","Getting Dressed","I Don't Like It",
+          "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
+          "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
+          "The Last Hurrah","My Forgone Solution"], function(title){
+          App.stimuli.create({stage: 0, skill: App.Config.skill.stories, stimulus: title, assessment:"clear", studentId: id});
+        });
+
+      });
     }
   },
 
