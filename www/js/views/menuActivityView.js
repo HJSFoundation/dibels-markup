@@ -23,7 +23,7 @@ App.Views.MenuActivity = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleSkillChangeRequest)
+    this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleSkillChangeRequest);
   },
 
   render: function() {

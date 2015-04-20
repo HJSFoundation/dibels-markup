@@ -53,6 +53,12 @@ describe('App.Views.MenuActivity', function() {
     });
   });
 
+  it("#listen", function() {
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixMenuTabActiveRequest", subject.handleSkillChangeRequest);
+  });
+
   it("renders", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
