@@ -19,13 +19,14 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillReplaceRequest);
 
+    this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("."+this.gridClass);
     var that = this;
-    var stimuli = App.stimuli.where({studentId:1, skill: App.Config.skill.sightWords});
+    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.sightWords});
     _.each(stimuli,function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
@@ -48,6 +49,13 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
       tile.remove();
     });
     this.tiles = [];
+  },
+
+  handleStudentChangeRequest: function()  {
+    if(App.selectedSkill===App.Config.skill.sightWords){
+      this.handleSkillReplaceRequest();
+      this.render();
+    }
   }
 
 });

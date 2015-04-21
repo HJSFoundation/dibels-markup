@@ -30,6 +30,7 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
   makeActive: function() {
     this.status = "st-active";
     this.render();
+    App.selectedSkill = this.key;
   },
 
   makeInactive: function() {

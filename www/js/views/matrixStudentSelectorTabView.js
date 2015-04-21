@@ -9,8 +9,6 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     "click": "handleClick"
   },
 
-  status: "inactive",
-
   initialize: function(options) {
     _.bindAll(this);
     this.label = this.model.shortName();
@@ -41,6 +39,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
 
   handleClick: function(event){
     console.log("click tab");
+    App.selectedStudent = this.model;
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this);
     return false;
   },

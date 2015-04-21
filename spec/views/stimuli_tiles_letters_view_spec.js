@@ -36,21 +36,72 @@ describe('App.Views.StimuliTilesLetters', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Letters", subject.handleSkillChangeRequest);
-  });
+  describe("#listen", function() {
+    it("listens for the SkillChangeRequested:Letters event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Letters", subject.handleSkillChangeRequest);
+    });
 
-  it("#handleSkillChangeRequest", function() {
-    sinon.spy(subject, "render");
-    subject.handleSkillChangeRequest();
-    expect(subject.render).to.have.been.called;
+    it("listens for the SkillChangeRequested:SightWords event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:SightWords", subject.handleSkillReplaceRequest);
+    });
+    
+    it("listens for the SkillChangeRequested:OnsetRime event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:OnsetRime", subject.handleSkillReplaceRequest);
+    });
+    
+    it("listens for the SkillChangeRequested:Affixes event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Affixes", subject.handleSkillReplaceRequest);
+    });
+    
+    it("listens for the SkillChangeRequested:Stories event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Stories", subject.handleSkillReplaceRequest);
+    });
+    
+    it("listens for the matrixStudentSelectorTabActiveRequest event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleStudentChangeRequest);
+    });    
   });
 
   describe("#templateJSON", function() {
     it("returns a jsClass", function() {
       expect(subject.templateJSON().jsClass).to.equal(subject.gridClass);
+    });
+  });
+
+  describe("handlers", function() {
+
+    it("#handleSkillChangeRequest", function() {
+      sinon.spy(subject, "render");
+      subject.handleSkillChangeRequest();
+      expect(subject.render).to.have.been.called;
+    });
+
+    it("#handleSkillReplaceRequest", function() {
+      subject.render();
+      expect(subject.tiles).not.to.be.empty;
+      subject.handleSkillReplaceRequest();
+      expect(subject.tiles).to.be.empty;
+    });
+
+    it("#handleStudentChangeRequest", function() {
+      sinon.spy(subject, "handleSkillReplaceRequest");
+      sinon.spy(subject, "render");
+      App.selectedSkill = App.Config.skill.letters;
+      subject.handleStudentChangeRequest();
+      expect(subject.handleSkillReplaceRequest).to.have.been.called;
+      expect(subject.render).to.have.been.called;
     });
   });
 });

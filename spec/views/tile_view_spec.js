@@ -95,7 +95,7 @@ describe('App.Views.Tile', function() {
     it("#handleClick", function() {
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleClick();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+subject.model.get("skill"), {stimulus: subject.model.get("stimulus")});
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+subject.model.get("skill"), {{skill: this.model.get("skill"), stimulus: subject.model.get("stimulus")});
       App.Dispatcher.trigger.restore();
     });
 

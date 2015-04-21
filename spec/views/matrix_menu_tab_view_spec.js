@@ -14,6 +14,7 @@ describe('App.Views.MatrixMenuTab', function() {
       tagName: "a",
       className:  "menu--tab grid-cell",
       label: "STORIES",
+      key: "stories",
       status: ""
     };
 
@@ -40,6 +41,7 @@ describe('App.Views.MatrixMenuTab', function() {
       subject.render();
       subject.makeActive();
       expect(subject.el.firstChild.className).to.contain("st-active");
+      expect(App.selectedSkill).to.equal(subject.key);
     });
 
     it("#makeInactive", function() {

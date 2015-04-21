@@ -17,6 +17,8 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRime", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillReplaceRequest);
+
+    this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
 
   render: function() {
@@ -24,7 +26,7 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stimuli = App.stimuli.where({studentId:1, skill: App.Config.skill.stories});
+    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.stories});
     _.each(stimuli,function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);
@@ -47,6 +49,13 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
       tile.remove();
     });
     this.tiles = [];
+  },
+  
+  handleStudentChangeRequest: function()  {
+    if(App.selectedSkill===App.Config.skill.stories){
+      this.handleSkillReplaceRequest();
+      this.render();
+    }
   }
 
 });

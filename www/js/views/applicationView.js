@@ -9,12 +9,14 @@ App.Views.Application = Backbone.View.extend({
     App.students.fetch();
     if(App.students.length===0){
       App.students.create({id: 1, firstname: "Bernie", lastname: "Bivins", readingStage: 1});
-      App.students.create({id: 2, firstname: "Matt", lastname: "Bivins", readingStage: 2});
-      App.students.create({id: 3, firstname: "Evan", lastname: "Bivins", readingStage: 3});
+      App.students.create({id: 2, firstname: "Clark", lastname: "Kempt", readingStage: 2});
+      App.students.create({id: 3, firstname: "Princess", lastname: "Peach", readingStage: 3});
       App.students.create({id: 4, firstname: "Clint", lastname: "Eastman", readingStage: 4});
-      App.students.create({id: 5, firstname: "Hugo", lastname: "Bloch", readingStage: 5});
+      App.students.create({id: 5, firstname: "Hugo", lastname: "Boss", readingStage: 5});
     }
   
+    App.selectedStudent = App.students.at(0);
+    App.selectedSkill = "";
 
     App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
     App.stimuli.fetch();
