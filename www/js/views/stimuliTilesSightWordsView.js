@@ -3,6 +3,8 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
 
   gridClass: "js-stimuliTilesSightWords",
   tileClass: "tile grid-cell u-text-center",
+  tiles: [],
+
 
   initialize: function() {
     _.bindAll(this);
@@ -11,14 +13,22 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillChangeRequest);
+
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRime", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillReplaceRequest);
+
   },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("."+this.gridClass);
     var that = this;
-    App.stimuliWords.each(function(stimulus) {
+    var stimuli = App.stimuli.where({studentId:1, skill: App.Config.skill.sightWords});
+    _.each(stimuli,function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
+      that.tiles.push(view);
       that.$gridClass.append(view.render().el);
     });
   },
@@ -31,5 +41,13 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
 
   handleSkillChangeRequest: function() {
     this.render();
+  },
+
+  handleSkillReplaceRequest: function() {
+    _.each(this.tiles, function(tile){
+      tile.remove();
+    });
+    this.tiles = [];
   }
+
 });

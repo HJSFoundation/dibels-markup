@@ -11,6 +11,8 @@ var App = {
       letters: "Letters",
       sightWords: "SightWords",
       onsetRimes: "OnsetRime",
+      onsets: "Onsets",
+      rimes: "Rimes",
       affixes: "Affixes",
       stories: "Stories"
     }

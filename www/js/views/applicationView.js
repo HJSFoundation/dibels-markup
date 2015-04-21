@@ -47,15 +47,11 @@ App.Views.Application = Backbone.View.extend({
         }
 
         _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o){
-          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear", studentId: id});
-        });
-
-        _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o){
-          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear", studentId: id});
+          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, subSkill: App.Config.skill.onsets, stimulus: o, assessment:"clear", studentId: id});
         });
 
         _.forEach(["at","ap","ad","am","an","id","im","in","ip","it","od","op","om","ot","ud","un","up","ut","ed","em","en","ep","et","on"], function(o){
-          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, stimulus: o, assessment:"clear", studentId: id});
+          App.stimuli.create({stage: 0, skill: App.Config.skill.onsetRimes, subSkill: App.Config.skill.rimes, stimulus: o, assessment:"clear", studentId: id});
         });
 
         _.forEach(["Dentist","Chores","Digging","Getting Dressed","I Don't Like It",

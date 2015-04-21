@@ -40,12 +40,12 @@ App.Views.Tile = Backbone.View.extend({
     this.model.set("assessment", assessment);
     this.model.save({assessment: assessment});
     this.render();
-    console.log(this.model.get("stimulus"));
+    console.log("TileView.setAssessment", "stimulus:", this.model.get("stimulus"), "skill:", this.model.get("skill"));
   },
 
   handleClick: function() {
-    console.log(this.model.get('stimulus'));
-    App.Dispatcher.trigger("StimulusChangeRequested:"+this.model.get("skill"), {stimulus: this.model.get("stimulus")});
+    console.log("TileView.handleClick", "stimulus:", this.model.get("stimulus"), "skill:", this.model.get("skill"));
+    App.Dispatcher.trigger("StimulusChangeRequested:"+this.model.get("skill"), {skill: this.model.get("skill"), stimulus: this.model.get("stimulus")});
   },
 
   handleButtonAssessmentClicked: function(assessment){
@@ -53,7 +53,7 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   handleStimulusChangeRequested: function(options){
-    if(options.stimulus === this.model.get("stimulus")){
+    if((options.stimulus === this.model.get("stimulus"))&&(options.skill === this.model.get("skill"))){
       this.selectedClass = "st-selected";
       this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
     }else{
