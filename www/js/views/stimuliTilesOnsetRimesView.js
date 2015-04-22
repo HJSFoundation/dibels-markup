@@ -1,5 +1,5 @@
-App.Views.StimuliTilesOnsetRime = Backbone.View.extend({
-  template: App.templates.stimuliTilesOnsetRime,
+App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
+  template: App.templates.stimuliTilesOnsetRimes,
 
   gridClassOnset: "js-stimuliTileOnset",
   gridClassRime: "js-stimuliTileRime",
@@ -13,9 +13,10 @@ App.Views.StimuliTilesOnsetRime = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRime", this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillChangeRequest);
 
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillReplaceRequest);

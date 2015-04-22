@@ -1,7 +1,7 @@
-App.Views.StimuliTilesLetters = Backbone.View.extend({
+App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
   template: App.templates.stimuliTilesLetters,
 
-  gridClass: "js-stimuliTilesLetters",
+  gridClass: "js-stimuliTilesLetterSounds",
   tileClass: "tile grid-cell u-text-center",
   tiles: [],
 
@@ -11,10 +11,11 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillChangeRequest);
 
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRime", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillReplaceRequest);
 
@@ -25,7 +26,7 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    var stimuli = App.stimuli.where({studentId: App.selectedStudent.get('id'), skill: App.Config.skill.letters});
+    var stimuli = App.stimuli.where({studentId: App.selectedStudent.get('id'), skill: App.Config.skill.letterSounds});
     _.each(stimuli,function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
@@ -51,7 +52,7 @@ App.Views.StimuliTilesLetters = Backbone.View.extend({
   },
 
   handleStudentChangeRequest: function()  {
-    if(App.selectedSkill===App.Config.skill.letters){
+    if(App.selectedSkill===App.Config.skill.letterSounds){
       this.handleSkillReplaceRequest();
       this.render();
     }

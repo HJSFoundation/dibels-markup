@@ -26,11 +26,14 @@ App.Views.Application = Backbone.View.extend({
 
         var id= student.get("id");
 
+
+
+
         var a="a".charCodeAt(0);
         var z="z".charCodeAt(0);
         var c;
-        for( c = a; c <= z; c = c + 1){ +
-          App.stimuli.create({stage: 0, skill:App.Config.skill.letters, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
+        for( c = a; c <= z; c = c + 1){
+          App.stimuli.create({stage: 0, skill:App.Config.skill.letterNames, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
         }
 
         var A="A".charCodeAt(0);
@@ -38,13 +41,33 @@ App.Views.Application = Backbone.View.extend({
 
         for(
           c=A; c<=Z;c=c+1){
-          App.stimuli.create({stage: 0, skill:App.Config.skill.letters, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
+          App.stimuli.create({stage: 0, skill:App.Config.skill.letterNames, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
         }
+
 
         var a="a".charCodeAt(0);
         var z="z".charCodeAt(0);
         var c;
-        for( c = a; c <= z; c = c + 1){ +
+        for( c = a; c <= z; c = c + 1){
+          App.stimuli.create({stage: 0, skill:App.Config.skill.letterSounds, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
+        }
+
+        var A="A".charCodeAt(0);
+        var Z="Z".charCodeAt(0);
+
+        for(
+          c=A; c<=Z;c=c+1){
+          App.stimuli.create({stage: 0, skill:App.Config.skill.letterSounds, stimulus: String.fromCharCode(c), assessment:"clear", studentId: id});
+        }
+
+
+
+
+
+        var a="a".charCodeAt(0);
+        var z="z".charCodeAt(0);
+        var c;
+        for( c = a; c <= z; c = c + 1){
           App.stimuli.create({stage: 0, skill:App.Config.skill.sightWords, stimulus: String.fromCharCode(c)+"asdas", assessment:"clear", studentId: id});
         }
 

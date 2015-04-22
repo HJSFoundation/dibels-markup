@@ -8,9 +8,10 @@ var App = {
     productionApiUrl: 'https://IFLauthexample-webapp.herokuapp.com',
     developmentApiUrl: 'http://localhost:3000',
     skill: {
-      letters: "Letters",
+      letterNames: "LetterNames",
+      letterSounds: "LetterSounds",
       sightWords: "SightWords",
-      onsetRimes: "OnsetRime",
+      onsetRimes: "OnsetRimes",
       onsets: "Onsets",
       rimes: "Rimes",
       affixes: "Affixes",
