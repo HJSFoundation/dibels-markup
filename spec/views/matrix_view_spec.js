@@ -54,8 +54,8 @@ describe('App.Views.Matrix', function() {
       expect(subject.stimuliTilesViewOnsetRimes).to.be.an.instanceOf(App.Views.StimuliTilesOnsetRimes);
     });
 
-    it("creates a stimuli tiles view stories", function() {
-      expect(subject.stimuliTilesViewStories).to.be.an.instanceOf(App.Views.StimuliTilesStories);
+    it("creates a stimuli tiles view stageStories", function() {
+      expect(subject.stimuliTilesViewStageStories).to.be.an.instanceOf(App.Views.StimuliTilesStageStories);
     });
 
     it("creates a student selector view", function() {

@@ -8,7 +8,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
     { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
     { label: "AFFIXES", key: App.Config.skill.affixes},
-    { label: "STORIES", key: App.Config.skill.stories}
+    { label: "STAGE STORIES", key: App.Config.skill.stageStories}
   ],
 
   initialize: function() {

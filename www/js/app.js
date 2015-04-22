@@ -15,7 +15,7 @@ var App = {
       onsets: "Onsets",
       rimes: "Rimes",
       affixes: "Affixes",
-      stories: "Stories"
+      stageStories: "StageStories"
     }
   }
 };

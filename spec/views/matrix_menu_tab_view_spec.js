@@ -13,8 +13,8 @@ describe('App.Views.MatrixMenuTab', function() {
     var options = {
       tagName: "a",
       className:  "menu--tab grid-cell",
-      label: "STORIES",
-      key: "stories",
+      label: "STAGE STORIES",
+      key: "stageStories",
       status: ""
     };
 

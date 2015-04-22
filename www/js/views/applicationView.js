@@ -83,7 +83,7 @@ App.Views.Application = Backbone.View.extend({
           "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
           "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
           "The Last Hurrah","My Forgone Solution"], function(title){
-          App.stimuli.create({stage: 0, skill: App.Config.skill.stories, stimulus: title, assessment:"clear", studentId: id});
+          App.stimuli.create({stage: 0, skill: App.Config.skill.stageStories, stimulus: title, assessment:"clear", studentId: id});
         });
 
       });

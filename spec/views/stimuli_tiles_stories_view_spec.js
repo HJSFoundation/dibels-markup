@@ -1,4 +1,4 @@
-describe('App.Views.StimuliTilesStories', function() {
+describe('App.Views.StimuliTilesStageStories', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.StimuliTilesStories', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
-    subject = new App.Views.StimuliTilesStories({el: '.js-stimuliTiles'});
+    subject = new App.Views.StimuliTilesStageStories({el: '.js-stimuliTiles'});
   });
 
   afterEach(function() {
@@ -37,10 +37,10 @@ describe('App.Views.StimuliTilesStories', function() {
   });
 
   describe("#listen", function() {
-    it("listens for the SkillChangeRequested:Stories event", function() {
+    it("listens for the SkillChangeRequested:StageStories event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Stories", subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:StageStories", subject.handleSkillChangeRequest);
     });
 
     it("listens for the SkillChangeRequested:SightWords event", function() {
@@ -104,7 +104,7 @@ describe('App.Views.StimuliTilesStories', function() {
     it("#handleStudentChangeRequest", function() {
       sinon.spy(subject, "handleSkillReplaceRequest");
       sinon.spy(subject, "render");
-      App.selectedSkill = App.Config.skill.stories;
+      App.selectedSkill = App.Config.skill.stageStories;
       subject.handleStudentChangeRequest();
       expect(subject.handleSkillReplaceRequest).to.have.been.called;
       expect(subject.render).to.have.been.called;

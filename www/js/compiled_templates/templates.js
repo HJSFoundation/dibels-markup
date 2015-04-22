@@ -160,14 +160,14 @@ this["App"]["templates"]["stimuliTilesOnsetRimes"] = Handlebars.template({"compi
 this["App"]["templates"]["stimuliTilesSightWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<section class=\"matrix__stimuli matrix__stimuli--words grid st-active\">\n  <div class=\"stimuli-tiles stimuli-tiles--words\">\n    <div class=\"grid grid--wrap u-text-center "
+  return "<section class=\"matrix__stimuli matrix__stimuli--words grid\">\n  <div class=\"stimuli-tiles stimuli-tiles--words\">\n    <div class=\"grid grid--wrap u-text-center "
     + this.escapeExpression(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
     + "\">\n    </div>\n  </div>\n</section>";
 },"useData":true});
 this["App"]["templates"]["stimuliTilesStories"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<section class=\"matrix__stimuli matrix__stimuli--stories grid\">\n  <div class=\"grid-cell grid-cell--center stimuli-tiles--stories__title u-1of3\">\n    <div class=\"grid u-text-center\">\n      <p class=\"grid-cell\">Words I Know Stories</p>\n    </div>\n  </div>\n  <div class=\"stimuli-tiles stimuli-tiles--stories__tiles grid-cell u-2of3\">\n    <div class=\"grid grid--wrap u-text-center "
+  return "<section class=\"matrix__stimuli matrix__stimuli--stories grid\">\n <div class=\"stimuli-tiles stimuli-tiles--stories__tiles \">\n    <div class=\"grid grid--wrap u-text-center "
     + this.escapeExpression(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
     + "\">\n    </div>\n  </div>\n</section>";
 },"useData":true});

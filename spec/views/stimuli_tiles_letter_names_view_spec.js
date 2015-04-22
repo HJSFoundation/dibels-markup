@@ -67,10 +67,10 @@ describe('App.Views.StimuliTilesLetterNames', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Affixes", subject.handleSkillReplaceRequest);
     });
     
-    it("listens for the SkillChangeRequested:Stories event", function() {
+    it("listens for the SkillChangeRequested:StageStories event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Stories", subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:StageStories", subject.handleSkillReplaceRequest);
     });
     
     it("listens for the matrixStudentSelectorTabActiveRequest event", function() {

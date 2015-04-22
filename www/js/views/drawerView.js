@@ -7,7 +7,7 @@ App.Views.Drawer = Backbone.View.extend({
     "click .js-assessments" : "handleAssessmentsRequest",
     "click .js-assignments" : "handleAssignmentsRequest",
     "click .js-whiteboard" : "handleWhiteboardRequest",
-    "click .js-leveled-stories" : "handleLeveledStoriesRequest",
+    "click .js-leveled-stageStories" : "handleLeveledStageStoriesRequest",
   },
 
   initialize: function() {
@@ -66,7 +66,7 @@ App.Views.Drawer = Backbone.View.extend({
     this.whiteboardView = new App.Views.Whiteboard({ el: ".js-overlay" });
   },
 
-  handleLeveledStoriesRequest: function() {
-    this.leveledStoriesView = new App.Views.LeveledStories({ el: ".js-overlay" });
+  handleLeveledStageStoriesRequest: function() {
+    this.leveledStageStoriesView = new App.Views.LeveledStageStories({ el: ".js-overlay" });
   }
 });

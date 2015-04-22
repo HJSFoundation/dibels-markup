@@ -65,10 +65,10 @@ describe('App.Views.StoryPage', function() {
   });
 
   describe("#listen", function() {
-    it("listens for stimulus change request for stories", function() {
+    it("listens for stimulus change request for stageStories", function() {
       subject.listenTo = sinon.spy();
       subject.listen();
-      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stories, subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stageStories, subject.handleSkillChangeRequest);
     });
     it("listens for flip story button tapped", function() {
       subject.listenTo = sinon.spy();

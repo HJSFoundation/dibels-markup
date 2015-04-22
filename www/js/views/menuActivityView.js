@@ -8,7 +8,7 @@ App.Views.MenuActivity = Backbone.View.extend({
       SightWords: ["words","phrases","whiteboard"],
       OnsetRimes: ["words","phrases","tiles", "whiteboard"],
       Affixes: ["words","phrases","tiles", "whiteboard"],
-      StageStories: [],
+      StageStageStories: [],
       LeveledTexts:[]
     }
   },  

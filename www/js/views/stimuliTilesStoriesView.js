@@ -1,7 +1,7 @@
-App.Views.StimuliTilesStories = Backbone.View.extend({
+App.Views.StimuliTilesStageStories = Backbone.View.extend({
   template: App.templates.stimuliTilesStories,
 
-  gridClass: "js-stimuliTilesStories",
+  gridClass: "js-stimuliTilesStageStories",
   tileClass: "tile grid-cell u-text-center",
   tiles: [],
 
@@ -11,7 +11,7 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:StageStories", this.handleSkillChangeRequest);
 
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillReplaceRequest);
@@ -27,7 +27,7 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.stories});
+    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.stageStories});
     _.each(stimuli,function(stimulus){
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);
@@ -53,7 +53,7 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
   },
   
   handleStudentChangeRequest: function()  {
-    if(App.selectedSkill===App.Config.skill.stories){
+    if(App.selectedSkill===App.Config.skill.stageStories){
       this.handleSkillReplaceRequest();
       this.render();
     }

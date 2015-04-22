@@ -63,8 +63,8 @@ describe('App.Views.MatrixMenu', function() {
       expect(subject.Affixes).not.to.be.undefined;
     });
 
-    it("creates a stories tab view", function() {
-      expect(subject.Stories).not.to.be.undefined;
+    it("creates a stageStories tab view", function() {
+      expect(subject.StageStories).not.to.be.undefined;
     });
 
     it("creates a close tab view", function() {
@@ -92,7 +92,7 @@ describe('App.Views.MatrixMenu', function() {
 
       it("activates the clicked tab", function() {
         var makeActive = sinon.spy();
-        var event_payload = {label: "STORIES", makeActive: makeActive};
+        var event_payload = {label: "STAGE STORIES", makeActive: makeActive};
         subject.handleMatrixMenuTabActveRequest(event_payload);
         expect(makeActive).to.have.been.called;
       });
@@ -101,7 +101,7 @@ describe('App.Views.MatrixMenu', function() {
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
         subject.Affixes.makeInactive = makeInactive;
-        var event_payload = {label: "STORIES", makeActive: makeActive};
+        var event_payload = {label: "STAGE STORIES", makeActive: makeActive};
         subject.handleMatrixMenuTabActveRequest(event_payload);
         expect(makeInactive).to.have.been.called;
       });
