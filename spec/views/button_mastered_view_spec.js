@@ -24,7 +24,7 @@ describe('App.Views.ButtonMastered', function() {
   });
 
   describe("events", function() {
-    it("handles the click event", function(){
+    it("handles the click event", function() {
       expect(subject.events.click).to.equal('handleClick');
     });
   });

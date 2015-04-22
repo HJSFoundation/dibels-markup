@@ -48,36 +48,36 @@ describe('App.Views.StimuliTilesSightWords', function() {
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:LetterNames", subject.handleSkillReplaceRequest);
     });
-    
+
     it("listens for the SkillChangeRequested:LetterSounds event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:LetterSounds", subject.handleSkillReplaceRequest);
     });
-    
+
     it("listens for the SkillChangeRequested:OnsetRimes event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:OnsetRimes", subject.handleSkillReplaceRequest);
     });
-    
+
     it("listens for the SkillChangeRequested:Affixes event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Affixes", subject.handleSkillReplaceRequest);
     });
-    
+
     it("listens for the SkillChangeRequested:StageStories event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:StageStories", subject.handleSkillReplaceRequest);
     });
-    
+
     it("listens for the matrixStudentSelectorTabActiveRequest event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleStudentChangeRequest);
-    });    
+    });
   });
 
   describe("#templateJSON", function() {
@@ -87,7 +87,6 @@ describe('App.Views.StimuliTilesSightWords', function() {
   });
 
   describe("handlers", function() {
-
     it("#handleSkillChangeRequest", function() {
       sinon.spy(subject, "render");
       subject.handleSkillChangeRequest();

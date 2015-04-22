@@ -25,10 +25,10 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
-    this.$gridClass = $("."+this.gridClass);
+    this.$gridClass = $("." + this.gridClass);
     var that = this;
     var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.sightWords});
-    _.each(stimuli,function(stimulus){
+    _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
@@ -46,17 +46,16 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
   },
 
   handleSkillReplaceRequest: function() {
-    _.each(this.tiles, function(tile){
+    _.each(this.tiles, function(tile) {
       tile.remove();
     });
     this.tiles = [];
   },
 
-  handleStudentChangeRequest: function()  {
-    if(App.selectedSkill===App.Config.skill.sightWords){
+  handleStudentChangeRequest: function() {
+    if(App.selectedSkill === App.Config.skill.sightWords) {
       this.handleSkillReplaceRequest();
       this.render();
     }
   }
-
 });

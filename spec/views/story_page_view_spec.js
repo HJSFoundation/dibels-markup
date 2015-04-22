@@ -24,17 +24,16 @@ describe('App.Views.StoryPage', function() {
   });
 
   describe("events", function() {
-    it("handles the click event", function(){
+    it("handles the click event", function() {
       expect(subject.events.click).to.equal('removeView');
     });
   });
 
-  it("initialize calls listen", function(){
+  it("initialize calls listen", function() {
     subject.listen = sinon.spy();
     subject.initialize();
     expect(subject.listen).to.have.been.called;
   });
-
 
   describe("#render", function() {
     beforeEach(function() {
@@ -70,6 +69,7 @@ describe('App.Views.StoryPage', function() {
       subject.listen();
       expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stageStories, subject.handleSkillChangeRequest);
     });
+
     it("listens for flip story button tapped", function() {
       subject.listenTo = sinon.spy();
       subject.listen();
@@ -99,6 +99,7 @@ describe('App.Views.StoryPage', function() {
         expect($(".js-storyTextTeacher")).to.be.hidden;
 
       });
+
       it("handles flip story request from the unflipped state", function() {
         subject.flipped=false;
         subject.handleFlipStoryRequest();
@@ -108,6 +109,5 @@ describe('App.Views.StoryPage', function() {
         expect($(".js-storyTextTeacher")).not.to.be.hidden;
       });
     });
-
   });
 });

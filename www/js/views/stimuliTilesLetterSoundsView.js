@@ -27,7 +27,7 @@ App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var stimuli = App.stimuli.where({studentId: App.selectedStudent.get('id'), skill: App.Config.skill.letterSounds});
-    _.each(stimuli,function(stimulus){
+    _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
@@ -45,14 +45,14 @@ App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
   },
 
   handleSkillReplaceRequest: function() {
-    _.each(this.tiles, function(tile){
+    _.each(this.tiles, function(tile) {
       tile.remove();
     });
     this.tiles = [];
   },
 
-  handleStudentChangeRequest: function()  {
-    if(App.selectedSkill===App.Config.skill.letterSounds){
+  handleStudentChangeRequest: function() {
+    if(App.selectedSkill === App.Config.skill.letterSounds) {
       this.handleSkillReplaceRequest();
       this.render();
     }

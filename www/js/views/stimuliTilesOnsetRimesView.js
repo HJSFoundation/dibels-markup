@@ -27,17 +27,17 @@ App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     var that = this;
-    this.$gridClass = $("."+this.gridClassOnset);
-    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), subSkill: App.Config.skill.onsets});
-    _.each(stimuli,function(stimulus){
+    this.$gridClass = $("." + this.gridClassOnset);
+    var onsetStimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), subSkill: App.Config.skill.onsets});
+    _.each(onsetStimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
     });
 
-    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), subSkill: App.Config.skill.rimes});
-    this.$gridClass = $("."+this.gridClassRime);
-    _.each(stimuli,function(stimulus){
+    var rimeStimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), subSkill: App.Config.skill.rimes});
+    this.$gridClass = $("." + this.gridClassRime);
+    _.each(rimeStimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
@@ -55,18 +55,17 @@ App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
     this.render();
   },
 
-  handleSkillReplaceRequest: function(){
-    _.each(this.tiles, function(tile){
+  handleSkillReplaceRequest: function() {
+    _.each(this.tiles, function(tile) {
       tile.remove();
     });
     this.tiles = [];
   },
 
-  handleStudentChangeRequest: function()  {
-    if(App.selectedSkill===App.Config.skill.onsetRimes){
+  handleStudentChangeRequest: function() {
+    if(App.selectedSkill === App.Config.skill.onsetRimes) {
       this.handleSkillReplaceRequest();
       this.render();
     }
   }
-
 });

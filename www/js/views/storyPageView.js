@@ -13,7 +13,7 @@ App.Views.StoryPage = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.stageStories, this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.stageStories, this.handleSkillChangeRequest);
     this.listenTo(App.Dispatcher, "flipStoryButtonTapped", this.handleFlipStoryRequest);
   },
 
@@ -45,5 +45,4 @@ App.Views.StoryPage = Backbone.View.extend({
     }
     this.flipped = !this.flipped;
   }
-
 });

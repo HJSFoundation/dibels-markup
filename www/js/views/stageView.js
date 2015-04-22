@@ -2,6 +2,7 @@ App.Views.Stage = Backbone.View.extend({
   template: App.templates.stage,
 
   flipped: false,
+
   stageStimulusEl: ".js-stageStimulus",
 
   initialize: function() {

@@ -2,6 +2,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
   template: App.templates.matrixMenu,
 
   gridClass: "js-matrixMenuTabs",
+
   tabs: [
     { label: "LETTER NAMES", key: App.Config.skill.letterNames},
     { label: "LETTER SOUNDS", key: App.Config.skill.letterSounds},
@@ -49,7 +50,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.each(this.tabs, function(tab) {
       if (selectedTab.label === tab.label) {
         selectedTab.makeActive();
-        App.Dispatcher.trigger("SkillChangeRequested:"+tab.key);  
+        App.Dispatcher.trigger("SkillChangeRequested:" + tab.key);
       } else {
         that[tab.key].makeInactive();
       }

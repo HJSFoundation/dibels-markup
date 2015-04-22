@@ -29,22 +29,22 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     };
   },
 
-  makeActive: function(){
+  makeActive: function() {
     this.$el.addClass("st-active");
   },
 
-  makeInactive: function(){
+  makeInactive: function() {
     this.$el.removeClass("st-active");
   },
 
-  handleClick: function(event){
+  handleClick: function(event) {
     console.log("click tab");
     App.selectedStudent = this.model;
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this);
     return false;
   },
 
-  handleIconClick: function(event){
+  handleIconClick: function(event) {
     App.Dispatcher.trigger("matrixStudentSelectorTabEditRequest", this);
     console.log("click icon");
     this.editStudent.render();

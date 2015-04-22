@@ -28,7 +28,7 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     var that = this;
     var i = 0;
     var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.stageStories});
-    _.each(stimuli,function(stimulus){
+    _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
@@ -46,17 +46,16 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
   },
 
   handleSkillReplaceRequest: function() {
-    _.each(this.tiles, function(tile){
+    _.each(this.tiles, function(tile) {
       tile.remove();
     });
     this.tiles = [];
   },
-  
-  handleStudentChangeRequest: function()  {
-    if(App.selectedSkill===App.Config.skill.stageStories){
+
+  handleStudentChangeRequest: function() {
+    if(App.selectedSkill === App.Config.skill.stageStories) {
       this.handleSkillReplaceRequest();
       this.render();
     }
   }
-
 });

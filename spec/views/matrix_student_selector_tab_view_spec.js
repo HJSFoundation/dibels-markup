@@ -30,12 +30,15 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     it("sets label to model shortName", function() {
       expect(subject.label).to.equal("BERNIE B.");
     });
+
     it("sets the id", function() {
       expect(subject.id).to.equal(1);
     });
+
     it("sets the reading stage", function() {
       expect(subject.readingStage).to.equal(2);
     });
+
     it("sets editStudent", function() {
       expect(subject.editStudent).to.be.an.instanceOf(App.Views.EditStudent);
     });
@@ -51,11 +54,13 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       expect(subject.templateJSON().label).to.equal("BERNIE B.");
       expect(subject.templateJSON().readingStage).to.equal(2);
     });
+
     it("#makeActive", function() {
       subject.render();
       subject.makeActive();
       expect(subject.$el).to.have.class("st-active");
     });
+
     it("#makeInactive", function() {
       subject.render();
       subject.makeActive();
@@ -64,6 +69,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       expect(subject.$el).not.to.have.class("st-active");
     });
   });
+
   describe("handlers", function() {
     describe("#handleClick", function() {
       it("sets the selected student", function() {
@@ -75,7 +81,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleClick();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", subject);
-        App.Dispatcher.trigger.restore();        
+        App.Dispatcher.trigger.restore();
       });
     });
 
@@ -84,8 +90,9 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleIconClick();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabEditRequest", subject);
-        App.Dispatcher.trigger.restore();        
+        App.Dispatcher.trigger.restore();
       });
+
       it("renders editStudent", function() {
         sinon.spy(subject.editStudent, "render");
         subject.handleIconClick();

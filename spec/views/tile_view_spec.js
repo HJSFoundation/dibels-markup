@@ -19,7 +19,6 @@ describe('App.Views.Tile', function() {
     App.stimuli.create({stage: 0, skill:App.Config.skill.letterNames, stimulus: "a", assessment:"clear"});
     model = collection.at(0);
     subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0, selectedClass: ""});
-
   });
 
   afterEach(function() {
@@ -31,12 +30,12 @@ describe('App.Views.Tile', function() {
   });
 
   describe("events", function() {
-    it("handles the click event", function(){
+    it("handles the click event", function() {
       expect(subject.events.click).to.equal('handleClick');
     });
   });
 
-  it("calls listen on initialize", function(){
+  it("calls listen on initialize", function() {
     sinon.spy(subject, "listen");
     subject.initialize({model: model, el: '.js-tile', index: 0});
     expect(subject.listen).to.have.been.called;
@@ -48,26 +47,31 @@ describe('App.Views.Tile', function() {
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, subject.handleStimulusChangeRequested);
     });
+
     it("listens to stimulus change requested letterSounds", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterSounds, subject.handleStimulusChangeRequested);
     });
+
     it("listens to stimulus change requested sight words", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleStimulusChangeRequested);
     });
+
     it("listens to stimulus change requested onset rimes", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.onsetRimes, subject.handleStimulusChangeRequested);
     });
+
     it("listens to stimulus change requested affixes", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.affixes, subject.handleStimulusChangeRequested);
     });
+
     it("listens to stimulus change requested stageStories", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
@@ -80,12 +84,11 @@ describe('App.Views.Tile', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#templateJSON", function(){
+  it("#templateJSON", function() {
     expect(subject.templateJSON().index).to.equal(subject.index);
     expect(subject.templateJSON().stimulus).to.equal(subject.model.get("stimulus"));
     expect(subject.templateJSON().assessmentClass).to.equal("st-"+subject.model.get("assessment"));
     expect(subject.templateJSON().selected).to.equal(subject.selected);
-
   });
 
   it("#setAssessment", function() {
@@ -112,17 +115,17 @@ describe('App.Views.Tile', function() {
     });
 
     describe("#handleStimulusChangeRequested", function() {
-      it("listens when stimulus argument equals this.stimulus", function () {
+      it("listens when stimulus argument equals this.stimulus", function() {
         sinon.spy(subject, "listenTo");
         subject.handleStimulusChangeRequested({stimulus: subject.model.get("stimulus")});
         expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "buttonAssessmentClicked", subject.handleButtonAssessmentClicked);
       });
 
-      it("stops listening when stimulus argument does not equal this.stimulus", function () {
+      it("stops listening when stimulus argument does not equal this.stimulus", function() {
         sinon.spy(subject, "stopListening");
         subject.handleStimulusChangeRequested({stimulus: "b"});
         expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "buttonAssessmentClicked");
-      });      
+      });
     });
   });
 });

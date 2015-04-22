@@ -17,7 +17,7 @@ describe('App.Models.Student', function() {
     expect(subject.defaults.grade).to.equal(1);
   });
 
-  describe("methods", function(){
+  describe("methods", function() {
     it("#shortName", function() {
       expect(subject.shortName()).to.equal("BERNIE B.");
     });

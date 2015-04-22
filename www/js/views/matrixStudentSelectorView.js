@@ -27,7 +27,7 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     _.each(this.tabs, function(tab) {
       if (selectedTab.id === tab.id) {
         selectedTab.makeActive();
-        // App.Dispatcher.trigger("StudentChangeRequested");
+        // App.Dispatcher.trigger("StudentChangeRequested");  //TODO WHY IS THIS COMMENTED OUT
       } else {
         that.tabs[tab.id].makeInactive();
       }

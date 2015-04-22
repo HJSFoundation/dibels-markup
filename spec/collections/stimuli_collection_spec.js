@@ -21,4 +21,3 @@ describe('App.Collections.Stimuli', function() {
     expect(subject.localStorage).to.be.an.instanceof(Backbone.LocalStorage);
   });
 });
-

@@ -10,7 +10,7 @@ App.Views.ButtonClear = Backbone.View.extend({
     this.render();
   },
 
-  render:  function() {
+  render: function() {
     this.$el.html(this.template());
   },
 
@@ -19,5 +19,4 @@ App.Views.ButtonClear = Backbone.View.extend({
     App.Dispatcher.trigger("buttonAssessmentClicked","clear");
     return false;
   }
-
 });

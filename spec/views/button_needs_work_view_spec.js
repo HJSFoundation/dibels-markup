@@ -44,5 +44,4 @@ describe('App.Views.ButtonNeedsWork', function() {
     expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","needsWork");
     App.Dispatcher.trigger.restore();
   });
-
 });

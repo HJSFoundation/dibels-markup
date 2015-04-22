@@ -11,7 +11,8 @@ App.Views.MenuActivity = Backbone.View.extend({
       StageStageStories: [],
       LeveledTexts:[]
     }
-  },  
+  },
+
   buttons: {},
 
   initialize: function() {
@@ -33,12 +34,12 @@ App.Views.MenuActivity = Backbone.View.extend({
     this.$el.html(this.template());
   },
 
-  handleSkillChangeRequest: function(tab){
-    var that=this;
-    _.each(this.buttons, function(button){
+  handleSkillChangeRequest: function(tab) {
+    var that = this;
+    _.each(this.buttons, function(button) {
       button.$el.hide();
     });
-    _.each(this.config.buttonMap[tab.key], function(key){
+    _.each(this.config.buttonMap[tab.key], function(key) {
       that.buttons[key].$el.show();
     });
   }

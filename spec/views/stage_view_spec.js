@@ -132,8 +132,8 @@ describe('App.Views.Stage', function() {
         expect(subject.flipped).to.equal(false);
         expect($(subject.stageStimulusEl)).to.have.class("st-unflipped");
         expect($(subject.stageStimulusEl)).not.to.have.class("st-flipped");
-
       });
+
       it("handles flip stage request from the unflipped state", function() {
         subject.flipped=false;
         subject.handleFlipStageRequest();

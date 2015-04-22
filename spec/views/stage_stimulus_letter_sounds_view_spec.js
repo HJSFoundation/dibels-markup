@@ -37,7 +37,6 @@ describe('App.Views.StageStimulusLetterSounds', function() {
     });
   });
 
-
   it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;

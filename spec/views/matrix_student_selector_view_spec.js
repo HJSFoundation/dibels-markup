@@ -59,7 +59,7 @@ describe('App.Views.MatrixStudentSelector', function() {
   });
 
   describe("dispatcher handlers", function() {
-    describe("#handleMatrixStudentSelectorTabActiveRequest", function () {
+    describe("#handleMatrixStudentSelectorTabActiveRequest", function() {
       beforeEach(function() {
         subject.render();
       });
