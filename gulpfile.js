@@ -1,3 +1,4 @@
+var root  = '.';
 var dest  = './www';
 var src   = './www';
 var test  = './spec';
@@ -47,7 +48,7 @@ gulp.task('serve', function () {
 
 gulp.task('styles', function () {
   gulp
-    .src(src + '/scss/index.scss')
+    .src(root + '/scss/index.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded' }))
     .pipe(sourcemaps.write())
@@ -84,7 +85,7 @@ gulp.task('partials', function() {
 });
 
 gulp.task('watch', ['serve'], function() {
-  gulp.watch(src + '/scss/**', ['styles']);
+  gulp.watch(root + '/scss/**', ['styles']);
   gulp.watch(src + '/templates/**', ['partials', 'templates']);
   gulp.watch([src + '/js/**/*.js', test + '/*_spec.js'], ['lint']);
 });

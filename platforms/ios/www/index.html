@@ -7,33 +7,92 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- font servers -->
+    <link href="https://fontastic.s3.amazonaws.com/HFgU7zeYQjzmkGNPGRqCWJ/icons.css" rel="stylesheet">
+    <script src="//use.typekit.net/lvw4qmz.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    <!-- /font servers -->
     <title>Login</title>
   </head>
     <body>
-      <div id="loginContainer">
-        <p>email:</p>
-        <input type="text" name="email" id="email-field">
-        <p>password:</p>
-        <input type="password" name="password" id="password-field">
-        <br />
-        <input type="button" value="Submit" id="submit">
-      </div>
+      <div id="applicationContainer"></div>
       <div id="gameContainer" class="hidden"></div>
 
       <script type="text/javascript" src="js/vendor/cordova.js"></script>
       <script type="application/javascript" src="js/vendor/fastclick.js"></script>
       <script type="text/javascript" src="js/vendor/jquery-2.1.3.min.js"></script>
       <script src="js/vendor/lodash.min.js"></script>
-      <script type="text/javascript" src="js/login.js"></script>
-      <script type="text/javascript" src="js/settings.js"></script>
+      <script type="text/javascript" src="js/vendor/handlebars-v3.0.0.js"></script>
+      <script type="text/javascript" src="js/vendor/backbone-1.1.2.js"></script>
+      <script type="text/javascript" src="js/vendor/backbone-localStorage.js"></script>
+
+      <script type="text/javascript" src="js/app.js"></script>
+      <script type="text/javascript" src="js/compiled_templates/partials.js"></script>
+      <script type="text/javascript" src="js/compiled_templates/templates.js"></script>
+
+      <script type="text/javascript" src="js/models/studentModel.js"></script>
+      <script type="text/javascript" src="js/models/stimulusModel.js"></script>
+
+      <script type="text/javascript" src="js/collections/studentsCollection.js"></script>
+      <script type="text/javascript" src="js/collections/stimuliCollection.js"></script>
+
+      <script type="text/javascript" src="js/views/applicationView.js"></script>
+      <script type="text/javascript" src="js/views/loginView.js"></script>
+      <script type="text/javascript" src="js/views/stageView.js"></script>
+      <script type="text/javascript" src="js/views/buttonDrawerToggleView.js"></script>
+
+      <script type="text/javascript" src="js/views/drawerView.js"></script>
+      <script type="text/javascript" src="js/views/buttonFlipView.js"></script>
+      <script type="text/javascript" src="js/views/buttonTimerView.js"></script>
+      <script type="text/javascript" src="js/views/readingStageView.js"></script>
+      <script type="text/javascript" src="js/views/assignmentView.js"></script>
+      <script type="text/javascript" src="js/views/assessmentView.js"></script>
+      <script type="text/javascript" src="js/views/leveledStoriesView.js"></script>
+      <script type="text/javascript" src="js/views/whiteboardView.js"></script>
+
+      <script type="text/javascript" src="js/views/buttonClearView.js"></script>
+      <script type="text/javascript" src="js/views/buttonNeedsWorkView.js"></script>
+      <script type="text/javascript" src="js/views/buttonLearningView.js"></script>
+      <script type="text/javascript" src="js/views/buttonMasteredView.js"></script>
+      <script type="text/javascript" src="js/views/menuAssessmentView.js"></script>
+
+      <script type="text/javascript" src="js/views/buttonLettersView.js"></script>
+      <script type="text/javascript" src="js/views/buttonWordsView.js"></script>
+      <script type="text/javascript" src="js/views/buttonPhrasesView.js"></script>
+      <script type="text/javascript" src="js/views/buttonTilesView.js"></script>
+      <script type="text/javascript" src="js/views/menuActivityView.js"></script>
+
+      <script type="text/javascript" src="js/views/editStudentView.js"></script>
+      <script type="text/javascript" src="js/views/matrixStudentSelectorView.js"></script>
+      <script type="text/javascript" src="js/views/matrixMenuTabView.js"></script>
+      <script type="text/javascript" src="js/views/matrixStudentSelectorTabView.js"></script>
+      <script type="text/javascript" src="js/views/buttonMatrixOpenView.js"></script>
+      <script type="text/javascript" src="js/views/buttonMatrixCloseView.js"></script>
+      <script type="text/javascript" src="js/views/tileView.js"></script>
+
+      <script type="text/javascript" src="js/views/stimuliTilesLettersView.js"></script>
+      <script type="text/javascript" src="js/views/stimuliTilesSightWordsView.js"></script>
+      <script type="text/javascript" src="js/views/stimuliTilesOnsetRimeView.js"></script>
+      <script type="text/javascript" src="js/views/stimuliTilesStoriesView.js"></script>
+
+      <script type="text/javascript" src="js/views/matrixMenuView.js"></script>
+      <script type="text/javascript" src="js/views/matrixView.js"></script>
+      <script type="text/javascript" src="js/views/teacherWorkspaceView.js"></script>
+
+      <script type="text/javascript" src="js/views/storyImageView.js"></script>
+      <script type="text/javascript" src="js/views/storyPageView.js"></script>
+
+      <script type="text/javascript" src="js/views/stageStimulusLettersView.js"></script>
+      <script type="text/javascript" src="js/views/stageStimulusWordsView.js"></script>
+      <script type="text/javascript" src="js/views/stageStimulusPhrasesView.js"></script>
+
+
       <script>
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
-          // IFL.login.initialize(game.start);
-          var callback = function() {
-            console.log("Success");
-          };
-          IFL.Login.initialize(callback);
+
+          new App.Views.Application({ el: App.Config.el });
+
         }, false);
       </script>
     </body>

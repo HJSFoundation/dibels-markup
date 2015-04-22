@@ -3,7 +3,8 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   gridClass: "js-matrixMenuTabs",
   tabs: [
-    { label: "LETTER NAMES & SOUNDS", key: App.Config.skill.letters},
+    { label: "LETTER NAMES", key: App.Config.skill.letterNames},
+    { label: "LETTER SOUNDS", key: App.Config.skill.letterSounds},
     { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
     { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
     { label: "AFFIXES", key: App.Config.skill.affixes},

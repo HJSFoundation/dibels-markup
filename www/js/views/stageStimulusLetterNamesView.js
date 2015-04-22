@@ -1,4 +1,4 @@
-App.Views.StageStimulusLetters = Backbone.View.extend({
+App.Views.StageStimulusLetterNames = Backbone.View.extend({
   template: App.templates.stageStimulusLetters,
 
   initialize: function() {
@@ -7,7 +7,7 @@ App.Views.StageStimulusLetters = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, this.handleSkillChangeRequest);
   },
 
   render: function(stimulus) {

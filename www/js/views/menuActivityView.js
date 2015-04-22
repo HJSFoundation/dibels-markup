@@ -3,11 +3,13 @@ App.Views.MenuActivity = Backbone.View.extend({
 
   config: {
     buttonMap: {
-      Letters: ["letters", "words"],
-      SightWords: ["words","phrases"],
-      OnsetRime: ["words","phrases","tiles"],
-      Affixes: [],
-      Stories: []
+      LetterNames: ["letters", "whiteboard"],
+      LetterSounds: ["letters", "words", "whiteboard"],
+      SightWords: ["words","phrases","whiteboard"],
+      OnsetRimes: ["words","phrases","tiles", "whiteboard"],
+      Affixes: ["words","phrases","tiles", "whiteboard"],
+      StageStories: [],
+      LeveledTexts:[]
     }
   },  
   buttons: {},
@@ -19,6 +21,7 @@ App.Views.MenuActivity = Backbone.View.extend({
     this.buttons.words = new App.Views.ButtonWords({el: ".js-buttonWords"});
     this.buttons.phrases = new App.Views.ButtonPhrases({el: ".js-buttonPhrases"});
     this.buttons.tiles = new App.Views.ButtonTiles({el: ".js-buttonTiles"});
+    this.buttons.whiteboard = new App.Views.ButtonWhiteboard({el: ".js-buttonWhiteboard"});
     this.listen();
   },
 

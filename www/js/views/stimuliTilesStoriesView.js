@@ -14,9 +14,10 @@ App.Views.StimuliTilesStories = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Stories", this.handleSkillChangeRequest);
 
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRime", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Letters", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillReplaceRequest);
 
     this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
