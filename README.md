@@ -68,21 +68,21 @@ curl http://localhost:3000/api/v1/users/1 --header "Content-Type:application/jso
   + A Cordova hook that uglifies and minifies your app's Javascript files, minifies CSS files, and compresses your image files. It hooks into the Cordova `build` and `prepare` commands so the uglification and minification will take place in your platforms directory but will not touch files in your `www` directory. To get set up with it, there is one step you will need to take.
   - change the permissions on your hooks directory.
     + from the root of the project:
-      - chmod -R 755 hooks
+      - `chmod -R 755 hooks`
   - now it will run whenever you `build` or `prepare`
 
 ## Templating
-  + for our templating system we are using [handlebars](http://handlebarsjs.com/) and [gulp-handlebars](https://github.com/lazd/gulp-handlebars)
-  + handlebars will be used for our templates but gulp-handlebars will be used to precompile our templates so there will be some differences between how the templates are used/called due to that precompile that may seem different than the basic handlbars documentation. I suggest reading about handlebars and then also reading about gulp handlbars to get a better picture.
-  + To get familiar with the basic handlebars needs, check out the handlebars documentation or this [post](http://javascriptissexy.com/handlebars-js-tutorial-learn-everything-about-handlebars-js-javascript-templating/) which I think has a more in depth walkthrough.
- + To create a template to be used, place in in the appropriate templates directory, either the template directory or partials directory and give the file the extension of .hbs. If the file is a partial, it must be prefixed with an _. example: _filename.hbs.  In the template file you will place your raw html and add in the {{data-placeholders}} as necessary.
- + The gulp handlebars will compile up all of our templates and place them in the App namespace. Now when we want to reference them, we will call App.templates.templatename
- + In your javascript, generally, each object will have it's own template attached to it's protype. For example, let's look at login:
-  - When defining login, we would append the template to the prototype. We do this outside of the object as to create a template at the class level so that we are not having to create a new one for each instance of the object since the template itself does not actually change.
+  + For our templating system we are using [handlebars](http://handlebarsjs.com/) and [gulp-handlebars](https://github.com/lazd/gulp-handlebars)
+  + `Handlebars` will be used to construct our templates, but `gulp-handlebars` will be used to *precompile* our templates. Thus, there will be some differences between how the templates are used/called that may seem different than the basic handlbars docs. We suggest reading about both `handlebars` and `gulp-handlebars` to get a better picture.
+  + To get familiar with the basic `handlebars` needs, check out the handlebars docs or this [post](http://javascriptissexy.com/handlebars-js-tutorial-learn-everything-about-handlebars-js-javascript-templating/) which has a more in-depth walkthrough.
+ + To create a template to be used, place it in the appropriate templates directory, either the `template directory` or `partials directory` and give the file the extension of `.hbs`. If the file is a partial, it must be prefixed with an `_.` example: `_filename.hbs`.  In the template file you will place your raw html and add in the `{{data-placeholders}}` as necessary.
+ + The `gulp-handlebars` will compile all of our templates and place them in the `App` namespace. Now, when we want to reference our templates, we will call `App.templates.templatename`.
+ + In your javascript, each object will have its own template attached to its protoype. For example, let's look at the `login` template:
+  - When defining login, we would append the template to the prototype. We do this outside of the object to create a template at the class level so that we don't need to create a new template for each instance of the object since the template itself does not actually change.
     + `App.Login.prototype.template = App.templates.login`
   - When you want to use/call the template, you will want to render it to the universal application div the controls the Single Page App and you would do so like this...
-    + `this.$appliactionContainer.html(this.template(students));`
-      - In this case `$applicationContainer` is a reference to `this.$appliactionContainer = $("#applicationContainer");`
+    + `this.$applicationContainer.html(this.template(students));`
+      - In this case `$applicationContainer` is a reference to `this.$applicationContainer = $("#applicationContainer");`
 
 ## Styleguide
 + A styleguide can be found [here](http://innovationsforlearning.github.io/tn-styleguide/dist/)
