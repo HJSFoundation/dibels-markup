@@ -10,7 +10,7 @@ describe('App.Models.Stimulus', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Stimulus({stimulus: "a", stage: 1, skill:"letters", assessment: "mastered"});
+    subject = new App.Models.Stimulus({stimulus: "a", stage: 1, skill:"letterNames", assessment: "mastered"});
   });
 
   it("has a stimulus", function() {
@@ -22,7 +22,7 @@ describe('App.Models.Stimulus', function() {
   });
 
   it("has a skill", function() {
-    expect(subject.get("skill")).to.equal("letters");
+    expect(subject.get("skill")).to.equal("letterNames");
   });
 
   it("has an assessment", function() {

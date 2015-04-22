@@ -38,16 +38,20 @@ describe('App.Views.Matrix', function() {
       expect(subject.matrixMenuView).not.to.be.undefined;
     });
 
-    it("creates a stimuli tiles view letters", function() {
-      expect(subject.stimuliTilesViewLetters).to.be.an.instanceOf(App.Views.StimuliTilesLetters);
+    it("creates a stimuli tiles view letter names", function() {
+      expect(subject.stimuliTilesViewLetterNames).to.be.an.instanceOf(App.Views.StimuliTilesLetterNames);
+    });
+
+    it("creates a stimuli tiles view letter sounds", function() {
+      expect(subject.stimuliTilesViewLetterSounds).to.be.an.instanceOf(App.Views.StimuliTilesLetterSounds);
     });
 
     it("creates a stimuli tiles view words", function() {
       expect(subject.stimuliTilesViewWords).to.be.an.instanceOf(App.Views.StimuliTilesSightWords);
     });
 
-    it("creates a stimuli tiles view onset rime", function() {
-      expect(subject.stimuliTilesViewOnsetRime).to.be.an.instanceOf(App.Views.StimuliTilesOnsetRime);
+    it("creates a stimuli tiles view onset rimes", function() {
+      expect(subject.stimuliTilesViewOnsetRimes).to.be.an.instanceOf(App.Views.StimuliTilesOnsetRimes);
     });
 
     it("creates a stimuli tiles view stories", function() {

@@ -65,7 +65,7 @@ describe('App.Views.MenuActivity', function() {
   });
 
   it("#handleSkillChangeRequest", function() {
-    subject.handleSkillChangeRequest({key: "Letters"});
+    subject.handleSkillChangeRequest({key: "LetterNames"});
     expect(subject.buttons.letters.$el).to.be.visible;
     expect(subject.buttons.tiles.$el).not.to.be.visible;
   });

@@ -43,8 +43,12 @@ describe('App.Views.MatrixMenu', function() {
       expect(subject.$el).not.to.be.empty;
     });
 
-    it("creates a letters tab view", function() {
-      expect(subject.Letters).not.to.be.undefined;
+    it("creates a letter names tab view", function() {
+      expect(subject.LetterNames).not.to.be.undefined;
+    });
+
+    it("creates a letter sounds tab view", function() {
+      expect(subject.LetterSounds).not.to.be.undefined;
     });
 
     it("creates a sight words tab view", function() {
@@ -52,7 +56,7 @@ describe('App.Views.MatrixMenu', function() {
     });
 
     it("creates a  onset rimes tab view", function() {
-      expect(subject.OnsetRime).not.to.be.undefined;
+      expect(subject.OnsetRimes).not.to.be.undefined;
     });
 
     it("creates a affixes tab view", function() {

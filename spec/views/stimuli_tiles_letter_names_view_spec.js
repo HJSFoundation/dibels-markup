@@ -1,4 +1,4 @@
-describe('App.Views.StimuliTilesLetters', function() {
+describe('App.Views.StimuliTilesLetterNames', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.StimuliTilesLetters', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
-    subject = new App.Views.StimuliTilesLetters({el: '.js-stimuliTiles'});
+    subject = new App.Views.StimuliTilesLetterNames({el: '.js-stimuliTiles'});
   });
 
   afterEach(function() {
@@ -37,22 +37,28 @@ describe('App.Views.StimuliTilesLetters', function() {
   });
 
   describe("#listen", function() {
-    it("listens for the SkillChangeRequested:Letters event", function() {
+    it("listens for the SkillChangeRequested:LetterNames event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:Letters", subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:LetterNames", subject.handleSkillChangeRequest);
     });
 
+    it("listens for the SkillChangeRequested:LetterSounds event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:LetterSounds", subject.handleSkillReplaceRequest);
+    });
+    
     it("listens for the SkillChangeRequested:SightWords event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:SightWords", subject.handleSkillReplaceRequest);
     });
     
-    it("listens for the SkillChangeRequested:OnsetRime event", function() {
+    it("listens for the SkillChangeRequested:OnsetRimes event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:OnsetRime", subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:OnsetRimes", subject.handleSkillReplaceRequest);
     });
     
     it("listens for the SkillChangeRequested:Affixes event", function() {
@@ -98,7 +104,7 @@ describe('App.Views.StimuliTilesLetters', function() {
     it("#handleStudentChangeRequest", function() {
       sinon.spy(subject, "handleSkillReplaceRequest");
       sinon.spy(subject, "render");
-      App.selectedSkill = App.Config.skill.letters;
+      App.selectedSkill = App.Config.skill.letterNames;
       subject.handleStudentChangeRequest();
       expect(subject.handleSkillReplaceRequest).to.have.been.called;
       expect(subject.render).to.have.been.called;

@@ -1,4 +1,4 @@
-describe('App.Views.StageStimulusLetters', function() {
+describe('App.Views.StageStimulusLetterNames', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.StageStimulusLetters', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageStimulus" });
-    subject = new App.Views.StageStimulusLetters({el: '.js-stageStimulus'});
+    subject = new App.Views.StageStimulusLetterNames({el: '.js-stageStimulus'});
   });
 
   afterEach(function() {
@@ -30,10 +30,10 @@ describe('App.Views.StageStimulusLetters', function() {
   });
 
   describe("#listen", function() {
-    it("listens for the StimulusChangeRequested:Letters", function() {
+    it("listens for the StimulusChangeRequested:LetterNames", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, subject.handleSkillChangeRequest);
     });
   });
 

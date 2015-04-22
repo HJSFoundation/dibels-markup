@@ -44,8 +44,12 @@ describe('App.Views.Stage', function() {
       expect(subject.drawerView).to.be.an.instanceOf(App.Views.Drawer);
     });
 
-    it("creates a stage stimulus letters view", function() {
-      expect(subject.stageStimulusLettersView).to.be.an.instanceOf(App.Views.StageStimulusLetters);
+    it("creates a stage stimulus letter names view", function() {
+      expect(subject.stageStimulusLetterNamesView).to.be.an.instanceOf(App.Views.StageStimulusLetterNames);
+    });
+
+    it("creates a stage stimulus letter sounds view", function() {
+      expect(subject.stageStimulusLetterSoundsView).to.be.an.instanceOf(App.Views.StageStimulusLetterSounds);
     });
 
     it("creates a stage stimulus words view", function() {

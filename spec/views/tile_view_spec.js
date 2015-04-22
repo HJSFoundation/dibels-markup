@@ -15,9 +15,8 @@ describe('App.Views.Tile', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-tile" });
 
-    collection = new App.Collections.Stimuli({localStorageName: "stimuliLetters"});
-    App.stimuli.create({stage: 0, skill:App.Config.skill.letters, stimulus: "a", assessment:"clear"});
-    // model = new App.Models.Stimulus({stimulus: "a", skill: "Letters", stage: 0, assessment: "mastered"});
+    collection = new App.Collections.Stimuli({localStorageName: "stimuli"});
+    App.stimuli.create({stage: 0, skill:App.Config.skill.letterNames, stimulus: "a", assessment:"clear"});
     model = collection.at(0);
     subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0, selectedClass: ""});
 
@@ -44,10 +43,15 @@ describe('App.Views.Tile', function() {
   });
 
   describe("#listen", function() {
-    it("listens to stimulus change requested letters", function() {
+    it("listens to stimulus change requested letter names", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letters, subject.handleStimulusChangeRequested);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, subject.handleStimulusChangeRequested);
+    });
+    it("listens to stimulus change requested letterSounds", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterSounds, subject.handleStimulusChangeRequested);
     });
     it("listens to stimulus change requested sight words", function() {
       sinon.spy(subject, "listenTo");
