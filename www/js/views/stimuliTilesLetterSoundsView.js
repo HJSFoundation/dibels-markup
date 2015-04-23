@@ -13,6 +13,7 @@ App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillChangeRequest);
 
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:CVts", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillReplaceRequest);

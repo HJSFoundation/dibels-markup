@@ -12,6 +12,7 @@ var App = {
       letterSounds: "LetterSounds",
       sightWords: "SightWords",
       onsetRimes: "OnsetRimes",
+      cvts: "CVts",
       onsets: "Onsets",
       rimes: "Rimes",
       affixes: "Affixes",
