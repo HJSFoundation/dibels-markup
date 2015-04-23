@@ -9,7 +9,6 @@ App.Views.Stage = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.buttonDrawerToggleView = new App.Views.ButtonDrawerToggle({ el: ".js-buttonDrawerToggle"});
-    this.drawerView = new App.Views.Drawer({ el: ".js-stageDrawer"});
     this.stageStimulusLetterNamesView = new App.Views.StageStimulusLetterNames({ el: this.stageStimulusEl});
     this.stageStimulusLetterSoundsView = new App.Views.StageStimulusLetterSounds({ el: this.stageStimulusEl});
     this.stageStimulusWordsView = new App.Views.StageStimulusWords({ el: this.stageStimulusEl});
