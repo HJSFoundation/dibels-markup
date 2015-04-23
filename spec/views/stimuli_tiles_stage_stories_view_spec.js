@@ -43,6 +43,12 @@ describe('App.Views.StimuliTilesStageStories', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:StageStories", subject.handleSkillChangeRequest);
     });
 
+    it("listens for the SkillChangeRequested:LeveledTexts event", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:LeveledTexts", subject.handleSkillReplaceRequest);
+    });
+
     it("listens for the SkillChangeRequested:SightWords event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();

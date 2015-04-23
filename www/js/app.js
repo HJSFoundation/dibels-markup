@@ -15,7 +15,8 @@ var App = {
       onsets: "Onsets",
       rimes: "Rimes",
       affixes: "Affixes",
-      stageStories: "StageStories"
+      stageStories: "StageStories",
+      leveledTexts: "LeveledTexts"
     }
   }
 };

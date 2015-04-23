@@ -84,6 +84,13 @@ App.Views.Application = Backbone.View.extend({
           App.stimuli.create({stage: 0, skill: App.Config.skill.stageStories, stimulus: title, assessment:"clear", studentId: id});
         });
 
+        _.forEach(["ltDentist","Chores","Digging","Getting Dressed","I Don't Like It",
+          "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
+          "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
+          "The Last Hurrah","My Forgone Solution"], function(title) {
+          App.stimuli.create({stage: 0, skill: App.Config.skill.leveledTexts, stimulus: title, assessment:"clear", studentId: id});
+        });
+
       });
     }
   },

@@ -10,6 +10,7 @@ App.Views.Matrix = Backbone.View.extend({
     this.stimuliTilesViewWords = new App.Views.StimuliTilesSightWords({ el: ".js-stimuliTiles"});
     this.stimuliTilesViewOnsetRimes = new App.Views.StimuliTilesOnsetRimes({ el: ".js-stimuliTiles"});
     this.stimuliTilesViewStageStories = new App.Views.StimuliTilesStageStories({ el: ".js-stimuliTiles"});
+    this.stimuliTilesViewLeveledTexts = new App.Views.StimuliTilesLeveledTexts({ el: ".js-stimuliTiles"});
     this.matrixStudentSelectorView = new App.Views.MatrixStudentSelector({ el: ".js-matrixStudentSelector"});
     this.listen();
   },

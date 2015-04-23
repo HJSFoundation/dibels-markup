@@ -14,6 +14,7 @@ App.Views.StoryPage = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.stageStories, this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.leveledTexts, this.handleSkillChangeRequest);
     this.listenTo(App.Dispatcher, "flipStoryButtonTapped", this.handleFlipStoryRequest);
   },
 

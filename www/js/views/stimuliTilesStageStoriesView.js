@@ -1,7 +1,7 @@
-App.Views.StimuliTilesLetterNames = Backbone.View.extend({
-  template: App.templates.stimuliTilesLetters,
+App.Views.StimuliTilesStageStories = Backbone.View.extend({
+  template: App.templates.stimuliTilesStories,
 
-  gridClass: "js-stimuliTilesLetterNames",
+  gridClass: "js-stimuliTilesStageStories",
   tileClass: "tile grid-cell u-text-center",
   tiles: [],
 
@@ -11,14 +11,14 @@ App.Views.StimuliTilesLetterNames = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:StageStories", this.handleSkillChangeRequest);
 
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LeveledTexts", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:StageStories", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:LeveledTexts", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillReplaceRequest);
 
     this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
@@ -27,9 +27,10 @@ App.Views.StimuliTilesLetterNames = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    var stimuli = App.stimuli.where({studentId: App.selectedStudent.get('id'), skill: App.Config.skill.letterNames});
+    var i = 0;
+    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.stageStories});
     _.each(stimuli,function(stimulus) {
-      var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
+      var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
     });
@@ -53,7 +54,7 @@ App.Views.StimuliTilesLetterNames = Backbone.View.extend({
   },
 
   handleStudentChangeRequest: function() {
-    if(App.selectedSkill === App.Config.skill.letterNames) {
+    if(App.selectedSkill === App.Config.skill.stageStories) {
       this.handleSkillReplaceRequest();
       this.render();
     }

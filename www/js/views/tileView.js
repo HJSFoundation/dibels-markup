@@ -20,6 +20,7 @@ App.Views.Tile = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleStimulusChangeRequested);
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.affixes, this.handleStimulusChangeRequested);
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.stageStories, this.handleStimulusChangeRequested);
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.leveledTexts, this.handleStimulusChangeRequested);
   },
 
   render: function() {
