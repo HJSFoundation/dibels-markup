@@ -12,7 +12,7 @@ App.Views.Application = Backbone.View.extend({
       App.students.create({id: 2, firstname: "Clark", lastname: "Kempt", readingStage: 2});
       App.students.create({id: 3, firstname: "Princess", lastname: "Peach", readingStage: 3});
       App.students.create({id: 4, firstname: "Clint", lastname: "Eastman", readingStage: 4});
-      App.students.create({id: 5, firstname: "Hugo", lastname: "Boss", readingStage: 5});
+      // App.students.create({id: 5, firstname: "Hugo", lastname: "Boss", readingStage: 5});
     }
 
     App.selectedStudent = App.students.at(0);

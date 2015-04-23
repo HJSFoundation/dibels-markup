@@ -17,9 +17,15 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     this.$el.html(this.template());
     var that = this;
     App.students.each(function(student) {
-      var view = that.tabs[student.id] = (new App.Views.MatrixStudentSelectorTab({ model: student}));
+      var view = that.tabs[student.id] = new App.Views.MatrixStudentSelectorTab({ model: student});
       $('.js-matrixStudentSelectorTabs').append(view.render().el);
     });
+
+    var nonStudentTabCount = App.Config.maxStudentCount - App.students.length;
+    for(; nonStudentTabCount > 0 ; nonStudentTabCount--){
+      var view = new App.Views.MatrixNonStudentSelectorTab();
+      $('.js-matrixStudentSelectorTabs').append(view.render().el);
+    }
   },
 
   handleMatrixStudentSelectorTabActiveRequest: function(selectedTab) {
@@ -27,7 +33,6 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     _.each(this.tabs, function(tab) {
       if (selectedTab.id === tab.id) {
         selectedTab.makeActive();
-        // App.Dispatcher.trigger("StudentChangeRequested");  //TODO WHY IS THIS COMMENTED OUT
       } else {
         that.tabs[tab.id].makeInactive();
       }

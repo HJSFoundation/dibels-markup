@@ -7,6 +7,7 @@ var App = {
     el: "#applicationContainer",
     productionApiUrl: 'https://IFLauthexample-webapp.herokuapp.com',
     developmentApiUrl: 'http://localhost:3000',
+    maxStudentCount: 6,
     skill: {
       letterNames: "LetterNames",
       letterSounds: "LetterSounds",

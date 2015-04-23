@@ -40,10 +40,6 @@ describe('App.Views.Stage', function() {
       expect(subject.buttonDrawerToggleView).to.be.an.instanceOf(App.Views.ButtonDrawerToggle);
     });
 
-    it("creates a drawer view", function() {
-      expect(subject.drawerView).to.be.an.instanceOf(App.Views.Drawer);
-    });
-
     it("creates a stage stimulus letter names view", function() {
       expect(subject.stageStimulusLetterNamesView).to.be.an.instanceOf(App.Views.StageStimulusLetterNames);
     });
