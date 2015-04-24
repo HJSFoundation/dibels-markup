@@ -29,7 +29,7 @@ App.Views.StimuliTilesLeveledTexts = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), skill: App.Config.skill.leveledTexts});
+    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), readingStage: App.selectedStudent.get('readingStage'), skill: App.Config.skill.leveledTexts});
     _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);

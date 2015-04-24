@@ -1,5 +1,9 @@
 App.Models.Student = Backbone.Model.extend({
 
+  firstname: "",
+  lastname: "",
+  readingStage: "",
+
   defaults: {
     grade: 1
   },

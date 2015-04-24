@@ -28,7 +28,7 @@ App.Views.StimuliTilesLetterNames = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    var stimuli = App.stimuli.where({studentId: App.selectedStudent.get('id'), skill: App.Config.skill.letterNames});
+    var stimuli = App.stimuli.where({studentId: App.selectedStudent.get('id'), readingStage: App.selectedStudent.get('readingStage'), skill: App.Config.skill.letterNames});
     _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
