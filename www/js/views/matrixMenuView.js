@@ -3,32 +3,48 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   gridClass: "js-matrixMenuTabs",
 
-  tabs: [
-    { label: "LETTER NAMES", key: App.Config.skill.letterNames},
-    { label: "LETTER SOUNDS", key: App.Config.skill.letterSounds},
-    { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
-    { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
-    { label: "CVTs", key: App.Config.skill.cvts},
-    { label: "AFFIXES", key: App.Config.skill.affixes},
-    { label: "STAGE STORIES", key: App.Config.skill.stageStories},
-    { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
-  ],
+  tabDefs: {
+    letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames},
+    letterSounds: { label: "LETTER SOUNDS", key: App.Config.skill.letterSounds},
+    sightWords: { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
+    onsetRimes: { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
+    cvts: { label: "CVT WORDS", key: App.Config.skill.cvts},
+    affixes: { label: "AFFIXES", key: App.Config.skill.affixes},
+    stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories},
+    leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
+  },
+  tabs:[],
 
   initialize: function() {
     _.bindAll(this);
+
+    this.tabsByStage = {
+      "1":[this.tabDefs.letterNames, this.tabDefs.leveledTexts],
+      "2":[this.tabDefs.letterSounds, this.tabDefs.leveledTexts],
+      "3":[this.tabDefs.cvts, this.tabDefs.leveledTexts],
+      "4":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+      "5":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+      "6":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+      "7":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+      "8":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts],
+      "9":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts]
+    };
+
     this.render();
     this.listen();
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleMatrixMenuTabActveRequest);
+
+    this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleMatrixMenuTabActiveRequest);
+    this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleMatrixStudentSelectorTabActiveRequest);
   },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
-    _.each(this.tabs, function(tab) {
+    _.each(this.activeTabDefs, function(tab) {
       var options = {
         label: tab.label,
         key: tab.key
@@ -47,9 +63,21 @@ App.Views.MatrixMenu = Backbone.View.extend({
     };
   },
 
-  handleMatrixMenuTabActveRequest: function(selectedTab) {
+  selectedSkillAvailable: function(){
     var that = this;
-    _.each(this.tabs, function(tab) {
+    this.returnValue = false;
+    _.each(this.activeTabDefs, function (tab) {
+      if (tab.key === App.selectedSkill) {
+        that.returnValue = true;
+        return false;
+      }
+    });
+    return this.returnValue;
+  },
+
+  handleMatrixMenuTabActiveRequest: function(selectedTab) {
+    var that = this;
+    _.each(this.activeTabDefs, function(tab) {
       if (selectedTab.label === tab.label) {
         selectedTab.makeActive();
         App.Dispatcher.trigger("SkillChangeRequested:" + tab.key);
@@ -57,5 +85,17 @@ App.Views.MatrixMenu = Backbone.View.extend({
         that[tab.key].makeInactive();
       }
     });
+  },
+
+  handleMatrixStudentSelectorTabActiveRequest: function() {
+    var studentReadingStage = App.selectedStudent.get("readingStage");
+    this.activeTabDefs = this.tabsByStage[studentReadingStage];
+    this.render();
+
+    if (this.selectedSkillAvailable()) {
+      App.Dispatcher.trigger("matrixMenuTabActiveRequest", this[App.selectedSkill]);
+    } else {
+      App.Dispatcher.trigger("matrixMenuTabActiveRequest", this[this.activeTabDefs[0].key]);
+    }
   }
 });
