@@ -59,46 +59,51 @@ describe('App.Views.MatrixMenu', function() {
       expect(subject.$el).not.to.be.empty;
     });
 
-    it("creates a letter names tab view", function() {
-      var skillStages = [
-        { number:1, skillsDefined:"LetterNames" },
-        { number:2, skillsUndefined:"LetterSounds" }
-      ]
+    it("creates all required tab views for stage", function() {
+      for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
 
-      _.each(skillStages, function(skillStage) {
+        var stageKey = String.fromCharCode(("1".charCodeAt(0))+stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
-        App.selectedStudent = new App.Models.Student({ readingStage:skillStage.number });
+        App.selectedStudent = new App.Models.Student({ readingStage:stageKey });
         var studentReadingStage = App.selectedStudent.get("readingStage");
         subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
         subject.render();
 
-        expect(subject[skillStage.skill]).not.to.be.undefined;
-      })
+        var skills = subject.tabsByStage[stageKey];
+
+        _.each(skills, function(skill){
+          expect(subject.tabViews[skill.key]).not.to.be.undefined;
+        });
+
+      };
     });
 
-    // it("creates a letter sounds tab view", function() {
-    //   expect(subject.LetterSounds).not.to.be.undefined;
-    // });
+    it("creates only required tab views for stage", function() {
+      for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
 
-    // it("creates a sight words tab view", function() {
-    //   expect(subject.SightWords).not.to.be.undefined;
-    // });
+        var stageKey = String.fromCharCode(("1".charCodeAt(0))+stage);
+        subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
+        App.selectedStudent = new App.Models.Student({ readingStage:stageKey });
+        var studentReadingStage = App.selectedStudent.get("readingStage");
+        subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
+        subject.render();
 
-    // it("creates a onset rimes tab view", function() {
-    //   expect(subject.OnsetRimes).not.to.be.undefined;
-    // });
+        var skills = subject.tabsByStage[stageKey];
 
-    // it("creates a affixes tab view", function() {
-    //   expect(subject.Affixes).not.to.be.undefined;
-    // });
+        _.each(subject.tabViews, function(tabView, key){
+          this.key = key;
+          var skillKey = _.find(skills, function(skill){
+            return skill.key === this.key;
+          }, this);
+          expect(skillKey).not.to.be.undefined;
+        });
 
-    // it("creates a stageStories tab view", function() {
-    //   expect(subject.StageStories).not.to.be.undefined;
-    // });
+      };
+    });
 
     it("creates a leveled texts tab view", function() {
       subject.render();
-      expect(subject.LeveledTexts).not.to.be.undefined;
+      expect(subject.tabViews[App.Config.skill.leveledTexts]).not.to.be.undefined;
     });
 
     it("creates a close tab view", function() {
@@ -148,7 +153,7 @@ describe('App.Views.MatrixMenu', function() {
       it("inactivates the non clicked tabs", function() {
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
-        subject.LeveledTexts.makeInactive = makeInactive;
+        subject.tabViews[App.Config.skill.leveledTexts].makeInactive = makeInactive;
         var event_payload = {label: "LETTER NAMES", makeActive: makeActive};
         subject.handleMatrixMenuTabActiveRequest(event_payload);
         expect(makeInactive).to.have.been.called;

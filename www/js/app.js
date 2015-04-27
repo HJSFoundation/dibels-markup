@@ -8,6 +8,7 @@ var App = {
     productionApiUrl: 'https://IFLauthexample-webapp.herokuapp.com',
     developmentApiUrl: 'http://localhost:3000',
     maxStudentCount: 6,
+    maxStageCount: 9,
     skill: {
       letterNames: "LetterNames",
       letterSounds: "LetterSounds",
