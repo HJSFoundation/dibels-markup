@@ -72,12 +72,12 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
 
   describe("handlers", function() {
     describe("#handleClick", function() {
-      xit("sets the selected student", function() {
+      it("sets the selected student", function() {
         subject.handleClick();
         expect(App.selectedStudent.id).to.equal(1);
       });
 
-      xit("triggers the matrixStudentSelectorTabActiveRequest event", function() {
+      it("triggers the matrixStudentSelectorTabActiveRequest event", function() {
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleClick();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", subject);

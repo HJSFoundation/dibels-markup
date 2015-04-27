@@ -13,7 +13,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories},
     leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
   },
-  tabs:[],
+  tabViews:[],
 
   initialize: function() {
     _.bindAll(this);
@@ -44,12 +44,17 @@ App.Views.MatrixMenu = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
     var that = this;
+    _.each(this.tabViews, function(tabView) {
+      tabView.remove();
+    });
+    this.tabViews=[];
+
     _.each(this.activeTabDefs, function(tab) {
       var options = {
         label: tab.label,
         key: tab.key
       };
-      var view = that[tab.key] = new App.Views.MatrixMenuTab(options);
+      var view = that.tabViews[tab.key] = new App.Views.MatrixMenuTab(options);
       that.$gridClass.append(view.render().el);
     });
 
@@ -82,7 +87,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
         selectedTab.makeActive();
         App.Dispatcher.trigger("SkillChangeRequested:" + tab.key);
       } else {
-        that[tab.key].makeInactive();
+        that.tabViews[tab.key].makeInactive();
       }
     });
   },
@@ -93,9 +98,9 @@ App.Views.MatrixMenu = Backbone.View.extend({
     this.render();
 
     if (this.selectedSkillAvailable()) {
-      App.Dispatcher.trigger("matrixMenuTabActiveRequest", this[App.selectedSkill]);
+      App.Dispatcher.trigger("matrixMenuTabActiveRequest", this.tabViews[App.selectedSkill]);
     } else {
-      App.Dispatcher.trigger("matrixMenuTabActiveRequest", this[this.activeTabDefs[0].key]);
+      App.Dispatcher.trigger("matrixMenuTabActiveRequest", this.tabViews[this.activeTabDefs[0].key]);
     }
   }
 });

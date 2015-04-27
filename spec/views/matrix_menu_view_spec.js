@@ -53,12 +53,9 @@ describe('App.Views.MatrixMenu', function() {
 
   describe("#render", function() {
 
-    beforeEach(function(){
-      subject.render();
-    });
-
     it("renders when render is called", function() {
 
+      subject.render();
       expect(subject.$el).not.to.be.empty;
     });
 
@@ -100,10 +97,12 @@ describe('App.Views.MatrixMenu', function() {
     // });
 
     it("creates a leveled texts tab view", function() {
+      subject.render();
       expect(subject.LeveledTexts).not.to.be.undefined;
     });
 
     it("creates a close tab view", function() {
+      subject.render();
       expect(subject.closeTab).not.to.be.undefined;
     });
   });
