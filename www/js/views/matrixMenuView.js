@@ -13,7 +13,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories},
     leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
   },
-  tabViews:[],
+  tabViews:{},
 
   initialize: function() {
     _.bindAll(this);
@@ -47,7 +47,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.each(this.tabViews, function(tabView) {
       tabView.remove();
     });
-    this.tabViews=[];
+    this.tabViews={};
 
     _.each(this.activeTabDefs, function(tab) {
       var options = {
