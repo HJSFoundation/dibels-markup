@@ -1,0 +1,305 @@
+// letterNames: "LetterNames",
+// letterSounds: "LetterSounds",
+// sightWords: "SightWords",
+// onsetRimes: "OnsetRimes",
+// onsets: "Onsets",
+// rimes: "Rimes",
+// affixes: "Affixes",
+// stageStories: "StageStories"
+
+// "1":[this.tabDefs.letterNames, this.tabDefs.leveledTexts],
+// "2":[this.tabDefs.letterSounds, this.tabDefs.leveledTexts],
+// "3":[this.tabDefs.cvts, this.tabDefs.leveledTexts],
+// "4":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+// "5":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+// "6":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+// "7":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
+// "8":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts],
+// "9":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts]
+
+teacher = {
+  "id": 123543234,
+  "first_name": "Jane",
+  "last_name": "Doe",
+  "classroom_id": 134
+}
+
+classroom = {
+  "id": 134,
+  "name": "Jane Doe",
+  "needs_sync": true
+}
+
+needs_sync: student_added, student_removed, student_changed, student_assessment_changed, student_reading_stage_changed
+
+students = {
+  [
+    {
+      "id": 4325,
+      "first_name": "Jim",
+      "last_name": "Brown",
+      "password_image": "cow",
+      "classroom_id": 134,
+      "reading_stage": 5,
+      "archived": false
+    },
+    {
+      "id": 1234,
+      "first_name": "Jim",
+      "last_name": "Brown",
+      "password_image": "pig",
+      "classroom_id": 134,
+      "reading_stage": 6,
+      "archived": false
+    }
+  ]
+}
+
+skill_timing = {
+  [
+    {
+      "student_id": 4325,
+      "letterNames": 0,
+      "letterSounds": 180,
+      "sightWords": 180,
+      "onsetRimes": 0,
+      "onsets": 60,
+      "rimes": 60,
+      "affixes": 60,
+      "stageStories": 180
+    },
+    {
+      "student_id": 1234,
+      "letterNames": 0,
+      "letterSounds": 180,
+      "sightWords": 180,
+      "onsetRimes": 0,
+      "onsets": 60,
+      "rimes": 60,
+      "affixes": 60,
+      "stageStories": 180
+    }
+  ]
+}
+
+assessments = {
+  "1":{
+    "letter_names":{
+      "a":"mastered",
+      "b":"learning",
+      "c":"needs work",
+      "d":"clear",
+      "e":"pending",
+      "f":"pending"
+    }
+  },
+  "2":{
+    "letter_sounds":{
+      "a":"mastered",
+      "b":"learning",
+      "c":"needs work",
+      "d":"clear",
+      "e":"pending",
+      "f":"pending"
+    }
+  },
+  "3":{
+    "cvts":{
+      "a":"mastered",
+      "and":"learning",
+      "ball":"pending",
+      "be":"pending",
+      "blue":"pending",
+    }
+  },
+  "4":{
+    "sight_words":{
+      "any":"pending",
+      "all":"pending",
+      "are":"pending",
+      "as":"pending",
+      "away":"pending"
+    },
+    "onsets":{
+      "bl":"pending",
+      "cl":"pending",
+      "fl":"pending",
+      "gl":"pending",
+      "pl":"pending"
+    },
+    "rimes":{
+      "ade":"pending",
+      "ame":"pending",
+      "ane":"pending",
+      "ape":"pending",
+      "ate":"pending"
+    }
+  },
+  "5":{
+    "sight_words":{
+      "any":"pending",
+      "all":"pending",
+      "are":"pending",
+      "as":"pending",
+      "away":"pending"
+    },
+    "onsets":{
+      "bl":"pending",
+      "cl":"pending",
+      "fl":"pending",
+      "gl":"pending",
+      "pl":"pending"
+    },
+    "rimes":{
+      "ade":"pending",
+      "ame":"pending",
+      "ane":"pending",
+      "ape":"pending",
+      "ate":"pending"
+    }
+  },
+  "6":{
+    "sight_words":{
+      "any":"pending",
+      "all":"pending",
+      "are":"pending",
+      "as":"pending",
+      "away":"pending"
+    },
+    "onsets":{
+      "bl":"pending",
+      "cl":"pending",
+      "fl":"pending",
+      "gl":"pending",
+      "pl":"pending"
+    },
+    "rimes":{
+      "ade":"pending",
+      "ame":"pending",
+      "ane":"pending",
+      "ape":"pending",
+      "ate":"pending"
+    }
+  },
+  "7":{
+    "sight_words":{
+      "any":"pending",
+      "all":"pending",
+      "are":"pending",
+      "as":"pending",
+      "away":"pending"
+    },
+    "onsets":{
+      "bl":"pending",
+      "cl":"pending",
+      "fl":"pending",
+      "gl":"pending",
+      "pl":"pending"
+    },
+    "rimes":{
+      "ade":"pending",
+      "ame":"pending",
+      "ane":"pending",
+      "ape":"pending",
+      "ate":"pending"
+    },
+  "8":{
+    "sight_words":{
+      "any":"pending",
+      "all":"pending",
+      "are":"pending",
+      "as":"pending",
+      "away":"pending"
+    },
+    "onsets":{
+      "bl":"pending",
+      "cl":"pending",
+      "fl":"pending",
+      "gl":"pending",
+      "pl":"pending"
+    },
+    "rimes":{
+      "ade":"pending",
+      "ame":"pending",
+      "ane":"pending",
+      "ape":"pending",
+      "ate":"pending"
+    },
+    "affixes":{
+      "pre":"pending",
+      "un":"pending",
+      "be":"pending",
+      "in":"pending"
+    },
+  "9":{
+    "sight_words":{
+      "any":"pending",
+      "all":"pending",
+      "are":"pending",
+      "as":"pending",
+      "away":"pending"
+    },
+    "onsets":{
+      "bl":"pending",
+      "cl":"pending",
+      "fl":"pending",
+      "gl":"pending",
+      "pl":"pending"
+    },
+    "rimes":{
+      "ade":"pending",
+      "ame":"pending",
+      "ane":"pending",
+      "ape":"pending",
+      "ate":"pending"
+    },
+    "affixes":{
+      "pre":"pending",
+      "un":"pending",
+      "be":"pending",
+      "in":"pending"
+    }
+  }
+}
+
+strategies = {
+  {
+    "student_id": 1234
+    "strategy_type":"common_core_standards"
+    "name":"authors_purpose_non_fiction",
+    "assessment":"needs work",
+  },
+  "comprehension_strategies" : {
+    "predicting": "clear",
+  },
+  "reading_strategies" : {
+    "chunking_first_syllable": "mastered",
+  },
+}
+
+  common_core_standards,Compare and Contrast Character experiences
+  common_core_standards,Identify Characters
+  common_core_standards,Identify Key Details in Text
+  common_core_standards,Identify Major Events and Main Ideas
+  common_core_standards,Identify Settings
+  common_core_standards,Retell Stories
+  comprehension_strategies,Connecting text to the world and to the reader
+  comprehension_strategies,Looking at the pictures
+  comprehension_strategies,Making inferences Asking questions while reading
+  comprehension_strategies,Predicting
+  comprehension_strategies,Visualizing
+  reading_strategies,Chunking First Syllable - Chunky Monkey
+  reading_strategies,Flipping Vowel Sound -- Flipping Flipper
+  reading_strategies,Identifying prefixes/suffixes
+  reading_strategies,Listening and Correcting - Elephant Ears
+  reading_strategies,Reading Smoothly/Expressively - Reading Rabbit
+  reading_strategies,Recognizing rimes
+  reading_strategies,Recognizing sight words
+  reading_strategies,Segmenting/blending onsets and rimes
+  reading_strategies,Self correcting for meaning
+  reading_strategies,Self correcting for structure
+  reading_strategies,Self correcting for visual clues
+  reading_strategies,Skipping and Returning -- Skippy Frog
+  reading_strategies,Sounding First Letter  - Lips the Fish
+  reading_strategies,Sounding out first letter
+  reading_strategies,Using Punctuation Cues - Porcupine Punctuation
