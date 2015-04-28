@@ -5,7 +5,7 @@ var App = {
   Dispatcher: _.clone(Backbone.Events),
   Config: {
     el: "#applicationContainer",
-    productionApiUrl: 'https://IFLauthexample-webapp.herokuapp.com',
+    productionApiUrl: 'http://staging.tutormate.org',
     developmentApiUrl: 'http://localhost:3000',
     maxStudentCount: 6,
     maxStageCount: 9,

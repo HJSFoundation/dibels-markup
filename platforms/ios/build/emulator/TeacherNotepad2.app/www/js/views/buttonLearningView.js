@@ -1,0 +1,1 @@
+App.Views.ButtonLearning=Backbone.View.extend({template:App.templates.buttonLearning,events:{click:"handleClick"},initialize:function(){_.bindAll(this),this.render()},render:function(){this.$el.html(this.template())},handleClick:function(){return App.Dispatcher.trigger("buttonAssessmentClicked","learning"),!1}});
