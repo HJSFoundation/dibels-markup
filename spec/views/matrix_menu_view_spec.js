@@ -12,7 +12,6 @@ describe('App.Views.MatrixMenu', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrixMenu" });
-    App.Dispatcher = _.clone(Backbone.Events);
     subject = new App.Views.MatrixMenu({el: '.js-matrixMenu'});
     App.selectedStudent = new App.Models.Student({readingStage:1});
     var studentReadingStage = App.selectedStudent.get("readingStage");
@@ -52,9 +51,7 @@ describe('App.Views.MatrixMenu', function() {
   });
 
   describe("#render", function() {
-
     it("renders when render is called", function() {
-
       subject.render();
       expect(subject.$el).not.to.be.empty;
     });
@@ -62,7 +59,7 @@ describe('App.Views.MatrixMenu', function() {
     it("creates all required tab views for stage", function() {
       for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
 
-        var stageKey = String.fromCharCode(("1".charCodeAt(0))+stage);
+        var stageKey = String.fromCharCode(("1".charCodeAt(0)) + stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
         App.selectedStudent = new App.Models.Student({ readingStage:stageKey });
         var studentReadingStage = App.selectedStudent.get("readingStage");
@@ -74,14 +71,13 @@ describe('App.Views.MatrixMenu', function() {
         _.each(skills, function(skill){
           expect(subject.tabViews[skill.key]).not.to.be.undefined;
         });
-
       };
     });
 
     it("creates only required tab views for stage", function() {
       for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
 
-        var stageKey = String.fromCharCode(("1".charCodeAt(0))+stage);
+        var stageKey = String.fromCharCode(("1".charCodeAt(0)) + stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
         App.selectedStudent = new App.Models.Student({ readingStage:stageKey });
         var studentReadingStage = App.selectedStudent.get("readingStage");
@@ -97,7 +93,6 @@ describe('App.Views.MatrixMenu', function() {
           }, this);
           expect(skillKey).not.to.be.undefined;
         });
-
       };
     });
 

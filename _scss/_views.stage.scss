@@ -9,10 +9,13 @@
 
   &.stage--workspace {
     height: 430px;
+    -webkit-transition: all 0.5s ease-in-out;
+
     &.stage--workspace--full {
       height: 768px;
-      -webkit-transition: all 0.5s ease-in-out;
+      
     }
+
   }
 
   &.stage--story {

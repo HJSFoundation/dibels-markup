@@ -42,26 +42,8 @@
   border-radius: 50%;
   margin: 0 auto 13px; // magic number
 
-  &.st-selected {
-    &.icon-mastered {
-      box-shadow: inset 0 0 20px darken($go, 20%);
-    }
-    &.icon-learning {
-      box-shadow: inset 0 0 20px darken($learning, 20%);
-    }
-    &.icon-needs-work {
-      box-shadow: inset 0 0 20px darken($needs-work, 20%);
-    }
-  }
-
-  &.icon-mastered {
-    background-color: $go;
-  }
-  &.icon-learning {
-    background-color: $learning;
-  }
-  &.icon-needs-work {
-    background-color: $warning;
-  }
+  &.icon-mastered {background-color: $go};
+  &.icon-learning {background-color: $learning};
+  &.icon-needs-work {background-color: $warning};
 
 }

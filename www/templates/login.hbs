@@ -1,9 +1,19 @@
-<div id="loginContainer">
-  <p>email</p>
-  <input type="text" name="email" id="email-field">
-  <p>password:</p>
-  <input type="password" name="password" id="password-field">
-  <br />
-  <input type="button" value="Submit" id="submit">
-  <input type="button" value="Forgot Password" id="reset">
+<div id="loginContainer" class="login grid grid--center grid--column">
+  <div class="login__container grid grid--center grid--column">
+    <div class="grid grid--center grid--column">
+      <div class="login__logo">
+      <img src="/img/logo-tn.svg" alt="">
+    </div>
+    <div>
+      <input class="login__field login__field--email" type="email" name="email" id="email-field" placeholder="Email">
+      <input class="login__field login__field--password" type="password" name="password" id="password-field" placeholder="Password">
+      <input class="button button--primary login__button" type="button" value="Log In" id="submit">
+      <input type="button" value="Forgot Password" id="reset">
+    </div>
+  </div>
+  <div class="teachermate-logo">
+    <img src="/img/logo-teachermate.svg" alt="">
+  </div>
+  <footer class="footer--login">
+  </footer>
 </div>

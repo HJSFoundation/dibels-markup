@@ -13,7 +13,6 @@
   font-size: 48px;
   margin-bottom: 20px;
   padding-left: 15px;
-  position: relative;
 
   &.story__text--teacher {
     font-size: 14px;
@@ -31,7 +30,7 @@
 
 .story__flip {
   position: absolute;
-  bottom: 20px; // magic number
+  bottom: 50px; // magic number
   right: 10px;
   font-size: 22px;
 }

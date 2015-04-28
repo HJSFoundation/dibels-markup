@@ -8,34 +8,27 @@
   height: 40px;
 
   .menu--tabs--student-selector & {
-   text-align: left;
-   padding-left: 10px;
-   position: relative;
-   transition-property: background-color;
-   transition-duration: 0.3s;
-   transition-timing-function: linear;
+    text-align: left;
+    padding-left: 10px;
+    position: relative;
 
-   span.icon-edit {
-     opacity: 0;
-     position: absolute;
-     right: 10px;
-     font-size: 21px;
-     transition-property: opacity;
-     transition-duration: 0.2s;
-     transition-timing-function: linear;
-     transition-delay: 0.3s;
-   }
+    span.icon-edit {
+      display: none;
+      position: absolute;
+      right: 10px;
+      font-size: 21px;
+    }
 
-   &.st-active,
-   &:hover {
-     background-color: $orange;
-     color: $white;
+    &.st-active,
+    &:hover {
+      background-color: $orange;
+      color: $white;
 
-     span.icon-edit {
-       opacity: 1;
-     }
-   }
- }
+      span.icon-edit {
+        display: inline-block;
+      }
+    }
+  }
 
   &:last-child {
     border-right: 0;

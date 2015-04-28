@@ -39,6 +39,8 @@
       <script type="text/javascript" src="js/views/applicationView.js"></script>
       <script type="text/javascript" src="js/views/loginView.js"></script>
       <script type="text/javascript" src="js/views/stageView.js"></script>
+      <script type="text/javascript" src="js/views/deviceSelectView.js"></script>
+      <script type="text/javascript" src="js/views/groupManagementView.js"></script>
       <script type="text/javascript" src="js/views/buttonDrawerToggleView.js"></script>
 
       <script type="text/javascript" src="js/views/buttonFlipView.js"></script>
@@ -93,7 +95,7 @@
       <script>
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
-
+          
           new App.Views.Application({ el: App.Config.el });
 
         }, false);

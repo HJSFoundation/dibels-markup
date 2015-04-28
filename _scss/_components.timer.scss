@@ -1,0 +1,25 @@
+.timer {
+  display: none;
+  transition: opacity .55s ease-in-out;
+}
+.timer__controls {
+  width: 200px;
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+
+  .timer__progress {
+    font-family: $font-condensed;
+    color: $warning;
+    font-size: 24px;
+  }
+
+  .icon-minus,
+  .icon-plus {
+    font-size: 22px;
+    text-align: center;
+  }
+  .icon-timer-filled {
+    color: $red;
+  }
+}

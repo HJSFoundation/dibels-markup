@@ -1,0 +1,32 @@
+.matrix {
+  background: $bg-drawer;
+  height: 340px;
+  position: relative;
+}
+
+.matrix__menu,
+.matrix__student-selector {
+  max-height: 40px;
+  width: 100%;
+}
+
+.matrix__menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.matrix__stimuli {
+  height: 260px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: $matrix-tile;
+}
+
+.matrix__student-selector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-height: 40px;
+}

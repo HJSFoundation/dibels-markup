@@ -25,7 +25,7 @@ describe('App.Views.Application', function() {
 
   it("handles login success", function() {
     subject.handleLoggedIn();
-    expect(subject.teacherWorkspaceView.$el.find('.workspace')).to.exist;
+    expect(subject.deviceSelect).to.be.an.instanceOf(App.Views.DeviceSelect);
   });
 
   describe("initialize", function() {

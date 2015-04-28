@@ -1,0 +1,45 @@
+.drawer {
+  width: 300px;
+  background-color: $bg-drawer;
+  color: $text-medium;
+  height: 768px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+
+  .icon {
+    color: $text-light;
+  }
+
+  &.st-closed {
+    display: none;
+  }
+
+  &.st-open {
+    display: block;
+  }
+}
+
+.drawer__header {
+  padding: 15px;
+}
+
+.drawer__title {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 400;
+  font-size: 26px;
+  text-align: left;
+}
+
+.drawer__menu {
+  .icon-text--horizontal {
+    border-top: 1px solid $text-medium;
+    padding: 25px;
+
+    &:last-child {
+      border-bottom: 1px solid $text-medium;
+    }
+  }
+}

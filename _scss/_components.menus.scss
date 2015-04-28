@@ -1,0 +1,18 @@
+.menu--vertical {
+  height: auto;
+}
+
+.menu--assessment {
+  flex-direction: row;
+  max-width: 40%;
+  margin: auto;
+  align-self: flex-end;
+
+
+  &.menu--assessment--stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+  }
+}

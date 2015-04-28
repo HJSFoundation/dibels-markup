@@ -3,8 +3,8 @@ App.Views.Application = Backbone.View.extend({
     this.loginView = new App.Views.Login({ el: this.$el });
     this.listen();
 
-    // localStorage.clear();
 
+    // localStorage.clear();
     App.students = new App.Collections.Students();
     App.students.fetch();
     if(App.students.length === 0) {
@@ -118,6 +118,6 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-    this.teacherWorkspaceView = new App.Views.TeacherWorkspace({ el: this.$el});
+    this.deviceSelect = new App.Views.DeviceSelect({ el: this.$el});
   }
 });
