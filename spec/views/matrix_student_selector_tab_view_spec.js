@@ -13,7 +13,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
 
     appendFixture("div", { class: "js-tab" });
     subject = new App.Views.MatrixStudentSelectorTab({
-      model: new App.Models.Student({id:1, firstname: "Bernie", lastname: "Bivins", reading_stage: 2}),
+      model: new App.Models.Student({user_id:1, firstname: "Bernie", lastname: "Bivins", reading_stage: 2}),
       el: '.js-tab'
     });
   });
@@ -31,8 +31,8 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       expect(subject.label).to.equal("BERNIE B.");
     });
 
-    it("sets the id", function() {
-      expect(subject.id).to.equal(1);
+    it("sets the user_id", function() {
+      expect(subject.user_id).to.equal(1);
     });
 
     it("sets the reading_stage", function() {
@@ -74,7 +74,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     describe("#handleClick", function() {
       it("sets the selected student", function() {
         subject.handleClick();
-        expect(App.selectedStudent.id).to.equal(1);
+        expect(App.selectedStudent.get("user_id")).to.equal(1);
       });
 
       it("triggers the matrixStudentSelectorTabActiveRequest event", function() {

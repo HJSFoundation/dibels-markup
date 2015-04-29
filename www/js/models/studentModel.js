@@ -1,5 +1,6 @@
 App.Models.Student = Backbone.Model.extend({
 
+  user_id: "",
   firstname: "",
   lastname: "",
   reading_stage: "",

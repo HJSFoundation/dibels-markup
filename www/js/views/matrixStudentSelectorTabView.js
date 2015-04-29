@@ -12,7 +12,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   initialize: function(options) {
     _.bindAll(this);
     this.label = this.model.shortName();
-    this.id = this.model.get("id");
+    this.user_id = this.model.get("user_id");
     this.reading_stage = this.model.get("reading_stage");
     this.editStudent = new App.Views.EditStudent({el: ".js-overlay"});
   },

@@ -12,7 +12,7 @@ describe('App.Views.StimuliTilesSightWords', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
-    App.selectedStudent = new App.Models.Student({id:1, reading_stage:4});
+    App.selectedStudent = new App.Models.Student({user_id:1, reading_stage:4});
     subject = new App.Views.StimuliTilesSightWords({el: '.js-stimuliTiles'});
   });
 

@@ -1,5 +1,5 @@
 App.Models.Stimulus = Backbone.Model.extend({
-  studentId: null,
+  user_id: null,
   value: "",
   reading_stage: 0,
   skill: "",

@@ -29,7 +29,7 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), reading_stage: App.selectedStudent.get('reading_stage'), skill: App.Config.skill.stageStories});
+    var stimuli = App.stimuli.where({user_id:App.selectedStudent.get('user_id'), reading_stage: App.selectedStudent.get('reading_stage'), skill: App.Config.skill.stageStories});
     _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);
