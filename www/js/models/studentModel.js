@@ -1,8 +1,8 @@
 App.Models.Student = Backbone.Model.extend({
 
   user_id: "",
-  firstname: "",
-  lastname: "",
+  first_name: "",
+  last_name: "",
   reading_stage: "",
 
   defaults: {
@@ -10,6 +10,6 @@ App.Models.Student = Backbone.Model.extend({
   },
 
   shortName: function() {
-    return (this.get("firstname")+" "+this.get("lastname").charAt(0)+".").toUpperCase();
+    return (this.get("first_name")+" "+this.get("last_name").charAt(0)+".").toUpperCase();
   }
 });

@@ -27,11 +27,11 @@ var App = {
 
     App.students = new App.Collections.Students({localStorageName: "students"});
     App.students.fetch();
-    App.students.create({user_id: 1, firstname: "Bernie", lastname: "Bivins", reading_stage: 7});
-    App.students.create({user_id: 2, firstname: "Clark", lastname: "Kempt", reading_stage: 3});
-    App.students.create({user_id: 3, firstname: "Princess", lastname: "Peach", reading_stage: 2});
-    App.students.create({user_id: 4, firstname: "Clint", lastname: "Eastman", reading_stage: 4});
-    App.students.create({user_id: 5, firstname: "Hugo", lastname: "Boss", reading_stage: 1});
+    App.students.create({user_id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7});
+    App.students.create({user_id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3});
+    App.students.create({user_id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
+    App.students.create({user_id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
+    App.students.create({user_id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
   
     App.selectedStudent = App.students.at(0);
     App.selectedSkill = "";
