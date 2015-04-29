@@ -40,5 +40,6 @@ App.Views.MatrixMenuTab = Backbone.View.extend({
 
   handleClick: function() {
     App.Dispatcher.trigger("matrixMenuTabActiveRequest", this);
+    return false;
   }
 });

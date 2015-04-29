@@ -44,8 +44,8 @@ describe('App.Views.StageStimulusLetterNames', function() {
 
   it("#handleSkillChangeRequest", function() {
     sinon.spy(subject, "render");
-    var stimulus = "a";
-    subject.handleSkillChangeRequest(stimulus);
-    expect(subject.render).to.have.been.calledWith(stimulus);
+    var value = "a";
+    subject.handleSkillChangeRequest(value);
+    expect(subject.render).to.have.been.calledWith(value);
   });
 });

@@ -16,7 +16,7 @@ describe('App.Views.Tile', function() {
     appendFixture("div", { class: "js-tile" });
 
     collection = new App.Collections.Stimuli({localStorageName: "stimuli"});
-    App.stimuli.create({stage: 0, skill:App.Config.skill.letterNames, stimulus: "a", assessment:"clear"});
+    App.stimuli.create({reading_stage: 0, skill:App.Config.skill.letterNames, value: "a", assessment:"clear"});
     model = collection.at(0);
     subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0, selectedClass: ""});
   });
@@ -86,7 +86,7 @@ describe('App.Views.Tile', function() {
 
   it("#templateJSON", function() {
     expect(subject.templateJSON().index).to.equal(subject.index);
-    expect(subject.templateJSON().stimulus).to.equal(subject.model.get("stimulus"));
+    expect(subject.templateJSON().stimulusValue).to.equal(subject.model.get("value"));
     expect(subject.templateJSON().assessmentClass).to.equal("st-"+subject.model.get("assessment"));
     expect(subject.templateJSON().selected).to.equal(subject.selected);
   });
@@ -102,7 +102,7 @@ describe('App.Views.Tile', function() {
     it("#handleClick", function() {
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleClick();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+subject.model.get("skill"), {skill: subject.model.get("skill"), stimulus: subject.model.get("stimulus")});
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+subject.model.get("skill"), {skill: subject.model.get("skill"), value: subject.model.get("value")});
       App.Dispatcher.trigger.restore();
     });
 
@@ -115,15 +115,15 @@ describe('App.Views.Tile', function() {
     });
 
     describe("#handleStimulusChangeRequested", function() {
-      it("listens when stimulus argument equals this.stimulus", function() {
+      it("listens when stimulus argument equals this.value", function() {
         sinon.spy(subject, "listenTo");
-        subject.handleStimulusChangeRequested({stimulus: subject.model.get("stimulus")});
+        subject.handleStimulusChangeRequested({value: subject.model.get("value")});
         expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "buttonAssessmentClicked", subject.handleButtonAssessmentClicked);
       });
 
-      it("stops listening when stimulus argument does not equal this.stimulus", function() {
+      it("stops listening when stimulus argument does not equal this.value", function() {
         sinon.spy(subject, "stopListening");
-        subject.handleStimulusChangeRequested({stimulus: "b"});
+        subject.handleStimulusChangeRequested({value: "b"});
         expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "buttonAssessmentClicked");
       });
     });

@@ -2,7 +2,7 @@ App.Models.Student = Backbone.Model.extend({
 
   firstname: "",
   lastname: "",
-  readingStage: "",
+  reading_stage: "",
 
   defaults: {
     grade: 1

@@ -17,7 +17,6 @@ describe('App.Views.Application', function() {
 
   afterEach(function() {
     _.bindAll.restore();
-    localStorage.clear();
   });
 
   it("has a reference to the application container", function() {

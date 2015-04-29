@@ -96,7 +96,7 @@ this["App"]["templates"]["matrixStudentSelectorTab"] = Handlebars.template({"com
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<span class=\"menu--number\">"
-    + alias3(((helper = (helper = helpers.readingStage || (depth0 != null ? depth0.readingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"readingStage","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.reading_stage || (depth0 != null ? depth0.reading_stage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"reading_stage","hash":{},"data":data}) : helper)))
     + "</span>\n<span class=\"menu--title\">"
     + alias3(((helper = (helper = helpers.label || (depth0 != null ? depth0.label : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"label","hash":{},"data":data}) : helper)))
     + "</span>\n<span class=\"icon icon-edit\"></span>\n";
@@ -120,7 +120,7 @@ this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compile
     var helper;
 
   return "<div class=\"stage__stimulus stage__stimulus--letters animated slideInRight\">\n  <span>"
-    + this.escapeExpression(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
+    + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n  <img src=\"img/apple.svg\" alt=\"apple\">\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -130,7 +130,7 @@ this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler"
     var helper;
 
   return "<div class=\"stage__stimulus stage__stimulus--words animated slideInRight\">\n  <span>"
-    + this.escapeExpression(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
+    + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -190,7 +190,7 @@ this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias3(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
     + "\">"
     + alias3(((helper = (helper = helpers.index || (depth0 != null ? depth0.index : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
-    + alias3(((helper = (helper = helpers.stimulus || (depth0 != null ? depth0.stimulus : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stimulus","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.stimulusValue || (depth0 != null ? depth0.stimulusValue : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stimulusValue","hash":{},"data":data}) : helper)))
     + "</a>\n\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

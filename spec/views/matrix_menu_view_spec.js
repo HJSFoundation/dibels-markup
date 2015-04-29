@@ -13,8 +13,8 @@ describe('App.Views.MatrixMenu', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrixMenu" });
     subject = new App.Views.MatrixMenu({el: '.js-matrixMenu'});
-    App.selectedStudent = new App.Models.Student({readingStage:1});
-    var studentReadingStage = App.selectedStudent.get("readingStage");
+    App.selectedStudent = new App.Models.Student({reading_stage:1});
+    var studentReadingStage = App.selectedStudent.get("reading_stage");
     subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
 
   });
@@ -56,13 +56,13 @@ describe('App.Views.MatrixMenu', function() {
       expect(subject.$el).not.to.be.empty;
     });
 
-    it("creates all required tab views for stage", function() {
+    it("creates all required tab views for reading_stage", function() {
       for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
 
         var stageKey = String.fromCharCode(("1".charCodeAt(0)) + stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
-        App.selectedStudent = new App.Models.Student({ readingStage:stageKey });
-        var studentReadingStage = App.selectedStudent.get("readingStage");
+        App.selectedStudent = new App.Models.Student({ reading_stage:stageKey });
+        var studentReadingStage = App.selectedStudent.get("reading_stage");
         subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
         subject.render();
 
@@ -74,13 +74,13 @@ describe('App.Views.MatrixMenu', function() {
       };
     });
 
-    it("creates only required tab views for stage", function() {
+    it("creates only required tab views for reading_stage", function() {
       for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
 
         var stageKey = String.fromCharCode(("1".charCodeAt(0)) + stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
-        App.selectedStudent = new App.Models.Student({ readingStage:stageKey });
-        var studentReadingStage = App.selectedStudent.get("readingStage");
+        App.selectedStudent = new App.Models.Student({ reading_stage:stageKey });
+        var studentReadingStage = App.selectedStudent.get("reading_stage");
         subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
         subject.render();
 

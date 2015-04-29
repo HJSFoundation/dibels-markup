@@ -13,7 +13,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
 
     appendFixture("div", { class: "js-tab" });
     subject = new App.Views.MatrixStudentSelectorTab({
-      model: new App.Models.Student({id:1, firstname: "Bernie", lastname: "Bivins", readingStage: 2}),
+      model: new App.Models.Student({id:1, firstname: "Bernie", lastname: "Bivins", reading_stage: 2}),
       el: '.js-tab'
     });
   });
@@ -35,8 +35,8 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       expect(subject.id).to.equal(1);
     });
 
-    it("sets the reading stage", function() {
-      expect(subject.readingStage).to.equal(2);
+    it("sets the reading_stage", function() {
+      expect(subject.reading_stage).to.equal(2);
     });
 
     it("sets editStudent", function() {
@@ -52,7 +52,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
   describe("helper functions", function() {
     it("#templateJSON", function() {
       expect(subject.templateJSON().label).to.equal("BERNIE B.");
-      expect(subject.templateJSON().readingStage).to.equal(2);
+      expect(subject.templateJSON().reading_stage).to.equal(2);
     });
 
     it("#makeActive", function() {

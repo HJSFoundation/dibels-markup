@@ -27,10 +27,11 @@ App.Views.StoryPage = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
+    return false;
   },
 
-  handleSkillChangeRequest: function(stimulus) {
-    this.render(stimulus);
+  handleSkillChangeRequest: function() {
+    this.render();
   },
 
   handleFlipStoryRequest: function() {

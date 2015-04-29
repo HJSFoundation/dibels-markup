@@ -97,7 +97,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
   },
 
   handleMatrixStudentSelectorTabActiveRequest: function() {
-    var studentReadingStage = App.selectedStudent.get("readingStage");
+    var studentReadingStage = App.selectedStudent.get("reading_stage");
     this.activeTabDefs = this.tabsByStage[studentReadingStage];
     this.render();
 
