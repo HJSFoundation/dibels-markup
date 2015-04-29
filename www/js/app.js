@@ -84,11 +84,11 @@ var App = {
         if(stageIndex===3){
 
           _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o) {
-            App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, subSkill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
+            App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
           });
 
           _.forEach(["at","ap","ad","am","an","id","im","in","ip","it","od","op","om","ot","ud","un","up","ut","ed","em","en","ep","et","on"], function(o) {
-            App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, subSkill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
+            App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
           });
         }
 
@@ -102,11 +102,11 @@ var App = {
           }
 
           _.forEach(["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w","y","z"], function(o) {
-            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, subSkill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
+            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
           });
 
           _.forEach(["at"+stageIndex,"ap","ad","am","an","id","im","in","ip","it","od","op","om","ot","ud","un","up","ut","ed","em","en","ep","et","on"], function(o) {
-            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, subSkill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
+            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
           });
         }
 
