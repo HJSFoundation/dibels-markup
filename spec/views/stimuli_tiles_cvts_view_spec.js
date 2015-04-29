@@ -105,6 +105,7 @@ describe('App.Views.StimuliTilesCVts', function() {
     });
 
     it("#handleSkillReplaceRequest", function() {
+
       subject.render();
       expect(subject.tiles).not.to.be.empty;
       subject.handleSkillReplaceRequest();

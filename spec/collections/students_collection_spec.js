@@ -10,7 +10,7 @@ describe('App.Collections.Students', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Collections.Students();
+    subject = new App.Collections.Students({localStorageName: "students"});
   });
 
   it("has a student model", function() {

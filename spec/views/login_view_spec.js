@@ -24,7 +24,7 @@ describe('App.Views.Login', function() {
 
   describe("events", function() {
     it("has a login success event", function() {
-      expect(subject.events["click #submit"]).to.equal("handleLoginSuccess");
+      expect(subject.events["click #submit"]).to.equal("submit");
     });
   });
 

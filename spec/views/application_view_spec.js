@@ -4,6 +4,7 @@ describe('App.Views.Application', function() {
   var requests;
 
   beforeEach(function() {
+
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
     xhr.onCreate = function(xhr) {
@@ -16,6 +17,7 @@ describe('App.Views.Application', function() {
 
   afterEach(function() {
     _.bindAll.restore();
+    localStorage.clear();
   });
 
   it("has a reference to the application container", function() {

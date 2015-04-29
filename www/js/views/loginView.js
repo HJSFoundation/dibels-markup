@@ -24,10 +24,8 @@ App.Views.Login = Backbone.View.extend({
       url: App.Config.productionApiUrl + '/api/v1/sign_in',
       crossDomain: true,
       data: {
-        user: {
-            email: email,
-            password: password
-        },
+        email: email,
+        password: password
       },
       dataType: 'json',
 

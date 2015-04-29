@@ -95,9 +95,8 @@
       <script>
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
-          
-          new App.Views.Application({ el: App.Config.el });
-
+          App.initialize();
+         new App.Views.Application({ el: App.Config.el });
         }, false);
       </script>
     </body>
