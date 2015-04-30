@@ -17,6 +17,27 @@
 // "8":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts],
 // "9":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts]
 
+- user logs in
+
+- Teacher
+- Classroom
+  - Students
+  - Stimuli
+
+/teacher/:id
+
+{
+  id: 1234,
+  first_name: "Jane",
+  last_name: "Doe",
+  classroom_id: 54326
+}
+
+/classroom/:id/students
+
+/classroom/:id/stimuli
+
+
 teacher = {
   "id": 123543234,
   "first_name": "Jane",
@@ -30,7 +51,13 @@ classroom = {
   "needs_sync": true
 }
 
-needs_sync: student_added, student_removed, student_changed, student_assessment_changed, student_reading_stage_changed
+stimulus = {
+  user_id: 1234,
+  reading_stage: 1,
+  skill: "letter names",
+  stimuli: "a",
+  assessment: "mastered"
+}
 
 students = {
   [
@@ -81,6 +108,7 @@ skill_timing = {
     }
   ]
 }
+
 
 assessments = {
   "1":{
