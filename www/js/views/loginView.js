@@ -22,7 +22,7 @@ App.Views.Login = Backbone.View.extend({
 
     $.ajax({
       type: 'POST',
-      url: App.Config.productionApiUrl + '/api/v1/sign_in',
+      url: App.url + '/sign_in',
       crossDomain: true,
       data: {
         email: email,
@@ -31,8 +31,9 @@ App.Views.Login = Backbone.View.extend({
       dataType: 'json',
 
       success: function(responseData) {
+
         console.log(responseData);
-        currentUser = responseData;
+        App.currentUser = responseData;
         that.handleLoginSuccess();
       },
       error: function(responseData) {

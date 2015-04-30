@@ -5,43 +5,57 @@ var App = {
   Dispatcher: _.clone(Backbone.Events),
   Config: {
     el: "#applicationContainer",
-    productionApiUrl: "http://staging.tutormate.org",
+    productionApiUrl: "",
+    stagingApiUrl: "http://staging.tutormate.org/api/v1",
     developmentApiUrl: "http://localhost:3000",
     maxStudentCount: 6,
     maxStageCount: 9,
     skill: {
-      letterNames: "LetterNames",
-      letterSounds: "LetterSounds",
-      sightWords: "SightWords",
-      onsetRimes: "OnsetRimes",
-      cvts: "CVts",
-      onsets: "Onsets",
-      rimes: "Rimes",
-      affixes: "Affixes",
-      stageStories: "StageStories",
-      leveledTexts: "LeveledTexts"
-    }
+      letterNames: "letter_names",
+      letterSounds: "letter_sounds",
+      sightWords: "sight_words",
+      onsetRimes: "onset_rimes",
+      cvts: "cvts",
+      onsets: "onsets",
+      rimes: "rimes",
+      affixes: "affixes",
+      stageStories: "stage_stories",
+      leveledTexts: "leveled_texts"
+    },
   },
-  initialize: function(){
-    localStorage.clear();
+  url: "http://staging.tutormate.org/api/v1",
+  currentUser: null,
 
-    App.students = new App.Collections.Students({localStorageName: "students"});
+  sendAuthentication: function (xhr) {
+    var email = App.currentUser.email;
+    var token = App.currentUser.token;
+    var header= 'Token token="'+token+'", email="'+email+'"';
+  xhr.setRequestHeader('Authorization', header);
+},
+
+  initializeTestData: function(){
+
+    // localStorage.clear();
+
+    // App.students = new App.Collections.Students({localStorageName: "students"});
+    App.students = new App.Collections.Students();
     App.students.fetch();
-    App.students.create({user_id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7});
-    App.students.create({user_id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3});
-    App.students.create({user_id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
-    App.students.create({user_id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
-    App.students.create({user_id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
+    App.students.create({id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7});
+    App.students.create({id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3});
+    App.students.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
+    App.students.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
+    App.students.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
   
     App.selectedStudent = App.students.at(0);
     App.selectedSkill = "";
 
 
-    App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
+    // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
+    App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch();
     App.students.each(function(student) {
       var a, z, c, A, Z;
-      var user_id= student.get("user_id");
+      var user_id= student.get("id");
 
       for(var stageIndex=1; stageIndex<10; stageIndex = stageIndex + 1){
 

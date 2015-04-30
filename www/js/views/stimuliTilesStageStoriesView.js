@@ -11,15 +11,15 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:StageStories", this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.stageStories, this.handleSkillChangeRequest);
 
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:CVts", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:LeveledTexts", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:SightWords", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:OnsetRimes", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:Affixes", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterNames", this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:LetterSounds", this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.cvts, this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.leveledTexts, this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.sightWords, this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.onsetRimes, this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.affixes, this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.letterNames, this.handleSkillReplaceRequest);
+    this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.letterSounds, this.handleSkillReplaceRequest);
 
     this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
@@ -29,7 +29,7 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stimuli = App.stimuli.where({user_id:App.selectedStudent.get('user_id'), reading_stage: App.selectedStudent.get('reading_stage'), skill: App.Config.skill.stageStories});
+    var stimuli = App.stimuli.where({user_id:App.selectedStudent.get('id'), reading_stage: App.selectedStudent.get('reading_stage'), skill: App.Config.skill.stageStories});
     _.each(stimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus, index: (i += 1) + ". " });
       that.tiles.push(view);

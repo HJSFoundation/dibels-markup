@@ -66,7 +66,7 @@ describe('App.Views.MatrixStudentSelector', function() {
 
       it("activates the clicked tab", function() {
         var makeActive = sinon.spy();
-        var event_payload = {user_id: 3, makeActive: makeActive};
+        var event_payload = {id: 3, makeActive: makeActive};
         subject.handleMatrixStudentSelectorTabActiveRequest(event_payload);
         expect(makeActive).to.have.been.called;
       });
@@ -75,7 +75,7 @@ describe('App.Views.MatrixStudentSelector', function() {
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
         subject.tabs[4].makeInactive = makeInactive;
-        var event_payload = {user_id: 3, makeActive: makeActive};
+        var event_payload = {id: 3, makeActive: makeActive};
         subject.handleMatrixStudentSelectorTabActiveRequest(event_payload);
         expect(makeInactive).to.have.been.called;
       });

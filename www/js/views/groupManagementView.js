@@ -8,6 +8,11 @@ App.Views.GroupManagement = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.render();
+
+    App.students = new App.Collections.Students();
+    for(var i=0; i < App.Config.maxStudentCount; i = i+1){
+      App.students.add(App.roster.at(i));
+    }
   },
 
   render: function() {
