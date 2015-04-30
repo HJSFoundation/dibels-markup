@@ -12,6 +12,7 @@ App.Views.Login = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+    return this;
   },
 
   submit: function(){

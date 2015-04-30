@@ -15,5 +15,6 @@ App.Views.EditStudent = Backbone.View.extend({
 
   handleClick: function() {
     this.$el.empty();
+    return false;
   }
 });

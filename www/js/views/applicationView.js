@@ -1,6 +1,8 @@
 App.Views.Application = Backbone.View.extend({
   initialize: function() {
-    this.loginView = new App.Views.Login({ el: this.$el });
+    this.loginView = new App.Views.Login();
+    $(App.Config.el).append(this.loginView.render().el);
+
     this.listen(); 
   },
 
@@ -9,6 +11,8 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-    this.deviceSelect = new App.Views.DeviceSelect({ el: this.$el});
+    this.deviceSelect = new App.Views.DeviceSelect();
+    $(App.Config.el).append(this.deviceSelect.render().el);
+    this.loginView.remove();
   }
 });

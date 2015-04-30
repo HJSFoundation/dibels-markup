@@ -12,11 +12,12 @@ App.Views.GroupManagement = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+    return this;
   },
 
   handleClick: function() {
-    this.$el.empty();
-    this.teacherWorkspace = new App.Views.TeacherWorkspace({ el: this.$el});
+    this.teacherWorkspace = new App.Views.TeacherWorkspace({el: App.Config.el});
+    this.remove();
     return false;
   }
 });
