@@ -15,6 +15,7 @@ App.Views.GroupManagement = Backbone.View.extend({
   },
 
   handleClick: function() {
+    this.$el.empty();
     this.teacherWorkspace = new App.Views.TeacherWorkspace({ el: this.$el});
     return false;
   }

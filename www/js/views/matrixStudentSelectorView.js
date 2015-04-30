@@ -17,7 +17,7 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     this.$el.html(this.template());
     var that = this;
     App.students.each(function(student) {
-      var view = that.tabs[student.id] = new App.Views.MatrixStudentSelectorTab({ model: student});
+      var view = that.tabs[student.get("user_id")] = new App.Views.MatrixStudentSelectorTab({ model: student});
       $('.js-matrixStudentSelectorTabs').append(view.render().el);
     });
 
@@ -31,10 +31,10 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
   handleMatrixStudentSelectorTabActiveRequest: function(selectedTab) {
     var that = this;
     _.each(this.tabs, function(tab) {
-      if (selectedTab.id === tab.id) {
+      if (selectedTab.user_id === tab.user_id) {
         selectedTab.makeActive();
       } else {
-        that.tabs[tab.id].makeInactive();
+        that.tabs[tab.user_id].makeInactive();
       }
     });
   }

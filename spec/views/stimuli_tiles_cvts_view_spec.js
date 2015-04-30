@@ -13,7 +13,7 @@ describe('App.Views.StimuliTilesCVts', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
     subject = new App.Views.StimuliTilesCVts({el: '.js-stimuliTiles'});
-    App.selectedStudent = new App.Models.Student({id:1, readingStage:3});
+    App.selectedStudent = new App.Models.Student({user_id:1, reading_stage:3});
   });
 
   afterEach(function() {
@@ -105,6 +105,7 @@ describe('App.Views.StimuliTilesCVts', function() {
     });
 
     it("#handleSkillReplaceRequest", function() {
+
       subject.render();
       expect(subject.tiles).not.to.be.empty;
       subject.handleSkillReplaceRequest();

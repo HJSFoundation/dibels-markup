@@ -4,6 +4,7 @@ describe('App.Views.Application', function() {
   var requests;
 
   beforeEach(function() {
+
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
     xhr.onCreate = function(xhr) {

@@ -30,14 +30,14 @@ App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     var that = this;
     this.$gridClass = $("." + this.gridClassOnset);
-    var onsetStimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), readingStage: App.selectedStudent.get('readingStage'), skill: App.Config.skill.onsetRimes, subSkill: App.Config.skill.onsets});
+    var onsetStimuli = App.stimuli.where({user_id:App.selectedStudent.get('user_id'), reading_stage: App.selectedStudent.get('reading_stage'), skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets});
     _.each(onsetStimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
     });
 
-    var rimeStimuli = App.stimuli.where({studentId:App.selectedStudent.get('id'), readingStage: App.selectedStudent.get('readingStage'), skill: App.Config.skill.onsetRimes, subSkill: App.Config.skill.rimes});
+    var rimeStimuli = App.stimuli.where({user_id:App.selectedStudent.get('user_id'), reading_stage: App.selectedStudent.get('reading_stage'), skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes});
     this.$gridClass = $("." + this.gridClassRime);
     _.each(rimeStimuli,function(stimulus) {
       var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});

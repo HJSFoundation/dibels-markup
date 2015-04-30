@@ -22,7 +22,6 @@ window.expect = chai.expect;
 beforeEach(function() {
   $("body").append("<div id='applicationContainer'/>");
   App.Dispatcher = _.clone(Backbone.Events);
-
 });
 
 afterEach(function() {

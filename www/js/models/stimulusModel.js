@@ -1,7 +1,7 @@
 App.Models.Stimulus = Backbone.Model.extend({
-  studentId: null,
-  stimulus: "",
-  stage: 0,
+  user_id: null,
+  value: "",
+  reading_stage: 0,
   skill: "",
   assessment: ""
 });
