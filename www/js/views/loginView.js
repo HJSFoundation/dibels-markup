@@ -37,7 +37,7 @@ App.Views.Login = Backbone.View.extend({
         that.handleLoginSuccess();
       },
       error: function(responseData) {
-        alert("There was a problem, please try again.");
+        alert("Should handle network error."); //TODO add network error
         that.handleLoginFailure(responseData);
       }
     });
@@ -48,6 +48,6 @@ App.Views.Login = Backbone.View.extend({
   },
 
   handleLoginFailure: function() {
-     // something horrible
+    $('.js-login-error').show();
   }
 });

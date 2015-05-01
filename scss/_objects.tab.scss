@@ -7,6 +7,11 @@
   text-transform: uppercase;
   height: 40px;
 
+  &.st-active,
+  &:hover {
+    color: $white;
+  }
+
   .menu--tabs--student-selector & {
    text-align: left;
    padding-left: 10px;

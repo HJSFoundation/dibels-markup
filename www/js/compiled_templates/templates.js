@@ -13,7 +13,11 @@ this["App"]["templates"]["assignments"] = Handlebars.template({"compiler":[6,">=
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Assignments</p>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-forbidden\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-clear icon-circle "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonDrawerToggle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"button button--drawer-toggle js-drawer-toggle\">\n  <span class=\"icon icon-menu-toggle\"></span>\n</button>";
@@ -22,22 +26,37 @@ this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-learning\"></span>\n  <span class=\"icon-text__title\">learning</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-learning "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\"></span>\n  <span class=\"icon-text__title\">learning</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-words\"></span>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
 },"useData":true});
+this["App"]["templates"]["buttonManage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-assignments\"></span>\n  <span class=\"icon-text__title\">Manage</span>\n</button>";
+},"useData":true});
 this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-mastered\"></span>\n  <span class=\"icon-text__title\">mastered</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-mastered "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\"></span>\n  <span class=\"icon-text__title\">mastered</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixClose"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-triangle-down\"></span>\n";
+    return "<span class=\"icon icon-triangle-down\"></span>\n<!-- \n<button class=\"icon-text--vertical js-matrix-toggle st-hidden\">\n  <span class=\"icon icon-close-matrix \"></span>\n</button>\n -->";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-triangle-up\"></span>\n";
+    return "<span class=\"icon icon-triangle-up\"></span>\n\n<!-- <button class=\"icon-text--vertical js-matrix-toggle st-hidden\">\n  <span class=\"icon icon-close-matrix \"></span>\n</button> -->";
 },"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-needs-work\"></span>\n  <span class=\"icon-text__title\">needs work</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-circle icon-needs-work "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\"></span>\n  <span class=\"icon-text__title\">needs work</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-phrases\"></span>\n  <span class=\"icon-text__title\">Phrases</span>\n</button>\n";
@@ -49,7 +68,7 @@ this["App"]["templates"]["buttonTimer"] = Handlebars.template({"compiler":[6,">=
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-timer\"></span>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-phrases\"></span>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
+    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-whiteboard\"></span>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-words\"></span>\n  <span class=\"icon-text__title\">Words</span>\n</button>\n";
@@ -70,7 +89,7 @@ this["App"]["templates"]["leveledStories"] = Handlebars.template({"compiler":[6,
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Leveled Stories</p>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div id=\"loginContainer\" class=\"login grid grid--center grid--column\">\n  <div class=\"login__container grid grid--center grid--column\">\n    <div class=\"grid grid--center grid--column\">\n      <div class=\"login__logo\">\n      <img src=\"/img/logo-tn.svg\" alt=\"\">\n    </div>\n    <div>\n      <input class=\"login__field login__field--email\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n      <input class=\"login__field login__field--password\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n      <input class=\"button button--primary login__button\" type=\"button\" value=\"Log In\" id=\"submit\">\n      <input type=\"button\" value=\"Forgot Password\" id=\"reset\">\n    </div>\n  </div>\n  <div class=\"teachermate-logo\">\n    <img src=\"/img/logo-teachermate.svg\" alt=\"\">\n  </div>\n  <footer class=\"footer--login\">\n  </footer>\n</div>\n<script>  //auto form field for development\n        $(\"#email-field\").val(\"randy-teacher@test.org\");\n        $(\"#password-field\").val(\"12345678\");\n    </script>";
+    return "<div id=\"loginContainer\" class=\"login grid grid--center grid--column\">\n  <div class=\"login__container grid grid--center grid--column\">\n    <div class=\"grid grid--center grid--column\">\n      <div class=\"login__logo\">\n      <img src=\"/img/logo-tn.svg\" alt=\"\">\n    </div>\n    <div>\n      <h2 class=\"login__error js-login-error\">Incorrect username/password</h2>\n      <input class=\"login__field login__field--email\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n      <input class=\"login__field login__field--password\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n      <input class=\"button button--primary login__button\" type=\"button\" value=\"Log In\" id=\"submit\">\n      <input type=\"button\" value=\"Forgot Password\" id=\"reset\">\n    </div>\n  </div>\n  <div class=\"teachermate-logo\">\n    <img src=\"/img/logo-teachermate.svg\" alt=\"\">\n  </div>\n  <footer class=\"footer--login\">\n  </footer>\n</div>\n<script>  //auto form field for development\n        $(\"#email-field\").val(\"randy-teacher@test.org\");\n        $(\"#password-field\").val(\"12345678\");\n    </script>";
 },"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n <div class=\"js-stimuliTiles\"></div>\n <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
@@ -114,14 +133,10 @@ this["App"]["templates"]["roster"] = Handlebars.template({"compiler":[6,">= 2.0.
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Roster</p>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n  </div>\n  <div class=\"js-menuAssessment\"></div>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div> \n";
+    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-stageButtonManage\"></div>\n  </div>\n  <div class=\"js-menuAssessment\"></div>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div> \n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
-
-  return "<div class=\"stage__stimulus stage__stimulus--letters animated slideInRight\">\n  <span>"
-    + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
-    + "</span>\n  <img src=\"img/apple.svg\" alt=\"apple\">\n</div>";
+    return "<div class=\"stage__stimulus--letters stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>a</span>\n    <img src=\"img/apple.svg\" alt=\"apple\">\n  </div>\n  <div class=\"stimulus-cell\">\n    <span>b</span>\n    <img src=\"img/apple.svg\" alt=\"apple\">\n  </div>\n  <div class=\"stimulus-cell\">\n    <span>c</span>\n    <img src=\"img/apple.svg\" alt=\"apple\">\n  </div>\n  <div class=\"stimulus-cell\">\n    <span>d</span>\n    <img src=\"img/apple.svg\" alt=\"apple\">\n  </div>\n  <div class=\"stimulus-cell\">\n    <span>e</span>\n    <img src=\"img/apple.svg\" alt=\"apple\">\n  </div>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus stage__stimulus--phrases animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";

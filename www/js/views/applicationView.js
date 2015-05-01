@@ -24,7 +24,7 @@ App.Views.Application = Backbone.View.extend({
 
   initializeStudentCollection: function(){
     $.ajaxSetup({beforeSend:this.sendAuthentication});
-
+    localStorage.clear();
     App.roster = new App.Collections.Students();
     App.roster.fetch({
       success: this.initializeStimuliCollections,
@@ -42,6 +42,8 @@ App.Views.Application = Backbone.View.extend({
       success: this.initializeDeviceSelect,
       error: this.initializeStimuliCollectionFail
      });
+    // App.initializeStimuliTestData();
+    // this.initializeDeviceSelect();
   },
 
   initializeStimuliCollectionFail: function(){

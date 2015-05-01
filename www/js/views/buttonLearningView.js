@@ -1,6 +1,8 @@
 App.Views.ButtonLearning = Backbone.View.extend({
   template: App.templates.buttonLearning,
 
+  selectedClass: "",
+
   events: {
     "click" : "handleClick"
   },
@@ -11,12 +13,29 @@ App.Views.ButtonLearning = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template(this.templateJSON()));
+  },
+
+  templateJSON: function(){
+    return {
+      selectedClass: this.selectedClass
+    }
+  },
+
+  makeActive: function(){
+    this.selectedClass = "st-selected";
+    this.render();
+  },
+
+  makeInactive: function(){
+    this.selectedClass = "";
+    this.render();
   },
 
   handleClick: function() {
-    console.log("buttonMastered clicked");
+    console.log("buttonLearning clicked");
     App.Dispatcher.trigger("buttonAssessmentClicked","learning");
     return false;
   }
+
 });
