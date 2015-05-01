@@ -10,14 +10,15 @@ describe('App.Collections.Stimuli', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Collections.Stimuli({localStorageName: "words"});
+    subject = new App.Collections.Stimuli();
+  });
+
+  xit("#parse", function  () {
+    // body...
   });
 
   it("has a stimulus model", function() {
     expect(new subject.model()).to.be.an.instanceof(App.Models.Stimulus);
   });
 
-  it("has a local storage", function() {
-    expect(subject.localStorage).to.be.an.instanceof(Backbone.LocalStorage);
-  });
 });

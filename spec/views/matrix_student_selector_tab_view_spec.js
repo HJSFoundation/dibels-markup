@@ -32,7 +32,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     });
 
     it("sets the id", function() {
-      expect(subject.id).to.equal(1);
+      expect(subject.user_id).to.equal(1);
     });
 
     it("sets the reading_stage", function() {

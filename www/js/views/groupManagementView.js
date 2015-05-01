@@ -13,6 +13,10 @@ App.Views.GroupManagement = Backbone.View.extend({
     for(var i=0; i < App.Config.maxStudentCount; i = i+1){
       App.students.add(App.roster.at(i));
     }
+
+    App.selectedStudent = App.students.at(0);
+    App.selectedSkill = "";
+
   },
 
   render: function() {
