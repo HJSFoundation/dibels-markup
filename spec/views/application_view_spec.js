@@ -24,9 +24,10 @@ describe('App.Views.Application', function() {
     expect(subject.$el).to.have.id('applicationContainer');
   });
 
-  it("handles login success", function() {
+  it("#handleLoggedIn", function() {
+    sinon.stub(subject, "initializeStudentCollection");
     subject.handleLoggedIn();
-    expect(subject.deviceSelect).to.be.an.instanceOf(App.Views.DeviceSelect);
+    expect(subject.initializeStudentCollection).to.have.been.called;
   });
 
   describe("initialize", function() {

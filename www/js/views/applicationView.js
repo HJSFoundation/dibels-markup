@@ -7,6 +7,13 @@ App.Views.Application = Backbone.View.extend({
     this.listen(); 
   },
 
+  sendAuthentication: function (xhr) {
+    var email = App.currentUser.email;
+    var token = App.currentUser.token;
+    var header= 'Token token="'+token+'", email="'+email+'"';
+  xhr.setRequestHeader('Authorization', header);
+},
+
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
   },
@@ -16,9 +23,10 @@ App.Views.Application = Backbone.View.extend({
   },
 
   initializeStudentCollection: function(){
+    $.ajaxSetup({beforeSend:this.sendAuthentication});
+    localStorage.clear();
     App.roster = new App.Collections.Students();
     App.roster.fetch({
-      beforeSend: App.sendAuthentication,
       success: this.initializeStimuliCollections,
       error: this.initializeStudentCollectionFail
      });
@@ -31,10 +39,11 @@ App.Views.Application = Backbone.View.extend({
   initializeStimuliCollections: function(){
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
-      beforeSend: App.sendAuthentication,
       success: this.initializeDeviceSelect,
       error: this.initializeStimuliCollectionFail
      });
+    // App.initializeStimuliTestData();
+    // this.initializeDeviceSelect();
   },
 
   initializeStimuliCollectionFail: function(){

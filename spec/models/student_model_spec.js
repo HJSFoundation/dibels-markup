@@ -13,10 +13,6 @@ describe('App.Models.Student', function() {
     subject = new App.Models.Student({first_name: "Bernie", last_name: "Bivins"});
   });
 
-  it("has a default grade", function() {
-    expect(subject.defaults.grade).to.equal(1);
-  });
-
   describe("methods", function() {
     it("#shortName", function() {
       expect(subject.shortName()).to.equal("BERNIE B.");

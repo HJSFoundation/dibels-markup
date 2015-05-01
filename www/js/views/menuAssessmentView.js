@@ -1,25 +1,35 @@
 App.Views.MenuAssessment = Backbone.View.extend({
   template: App.templates.menuAssessment,
 
-  events: {
-    "click" : "handleClick"
-  },
+  buttons: {},
 
   initialize: function() {
     _.bindAll(this);
     this.render();
-    this.buttonMasteredView = new App.Views.ButtonMastered({ el: ".js-buttonMastered"});
-    this.buttonLearningView = new App.Views.ButtonLearning({ el: ".js-buttonLearning"});
-    this.buttonNeedsWorkView = new App.Views.ButtonNeedsWork({ el: ".js-buttonNeedsWork"});
-    this.buttonClearView = new App.Views.ButtonClear({ el: ".js-buttonClear"});
+    this.listen();
+    this.buttons.mastered = new App.Views.ButtonMastered({ el: ".js-buttonMastered"});
+    this.buttons.learning = new App.Views.ButtonLearning({ el: ".js-buttonLearning"});
+    this.buttons.needsWork = new App.Views.ButtonNeedsWork({ el: ".js-buttonNeedsWork"});
+    this.buttons.clear = new App.Views.ButtonClear({ el: ".js-buttonClear"});
   },
 
+  listen: function() {
+    this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
+  },
+  
   render: function() {
     this.$el.html(this.template());
   },
 
-  handleClick: function() {
-    console.log("clicked");
-    return false;
+  handleButtonAssessmentClicked: function(selectedAssessment) {
+    var that = this;
+    _.each(this.buttons, function(button,key) {
+      if (selectedAssessment === key) {
+        button.makeActive();
+      } else {
+        that.buttons[key].makeInactive();
+      }
+    });
   }
+
 });

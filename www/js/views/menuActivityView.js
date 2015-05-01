@@ -3,14 +3,14 @@ App.Views.MenuActivity = Backbone.View.extend({
 
   config: {
     buttonMap: {
-      LetterNames: ["letters", "whiteboard"],
-      LetterSounds: ["letters", "words", "whiteboard"],
-      SightWords: ["words","phrases","whiteboard"],
-      OnsetRimes: ["words","phrases","tiles", "whiteboard"],
-      CVts: ["words","phrases","tiles", "whiteboard"],
-      Affixes: ["words","phrases","tiles", "whiteboard"],
-      StageStories: [],
-      LeveledTexts:[]
+      letter_names: ["letters", "whiteboard"],
+      letter_sounds: ["letters", "words", "whiteboard"],
+      sight_words: ["words","phrases","whiteboard"],
+      onset_rimes: ["words","phrases","tiles", "whiteboard"],
+      cvts: ["words","phrases","tiles", "whiteboard"],
+      affixes: ["words","phrases","tiles", "whiteboard"],
+      stage_stories: [],
+      leveled_texts:[]
     }
   },
 
