@@ -18,6 +18,12 @@
           outline: none;
         }
       }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+      }
     }
 
   .stage__stimulus--letters {
@@ -26,11 +32,6 @@
     top: 50%;
     transform: translateY(-50%);
     height: 100%;
-
-    span {
-      display: inline-block;
-      vertical-align: middle;
-    }
 
     img {
       width: 200px;
