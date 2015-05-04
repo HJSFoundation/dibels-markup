@@ -51,6 +51,12 @@ this["App"]["templates"]["buttonMatrixClose"] = Handlebars.template({"compiler":
 this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<span class=\"icon icon-matrix-open\"></span>\n\n<!-- <button class=\"icon-text--vertical js-matrix-toggle st-hidden\">\n  <span class=\"icon icon-close-matrix \"></span>\n</button> -->";
 },"useData":true});
+this["App"]["templates"]["buttonMatrixStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span class=\"icon icon-triangle-down\"></span>\n";
+},"useData":true});
+this["App"]["templates"]["buttonMatrixStageUp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span class=\"icon icon-triangle-up\"></span>\n";
+},"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 

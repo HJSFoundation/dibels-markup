@@ -62,7 +62,11 @@ App.Views.MatrixMenu = Backbone.View.extend({
       that.$gridClass.append(view.render().el);
     });
 
+    this.stageUpTab = new App.Views.ButtonMatrixStageUp();
+    this.stageDownTab = new App.Views.ButtonMatrixStageDown();
     this.closeTab = new App.Views.ButtonMatrixClose();
+    this.$gridClass.append(this.stageDownTab.render().el);
+    this.$gridClass.append(this.stageUpTab.render().el);
     this.$gridClass.append(this.closeTab.render().el);
   },
 
