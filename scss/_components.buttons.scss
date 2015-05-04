@@ -97,10 +97,15 @@ button,
   }
 }
 
-.button--words {
-  icon:hover:before {
-    content: 'z';
-    color: green;
+.button--letters {
+  &:hover {
+    .icon-letters {
+      display: none;
+    }
+    .icon-letters-filled {
+      display: block;
+      fill: $green;
+    }
   }
 }
 
