@@ -1,16 +1,17 @@
-<div id="loginContainer" class="login grid grid--center grid--column">
+<div id="loginContainer" class="login container">
   <div class="login__container grid grid--center grid--column">
-    <div class="grid grid--center grid--column">
+    <header class="login__header">
       <div class="login__logo">
       <img src="/img/logo-tn.svg" alt="">
-    </div>
-    <div>
+    </header>
+    <fieldset>
       <h2 class="login__error js-login-error">Incorrect username/password</h2>
       <input class="login__field login__field--email" type="email" name="email" id="email-field" placeholder="Email">
       <input class="login__field login__field--password" type="password" name="password" id="password-field" placeholder="Password">
       <input class="button button--primary login__button" type="button" value="Log In" id="submit">
-      <input type="button" value="Forgot Password" id="reset">
-    </div>
+    </fieldset>
+    <input type="button" class="button" value="Forgot Password" id="reset">
+    
   </div>
   <div class="teachermate-logo">
     <img src="/img/logo-teachermate.svg" alt="">
@@ -18,6 +19,10 @@
   <footer class="footer--login">
   </footer>
 </div>
+
+
+
+
 <script>  //auto form field for development
         $("#email-field").val("randy-teacher@test.org");
         $("#password-field").val("12345678");

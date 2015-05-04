@@ -10,6 +10,7 @@
   &.st-active,
   &:hover {
     color: $white;
+    background-color: $matrix-tab;
   }
 
   .menu--tabs--student-selector & {
@@ -44,6 +45,17 @@
 
   &:last-child {
     border-right: 0;
+  }
+
+  &.icon-triangle-up,
+  &.icon-triangle-down {
+    font-size: 32px;
+    flex: none;
+    width: 5%;
+
+    &:before {
+      vertical-align: middle;
+    }
   }
 
   .menu__label {
