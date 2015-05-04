@@ -41,7 +41,7 @@ describe('App.Views.ButtonNeedsWork', function() {
   it("#handleClick", function() {
     sinon.spy(App.Dispatcher, "trigger");
     subject.handleClick();
-    expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","needsWork");
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","needs_work");
     App.Dispatcher.trigger.restore();
   });
 });

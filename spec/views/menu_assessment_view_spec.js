@@ -31,19 +31,19 @@ describe('App.Views.MenuAssessment', function() {
     });
 
     it("creates a button mastered view", function() {
-      expect(subject.buttonMasteredView).to.be.an.instanceOf(App.Views.ButtonMastered);
+      expect(subject.buttons.mastered).to.be.an.instanceOf(App.Views.ButtonMastered);
     });
 
     it("creates a button learning view", function() {
-      expect(subject.buttonLearningView).to.be.an.instanceOf(App.Views.ButtonLearning);
+      expect(subject.buttons.learning).to.be.an.instanceOf(App.Views.ButtonLearning);
     });
 
     it("creates a button needs work view", function() {
-      expect(subject.buttonNeedsWorkView).to.be.an.instanceOf(App.Views.ButtonNeedsWork);
+      expect(subject.buttons.needs_work).to.be.an.instanceOf(App.Views.ButtonNeedsWork);
     });
 
     it("creates a button clear view", function() {
-      expect(subject.buttonClearView).to.be.an.instanceOf(App.Views.ButtonClear);
+      expect(subject.buttons.clear).to.be.an.instanceOf(App.Views.ButtonClear);
     });
   });
 
