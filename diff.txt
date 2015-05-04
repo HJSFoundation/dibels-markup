@@ -1,0 +1,148 @@
+diff -r /Users/johnfriedman/Desktop/scss/_components.buttons.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_components.buttons.scss
+72a73,75
+>     display: block;
+>     height: 32px;
+>     margin-top: 5px;
+diff -r /Users/johnfriedman/Desktop/scss/_components.matrix.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_components.matrix.scss
+3c3,4
+<   height: 340px;
+---
+>   min-height: 340px;
+>   height: 40%;
+diff -r /Users/johnfriedman/Desktop/scss/_components.stimulus.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_components.stimulus.scss
+5c5
+<   bottom: 100px;
+---
+>   bottom: 0;
+10a11,22
+>   .stage__stimulus__gallery {
+>       outline: 0;
+> 
+>       .stimulus-cell {
+>         width: 100%;
+>         height: 100%;
+>         &:focus {
+>           outline: none;
+>         }
+>       }
+>     }
+> 
+14,15c26,28
+<     height: 300px;
+<     line-height: 300px;
+---
+>     top: 50%;
+>     transform: translateY(-50%);
+>     height: 100%;
+34,35c47,50
+<     height: 250px;
+<     line-height: 250px;
+---
+>     height: 100%;
+>     top: 50%;
+>     transform: translateY(-50%);
+> 
+41,42c56,58
+<     height: 100px;
+<     line-height: 100px;
+---
+>     height: 100%;
+>     top: 50%;
+>     transform: translateY(-50%);
+47c63,64
+<     height: 430px;
+---
+>     height: 100%;
+>     // height: 430px;
+diff -r /Users/johnfriedman/Desktop/scss/_objects.icon-text.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_objects.icon-text.scss
+43c43
+<   margin: 0 auto 13px; // magic number
+---
+>   margin: 10px auto 13px; // magic number
+45a46,55
+>     &:after {
+>       content: "";
+>       border-radius: 50%;
+>       width: 44px;
+>       height: 44px;
+>       display: inline-block;
+>       text-align: center;
+>       margin: -5px -5px;
+>     }
+> 
+47c57,60
+<       box-shadow: inset 0 0 20px darken($go, 20%);
+---
+>       // box-shadow: inset 0 0 20px darken($go, 20%);
+>       &:after {
+>         border: 2px solid $go;
+>       }
+50c63,66
+<       box-shadow: inset 0 0 20px darken($learning, 20%);
+---
+>       // box-shadow: inset 0 0 20px darken($learning, 20%);
+>       &:after {
+>         border: 2px solid $learning;
+>       }
+53c69,72
+<       box-shadow: inset 0 0 20px darken($needs-work, 20%);
+---
+>       // box-shadow: inset 0 0 20px darken($needs-work, 20%);
+>       &:after {
+>         border: 2px solid $needs-work;
+>       }
+diff -r /Users/johnfriedman/Desktop/scss/_objects.layout.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_objects.layout.scss
+7a8,9
+>   padding: 0;
+>   margin: 0;
+53,54c55,58
+<   height: 768px;
+<   max-width: 1024px;
+---
+>   min-height: 768px;
+>   min-width: 1024px;
+>   width: 80%;
+>   height: 100%;
+diff -r /Users/johnfriedman/Desktop/scss/_objects.tab.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_objects.tab.scss
+9a10,14
+>   &.st-active,
+>   &:hover {
+>     color: $white;
+>   }
+> 
+diff -r /Users/johnfriedman/Desktop/scss/_utilities.functions.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_utilities.functions.scss
+4a5,8
+> }
+> 
+> .st-hidden {
+>   display: none;
+Only in /Users/johnfriedman/dev/teacher_notepad_2/scss: _vendor.flickity.scss
+diff -r /Users/johnfriedman/Desktop/scss/_views.login.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_views.login.scss
+59a60,67
+> .login__error {
+>   color: $warning;
+>   font-size: 18px;
+>   font-weight: 500;
+>   text-align: center;
+>   display: none;
+> }
+> 
+diff -r /Users/johnfriedman/Desktop/scss/_views.stage.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/_views.stage.scss
+11c11,12
+<     height: 430px;
+---
+>     min-height: 430px;
+>     height: 60%;
+13c14,15
+<       height: 768px;
+---
+>       min-height: 768px;
+>       height: 100%;
+diff -r /Users/johnfriedman/Desktop/scss/index.scss /Users/johnfriedman/dev/teacher_notepad_2/scss/index.scss
+37c37,38
+< @import "vendor.animate";
+\ No newline at end of file
+---
+> @import "vendor.animate";
+> @import "vendor.flickity";
+\ No newline at end of file

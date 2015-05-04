@@ -25,6 +25,7 @@ App.Views.Application = Backbone.View.extend({
   initializeStudentCollection: function(){
     $.ajaxSetup({beforeSend:this.sendAuthentication});
     localStorage.clear();
+    console.log("App.Views.Application.initializeStudentCollection: localStorage being clieared");
     App.roster = new App.Collections.Students();
     App.roster.fetch({
       success: this.initializeStimuliCollections,
