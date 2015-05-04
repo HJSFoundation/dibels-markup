@@ -124,7 +124,7 @@ this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">
     return "  <div class=\"js-buttonLetters\"></div>\n  <div class=\"js-buttonWords\"></div>\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n  <div class=\"js-buttonWhiteboard\"></div>\n\n";
 },"useData":true});
 this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<nav class=\"menu--assessment menu--assessment--stage grid grid--bottom\">\n  <div class=\"js-buttonMastered\"></div>\n  <div class=\"js-buttonLearning\"></div>\n  <div class=\"js-buttonNeedsWork\"></div>\n  <div class=\"js-buttonClear\"></div>\n</nav>\n";
+    return "<nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center\">\n  <div class=\"js-buttonMastered grid-cell\"></div>\n  <div class=\"js-buttonLearning grid-cell\"></div>\n  <div class=\"js-buttonNeedsWork grid-cell\"></div>\n  <div class=\"js-buttonClear grid-cell\"></div>\n</nav>\n";
 },"useData":true});
 this["App"]["templates"]["readingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Reading Stage</p>\n</div>";
