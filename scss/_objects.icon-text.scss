@@ -17,7 +17,7 @@
 }
 
 .icon-text--vertical {
-  width: 100px;
+  width: 75px;
   text-align: center;
   color: $menu-button;
 
@@ -32,6 +32,7 @@
   .icon-text__title {
     display: block;
     text-transform: uppercase;
+    font-size: 10px;
   }
 }
 
