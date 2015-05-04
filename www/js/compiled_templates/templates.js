@@ -33,7 +33,7 @@ this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,
     + "\"></span>\n  <span class=\"icon-text__title\">learning</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-words\"></span>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
+    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-letters\"></span>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonManage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-assignments\"></span>\n  <span class=\"icon-text__title\">Manage</span>\n</button>";
