@@ -23,7 +23,7 @@ var App = {
       leveledTexts: "leveled_texts"
     },
   },
-  url: "http://localhost:3000/api/v1",
+  url: "http://staging.tutormate.org/api/v1",
   currentUser: null,
 
   initializeStudentTestData: function(){
