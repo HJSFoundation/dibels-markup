@@ -98,12 +98,17 @@ button,
 }
 
 .button--letters {
+  [class*='icon-letters'] {
+    width: 32px;
+    fill: #9ca1a5;
+    margin-bottom: 5px;
+  }
   &:hover {
     .icon-letters {
       display: none;
     }
     .icon-letters-filled {
-      display: block;
+      display: inline-block;
       fill: $green;
     }
   }
