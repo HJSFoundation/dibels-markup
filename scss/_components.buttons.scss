@@ -113,6 +113,25 @@ button,
   @include icon-hover(phrases, 32px, $gray-light, $purple);
 }
 
+.button--timer {
+  @include icon-hover(timer, 32px, $gray-light, $red);
+}
+
+.button--manage {
+  @include icon-hover(manage, 32px, $gray-light, $turquoise);
+}
+
+.button--flip {
+  fill: $gray-light;
+  [class*='icon-flip'] {
+    width: 32px; 
+  }
+  &:hover,
+  &.st-active {
+    fill: $black;
+  }
+}
+
 // iflTODO: find a way to get this one using the mixin?
 .button--whiteboard {
   fill: $gray-light;

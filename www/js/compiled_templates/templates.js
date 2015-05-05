@@ -20,7 +20,11 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
     + "\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical button--flip\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + " button--flip\">\n  <svg class=\"icon-flip\"><use xlink:href=\"#icon-flip\"></use></svg>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -37,7 +41,11 @@ this["App"]["templates"]["buttonLetters"] = Handlebars.template({"compiler":[6,"
     + "\">\n  <svg class=\"icon-letters\"><use xlink:href=\"#icon-letters\"></use></svg>\n  <svg class=\"icon-letters-filled st-hidden\"><use xlink:href=\"#icon-letters-filled\"></use></svg>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonManage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-assignments\"></span>\n  <span class=\"icon-text__title\">Manage</span>\n</button>";
+    var helper;
+
+  return "<button class=\"icon-text--vertical button--manage "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\">\n  <svg class=\"icon-manage\"><use xlink:href=\"#icon-manage\"></use></svg>\n  <svg class=\"icon-manage-filled st-hidden\"><use xlink:href=\"#icon-manage-filled\"></use></svg>\n  <span class=\"icon-text__title\">Manage</span>\n</button>";
 },"useData":true});
 this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -80,7 +88,11 @@ this["App"]["templates"]["buttonTiles"] = Handlebars.template({"compiler":[6,">=
     + "\">\n  <svg class=\"icon-tiles\"><use xlink:href=\"#icon-tiles\"></use></svg>\n  <svg class=\"icon-tiles-filled st-hidden\"><use xlink:href=\"#icon-tiles-filled\"></use></svg>\n  <span class=\"icon-text__title\">Tiles</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonTimer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical button--timer\">\n  <span class=\"icon icon-timer\"></span>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical button--timer "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\">\n  <svg class=\"icon-timer\"><use xlink:href=\"#icon-timer\"></use></svg>\n  <svg class=\"icon-timer-filled st-hidden\"><use xlink:href=\"#icon-timer-filled\"></use></svg>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
