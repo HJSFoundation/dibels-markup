@@ -17,3 +17,22 @@
   @include position("relative", $args);
 }
 
+// for rollover and active states of icons: supply the name of the icon(s), the width, the non-hover fill color and hover fill color
+
+@mixin icon-hover($name, $width, $fill, $fillHover) {
+  [class*='icon-#{$name}'] {
+    width: $width;
+    fill: $fill;
+  }
+  &:hover,
+  &.st-active {
+    .icon-#{$name} {
+      display: none;
+    }
+    .icon-#{$name}-filled {
+      display: inline-block;
+      fill: $fillHover;
+    }
+  }
+}
+

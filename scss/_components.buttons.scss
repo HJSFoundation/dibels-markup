@@ -98,19 +98,30 @@ button,
 }
 
 .button--letters {
-  [class*='icon-letters'] {
-    width: 32px;
-    fill: #9ca1a5;
-    margin-bottom: 5px;
+  @include icon-hover(letters, 32px, $gray-light, $green);
+}
+
+.button--words {
+  @include icon-hover(words, 32px, $gray-light, $orange);
+}
+
+.button--tiles {
+  @include icon-hover(tiles, 32px, $gray-light, $blue-light);
+}
+
+.button--phrases {
+  @include icon-hover(phrases, 32px, $gray-light, $purple);
+}
+
+// iflTODO: find a way to get this one using the mixin?
+.button--whiteboard {
+  fill: $gray-light;
+  [class*='icon-whiteboard'] {
+    width: 32px; 
   }
-  &:hover {
-    .icon-letters {
-      display: none;
-    }
-    .icon-letters-filled {
-      display: inline-block;
-      fill: $green;
-    }
+  &:hover,
+  &.st-active {
+    fill: $yellow;
   }
 }
 
