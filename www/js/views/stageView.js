@@ -11,7 +11,7 @@ App.Views.Stage = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.stageViews.letters = new App.Views.StageStimulusLetters({ el: this.stageStimulusEl});
-    this.stageViews.onsetRimesWords = new App.Views.StageStimulusOnsetRimeWords({ el: this.stageStimulusEl});
+    this.stageViews.onsetRimesWords = new App.Views.StageStimulusOnsetRimesWords({ el: this.stageStimulusEl});
     this.stageViews.sightWordsWords= new App.Views.StageStimulusSightWordsWords({ el: this.stageStimulusEl});
     this.stageViews.phrases = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
     this.stageViews.whiteboard = new App.Views.StageStimulusWhiteboard({ el: this.stageStimulusEl});

@@ -1,4 +1,4 @@
-describe('App.Views.StageStimulusSightWords', function() {
+describe('App.Views.StageStimulusSightWordsWords', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.StageStimulusSightWords', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageStimulus" });
-    subject = new App.Views.StageStimulusSightWords({el: '.js-stageStimulus'});
+    subject = new App.Views.StageStimulusSightWordsWords({el: '.js-stageStimulus'});
   });
 
   afterEach(function() {
@@ -23,23 +23,9 @@ describe('App.Views.StageStimulusSightWords', function() {
     expect(subject.template()).to.exist;
   });
 
-  describe("#listen", function() {
-    it("listens to the stimulus change request for sight words", function() {
-      sinon.spy(subject, "listenTo");
-      subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillChangeRequest);
-    });
-  });
-
   it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#handleSkillChangeRequest", function() {
-    sinon.spy(subject, "render");
-    var value = "cool";
-    subject.handleSkillChangeRequest(value);
-    expect(subject.render).to.have.been.calledWith(value);
-  });
 });
