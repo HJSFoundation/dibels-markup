@@ -38,6 +38,27 @@ describe('App.Views.ButtonClear', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
+  describe("helper functions", function() {
+    it("#makeActive", function() {
+      sinon.spy(subject, "render");
+      subject.makeActive();
+      expect(subject.render).to.have.been.called;
+      expect(subject.selectedClass).to.equal("st-selected");
+    });
+
+    it("#makeInactive", function() {
+      sinon.spy(subject, "render");
+      subject.makeInactive();
+      expect(subject.render).to.have.been.called;
+      expect(subject.selectedClass).to.equal("");
+    });
+
+    it("#templateJSON", function() {
+      subject.makeActive();
+      expect(subject.templateJSON().selectedClass).to.equal("st-selected");
+    });
+  });
+
   it("#handleClick", function() {
     sinon.spy(App.Dispatcher, "trigger");
     subject.handleClick();
