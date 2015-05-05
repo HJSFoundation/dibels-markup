@@ -11,7 +11,7 @@ describe('App.Views.StageStimulusLetterNames', function() {
     };
 
     sinon.stub(_, "bindAll");
-    appendFixture("div", { class: "js-stageStimulus" });
+    appendFixture("div", { class: "js-stageStimulus stage__stimulus__gallery" });
     subject = new App.Views.StageStimulusLetterNames({el: '.js-stageStimulus'});
   });
 
