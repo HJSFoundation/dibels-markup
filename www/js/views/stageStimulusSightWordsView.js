@@ -1,4 +1,4 @@
-App.Views.StageStimulusWords = Backbone.View.extend({
+App.Views.StageStimulusSightWords = Backbone.View.extend({
   template: App.templates.stageStimulusWords,
 
   initialize: function() {
@@ -8,8 +8,6 @@ App.Views.StageStimulusWords = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSkillChangeRequest);
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleSkillChangeRequest);
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.cvts, this.handleSkillChangeRequest);
   },
 
   render: function(stimulus_object) {

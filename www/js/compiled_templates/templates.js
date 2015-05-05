@@ -155,6 +155,9 @@ this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compile
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus--phrases stage__stimulus__gallery animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";
 },"useData":true});
+this["App"]["templates"]["stageStimulusWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"stage__stimulus--whiteboard\">\n  <span>whiteboard</span>\n</div>";
+},"useData":true});
 this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -165,7 +168,7 @@ this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler"
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<section class=\"matrix__stimuli matrix__stimuli--letters grid st-active\">\n  <div class=\"stimuli-tiles stimuli-tiles--letters\">\n    <div class=\"grid grid--wrap u-text-center "
+  return "<section class=\"matrix__stimuli matrix__stimuli--letters grid\">\n  <div class=\"stimuli-tiles stimuli-tiles--letters\">\n    <div class=\"grid grid--wrap u-text-center "
     + this.escapeExpression(((helper = (helper = helpers.jsClass || (depth0 != null ? depth0.jsClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"jsClass","hash":{},"data":data}) : helper)))
     + "\">\n    </div>\n  </div>\n</section>";
 },"useData":true});
@@ -223,5 +226,5 @@ this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + "</a>\n\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Whiteboard</p>\n</div>\n";
+    return "<p>Whiteboard</p>";
 },"useData":true});

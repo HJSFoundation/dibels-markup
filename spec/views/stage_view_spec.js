@@ -36,25 +36,25 @@ describe('App.Views.Stage', function() {
       expect(subject.listen).to.have.been.called;
     });
 
-    it("creates a stage stimulus letter names view", function() {
-      expect(subject.stageStimulusLetterNamesView).to.be.an.instanceOf(App.Views.StageStimulusLetterNames);
-    });
+    // it("creates a stage stimulus letter names view", function() {
+    //   expect(subject.stageStimulusLetterNamesView).to.be.an.instanceOf(App.Views.StageStimulusLetterNames);
+    // });
 
-    it("creates a stage stimulus letter sounds view", function() {
-      expect(subject.stageStimulusLetterSoundsView).to.be.an.instanceOf(App.Views.StageStimulusLetterSounds);
-    });
+    // it("creates a stage stimulus letter sounds view", function() {
+    //   expect(subject.stageStimulusLetterSoundsView).to.be.an.instanceOf(App.Views.StageStimulusLetterSounds);
+    // });
 
-    it("creates a stage stimulus words view", function() {
-      expect(subject.stageStimulusWordsView).to.be.an.instanceOf(App.Views.StageStimulusWords);
-    });
+    // it("creates a stage stimulus words view", function() {
+    //   expect(subject.stageStimulusWordsView).to.be.an.instanceOf(App.Views.StageStimulusWords);
+    // });
 
-    it("creates a stage stimulus phrases view", function() {
-      expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
-    });
+    // it("creates a stage stimulus phrases view", function() {
+    //   expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
+    // });
 
-    it("creates a story page view", function() {
-      expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
-    });
+    // it("creates a story page view", function() {
+    //   expect(subject.stageStimulusPhrasesView).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
+    // });
 
     it("creates a button flip view", function() {
       expect(subject.buttonFlipView).to.be.an.instanceOf(App.Views.ButtonFlip);

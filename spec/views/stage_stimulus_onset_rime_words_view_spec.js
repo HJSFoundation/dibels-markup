@@ -1,4 +1,4 @@
-describe('App.Views.StageStimulusLetterNames', function() {
+describe('App.Views.StageStimulusOnsetRimeWords', function() {
   var subject;
   var xhr;
   var requests;
@@ -11,8 +11,8 @@ describe('App.Views.StageStimulusLetterNames', function() {
     };
 
     sinon.stub(_, "bindAll");
-    appendFixture("div", { class: "js-stageStimulus stage__stimulus__gallery" });
-    subject = new App.Views.StageStimulusLetterNames({el: '.js-stageStimulus'});
+    appendFixture("div", { class: "js-stageStimulus" });
+    subject = new App.Views.StageStimulusOnsetRimeWords({el: '.js-stageStimulus'});
   });
 
   afterEach(function() {
@@ -23,17 +23,17 @@ describe('App.Views.StageStimulusLetterNames', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls listen on initialize", function() {
-    sinon.spy(subject, "listen");
-    subject.initialize();
-    expect(subject.listen).to.have.been.called;
-  });
-
   describe("#listen", function() {
-    it("listens for the StimulusChangeRequested:LetterNames", function() {
+    it("listens to the stimulus change request for cvts", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.cvts, subject.handleSkillChangeRequest);
+    });
+
+    it("listens to the stimulus change request for onset rimes", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.onsetRimes, subject.handleSkillChangeRequest);
     });
   });
 
@@ -44,7 +44,7 @@ describe('App.Views.StageStimulusLetterNames', function() {
 
   it("#handleSkillChangeRequest", function() {
     sinon.spy(subject, "render");
-    var value = "a";
+    var value = "cool";
     subject.handleSkillChangeRequest(value);
     expect(subject.render).to.have.been.calledWith(value);
   });
