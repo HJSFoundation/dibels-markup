@@ -1,4 +1,4 @@
-describe('App.Views.StageStimulusLetterSounds', function() {
+describe('App.Views.StageStimulusSightWords', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.StageStimulusLetterSounds', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageStimulus" });
-    subject = new App.Views.StageStimulusLetterSounds({el: '.js-stageStimulus'});
+    subject = new App.Views.StageStimulusSightWords({el: '.js-stageStimulus'});
   });
 
   afterEach(function() {
@@ -23,17 +23,11 @@ describe('App.Views.StageStimulusLetterSounds', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls listen on initialize", function() {
-    sinon.spy(subject, "listen");
-    subject.initialize();
-    expect(subject.listen).to.have.been.called;
-  });
-
   describe("#listen", function() {
-    it("listens for the StimulusChangeRequested:LetterSounds", function() {
+    it("listens to the stimulus change request for sight words", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterSounds, subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillChangeRequest);
     });
   });
 
@@ -44,7 +38,7 @@ describe('App.Views.StageStimulusLetterSounds', function() {
 
   it("#handleSkillChangeRequest", function() {
     sinon.spy(subject, "render");
-    var value = "a";
+    var value = "cool";
     subject.handleSkillChangeRequest(value);
     expect(subject.render).to.have.been.calledWith(value);
   });

@@ -33,15 +33,36 @@ describe('App.Views.ButtonNeedsWork', function() {
     expect(subject.render).to.have.been.called;
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  describe("helper functions", function() {
+    it("#makeActive", function() {
+      sinon.spy(subject, "render");
+      subject.makeActive();
+      expect(subject.render).to.have.been.called;
+      expect(subject.selectedClass).to.equal("st-selected");
+    });
+
+    it("#makeInactive", function() {
+      sinon.spy(subject, "render");
+      subject.makeInactive();
+      expect(subject.render).to.have.been.called;
+      expect(subject.selectedClass).to.equal("");
+    });
+
+    it("#templateJSON", function() {
+      subject.makeActive();
+      expect(subject.templateJSON().selectedClass).to.equal("st-selected");
+    });
   });
 
   it("#handleClick", function() {
     sinon.spy(App.Dispatcher, "trigger");
     subject.handleClick();
-    expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","needsWork");
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("buttonAssessmentClicked","needs_work");
     App.Dispatcher.trigger.restore();
   });
 });

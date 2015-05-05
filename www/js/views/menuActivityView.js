@@ -29,6 +29,7 @@ App.Views.MenuActivity = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "matrixMenuTabActiveRequest", this.handleSkillChangeRequest);
+    this.listenTo(App.Dispatcher, "activityMenuButtonActiveRequest", this.handleActivityMenuButtonActiveRequest);
   },
 
   render: function() {
@@ -42,6 +43,19 @@ App.Views.MenuActivity = Backbone.View.extend({
     });
     _.each(this.config.buttonMap[tab.key], function(key) {
       that.buttons[key].$el.show();
+    });
+  },
+
+  handleActivityMenuButtonActiveRequest: function(selectedActivity){
+    var that = this;
+    _.each(this.buttons, function(button, key) {
+      if (selectedActivity === key) {
+        button.makeActive();
+        App.selectedActivity = selectedActivity;
+        // App.Dispatcher.trigger("ActivityChangeRequested:" + button.key);
+      } else {
+        button.makeInactive();
+      }
     });
   }
 });

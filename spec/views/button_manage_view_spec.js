@@ -1,4 +1,4 @@
-describe('App.Views.ButtonDrawerToggle', function() {
+describe('App.Views.ButtonManage', function() {
   var subject;
   var xhr;
   var requests;
@@ -11,8 +11,8 @@ describe('App.Views.ButtonDrawerToggle', function() {
     };
 
     sinon.stub(_, "bindAll");
-    appendFixture("div", { class: "js-drawer-toggle" });
-    subject = new App.Views.ButtonDrawerToggle({el: '.js-drawer-toggle'});
+    appendFixture("div", { class: "js-buttonManage" });
+    subject = new App.Views.ButtonManage({el: '.js-buttonManage'});
   });
 
   afterEach(function() {
@@ -23,10 +23,8 @@ describe('App.Views.ButtonDrawerToggle', function() {
     expect(subject.template()).to.exist;
   });
 
-  describe("events", function() {
-    it("handles a click event", function() {
-      expect(subject.events.click).to.equal("handleToggleDrawerRequest");
-    });
+  it("has a click event", function() {
+    expect(subject.events.click).to.equal('handleDisplayManage');
   });
 
   it("calls render on initialize", function() {
@@ -40,12 +38,7 @@ describe('App.Views.ButtonDrawerToggle', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  describe("handlers", function() {
-    it("#handleToggleDrawerRequest", function() {
-      sinon.spy(App.Dispatcher, "trigger");
-      subject.handleToggleDrawerRequest();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("toggleDrawerRequest");
-      App.Dispatcher.trigger.restore();
-    });
+  xit("#handleDisplayManage", function() {
+    
   });
 });

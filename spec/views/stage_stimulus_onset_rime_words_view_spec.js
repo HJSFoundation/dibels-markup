@@ -1,4 +1,4 @@
-describe('App.Views.StageStimulusWords', function() {
+describe('App.Views.StageStimulusOnsetRimeWords', function() {
   var subject;
   var xhr;
   var requests;
@@ -12,7 +12,7 @@ describe('App.Views.StageStimulusWords', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageStimulus" });
-    subject = new App.Views.StageStimulusWords({el: '.js-stageStimulus'});
+    subject = new App.Views.StageStimulusOnsetRimeWords({el: '.js-stageStimulus'});
   });
 
   afterEach(function() {
@@ -24,10 +24,10 @@ describe('App.Views.StageStimulusWords', function() {
   });
 
   describe("#listen", function() {
-    it("listens to the stimulus change request for sight words", function() {
+    it("listens to the stimulus change request for cvts", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.cvts, subject.handleSkillChangeRequest);
     });
 
     it("listens to the stimulus change request for onset rimes", function() {

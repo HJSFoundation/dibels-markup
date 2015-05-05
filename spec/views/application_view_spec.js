@@ -19,6 +19,38 @@ describe('App.Views.Application', function() {
     _.bindAll.restore();
   });
 
+  xit("#sendAuthentication", function() {
+    App.currentUser={
+      email: "someone@somewhere.com",
+      token: "1234567890"
+    };
+    subject.sendAuthentication(xhr);
+    expect(requests[0].requestHeaders).to.include({"Authorization": 'Token token="1234567890", email="someone@somewhere.com"'});
+  });
+
+  xit("#initializeStudentCollection", function() {
+    
+  });
+
+  xit("#initializeStudentCollectionFail", function() {
+    
+  });
+
+  xit("#initializeStimuliCollections", function() {
+    
+  });
+
+  xit("#initializeStimuliCollectionFail", function() {
+    
+  });
+
+  it("initializeDeviceSelect", function() {
+    subject.initializeDeviceSelect();
+    expect(subject.deviceSelect).to.be.an.instanceOf(App.Views.DeviceSelect);
+    expect($(App.Config.el)).not.to.be.empty;
+    expect($("#loginContainer")).not.to.exist;
+  });
+
   it("has a reference to the application container", function() {
     expect(subject.$el).to.exist;
     expect(subject.$el).to.have.id('applicationContainer');

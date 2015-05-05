@@ -19,12 +19,15 @@
 
 - user logs in
 
+A teacher belongs_to a
+A classroom has_many students
+A student has_many stimuli
+
+
 - Teacher
 - Classroom
   - Students
   - Stimuli
-
-/teacher/:id
 
 {
   id: 1234,
@@ -34,7 +37,6 @@
 }
 
 /classroom/:id/students
-
 /classroom/:id/stimuli
 
 

@@ -31,24 +31,48 @@ describe('App.Views.MenuAssessment', function() {
     });
 
     it("creates a button mastered view", function() {
-      expect(subject.buttonMasteredView).to.be.an.instanceOf(App.Views.ButtonMastered);
+      expect(subject.buttons.mastered).to.be.an.instanceOf(App.Views.ButtonMastered);
     });
 
     it("creates a button learning view", function() {
-      expect(subject.buttonLearningView).to.be.an.instanceOf(App.Views.ButtonLearning);
+      expect(subject.buttons.learning).to.be.an.instanceOf(App.Views.ButtonLearning);
     });
 
     it("creates a button needs work view", function() {
-      expect(subject.buttonNeedsWorkView).to.be.an.instanceOf(App.Views.ButtonNeedsWork);
+      expect(subject.buttons.needs_work).to.be.an.instanceOf(App.Views.ButtonNeedsWork);
     });
 
     it("creates a button clear view", function() {
-      expect(subject.buttonClearView).to.be.an.instanceOf(App.Views.ButtonClear);
+      expect(subject.buttons.clear).to.be.an.instanceOf(App.Views.ButtonClear);
     });
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
+  });
+
+  it("#listen", function() {
+    sinon.spy(subject, "listenTo");
+    subject.listen();
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "buttonAssessmentClicked", subject.handleButtonAssessmentClicked);
+  });
+
+  describe("#handleButtonAssessmentClicked", function() {
+    it("activates the clicked tab", function() {
+      subject.buttons.mastered.makeActive = sinon.spy();
+      var event_payload = "mastered";
+      subject.handleButtonAssessmentClicked(event_payload);
+      expect(subject.buttons.mastered.makeActive).to.have.been.called;
+    });
+
+    it("inactivates the non clicked tabs", function() {
+      subject.buttons.learning.makeActive = sinon.spy();
+      subject.buttons.mastered.makeInactive = sinon.spy();
+      var event_payload = "learning";
+      subject.handleButtonAssessmentClicked(event_payload);
+      expect(subject.buttons.learning.makeActive).to.have.been.called;
+      expect(subject.buttons.mastered.makeInactive).to.have.been.called;
+    });
   });
 });

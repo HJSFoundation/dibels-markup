@@ -11,8 +11,8 @@ App.Views.Application = Backbone.View.extend({
     var email = App.currentUser.email;
     var token = App.currentUser.token;
     var header= 'Token token="'+token+'", email="'+email+'"';
-  xhr.setRequestHeader('Authorization', header);
-},
+    xhr.setRequestHeader('Authorization', header);
+  },
 
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
@@ -25,6 +25,7 @@ App.Views.Application = Backbone.View.extend({
   initializeStudentCollection: function(){
     $.ajaxSetup({beforeSend:this.sendAuthentication});
     localStorage.clear();
+    console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
     App.roster = new App.Collections.Students();
     App.roster.fetch({
       success: this.initializeStimuliCollections,
