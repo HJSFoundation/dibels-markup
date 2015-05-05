@@ -51,6 +51,7 @@ App.Views.MenuActivity = Backbone.View.extend({
     _.each(this.buttons, function(button, key) {
       if (selectedActivity === key) {
         button.makeActive();
+        App.selectedActivity = selectedActivity;
         // App.Dispatcher.trigger("ActivityChangeRequested:" + button.key);
       } else {
         button.makeInactive();

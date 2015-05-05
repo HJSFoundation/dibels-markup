@@ -27,6 +27,7 @@ var App = {
   currentUser: null,
   selectedStudent: null,
   selectedActivity: null,
+  selectedStimulus: null,
 
   initializeStudentTestData: function(){
 

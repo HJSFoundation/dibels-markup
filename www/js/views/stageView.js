@@ -10,11 +10,11 @@ App.Views.Stage = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.render();
-    this.stageStimulusLetterView = new App.Views.StageStimulusLetters({ el: this.stageStimulusEl});
-    this.stageStimulusOnsetRimeWordsView = new App.Views.StageStimulusOnsetRimeWords({ el: this.stageStimulusEl});
-    this.stageStimulusSightWordsView = new App.Views.StageStimulusSightWords({ el: this.stageStimulusEl});
-    this.stageStimulusPhrasesView = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
-    this.stageStimulusWhiteboardView = new App.Views.StageStimulusWhiteboard({ el: this.stageStimulusEl});
+    this.stageViews.letters = new App.Views.StageStimulusLetters({ el: this.stageStimulusEl});
+    this.stageViews.onsetRimesWords = new App.Views.StageStimulusOnsetRimeWords({ el: this.stageStimulusEl});
+    this.stageViews.sightWordsWords= new App.Views.StageStimulusSightWordsWords({ el: this.stageStimulusEl});
+    this.stageViews.phrases = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
+    this.stageViews.whiteboard = new App.Views.StageStimulusWhiteboard({ el: this.stageStimulusEl});
     this.storyPageView = new App.Views.StoryPage({ el: ".js-overlay"});
 
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", eventName: "flipStageButtonTapped"});
@@ -30,6 +30,15 @@ App.Views.Stage = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
     this.listenTo(App.Dispatcher, "openMatrix", this.handleOpenMatrix);
     this.listenTo(App.Dispatcher, "flipStageButtonTapped", this.handleFlipStageRequest);
+
+
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleOnsetRimesChangeRequest);
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.cvts, this.handleOnsetRimesChangeRequest);
+
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSightWordsChangeRequest);
+    
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.letterSounds, this.handleLetterSoundsChangeRequest);
+
   },
 
   render: function() {
@@ -54,5 +63,38 @@ App.Views.Stage = Backbone.View.extend({
       $sel.removeClass("st-unflipped");
     }
     this.flipped = !this.flipped;
+  },
+
+  handleOnsetRimesChangeRequest: function(stimulus_object){
+    switch(App.selectedActivity){
+      case "words":
+        this.stageViews.onsetRimesWords.render(stimulus_object);
+        break;
+      case "phrases":
+        this.stageViews.phrases.render(stimulus_object);
+        break;
+    }
+  },
+
+  handleSightWordsChangeRequest: function(stimulus_object){
+    switch(App.selectedActivity){
+      case "words":
+        this.stageViews.sightWordsWords.render(stimulus_object);
+        break;
+      case "phrases":
+        this.stageViews.phrases.render(stimulus_object);
+        break;
+    }
+  },
+
+  handleLetterSoundsChangeRequest: function(stimulus_object){
+    switch(App.selectedActivity){
+      case "words":
+        this.stageViews.sightWordsWords.render(stimulus_object);
+        break;
+      case "letters":
+        this.stageViews.letters.render(stimulus_object);
+        break;
+    }
   }
 });
