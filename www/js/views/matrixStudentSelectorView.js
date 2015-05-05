@@ -7,6 +7,8 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.listen();
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this.tabs[App.selectedStudent.get("id")]);
+
   },
 
   listen: function() {

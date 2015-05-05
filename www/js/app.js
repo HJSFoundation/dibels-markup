@@ -25,6 +25,8 @@ var App = {
   },
   url: "http://staging.tutormate.org/api/v1",
   currentUser: null,
+  selectedStudent: null,
+  selectedActivity: null,
 
   initializeStudentTestData: function(){
 
