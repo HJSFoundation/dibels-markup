@@ -77,8 +77,11 @@ button,
 
   &.button--matrix-toggle--open {
    bottom: 10px;
-   right: -10px;
+   right: 0px;
    position: absolute;
+   text-align: center;
+   width: 75px;
+
 
    &:hover {
      color: $orange;
@@ -94,10 +97,50 @@ button,
   }
 }
 
+.button--letters {
+  @include icon-hover(letters, 32px, $gray-light, $green);
+}
+
 .button--words {
-  icon:hover:before {
-    content: 'z';
-    color: green;
+  @include icon-hover(words, 32px, $gray-light, $orange);
+}
+
+.button--tiles {
+  @include icon-hover(tiles, 32px, $gray-light, $blue-light);
+}
+
+.button--phrases {
+  @include icon-hover(phrases, 32px, $gray-light, $purple);
+}
+
+.button--timer {
+  @include icon-hover(timer, 32px, $gray-light, $red);
+}
+
+.button--manage {
+  @include icon-hover(manage, 32px, $gray-light, $turquoise);
+}
+
+.button--flip {
+  fill: $gray-light;
+  [class*='icon-flip'] {
+    width: 32px; 
+  }
+  &:hover,
+  &.st-active {
+    fill: $black;
+  }
+}
+
+// iflTODO: find a way to get this one using the mixin?
+.button--whiteboard {
+  fill: $gray-light;
+  [class*='icon-whiteboard'] {
+    width: 32px; 
+  }
+  &:hover,
+  &.st-active {
+    fill: $yellow;
   }
 }
 

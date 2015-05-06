@@ -20,7 +20,11 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
     + "\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-flip\"></span>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + " button--flip\">\n  <svg class=\"icon-flip\"><use xlink:href=\"#icon-flip\"></use></svg>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -32,12 +36,16 @@ this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,
 this["App"]["templates"]["buttonLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-words "
+  return "<button class=\"icon-text--vertical button--letters "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\"></span>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-letters\"><use xlink:href=\"#icon-letters\"></use></svg>\n  <svg class=\"icon-letters-filled st-hidden\"><use xlink:href=\"#icon-letters-filled\"></use></svg>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonManage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-assignments\"></span>\n  <span class=\"icon-text__title\">Manage</span>\n</button>";
+    var helper;
+
+  return "<button class=\"icon-text--vertical button--manage "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\">\n  <svg class=\"icon-manage\"><use xlink:href=\"#icon-manage\"></use></svg>\n  <svg class=\"icon-manage-filled st-hidden\"><use xlink:href=\"#icon-manage-filled\"></use></svg>\n  <span class=\"icon-text__title\">Manage</span>\n</button>";
 },"useData":true});
 this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -50,7 +58,13 @@ this["App"]["templates"]["buttonMatrixClose"] = Handlebars.template({"compiler":
     return "<span class=\"icon icon-close-matrix\"></span>\n<!-- \n<button class=\"icon-text--vertical js-matrix-toggle st-hidden\">\n  <span class=\"icon icon-close-matrix \"></span>\n</button>\n -->";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-close-matrix\"></span>\n\n<!-- <button class=\"icon-text--vertical js-matrix-toggle st-hidden\">\n  <span class=\"icon icon-close-matrix \"></span>\n</button> -->";
+    return "<span class=\"icon icon-matrix-open\"></span>";
+},"useData":true});
+this["App"]["templates"]["buttonMatrixStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span class=\"icon icon-triangle-down\"></span>\n";
+},"useData":true});
+this["App"]["templates"]["buttonMatrixStageUp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span class=\"icon icon-triangle-up\"></span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -62,33 +76,37 @@ this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6
 this["App"]["templates"]["buttonPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-phrases "
+  return "<button class=\"icon-text--vertical "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\"></span>\n  <span class=\"icon-text__title\">Phrases</span>\n</button>\n";
+    + " button--phrases\">\n  <svg class=\"icon-phrases\"><use xlink:href=\"#icon-phrases\"></use></svg>\n  <svg class=\"icon-phrases-filled st-hidden\"><use xlink:href=\"#icon-phrases-filled\"></use></svg>\n  <span class=\"icon-text__title\">Phrases</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-tiles "
+  return "<button class=\"icon-text--vertical button--tiles "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\"></span>\n  <span class=\"icon-text__title\">Tiles</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-tiles\"><use xlink:href=\"#icon-tiles\"></use></svg>\n  <svg class=\"icon-tiles-filled st-hidden\"><use xlink:href=\"#icon-tiles-filled\"></use></svg>\n  <span class=\"icon-text__title\">Tiles</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonTimer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-timer\"></span>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
+    var helper;
+
+  return "<button class=\"icon-text--vertical button--timer "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\">\n  <svg class=\"icon-timer\"><use xlink:href=\"#icon-timer\"></use></svg>\n  <svg class=\"icon-timer-filled st-hidden\"><use xlink:href=\"#icon-timer-filled\"></use></svg>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-whiteboard "
+  return "<button class=\"icon-text--vertical button--whiteboard "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\"></span>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-whiteboard\"><use xlink:href=\"#icon-whiteboard\"></use></svg>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<button class=\"icon-text--vertical\">\n  <span class=\"icon icon-words "
+  return "<button class=\"icon-text--vertical button--words "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\"></span>\n  <span class=\"icon-text__title\">Words</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-words\"><use xlink:href=\"#icon-words\"></use></svg>\n  <svg class=\"icon-words-filled st-hidden\"><use xlink:href=\"#icon-words-filled\"></use></svg>\n  <span class=\"icon-text__title\">Words</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["deviceSelect"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "  <div class=\"container login device-select\">\n    <div class=\"stage stage--device-select\">\n      <h1 class=\"device-select__title\">Log this device in as:</h1>\n      <div class=\"stage__content grid grid--center\">\n        <button class=\"icon-text--vertical device-select__option js-teacherDevice\" >\n          <svg id=\"selectTeacher\" xmlns=\"http://www.w3.org/2000/svg\" class=\"select--teacher\" viewBox=\"0 141.8 612 508.6\"><path fill=\"#D9D9D9\" d=\"M245.3 222.7c21.5 0 39 17.5 39 39s-17.5 39-39 39-39-17.5-39-39c0-21.6 17.5-39 39-39m137.8 76.5c-3 0-6.9 1.5-11.8 5.9-10.9 9.6-32.1 19.5-49.4 19.5-6.4 0-12.3-1.3-17-4.5-14.4-9.7-20.9-10.5-22.6-10.5h-72s-42.4 7.1-42.4 49.7 53.9 42.6 58.7 42.6c1.1 0 3.1.1 5.5.1 8.8 0 23.7-1.4 23.7-14.1 0-14-16.6-14.9-25.2-14.9h-7.2c-9.8 0-30.9-1-30.9-15.7 0-5.9 3.8-10.7 9.9-14.3v20.3c5.9 5 19.5 5.9 23.3 5.9l4.8-25.2 47.2 7.3-13.4 73-47.4-8.4 1.9-9.9c-4.2-.2-9.9-.8-16.4-1.9v169.6c0 12 9.8 22 22 22 12 0 22-9.8 22-22v-129c.2-1.3 1.1-2.3 2.5-2.3 1.3 0 2.5 1 2.5 2.3v128.9c0 12 9.8 22 22 22 12 0 22-9.8 22-22V346.5c2.5.8 5.2 1.3 7.6 1.9 5.7 1.3 11.5 2 17.4 2 19.4 0 39.4-6.9 58.4-18 24.7-14.5 12.6-27.3 12.6-27.3s-2.3-5.9-8.3-5.9m113-36.3c.8 0 1.6-.2 2.6-.6 2.7-1.5 6.9-3.3 11.7-3.3 5.7 0 10.5 2.5 10.5 9.9v1.3h-2.3c-12.6 0-32.9 2.7-32.9 19.1 0 10.1 8.2 16.8 18.5 16.8 12.2 0 17.6-10.5 17.6-10.5h.2s-.2 1-.2 2.5v2.3c0 3.1 1.5 4.6 4.6 4.6h3.8c3.1 0 4.6-1.5 4.6-4.6V270c0-14.1-8.8-22.4-23.3-22.4-8.4 0-14.7 2.7-18.4 4.6-2.7 1.3-3.1 3.6-1.7 6.1l1.1 1.9c.9 1.9 2.1 2.7 3.6 2.7m-77.8 42.4h5.2c2.7 0 4.4-1.1 5.2-3.8l5.4-16.3h27.5l5.5 16.3c.8 2.7 2.5 3.8 5.2 3.8h5.2c3.4 0 4.8-2.1 3.4-5.4l-24.5-69.2c-.8-2.7-2.5-3.8-5.2-3.8h-7.1c-2.7 0-4.2 1.3-5.2 3.8l-24.5 69.2c-.9 3.3.5 5.4 3.9 5.4m193.7-118v171.1H341.7v-2.5c13.8-2.7 27.5-7.6 41.3-15.9 27-16.1 22.9-31.7 20.1-36.1 0 0-6-15.3-18.1-15.3-3.7 0-7.9 1.4-12.7 5.2-8 6.5-18.2 15.1-30.6 18.9V187.3H612m-95 91.8c-7 0-17.6 1.5-17.6 9.4 0 3.8 2.9 7.5 8.4 7.5 7.8 0 12.8-8 12.8-14.7v-2.1h-2.3c-.4-.1-.9-.1-1.3-.1m-69-38.6h-.2s-1.7 7.6-3.1 12l-7.1 21h20.5l-6.9-20.8c-1.3-4.4-3.2-12.2-3.2-12.2m44.9 138.2v.2-.2M254.3 141.8c40.3 0 78.6 9.4 112.4 26.2h-39.6c-22.9-7.3-47.4-11.3-72.8-11.3-132.3 0-239.6 106.9-239.6 239.2 0 132.3 107.3 239.4 239.4 239.4 132.3 0 239.4-107.3 239.4-239.4 0-5.7-.2-11.3-.6-17H508c.4 5.7.6 11.5.6 17.2 0 140.5-113.8 254.3-254.3 254.3S0 536.6 0 396.1s113.8-254.3 254.3-254.3\"/></svg>\n          <span class=\"icon-text__title\">teacher</span>\n        </button>\n        <button class=\"icon-text--vertical device-select__option js-studentDevice\">\n          <svg id=\"selectStudent\" class=\"select--student\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 90 612 612\"><path fill=\"none\" d=\"M314.2 221.3c26.8 0 48.5 21.7 48.5 48.5s-21.7 48.5-48.5 48.5-48.5-21.7-48.5-48.5 21.7-48.5 48.5-48.5zm-70 109.1h139.9v96.2H244.2v-96.2zm22.3 79.3c-11.4 3.4-19.2 14.4-26-12.5L182 196.7c-3-10.3 3.8-21.3 15.2-24.5 11.4-3.4 23.2 2.3 26 12.5l58.5 200.7c3 10-3.8 21.1-15.2 24.3zm179 37.6H179.2c-3.2 0-5.7-2.5-5.7-5.7v-2.3c0-3.2 2.5-5.7 5.7-5.7h266.3c3.2 0 5.7 2.5 5.7 5.7v2.3c0 3.1-2.5 5.7-5.7 5.7zM207 610V439.1c0-3.2 2.5-5.7 5.7-5.7h2.3c3.2 0 5.7 2.5 5.7 5.7V610c0 3.2-2.5 5.7-5.7 5.7h-2.3c-3.1 0-5.7-2.6-5.7-5.7zm199.9 0V439.1c0-3.2 2.5-5.7 5.7-5.7h2.3c3.2 0 5.7 2.5 5.7 5.7V610c0 3.2-2.5 5.7-5.7 5.7h-2.3c-3.2 0-5.7-2.6-5.7-5.7zM284 621.8h-10.3c-13.7 0-24.9-11.2-24.9-24.9V478.7c0-13.7 11.2-24.9 24.9-24.9H284c13.7 0 24.9 11.2 24.9 24.9v118.2c.1 13.7-11.1 24.9-24.9 24.9zm71.6 0h-10.3c-13.7 0-24.9-11.2-24.9-24.9V478.7c0-13.7 11.2-24.9 24.9-24.9h10.3c13.7 0 24.9 11.2 24.9 24.9v118.2c0 13.7-11.2 24.9-24.9 24.9zm66.5-221l-5.9 4.4c-7.8 5.9-19.2 4.4-25.1-3.4l-29.8-39.5c-5.9-7.8-4.4-19.2 3.4-25.1l5.9-4.4c7.8-5.9 19.2-4.4 25.1 3.4l29.8 39.5c6.1 7.9 4.4 19.2-3.4 25.1zm-64.6 27.1l-4.4-5.9c-5.9-7.8-4.4-19.2 3.4-25.1l39.5-29.8c7.8-5.9 19.2-4.4 25.1 3.4l4.4 5.9c5.9 7.8 4.4 19.2-3.4 25.1l-39.5 29.8c-8 5.9-19.2 4.4-25.1-3.4zm17.1-59.8l1.3.8 7.8 4.8 1.3.8.8-1.3 1.5-2.7.8-1.3c.4-.8.2-1.7-.6-2.1l-7.8-4.8c-.8-.4-1.7-.2-2.1.6l-.8 1.3-1.5 2.7-.7 1.2zM352.5 404l20.2-32.9 10.5 6.5-20.2 32.8-10.5-6.4zm-2 3.2l-1.9 13.9c0 .6.2.8.8.4l11.6-8-10.5-6.3zM306 90C137 90 0 227 0 396s137 306 306 306 306-136.8 306-306S475.2 90 306 90zm0 594.1c-159.1 0-288.1-129-288.1-288.1s129-288.1 288.1-288.1 288.1 129 288.1 288.1-129 288.1-288.1 288.1z\"/></svg>\n          <span class=\"icon-text__title\">student</span>\n        </button>\n      </div>\n      <footer class=\"footer--login\">\n      </footer>\n    </div>\n  </div>";

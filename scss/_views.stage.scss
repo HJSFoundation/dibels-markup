@@ -6,13 +6,13 @@
   position: relative;
   padding: 15px;
   background-color: $white;
+  overflow: hidden;
 
   &.stage--workspace {
-    min-height: 430px;
-    height: 60%;
+    height: 430px;
+    -webkit-transition: all 0.5s ease-in-out;
     &.stage--workspace--full {
-      min-height: 768px;
-      height: 100%;
+      height: 768px;
       -webkit-transition: all 0.5s ease-in-out;
     }
   }
@@ -35,4 +35,8 @@
 .stage__menu--right {
   right: 0;
   bottom: 10px;
+
+  .stage--workspace--full & {
+    bottom: 50px;
+  }
 }
