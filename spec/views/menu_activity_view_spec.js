@@ -53,20 +53,47 @@ describe('App.Views.MenuActivity', function() {
     });
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixMenuTabActiveRequest", subject.handleSkillChangeRequest);
+  describe("#listen", function() {
+    it("listens for the matrixMenuTabActiveRequest", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixMenuTabActiveRequest", subject.handleSkillChangeRequest);
+    });
+
+    it("listens to the activityMenuButtonActiveRequest", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "activityMenuButtonActiveRequest", subject.handleActivityMenuButtonActiveRequest);      
+    }); 
   });
 
-  it("renders", function() {
+  it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#handleSkillChangeRequest", function() {
-    subject.handleSkillChangeRequest({key: App.Config.skill.letterNames});
-    expect(subject.buttons.letters.$el).to.be.visible;
-    expect(subject.buttons.tiles.$el).not.to.be.visible;
+  describe("handlers", function() {
+    it("#handleSkillChangeRequest", function() {
+      App.selectedActivity = "phrases";
+      sinon.spy(subject, "handleActivityMenuButtonActiveRequest");
+      subject.handleSkillChangeRequest({key: App.Config.skill.letterNames});
+      expect(subject.buttons.letters.$el).to.be.visible;
+      expect(subject.buttons.tiles.$el).not.to.be.visible;
+      expect(subject.handleActivityMenuButtonActiveRequest).to.have.been.called;
+    });
+
+    describe("#handleActivityMenuButtonActiveRequest", function() {
+      it("makes active the selected activity", function() {
+        sinon.spy(subject.buttons.phrases, "makeActive");
+        subject.handleActivityMenuButtonActiveRequest("phrases");
+        expect(subject.buttons.phrases.makeActive).to.have.been.called;
+      });
+      
+      it("makes inactive unselected activities", function() {
+        sinon.spy(subject.buttons.tiles, "makeInactive");
+        subject.handleActivityMenuButtonActiveRequest("phrases");
+        expect(subject.buttons.tiles.makeInactive).to.have.been.called;
+      });
+    }); 
   });
 });

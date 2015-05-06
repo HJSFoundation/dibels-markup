@@ -28,6 +28,7 @@ var App = {
   selectedStudent: null,
   selectedActivity: null,
   selectedStimulus: null,
+  selectedSkill: null,
 
   initializeStudentTestData: function(){
 

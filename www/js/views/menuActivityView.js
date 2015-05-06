@@ -44,6 +44,10 @@ App.Views.MenuActivity = Backbone.View.extend({
     _.each(this.config.buttonMap[tab.key], function(key) {
       that.buttons[key].$el.show();
     });
+    if(_.indexOf(this.config.buttonMap[tab.key], App.selectedActivity)===-1){
+      var activity = this.config.buttonMap[tab.key][0];
+      this.handleActivityMenuButtonActiveRequest(activity);
+    }
   },
 
   handleActivityMenuButtonActiveRequest: function(selectedActivity){
@@ -52,7 +56,6 @@ App.Views.MenuActivity = Backbone.View.extend({
       if (selectedActivity === key) {
         button.makeActive();
         App.selectedActivity = selectedActivity;
-        // App.Dispatcher.trigger("ActivityChangeRequested:" + button.key);
       } else {
         button.makeInactive();
       }

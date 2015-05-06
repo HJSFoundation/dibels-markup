@@ -93,6 +93,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.each(this.activeTabDefs, function(tab) {
       if (selectedTab.label === tab.label) {
         selectedTab.makeActive();
+        App.selectedSkill = tab.key;
         App.Dispatcher.trigger("SkillChangeRequested:" + tab.key);
       } else {
         that.tabViews[tab.key].makeInactive();
