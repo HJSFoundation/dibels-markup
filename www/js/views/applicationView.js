@@ -38,6 +38,10 @@ App.Views.Application = Backbone.View.extend({
   },
 
   initializeStimuliCollections: function(){
+    App.roster.local=true;
+    App.roster.at(0).save();
+    App.roster.local=false;
+
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
       success: this.initializeDeviceSelect,

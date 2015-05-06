@@ -138,5 +138,50 @@ describe('App.Views.Stage', function() {
         expect($(subject.stageStimulusEl)).not.to.have.class("st-unflipped");
       });
     });
+
+    describe("#handleOnsetRimesChangeRequest", function() {
+      it("handles selectedActivity === words", function() {
+        App.selectedActivity = "words";
+        sinon.spy(subject.stageViews.onsetRimesWords, "render");
+        subject.handleOnsetRimesChangeRequest({value: "a"});
+        expect(subject.stageViews.onsetRimesWords.render).to.have.been.calledWith({value: "a"});
+      });
+      it("handles selectedActivity === phrases", function() {
+        App.selectedActivity = "phrases";
+        sinon.spy(subject.stageViews.phrases, "render");
+        subject.handleOnsetRimesChangeRequest({value: "a"});
+        expect(subject.stageViews.phrases.render).to.have.been.calledWith({value: "a"});
+      });
+    });
+
+    describe("#handleSightWordsChangeRequest", function() {
+      it("handles selectedActivity === words", function() {
+        App.selectedActivity = "words";
+        sinon.spy(subject.stageViews.sightWordsWords, "render");
+        subject.handleSightWordsChangeRequest({value: "a"});
+        expect(subject.stageViews.sightWordsWords.render).to.have.been.calledWith({value: "a"});
+      });
+      it("handles selectedActivity === phrases", function() {
+        App.selectedActivity = "phrases";
+        sinon.spy(subject.stageViews.phrases, "render");
+        subject.handleSightWordsChangeRequest({value: "a"});
+        expect(subject.stageViews.phrases.render).to.have.been.calledWith({value: "a"});
+      });
+    });
+
+    describe("#handleLetterSoundsChangeRequest", function() {
+      it("handles selectedActivity === words", function() {
+        App.selectedActivity = "words";
+        sinon.spy(subject.stageViews.sightWordsWords, "render");
+        subject.handleLetterSoundsChangeRequest({value: "a"});
+        expect(subject.stageViews.sightWordsWords.render).to.have.been.calledWith({value: "a"});
+      });
+      it("handles selectedActivity === letters", function() {
+        App.selectedActivity = "letters";
+        sinon.spy(subject.stageViews.letters, "render");
+        subject.handleLetterSoundsChangeRequest({value: "a"});
+        expect(subject.stageViews.letters.render).to.have.been.calledWith({value: "a"});
+      });
+    });
   });
 });
