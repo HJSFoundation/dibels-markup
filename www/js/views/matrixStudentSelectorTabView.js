@@ -37,8 +37,13 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     this.$el.removeClass("st-active");
   },
 
-  handleClick: function(event) {
+  handleClick: function() {
     console.log("click tab");
+
+    if(this.model.get("reading_stage") !== App.selectedStudent.get("reading_stage")){
+      App.Dispatcher.trigger("StageClearRequested");
+    }
+
     App.selectedStudent = this.model;
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this);
     return false;

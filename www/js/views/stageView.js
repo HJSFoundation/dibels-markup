@@ -38,6 +38,7 @@ App.Views.Stage = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSightWordsChangeRequest);
     
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.letterSounds, this.handleLetterSoundsChangeRequest);
+    this.listenTo(App.Dispatcher, "StageClearRequested" , this.handleStageClearRequest);
 
   },
 
@@ -96,5 +97,9 @@ App.Views.Stage = Backbone.View.extend({
         this.stageViews.letters.render(stimulus_object);
         break;
     }
+  },
+
+  handleStageClearRequest: function(){
+    $(this.stageStimulusEl).empty();
   }
 });

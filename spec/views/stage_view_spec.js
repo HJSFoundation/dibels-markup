@@ -183,5 +183,10 @@ describe('App.Views.Stage', function() {
         expect(subject.stageViews.letters.render).to.have.been.calledWith({value: "a"});
       });
     });
+
+    it("handleStageClearRequest", function() {
+      subject.handleStageClearRequest();
+      expect($(subject.stageStimulusEl)).to.be.empty;
+    });
   });
 });

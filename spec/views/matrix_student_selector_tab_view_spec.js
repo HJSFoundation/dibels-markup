@@ -83,6 +83,15 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
         expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", subject);
         App.Dispatcher.trigger.restore();
       });
+
+      it("triggers the stageClearRequested if the reading stages do not match", function() {
+        App.selectedStudent = new App.Models.Student({id:2, first_name: "Bernie", last_name: "Bivins", reading_stage: 4}),
+        sinon.spy(App.Dispatcher, "trigger");
+        subject.handleClick();
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("StageClearRequested");
+        expect(App.Dispatcher.trigger).to.have.been.calledTwice;
+        App.Dispatcher.trigger.restore();
+      });
     });
 
     describe("#handleIconClick", function() {
@@ -90,7 +99,6 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleIconClick();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabEditRequest", subject);
-        App.Dispatcher.trigger.restore();
       });
 
       it("renders editStudent", function() {
