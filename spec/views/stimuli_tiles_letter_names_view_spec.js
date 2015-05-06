@@ -75,11 +75,6 @@ describe('App.Views.StimuliTilesLetterNames', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.stageStories, subject.handleSkillReplaceRequest);
     });
 
-    it("listens for the matrixStudentSelectorTabActiveRequest event", function() {
-      sinon.spy(subject, "listenTo");
-      subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleStudentChangeRequest);
-    });
   });
 
   describe("#templateJSON", function() {
@@ -101,14 +96,6 @@ describe('App.Views.StimuliTilesLetterNames', function() {
       subject.handleSkillReplaceRequest();
       expect(subject.tiles).to.be.empty;
     });
-
-    it("#handleStudentChangeRequest", function() {
-      sinon.spy(subject, "handleSkillReplaceRequest");
-      sinon.spy(subject, "render");
-      App.selectedSkill = App.Config.skill.letterNames;
-      subject.handleStudentChangeRequest();
-      expect(subject.handleSkillReplaceRequest).to.have.been.called;
-      expect(subject.render).to.have.been.called;
-    });
+    
   });
 });

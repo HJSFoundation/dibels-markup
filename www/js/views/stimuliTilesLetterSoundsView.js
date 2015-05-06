@@ -20,8 +20,6 @@ App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.affixes, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.stageStories, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.leveledTexts, this.handleSkillReplaceRequest);
-
-    this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
 
   render: function() {
@@ -51,12 +49,6 @@ App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
       tile.remove();
     });
     this.tiles = [];
-  },
-
-  handleStudentChangeRequest: function() {
-    if(App.selectedSkill === App.Config.skill.letterSounds) {
-      this.handleSkillReplaceRequest();
-      this.render();
-    }
   }
+  
 });

@@ -23,7 +23,6 @@ App.Views.StimuliTilesCVts = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.stageStories, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.leveledTexts, this.handleSkillReplaceRequest);
 
-    this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
 
   render: function() {
@@ -62,12 +61,6 @@ App.Views.StimuliTilesCVts = Backbone.View.extend({
       tile.remove();
     });
     this.tiles = [];
-  },
-
-  handleStudentChangeRequest: function() {
-    if(App.selectedSkill === App.Config.skill.cvts) {
-      this.handleSkillReplaceRequest();
-      this.render();
-    }
   }
+
 });

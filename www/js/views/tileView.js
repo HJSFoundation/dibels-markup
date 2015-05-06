@@ -47,7 +47,7 @@ App.Views.Tile = Backbone.View.extend({
 
   handleClick: function() {
     console.log("TileView.handleClick", "value:", this.model.get("value"), "skill:", this.model.get("skill"));
-    // App.selectedStimulus = this.model.get("value"); TODO
+    App.selectedStimulus = this.model;
     App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"), {skill: this.model.get("skill"), value: this.model.get("value")});
     App.Dispatcher.trigger("buttonAssessmentClicked", this.model.get("assessment"));
     return false;

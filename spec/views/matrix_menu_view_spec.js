@@ -114,12 +114,6 @@ describe('App.Views.MatrixMenu', function() {
         subject.listen();
         expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixMenuTabActiveRequest", subject.handleMatrixMenuTabActiveRequest);
       });
-      it("#listenTo matrixStudentSelectorTabActiveRequest", function() {
-        sinon.spy(subject, "listenTo");
-        subject.listen();
-        expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleMatrixStudentSelectorTabActiveRequest);
-      });
-
     });
 
     it("#templateJSON", function() {

@@ -7,7 +7,12 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.listen();
-    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", this.tabs[App.selectedStudent.get("id")]);
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", 
+      {
+        current: this.tabs[App.selectedStudent.get("id")].model,
+        previous: null
+      }
+    );
 
   },
 
@@ -30,11 +35,12 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     }
   },
 
-  handleMatrixStudentSelectorTabActiveRequest: function(selectedTab) {
+  handleMatrixStudentSelectorTabActiveRequest: function(students) {
+    // TODO replace tab with model
     var that = this;
     _.each(this.tabs, function(tab) {
-      if (selectedTab.user_id === tab.user_id) {
-        selectedTab.makeActive();
+      if (students.current.id === tab.user_id) {
+        tab.makeActive();
       } else {
         that.tabs[tab.user_id].makeInactive();
       }

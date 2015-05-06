@@ -39,23 +39,31 @@ describe('App.Views.Matrix', function() {
     });
 
     it("creates a stimuli tiles view letter names", function() {
-      expect(subject.stimuliTilesViewLetterNames).to.be.an.instanceOf(App.Views.StimuliTilesLetterNames);
+      expect(subject.tiles.letter_names).to.be.an.instanceOf(App.Views.StimuliTilesLetterNames);
     });
 
     it("creates a stimuli tiles view letter sounds", function() {
-      expect(subject.stimuliTilesViewLetterSounds).to.be.an.instanceOf(App.Views.StimuliTilesLetterSounds);
+      expect(subject.tiles.letter_sounds).to.be.an.instanceOf(App.Views.StimuliTilesLetterSounds);
     });
 
-    it("creates a stimuli tiles view words", function() {
-      expect(subject.stimuliTilesViewWords).to.be.an.instanceOf(App.Views.StimuliTilesSightWords);
+    it("creates a stimuli tiles view sight words", function() {
+      expect(subject.tiles.sight_words).to.be.an.instanceOf(App.Views.StimuliTilesSightWords);
     });
 
     it("creates a stimuli tiles view onset rimes", function() {
-      expect(subject.stimuliTilesViewOnsetRimes).to.be.an.instanceOf(App.Views.StimuliTilesOnsetRimes);
+      expect(subject.tiles.onset_rimes).to.be.an.instanceOf(App.Views.StimuliTilesOnsetRimes);
     });
 
-    it("creates a stimuli tiles view stageStories", function() {
-      expect(subject.stimuliTilesViewStageStories).to.be.an.instanceOf(App.Views.StimuliTilesStageStories);
+    it("creates a stimuli tiles view cvts", function() {
+      expect(subject.tiles.cvts).to.be.an.instanceOf(App.Views.StimuliTilesCVts);
+    });
+
+    it("creates a stimuli tiles view stage stories", function() {
+      expect(subject.tiles.stage_stories).to.be.an.instanceOf(App.Views.StimuliTilesStageStories);
+    });
+
+    it("creates a stimuli tiles view leveled texts", function() {
+      expect(subject.tiles.leveled_texts).to.be.an.instanceOf(App.Views.StimuliTilesLeveledTexts);
     });
 
     it("creates a student selector view", function() {
@@ -78,5 +86,14 @@ describe('App.Views.Matrix', function() {
     sinon.spy(subject, "listenTo");
     subject.listen();
     expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+  });
+
+  it("#handleStudentChangeRequest", function() {
+    App.selectedSkill = App.Config.skill.cvts;
+    sinon.spy(subject.tiles[App.selectedSkill], "handleSkillReplaceRequest");
+    sinon.spy(subject.tiles[App.selectedSkill], "render");
+    subject.handleStudentChangeRequest();
+    expect(subject.tiles[App.selectedSkill].handleSkillReplaceRequest).to.have.been.called;
+    expect(subject.tiles[App.selectedSkill].render).to.have.been.called;
   });
 });
