@@ -44,7 +44,12 @@ App.Views.Matrix = Backbone.View.extend({
           value: App.selectedStimulus.get("value")
         })[0];
       if(App.selectedStimulus){
-        App.Dispatcher.trigger("StimulusChangeRequested:" + App.selectedStimulus.get("skill"), {skill: App.selectedStimulus.get("skill"), value: App.selectedStimulus.get("value")});
+        App.Dispatcher.trigger("StimulusChangeRequested:" + App.selectedStimulus.get("skill"), 
+          {
+            skill: App.selectedStimulus.get("skill"), 
+            value: App.selectedStimulus.get("value")
+          }
+        );
         App.Dispatcher.trigger("buttonAssessmentClicked", App.selectedStimulus.get("assessment"));
       }
     }else{

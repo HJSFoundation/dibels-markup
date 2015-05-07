@@ -12,6 +12,8 @@ describe('App.Views.Matrix', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrix" });
+    App.selectedStudent = new App.Models.Student({id:1, first_name:"jobe", last_name: "C", reading_stage:1});
+
     subject = new App.Views.Matrix({el: '.js-matrix'});
   });
 
@@ -92,7 +94,9 @@ describe('App.Views.Matrix', function() {
     App.selectedSkill = App.Config.skill.cvts;
     sinon.spy(subject.tiles[App.selectedSkill], "handleSkillReplaceRequest");
     sinon.spy(subject.tiles[App.selectedSkill], "render");
-    subject.handleStudentChangeRequest();
+    var previous = new App.Models.Student({id:1, first_name:"jobe", last_name: "C", reading_stage:1});
+
+    subject.handleStudentChangeRequest({current: App.selectedStudent, previous: previous});
     expect(subject.tiles[App.selectedSkill].handleSkillReplaceRequest).to.have.been.called;
     expect(subject.tiles[App.selectedSkill].render).to.have.been.called;
   });

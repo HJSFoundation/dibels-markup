@@ -79,8 +79,13 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
 
       it("triggers the matrixStudentSelectorTabActiveRequest event", function() {
         sinon.spy(App.Dispatcher, "trigger");
+        var previous = App.selectedStudent = new App.Models.Student({id:1, first_name: "Bernie", last_name: "Bivins", reading_stage: 2});
+
         subject.handleClick();
-        expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", subject);
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", 
+          { current: subject.model, 
+            previous: previous
+        });
         App.Dispatcher.trigger.restore();
       });
 

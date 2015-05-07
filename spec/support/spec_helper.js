@@ -54,6 +54,7 @@ function initializeTestData (){
 
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
+  App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
 
 
   // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});

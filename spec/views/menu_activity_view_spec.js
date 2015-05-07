@@ -94,6 +94,18 @@ describe('App.Views.MenuActivity', function() {
         subject.handleActivityMenuButtonActiveRequest("phrases");
         expect(subject.buttons.tiles.makeInactive).to.have.been.called;
       });
+
+      it("triggers stimulus change request", function() {
+        App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "a"});
+        sinon.spy(App.Dispatcher, "trigger");
+        var skill = App.selectedStimulus.get("skill");
+        var value = App.selectedStimulus.get("value");
+
+        subject.handleActivityMenuButtonActiveRequest("words");
+
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+skill, {skill:skill, value: value});
+        App.Dispatcher.trigger.restore();
+      });
     }); 
   });
 });

@@ -12,6 +12,7 @@ describe('App.Views.MatrixStudentSelector', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrixStudentSelector" });
+    App.selectedStudent = new App.Models.Student({id:1, first_name:"jobe", last_name: "C"});
     subject = new App.Views.MatrixStudentSelector({el: '.js-matrixStudentSelector'});
   });
 
@@ -39,6 +40,18 @@ describe('App.Views.MatrixStudentSelector', function() {
       subject.initialize();
       expect(subject.listen).to.have.been.called;
     });
+
+    it("triggers matrixStudentSelectorTabActiveRequest", function() {
+      sinon.spy(App.Dispatcher, "trigger");
+      App.students = new App.Collections.Students();
+      App.students.add(App.selectedStudent);
+      subject.initialize();
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", 
+        {
+          current: subject.tabs[App.selectedStudent.get("id")].model,
+          previous: null
+       });
+    });
   });
 
   describe("#render", function() {
@@ -61,23 +74,28 @@ describe('App.Views.MatrixStudentSelector', function() {
   describe("dispatcher handlers", function() {
     describe("#handleMatrixStudentSelectorTabActiveRequest", function() {
       beforeEach(function() {
+        App.students = new App.Collections.Students();
+        App.students.add(App.selectedStudent);
+        App.students.add({id:0, first_name:"joe", last_name:"F"});
+        App.students.add({id:1, first_name:"joe", last_name:"F"});
+
         subject.render();
       });
 
       it("activates the clicked tab", function() {
-        var makeActive = sinon.spy();
-        var event_payload = {user_id: 3, makeActive: makeActive};
+        sinon.spy(subject.tabs[1], "makeActive");
+        var event_payload = {current: {id:1}};
         subject.handleMatrixStudentSelectorTabActiveRequest(event_payload);
-        expect(makeActive).to.have.been.called;
+        expect(subject.tabs["1"].makeActive).to.have.been.called;
       });
 
       it("inactivates the non clicked tabs", function() {
-        var makeActive = sinon.spy();
-        var makeInactive = sinon.spy();
-        subject.tabs[4].makeInactive = makeInactive;
-        var event_payload = {user_id: 3, makeActive: makeActive};
+        sinon.spy(subject.tabs[1], "makeActive");
+        sinon.spy(subject.tabs[0], "makeInactive");
+
+        var event_payload = {current: {id:1}};
         subject.handleMatrixStudentSelectorTabActiveRequest(event_payload);
-        expect(makeInactive).to.have.been.called;
+        expect(subject.tabs[0].makeInactive).to.have.been.called;
       });
     });
   });
