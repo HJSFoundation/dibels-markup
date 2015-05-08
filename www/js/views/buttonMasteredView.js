@@ -19,7 +19,7 @@ App.Views.ButtonMastered = Backbone.View.extend({
   templateJSON: function(){
     return {
       selectedClass: this.selectedClass
-    }
+    };
   },
 
   makeActive: function(){

@@ -16,7 +16,7 @@ App.Views.MenuAssessment = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
   },
-  
+
   render: function() {
     this.$el.html(this.template());
   },
@@ -24,7 +24,7 @@ App.Views.MenuAssessment = Backbone.View.extend({
   handleButtonAssessmentClicked: function(selectedAssessment) {
     var that = this;
     _.each(this.buttons, function(button,key) {
-      if (selectedAssessment === key) {
+      if (selectedAssessment === key && App.selectedStimulus !== null) {
         button.makeActive();
       } else {
         that.buttons[key].makeInactive();

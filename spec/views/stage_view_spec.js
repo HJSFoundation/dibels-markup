@@ -187,6 +187,7 @@ describe('App.Views.Stage', function() {
     it("handleStageClearRequest", function() {
       subject.handleStageClearRequest();
       expect($(subject.stageStimulusEl)).to.be.empty;
+      expect(App.selectedStimulus).to.equal(null);
     });
   });
 });

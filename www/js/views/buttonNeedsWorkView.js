@@ -19,7 +19,7 @@ App.Views.ButtonNeedsWork = Backbone.View.extend({
   templateJSON: function(){
     return {
       selectedClass: this.selectedClass
-    }
+    };
   },
 
   makeActive: function(){

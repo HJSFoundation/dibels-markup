@@ -19,7 +19,7 @@ App.Views.ButtonLearning = Backbone.View.extend({
   templateJSON: function(){
     return {
       selectedClass: this.selectedClass
-    }
+    };
   },
 
   makeActive: function(){

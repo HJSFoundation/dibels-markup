@@ -36,7 +36,7 @@ App.Views.Stage = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.cvts, this.handleOnsetRimesChangeRequest);
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSightWordsChangeRequest);
-    
+
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.letterSounds, this.handleLetterSoundsChangeRequest);
     this.listenTo(App.Dispatcher, "StageClearRequested" , this.handleStageClearRequest);
 
@@ -101,5 +101,6 @@ App.Views.Stage = Backbone.View.extend({
 
   handleStageClearRequest: function(){
     $(this.stageStimulusEl).empty();
+    App.selectedStimulus = null;
   }
 });
