@@ -63,8 +63,8 @@ describe('App.Views.MenuActivity', function() {
     it("listens to the activityMenuButtonActiveRequest", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "activityMenuButtonActiveRequest", subject.handleActivityMenuButtonActiveRequest);      
-    }); 
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "activityMenuButtonActiveRequest", subject.handleActivityMenuButtonActiveRequest);
+    });
   });
 
   it("#render", function() {
@@ -88,14 +88,14 @@ describe('App.Views.MenuActivity', function() {
         subject.handleActivityMenuButtonActiveRequest("phrases");
         expect(subject.buttons.phrases.makeActive).to.have.been.called;
       });
-      
+
       it("makes inactive unselected activities", function() {
         sinon.spy(subject.buttons.tiles, "makeInactive");
         subject.handleActivityMenuButtonActiveRequest("phrases");
         expect(subject.buttons.tiles.makeInactive).to.have.been.called;
       });
 
-      it("triggers stimulus change request", function() {
+      it("triggers stimulus change request when selected stimulus is not null", function() {
         App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "a"});
         sinon.spy(App.Dispatcher, "trigger");
         var skill = App.selectedStimulus.get("skill");
@@ -106,6 +106,14 @@ describe('App.Views.MenuActivity', function() {
         expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+skill, {skill:skill, value: value});
         App.Dispatcher.trigger.restore();
       });
-    }); 
+
+      it("does not trigger a stimulus change request when selected stimulus is null", function() {
+        App.selectedStimulus = null;
+        sinon.spy(App.Dispatcher, "trigger");
+        subject.handleActivityMenuButtonActiveRequest("words");
+        expect(App.Dispatcher.trigger).not.to.have.been.called;
+        App.Dispatcher.trigger.restore();
+      });
+    });
   });
 });

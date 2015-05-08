@@ -19,7 +19,7 @@ App.Views.ButtonLetters = Backbone.View.extend({
   templateJSON: function(){
     return {
       selectedClass: this.status
-    }
+    };
   },
 
   makeActive: function() {

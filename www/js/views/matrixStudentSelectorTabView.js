@@ -38,15 +38,15 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   },
 
   handleClick: function() {
-    console.log("click tab");
+    console.log("student tab clicked");
 
     if(this.model.get("reading_stage") !== App.selectedStudent.get("reading_stage")){
       App.Dispatcher.trigger("StageClearRequested");
     }
     var previous = App.selectedStudent;
     App.selectedStudent = this.model;
-    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest", 
-      { current: this.model, 
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
+      { current: this.model,
         previous: previous
       }
     );

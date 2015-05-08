@@ -54,7 +54,7 @@ function initializeTestData (){
 
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
-  App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
+  App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"}); //TODO may eventually need to move this to before each if null settings in tests cause errors.
 
 
   // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
