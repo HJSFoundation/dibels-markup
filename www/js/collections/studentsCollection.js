@@ -5,6 +5,8 @@ App.Collections.Students = Backbone.Collection.extend({
 
   comparator: "first_name",
   
+  local: true,
+
   parse: function(resp, xhr) {
     return resp.students
   }

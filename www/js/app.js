@@ -88,7 +88,7 @@ var App = {
     //   ]
     // }
 
-    for(var stageIndex=4;stageIndex<8; stageIndex=stageIndex+1)
+    for(var stageIndex=1;stageIndex<10; stageIndex=stageIndex+1)
     {
         App.LeveledTexts[stageIndex]=[];
       _.forEach(["Dentist","Chores","Digging"], function(title) {
@@ -96,7 +96,7 @@ var App = {
         pages.push({image: "dentist1.jpg", lines: "Dentist"});
         pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
         pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.LeveledTexts[stageIndex].push({title: title+stageIndex, pages: pages});
+        App.LeveledTexts[stageIndex].push({title: title+stageIndex+":LT", pages: pages});
       });
     }
   },
@@ -176,10 +176,6 @@ var App = {
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }
-
-      _.forEach(["ltDentist"+stageIndex,"Chores","Digging"], function(title) {
-        App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.leveledTexts, value: title, assessment:"clear", user_id: user_id});
-      });
     }
   });
 

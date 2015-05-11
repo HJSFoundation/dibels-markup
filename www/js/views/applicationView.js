@@ -22,6 +22,7 @@ App.Views.Application = Backbone.View.extend({
     // this.initializeStudentCollection();
 
     App.initializeStageStoryTestData();
+    App.initializeLeveledTextsTestData();
 
     App.initializeStudentTestData();
     App.initializeStimuliTestData();

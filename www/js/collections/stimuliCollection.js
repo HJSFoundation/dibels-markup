@@ -4,6 +4,7 @@ App.Collections.Stimuli = Backbone.Collection.extend({
   model: App.Models.Stimulus,
 
   comparator: "value",
+  local: true,
   
   parse: function(resp, xhr) {
     return resp.stimuli;
