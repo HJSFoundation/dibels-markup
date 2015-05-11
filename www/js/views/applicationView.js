@@ -19,41 +19,41 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-    this.initializeStudentCollection();
+    // this.initializeStudentCollection();
+
+    App.initializeStageStoryTestData();
+
+    App.initializeStudentTestData();
+    App.initializeStimuliTestData();
+    this.initializeDeviceSelect();
   },
 
-  initializeStudentCollection: function(){
-    $.ajaxSetup({beforeSend:this.sendAuthentication});
-    localStorage.clear();
-    console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
-    App.roster = new App.Collections.Students();
-    App.roster.fetch({
-      success: this.initializeStimuliCollections,
-      error: this.initializeStudentCollectionFail
-     });
-  },
+  // initializeStudentCollection: function(){
+  //   $.ajaxSetup({beforeSend:this.sendAuthentication});
+  //   localStorage.clear();
+  //   console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
+  //   App.roster = new App.Collections.Students();
+  //   App.roster.fetch({
+  //     success: this.initializeStimuliCollections,
+  //     error: this.initializeStudentCollectionFail
+  //    });
+  // },
 
-  initializeStudentCollectionFail: function(){
-    console.log("initializeStudentCollectionFail");
-  },
+  // initializeStudentCollectionFail: function(){
+  //   console.log("initializeStudentCollectionFail");
+  // },
 
-  initializeStimuliCollections: function(){
-    App.roster.local=true;
-    App.roster.at(0).save();
-    App.roster.local=false;
+  // initializeStimuliCollections: function(){
+  //   App.stimuli = new App.Collections.Stimuli();
+  //   App.stimuli.fetch({
+  //     success: this.initializeDeviceSelect,
+  //     error: this.initializeStimuliCollectionFail
+  //    });
+  // },
 
-    App.stimuli = new App.Collections.Stimuli();
-    App.stimuli.fetch({
-      success: this.initializeDeviceSelect,
-      error: this.initializeStimuliCollectionFail
-     });
-    // App.initializeStimuliTestData();
-    // this.initializeDeviceSelect();
-  },
-
-  initializeStimuliCollectionFail: function(){
-    console.log("initializeStudentCollectionFail");
-  },
+  // initializeStimuliCollectionFail: function(){
+  //   console.log("initializeStudentCollectionFail");
+  // },
 
   initializeDeviceSelect: function() {
     this.deviceSelect = new App.Views.DeviceSelect();

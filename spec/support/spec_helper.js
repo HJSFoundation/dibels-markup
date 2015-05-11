@@ -58,6 +58,32 @@ function initializeTestData (){
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
 
 
+  for(var stageIndex=4;stageIndex<8; stageIndex=stageIndex+1)
+  {
+      App.StageStories[stageIndex]=[];
+    _.forEach(["Dentist","Chores","Digging"], function(title) {
+      var pages = [];
+      pages.push({image: "dentist1.jpg", lines: "Dentist"});
+      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
+      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
+      App.StageStories[stageIndex].push({title: title+stageIndex, pages: pages});
+    });
+  }
+
+  for(var stageIndex=1;stageIndex<10; stageIndex=stageIndex+1)
+  {
+      App.LeveledTexts[stageIndex]=[];
+    _.forEach(["Dentist","Chores","Digging"], function(title) {
+      var pages = [];
+      pages.push({image: "dentist1.jpg", lines: "Dentist"});
+      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
+      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
+      App.LeveledTexts[stageIndex].push({title: title+stageIndex, pages: pages});
+    });
+  }
+
+
+
   // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
   App.stimuli = new App.Collections.Stimuli();
   // App.stimuli.fetch();
@@ -131,16 +157,6 @@ function initializeTestData (){
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }
-
-      if(stageIndex>3 && stageIndex<8){
-        _.forEach(["Dentist"+stageIndex,"Chores","Digging"], function(title) {
-          App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.stageStories, value: title, assessment:"clear", user_id: user_id});
-        });
-      }
-
-      _.forEach(["ltDentist"+stageIndex,"Chores","Digging"], function(title) {
-        App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.leveledTexts, value: title, assessment:"clear", user_id: user_id});
-      });
     }
   });
 }
