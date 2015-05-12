@@ -36,7 +36,6 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
   },
 
   handleMatrixStudentSelectorTabActiveRequest: function(students) {
-    // TODO replace tab with model
     var that = this;
     _.each(this.tabs, function(tab) {
       if (students.current.id === tab.user_id) {

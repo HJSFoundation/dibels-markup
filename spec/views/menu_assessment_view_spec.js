@@ -59,19 +59,27 @@ describe('App.Views.MenuAssessment', function() {
   });
 
   describe("#handleButtonAssessmentClicked", function() {
-    it("activates the clicked tab", function() {
+    it("activates the clicked assessment button", function() {
       subject.buttons.mastered.makeActive = sinon.spy();
       var event_payload = "mastered";
       subject.handleButtonAssessmentClicked(event_payload);
       expect(subject.buttons.mastered.makeActive).to.have.been.called;
     });
 
-    it("inactivates the non clicked tabs", function() {
+    it("inactivates the non clicked aseessment buttons", function() {
       subject.buttons.learning.makeActive = sinon.spy();
       subject.buttons.mastered.makeInactive = sinon.spy();
       var event_payload = "learning";
       subject.handleButtonAssessmentClicked(event_payload);
       expect(subject.buttons.learning.makeActive).to.have.been.called;
+      expect(subject.buttons.mastered.makeInactive).to.have.been.called;
+    });
+
+    it("does not allow an assessment to be made if there is not a selected stimuli", function() {
+      App.selectedStimulus = null;
+      subject.buttons.mastered.makeInactive = sinon.spy();
+      var event_payload = "mastered";
+      subject.handleButtonAssessmentClicked(event_payload);
       expect(subject.buttons.mastered.makeInactive).to.have.been.called;
     });
   });

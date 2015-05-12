@@ -4,5 +4,8 @@ App.Models.Stimulus = Backbone.Model.extend({
   value: "",
   reading_stage: 0,
   skill: "",
-  assessment: ""
+  assessment: "",
+
+  local: true
+
 });

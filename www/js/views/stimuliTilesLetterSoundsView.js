@@ -50,5 +50,4 @@ App.Views.StimuliTilesLetterSounds = Backbone.View.extend({
     });
     this.tiles = [];
   }
-  
 });

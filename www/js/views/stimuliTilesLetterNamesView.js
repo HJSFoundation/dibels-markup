@@ -51,5 +51,5 @@ App.Views.StimuliTilesLetterNames = Backbone.View.extend({
     });
     this.tiles = [];
   }
-  
+
 });
