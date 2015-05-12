@@ -95,7 +95,6 @@ describe('App.Views.StimuliTilesStageStories', function() {
     });
 
     it("#handleSkillReplaceRequest", function() {
-      debugger
       subject.render();
       expect(subject.tiles).not.to.be.empty;
       subject.handleSkillReplaceRequest();

@@ -30,7 +30,7 @@ App.Views.StimuliTilesLeveledTexts = Backbone.View.extend({
     var i = 0;
     var stories = App.LeveledTexts[App.selectedStudent.get('reading_stage')];
     _.each(stories,function(story) {
-      var view = new App.Views.StoryTile({ className: that.tileClass, title: story.title, storyType: App.Config.skill.leveledTexts, index: (i += 1) + ". " });
+      var view = new App.Views.StoryTile({ className: that.tileClass, id: story.id, title: story.title, storyType: App.Config.skill.leveledTexts, index: (i += 1) + ". " });
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
     });

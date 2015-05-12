@@ -1,5 +1,5 @@
-App.Views.StoryPage = Backbone.View.extend({
-  template: App.templates.storyPage,
+App.Views.LeveledTextPage = Backbone.View.extend({
+  template: App.templates.leveledTextPage,
 
   storyStimulusEl: ".js-storyFlip",
 
@@ -13,7 +13,7 @@ App.Views.StoryPage = Backbone.View.extend({
   },
 
   listen: function() {
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.stageStories, this.handleStoryChangeRequest);
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.leveledTexts, this.handleStoryChangeRequest);
     this.listenTo(App.Dispatcher, "flipStoryButtonTapped", this.handleFlipStoryRequest);
   },
 
@@ -42,7 +42,7 @@ App.Views.StoryPage = Backbone.View.extend({
   },
 
   handleStoryChangeRequest: function(event_payload) {
-    var storiesForStage = App.StageStories[App.selectedStudent.get("reading_stage")];
+    var storiesForStage = App.LeveledTexts[App.selectedStudent.get("reading_stage")];
     var index = _.findIndex(storiesForStage, function(story){
       return story.id === event_payload.id;
     });

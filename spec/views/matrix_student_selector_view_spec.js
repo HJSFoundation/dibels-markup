@@ -12,7 +12,7 @@ describe('App.Views.MatrixStudentSelector', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrixStudentSelector" });
-    App.selectedStudent = new App.Models.Student({id:1, first_name:"jobe", last_name: "C"});
+    App.selectedStudent = new App.Models.Student({id:1, first_name:"jobe", last_name: "C", reading_stage: 5});
     subject = new App.Views.MatrixStudentSelector({el: '.js-matrixStudentSelector'});
   });
 

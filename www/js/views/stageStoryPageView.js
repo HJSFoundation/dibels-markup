@@ -1,5 +1,5 @@
-App.Views.StoryPage = Backbone.View.extend({
-  template: App.templates.storyPage,
+App.Views.StageStoryPage = Backbone.View.extend({
+  template: App.templates.stageStoryPage,
 
   storyStimulusEl: ".js-storyFlip",
 

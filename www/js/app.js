@@ -60,43 +60,31 @@ var App = {
     //   ]
     // }
 
-    for(var stageIndex=4;stageIndex<8; stageIndex=stageIndex+1)
+    for(var stageIndex=4; stageIndex<8; stageIndex=stageIndex+1)
     {
         App.StageStories[stageIndex]=[];
-      _.forEach(["Dentist","Chores","Digging"], function(title) {
+      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
+
         var pages = [];
         pages.push({image: "dentist1.jpg", lines: "Dentist"});
         pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
         pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.StageStories[stageIndex].push({title: title+stageIndex, pages: pages});
+        App.StageStories[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
       });
     }
   },
 
   initializeLeveledTextsTestData: function(){
-    // App.StageStories = {
-    //   "1": [
-    //     { 
-    //       title: "Dentist",
-    //       pages: [
-    //         { 
-    //           lines: "",
-    //           image: ""
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // }
 
-    for(var stageIndex=1;stageIndex<10; stageIndex=stageIndex+1)
+    for(var stageIndex=1; stageIndex<10; stageIndex=stageIndex+1)
     {
         App.LeveledTexts[stageIndex]=[];
-      _.forEach(["Dentist","Chores","Digging"], function(title) {
+      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
         var pages = [];
         pages.push({image: "dentist1.jpg", lines: "Dentist"});
         pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
         pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.LeveledTexts[stageIndex].push({title: title+stageIndex+":LT", pages: pages});
+        App.LeveledTexts[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
       });
     }
   },
