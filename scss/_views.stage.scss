@@ -8,6 +8,19 @@
   background-color: $white;
   overflow: hidden;
 
+  &.stage--device-select {
+  min-height: 100%;
+
+    &__content {
+      animation: slide 2s alternate;
+    }
+  }
+
+  &.stage--edit {
+    padding: 0;
+    height: 100%;
+  }
+
   &.stage--workspace {
     height: 430px;
     -webkit-transition: all 0.5s ease-in-out;
@@ -18,9 +31,9 @@
   }
 
   &.stage--story {
-    padding: 0;
+      padding: 0;
+    }
   }
-}
 
 .stage__menu {
   flex-direction: column;

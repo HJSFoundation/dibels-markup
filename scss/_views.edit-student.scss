@@ -2,15 +2,10 @@
 //   _components.reading-stage-chooser.scss
 //   _components.edit-archive-list.scss
 
-.stage--edit {
-  padding: 0;
-  height: 600px;
-}
-
 .stage--edit__menu {
   border-bottom: 1px solid $gray-light;
-  height: 50px;
   margin: 0;
+  padding: 0;
 }
 
 .stage--edit__title {
@@ -28,8 +23,8 @@
   text-transform: uppercase;
 }
 
-.stage--edit__content {
-  height: 550px;
+.edit-notes__body {
+  padding: 15px 15px 0 40px;
 }
 
 

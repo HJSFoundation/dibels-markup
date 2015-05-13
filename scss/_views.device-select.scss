@@ -1,11 +1,3 @@
-.stage--device-select {
-  min-height: 683px;
-
-  &__content {
-    animation: slide 2s alternate;
-  }
-}
-
 .device-select__title {
   color: $primary;
   font-size: 72px;
