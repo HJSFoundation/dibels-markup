@@ -7,10 +7,11 @@ var App = {
     el: "#applicationContainer",
     productionApiUrl: "",
     stagingApiUrl: "http://staging.tutormate.org/api/v1",
-    developmentApiUrl: "http://localhost:3000",
+    developmentApiUrl: "http://localhost:3000/api/v1",
     maxStudentCount: 6,
     maxStageCount: 9,
     minReadingStageForStrategies: 4,
+    storageLocalState: false,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",
@@ -27,7 +28,7 @@ var App = {
   },
   StageStories: {},
   LeveledTexts: {},
-  url: "http://staging.tutormate.org/api/v1",
+  url: "http://localhost:3000/api/v1",
   currentUser: null,
   selectedStudent: null,
   selectedActivity: null,
@@ -101,7 +102,7 @@ var App = {
     var a, z, c, A, Z;
     var user_id= student.get("id");
 
-    App.stimuli.create({reading_stage: 4, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_one_syllable_words", value: "Chunking one syllable words", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 4, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_one_syllable_words", value: "Chunking one syllable words", assessment:"mastered", user_id: user_id});
     App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "flipping_vowel_sounds", value: "Flipping vowel sounds", assessment:"clear", user_id: user_id});
     App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "skipping_and_returning", value: "Skipping and returning", assessment:"clear", user_id: user_id});
     App.stimuli.create({reading_stage: 6, skill: App.Config.skill.readingStrategies, sub_skill: "listening_and_self_correcting", value: "Listening and self-correcting", assessment:"clear", user_id: user_id});

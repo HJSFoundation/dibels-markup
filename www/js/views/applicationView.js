@@ -19,42 +19,42 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-    // this.initializeStudentCollection();
+    this.initializeStudentCollection();
 
-    App.initializeStageStoryTestData();
-    App.initializeLeveledTextsTestData();
+    // App.initializeStageStoryTestData();
+    // App.initializeLeveledTextsTestData();
 
-    App.initializeStudentTestData();
-    App.initializeStimuliTestData();
+    // App.initializeStudentTestData();
+    // App.initializeStimuliTestData();
     this.initializeDeviceSelect();
   },
 
-  // initializeStudentCollection: function(){
-  //   $.ajaxSetup({beforeSend:this.sendAuthentication});
-  //   localStorage.clear();
-  //   console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
-  //   App.roster = new App.Collections.Students();
-  //   App.roster.fetch({
-  //     success: this.initializeStimuliCollections,
-  //     error: this.initializeStudentCollectionFail
-  //    });
-  // },
+  initializeStudentCollection: function(){
+    $.ajaxSetup({beforeSend:this.sendAuthentication});
+    // localStorage.clear();
+    // console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
+    App.roster = new App.Collections.Students();
+    App.roster.fetch({
+      success: this.initializeStimuliCollections,
+      error: this.initializeStudentCollectionFail
+     });
+  },
 
-  // initializeStudentCollectionFail: function(){
-  //   console.log("initializeStudentCollectionFail");
-  // },
+  initializeStudentCollectionFail: function(){
+    console.log("initializeStudentCollectionFail");
+  },
 
-  // initializeStimuliCollections: function(){
-  //   App.stimuli = new App.Collections.Stimuli();
-  //   App.stimuli.fetch({
-  //     success: this.initializeDeviceSelect,
-  //     error: this.initializeStimuliCollectionFail
-  //    });
-  // },
+  initializeStimuliCollections: function(){
+    App.stimuli = new App.Collections.Stimuli();
+    App.stimuli.fetch({
+      success: this.initializeDeviceSelect,
+      error: this.initializeStimuliCollectionFail
+     });
+  },
 
-  // initializeStimuliCollectionFail: function(){
-  //   console.log("initializeStudentCollectionFail");
-  // },
+  initializeStimuliCollectionFail: function(){
+    console.log("initializeStudentCollectionFail");
+  },
 
   initializeDeviceSelect: function() {
     this.deviceSelect = new App.Views.DeviceSelect();

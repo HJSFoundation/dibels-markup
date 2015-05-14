@@ -29,15 +29,17 @@ App.Views.ReadingStrategies = Backbone.View.extend({
   },
 
   handleToggle: function() {
+    var stateText;
     if(this.state){
-      this.stateClass="";
-      this.stateText="show";
+      $(".js-matrixReadingStrategies").removeClass("st-active");
+      stateText="show";
     }else{
-      this.stateClass="st-active";
-      this.stateText="hide";
+      $(".js-matrixReadingStrategies").addClass("st-active");
+      stateText="hide";
     }
     this.state = !this.state;
-    this.render();
+    $(".js-readingStrategiesToggle").text(stateText+" reading strategies");
+
     console.log("click:ReadingStrategies");
 
     return false;
