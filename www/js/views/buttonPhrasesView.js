@@ -26,14 +26,12 @@ App.Views.ButtonPhrases = Backbone.View.extend({
     this.status = "st-active";
     this.render();
     App.selectedActivity = this.key;
-    console.log("button phrases active");
 
   },
 
   makeInactive: function() {
     this.status = "";
     this.render();
-    console.log("button phrases inactive");
 
   },
 

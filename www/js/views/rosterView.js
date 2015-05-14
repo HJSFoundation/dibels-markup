@@ -16,5 +16,7 @@ App.Views.Roster = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
+    console.log("click:App.Views.Roster")
+    return false;
   }
 });

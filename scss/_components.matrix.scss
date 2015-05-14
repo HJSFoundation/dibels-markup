@@ -1,6 +1,7 @@
 .matrix {
   background: $bg-drawer;
-  height: 340px;
+  min-height: 340px;
+  height: 40%;
   position: relative;
 }
 
@@ -29,4 +30,21 @@
   bottom: 0;
   left: 0;
   max-height: 40px;
+}
+
+.matrix--reading-strategies {
+  background-color: $white;
+  height: 300px;
+  left: 0;
+  bottom: -260px;
+  min-height: 225px;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  transition: all 0.3s ease-in;
+
+  &.st-active {
+    bottom: 0;
+  }
+
 }

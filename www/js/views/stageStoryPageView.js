@@ -38,6 +38,8 @@ App.Views.StageStoryPage = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
+    console.log("click:StageStoryPage");
+
     return false;
   },
 

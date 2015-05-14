@@ -18,7 +18,9 @@
             <img src="img/{{ this.image }}" alt={{this.image}}>
             <figcaption class="story__text">
               {{#each this.linesArray}}
+
                 <span class="story__text__number">{{ math @index "+" 1 }}.</span>{{ this }}</br>
+                
               {{/each}}
             </figcaption>
           </figure>
@@ -33,5 +35,6 @@
     <footer class="story__footer">
       <button class="story__flip js-storyButtonFlip"></button>
     </footer>
+    <div class="js-readingStrategies"></div>
   </div>
 </div>

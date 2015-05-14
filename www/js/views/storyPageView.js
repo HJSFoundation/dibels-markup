@@ -4,7 +4,7 @@ App.Views.StoryPage = Backbone.View.extend({
   storyStimulusEl: ".js-storyFlip",
 
   events:{
-    "click" : "removeView"
+    // "click" : "removeView"
   },
 
   initialize: function() {
@@ -38,6 +38,8 @@ App.Views.StoryPage = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
+    console.log("click:StoryPage");
+
     return false;
   },
 

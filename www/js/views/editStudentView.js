@@ -11,10 +11,12 @@ App.Views.EditStudent = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+    return this;
   },
 
   handleClick: function() {
-    this.$el.empty();
+    this.remove();
+    console.log("click:EditStudent")
     return false;
   }
 });

@@ -12,6 +12,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     };
 
     appendFixture("div", { class: "js-tab" });
+    appendFixture("div", { class: "js-overlay" });
     subject = new App.Views.MatrixStudentSelectorTab({
       model: new App.Models.Student({id:1, first_name: "Bernie", last_name: "Bivins", reading_stage: 2}),
       el: '.js-tab'
@@ -37,10 +38,6 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
 
     it("sets the reading_stage", function() {
       expect(subject.reading_stage).to.equal(2);
-    });
-
-    it("sets editStudent", function() {
-      expect(subject.editStudent).to.be.an.instanceOf(App.Views.EditStudent);
     });
   });
 
@@ -100,16 +97,14 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
     });
 
     describe("#handleIconClick", function() {
-      it("triggers the matrixStudentSelectorTabEditRequest event", function() {
-        sinon.spy(App.Dispatcher, "trigger");
+      it("renders editStudent", function() {
         subject.handleIconClick();
-        expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabEditRequest", subject);
+        expect($(".js-overlay")).not.to.be.empty;
       });
 
-      it("renders editStudent", function() {
-        sinon.spy(subject.editStudent, "render");
+      it("sets editStudent", function() {
         subject.handleIconClick();
-        expect(subject.editStudent.render).to.have.been.called;
+        expect(subject.editStudent).to.be.an.instanceOf(App.Views.EditStudent);
       });
     });
   });

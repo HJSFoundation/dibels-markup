@@ -19,6 +19,8 @@ App.Views.DeviceSelect = Backbone.View.extend({
     this.groupManagement = new App.Views.GroupManagement();
     $(App.Config.el).append(this.groupManagement.render().el);
     this.remove();
+    console.log("click:App.Views.DeviceSelect")
+
     return false;
   }
 });

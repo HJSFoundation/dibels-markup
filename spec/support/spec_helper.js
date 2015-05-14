@@ -71,6 +71,7 @@ function initializeTestData (){
   App.roster.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
   App.roster.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
   App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
+  App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 1});
 
 
   App.students = new App.Collections.Students();

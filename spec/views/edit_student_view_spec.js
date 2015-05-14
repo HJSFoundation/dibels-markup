@@ -12,7 +12,7 @@ describe('App.Views.EditStudent', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-overlay" });
-    subject = new App.Views.EditStudent({el: '.js-overlay'});
+    subject = new App.Views.EditStudent();
   });
 
   afterEach(function() {
@@ -36,9 +36,9 @@ describe('App.Views.EditStudent', function() {
   });
 
   it("#handleClick", function() {
-    subject.render();
-    expect(subject.$el).not.to.be.empty;
+    $(".js-overlay").append(subject.render().el);
+    expect($(".js-overlay")).not.to.be.empty;
     subject.handleClick();
-    expect(subject.$el).to.be.empty;
+    expect($(".js-overlay")).to.be.empty;
   });
 });

@@ -27,6 +27,10 @@ App.Views.LeveledTextPage = Backbone.View.extend({
       pageDots: false
     });
 
+    if(App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies){
+      this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies"})
+    }
+
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
   },
 
@@ -38,6 +42,8 @@ App.Views.LeveledTextPage = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
+    console.log("click:LeveledTextPage");
+
     return false;
   },
 

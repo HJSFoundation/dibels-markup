@@ -16,5 +16,8 @@ App.Views.Whiteboard = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
+    console.log("click:Whiteboard");
+
+    return false;
   }
 });
