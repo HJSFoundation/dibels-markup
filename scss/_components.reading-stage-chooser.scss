@@ -1,6 +1,6 @@
 .reading-stage-chooser {
   max-width: 66.666%;
-  padding-right: 30px;
+  margin: 100px auto;
 }
 
 .reading-stage-chooser__button {
@@ -21,16 +21,20 @@
 
 .reading-stage__choice {
   position: relative;
-  display: inline-block;
   text-align: center;
-  line-height: 30px;
-  color: $text-medium;
-  margin-right: 10px;
+  color: $white;
+  margin: 0 50px 50px 0;
+  font-size: 100px;
+  min-width: 140px;
+  font-weight: 700;
+  z-index: 1;
 
   &::before {
     content: "";
     position: absolute;
-    border: 1px solid $text-medium;
+    background-color: $iron;
+    z-index: -1;
+    border: 1px solid transparent;
     border-radius: 50%;
     display: inline-block;
     top: 0;
@@ -38,7 +42,8 @@
     left: 0;
     right: 0;
     margin: auto;
-    width: 30px;
+    width: 140px;
+    height: 140px;
   }
 
   &:hover::before {

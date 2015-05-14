@@ -24,18 +24,14 @@
 
   li {
     padding: 10px 0 10px 10px;
-    background: $iron;
+    background: darken($iron, 10%);
     border-bottom: 1px solid $white;
 
     &:first-child {
-    background: $white;
+      background: $white;
+    }
   }
 
-  }
-  // li:nth-child(odd) {
-  //   background: $text-medium;
-
-  // }
   p {
     display: block;
     margin: 0;
