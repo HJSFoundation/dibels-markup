@@ -36,17 +36,33 @@ describe('App.Views.LeveledTextPage', function() {
   });
 
   describe("#render", function() {
-    beforeEach(function() {
-      subject.render();
-    });
-
     it("renders", function() {
+      subject.render();
       expect(subject.$el).not.to.be.empty;
     });
 
     it("creates a story page image flip button view", function() {
+      subject.render();
       expect(subject.storyButtonFlipView).to.be.an.instanceOf(App.Views.ButtonFlip);
     });
+
+    it("creates reading strategies when selected student reading stage in range", function() {
+      App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
+      subject.render();
+      expect(subject.readingStrategies).to.be.an.instanceOf(App.Views.ReadingStrategies);
+    });
+    
+    it("does not create reading strategies when selected student reading stage out of range", function() {
+      App.selectedStudent.set({reading_stage: 0});
+      subject.render();
+      expect(subject.readingStrategies).to.be.undefined;
+    });
+    
+  });
+
+  it("#templateJSON", function() {
+    subject.pages = "I am pages";
+    expect(subject.templateJSON().pages).to.equal(subject.pages);
   });
 
   it("#removeView", function() {
@@ -71,8 +87,10 @@ describe('App.Views.LeveledTextPage', function() {
 
   describe("handlers", function() {
     it("#handleStoryChangeRequest", function() {
+      App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
       sinon.spy(subject, "render");
       subject.handleStoryChangeRequest({id:"1"});
+      expect(subject.pages).to.be.instanceof(Array);
       expect(subject.render).to.have.been.called;
     });
 
