@@ -11,7 +11,7 @@ var App = {
     maxStudentCount: 6,
     maxStageCount: 9,
     minReadingStageForStrategies: 4,
-    storageLocalState: false,
+    storageLocalState: true,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",
@@ -34,6 +34,37 @@ var App = {
   selectedActivity: null,
   selectedStimulus: null,
   selectedSkill: null,
+
+  Data : {
+    letterWords: [
+      {"a": "Apple"},
+      {"b": "Boy"},
+      {"c": "Cap"},
+      {"d": "Doll"},
+      {"e": "Egg"},
+      {"f": "Fan"},
+      {"g": "Girl"},
+      {"h": "Horse"},
+      {"i": "Insect"},
+      {"j": "Jar"},
+      {"k": "Kite"},
+      {"l": "Lion"},
+      {"m": "Map"},
+      {"n": "Nest"},
+      {"o": "Orange"},
+      {"p": "Pan"},
+      {"q": "Queen"},
+      {"r": "Rabbit"},
+      {"s": "Sun"},
+      {"t": "Tiger"},
+      {"u": "Umbrella"},
+      {"v": "Volcano"},
+      {"w": "Watermelon"},
+      {"x": "Xylophone"},
+      {"y": "Yellow"},
+      {"z": "Zebra"}
+    ]
+  },
 
   initializeStudentTestData: function(){
 

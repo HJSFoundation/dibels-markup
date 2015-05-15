@@ -19,13 +19,13 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-    this.initializeStudentCollection();
+    //this.initializeStudentCollection();
 
-    // App.initializeStageStoryTestData();
-    // App.initializeLeveledTextsTestData();
+    App.initializeStageStoryTestData();
+    App.initializeLeveledTextsTestData();
 
-    // App.initializeStudentTestData();
-    // App.initializeStimuliTestData();
+    App.initializeStudentTestData();
+    App.initializeStimuliTestData();
     this.initializeDeviceSelect();
   },
 
