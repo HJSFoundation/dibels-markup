@@ -1,3 +1,7 @@
 <div class="stage__stimulus--words stage__stimulus__gallery animated slideInRight">
-  <span>{{value}}</span>
+  {{#each words}}
+    <div class="stimulus-cell">
+      <span>{{this}}</span>
+    </div>
+  {{/each}}
 </div>

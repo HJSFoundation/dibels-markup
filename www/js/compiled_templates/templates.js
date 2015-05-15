@@ -222,12 +222,16 @@ this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compile
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "\">\n  </div>\n</div>";
 },"useData":true});
-this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "    <div class=\"stimulus-cell\">\n      <span>"
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + "</span>\n    </div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
 
-  return "<div class=\"stage__stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <span>"
-    + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
-    + "</span>\n</div>";
+  return "<div class=\"stage__stimulus--words stage__stimulus__gallery animated slideInRight\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus--phrases stage__stimulus__gallery animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";

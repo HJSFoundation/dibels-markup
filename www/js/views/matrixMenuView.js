@@ -5,7 +5,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   tabDefs: {
     letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames},
-    letterSounds: { label: "LETTER SOUNDS", key: App.Config.skill.letterSounds},
+    letterSounds: { label: "CONSONANT SOUNDS", key: App.Config.skill.letterSounds},
     sightWords: { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
     onsetRimes: { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
     cvts: { label: "CVT WORDS", key: App.Config.skill.cvts},

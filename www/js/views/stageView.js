@@ -92,7 +92,7 @@ App.Views.Stage = Backbone.View.extend({
   handleLetterSoundsChangeRequest: function(stimulus_object){
     switch(App.selectedActivity){
       case "words":
-        this.stageViews.sightWordsWords.render(stimulus_object);
+        this.stageViews.onsetRimesWords.render(stimulus_object);
         break;
       case "letters":
         this.stageViews.letters.render(stimulus_object);
