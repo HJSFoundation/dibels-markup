@@ -28,7 +28,7 @@ var App = {
   },
   StageStories: {},
   LeveledTexts: {},
-  url: "http://localhost:3000/api/v1",
+  url: "http://staging.tutormate.org/api/v1",
   currentUser: null,
   selectedStudent: null,
   selectedActivity: null,

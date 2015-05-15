@@ -57,7 +57,7 @@
       box-shadow: inset 0 0 20px darken($green, 20%);
     }
 
-    &.st-needsWork {
+    &.st-needs_work {
       box-shadow: inset 0 0 20px darken($red, 20%);
     }
 
@@ -70,7 +70,7 @@
     background: $green;
   }
 
-  &.st-needsWork {
+  &.st-needs_work {
     background: $red;
   }
 
@@ -83,4 +83,7 @@
    }
 }
 
+.stimuli-tiles--reading-strategies {
+  background: $matrix-tile;
+}
 
