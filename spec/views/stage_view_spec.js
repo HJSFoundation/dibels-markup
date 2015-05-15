@@ -56,8 +56,12 @@ describe('App.Views.Stage', function() {
       expect(subject.stageViews.whiteboard).to.be.an.instanceOf(App.Views.StageStimulusWhiteboard);
     });
 
-    it("creates a story page view", function() {
-      expect(subject.storyPageView).to.be.an.instanceOf(App.Views.StoryPage);
+    it("creates a stage story page view", function() {
+      expect(subject.stageStoryPageView).to.be.an.instanceOf(App.Views.StageStoryPage);
+    });
+
+    it("creates a leveled text page view", function() {
+      expect(subject.leveledTextPageView).to.be.an.instanceOf(App.Views.LeveledTextPage);
     });
 
     it("creates a button flip view", function() {

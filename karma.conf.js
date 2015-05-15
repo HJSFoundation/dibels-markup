@@ -22,6 +22,7 @@ module.exports = function(config) {
       'www/js/vendor/handlebars-v3.0.0.js',
       'www/js/vendor/flickity.pkgd.min.js',
       'node_modules/chai-jquery/chai-jquery.js',
+      'www/js/handlebarsHelpers.js',
       'www/js/app.js',
       'www/js/compiled_templates/*.js',
       'www/js/models/*.js',

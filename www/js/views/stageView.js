@@ -15,7 +15,8 @@ App.Views.Stage = Backbone.View.extend({
     this.stageViews.sightWordsWords= new App.Views.StageStimulusSightWordsWords({ el: this.stageStimulusEl});
     this.stageViews.phrases = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
     this.stageViews.whiteboard = new App.Views.StageStimulusWhiteboard({ el: this.stageStimulusEl});
-    this.storyPageView = new App.Views.StoryPage({ el: ".js-overlay"});
+    this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
+    this.leveledTextPageView = new App.Views.LeveledTextPage({ el: ".js-overlay"});
 
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", eventName: "flipStageButtonTapped"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});

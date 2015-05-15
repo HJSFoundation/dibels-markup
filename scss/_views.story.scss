@@ -5,8 +5,13 @@
 .story__image {
   margin: 0;
   img {
-    width: 100%;
+    width: 1024px;
   }
+}
+
+.story__page {
+  height: 678px;
+  width: 100%;
 }
 
 .story__text {
@@ -21,7 +26,7 @@
     display: none;
     position: absolute;
     left: 20px;
-    bottom: 70px; // magic number
+    bottom: 0; // magic number
 
     &.st-visible {
       display: block;
@@ -31,9 +36,13 @@
 
 .story__flip {
   position: absolute;
-  bottom: 20px; // magic number
+  bottom: 40px; // magic number
   right: 10px;
   font-size: 22px;
+}
+
+.story__footer {
+  height: 100px;
 }
 
 .st-flipped {

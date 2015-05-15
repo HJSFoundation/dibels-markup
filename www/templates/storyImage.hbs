@@ -1,14 +1,7 @@
-<!-- 
-<div class="story__image u-text-center">
-  <img src="img/dentist1.jpg" alt="dentist">
-</div>
-
-
- -->
 <figure class="story__image js-storyFlip">
-  <img src="img/dentist1.jpg" alt="dentist">
-  <figcaption class="story__text">Here is a bunch of text for the story.</figcaption>
+  <img src="img/"+{{ image }}+".jpg" alt={{dentist}}>
+  <figcaption class="story__text">{{ lines }}</figcaption>
 </figure>
 <div class="story__text story__text--teacher js-storyTextTeacher">
-  Here is a bunch of text for the story.
+  {{ lines }}
 </div>

@@ -7,6 +7,13 @@ App.Views.StoryImage = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template(this.templateJSON()));
+  },
+
+  templateJSON: function() {
+    return {
+      image: "dentist1",
+      lines: "this is some text.\nthis is the second line"
+    }
   }
 });

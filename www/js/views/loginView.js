@@ -41,6 +41,7 @@ App.Views.Login = Backbone.View.extend({
         that.handleLoginFailure(responseData);
       }
     });
+    return false;
   },
 
   handleLoginSuccess: function() {

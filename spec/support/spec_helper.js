@@ -38,6 +38,31 @@ function initializeTestData (){
 
   // localStorage.clear();
 
+  for(var stageIndex=4; stageIndex<8; stageIndex=stageIndex+1)
+  {
+    App.StageStories[stageIndex]=[];
+    _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
+
+      var pages = [];
+      pages.push({image: "dentist1.jpg", lines: "Dentist"});
+      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
+      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
+      App.StageStories[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
+    });
+  }
+
+  for(var stageIndex=1; stageIndex<10; stageIndex=stageIndex+1)
+  {
+    App.LeveledTexts[stageIndex]=[];
+    _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
+      var pages = [];
+      pages.push({image: "dentist1.jpg", lines: "Dentist"});
+      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
+      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
+      App.LeveledTexts[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
+    });
+  }
+
   // App.students = new App.Collections.Students({localStorageName: "students"});
   App.roster = new App.Collections.Students();
   // App.roster.fetch();
@@ -46,6 +71,7 @@ function initializeTestData (){
   App.roster.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
   App.roster.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
   App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
+  App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 1});
 
 
   App.students = new App.Collections.Students();
@@ -56,33 +82,6 @@ function initializeTestData (){
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
-
-
-  for(var stageIndex=4;stageIndex<8; stageIndex=stageIndex+1)
-  {
-      App.StageStories[stageIndex]=[];
-    _.forEach(["Dentist","Chores","Digging"], function(title) {
-      var pages = [];
-      pages.push({image: "dentist1.jpg", lines: "Dentist"});
-      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-      App.StageStories[stageIndex].push({title: title+stageIndex, pages: pages});
-    });
-  }
-
-  for(var stageIndex=1;stageIndex<10; stageIndex=stageIndex+1)
-  {
-      App.LeveledTexts[stageIndex]=[];
-    _.forEach(["Dentist","Chores","Digging"], function(title) {
-      var pages = [];
-      pages.push({image: "dentist1.jpg", lines: "Dentist"});
-      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-      App.LeveledTexts[stageIndex].push({title: title+stageIndex, pages: pages});
-    });
-  }
-
-
 
   // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
   App.stimuli = new App.Collections.Stimuli();

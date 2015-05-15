@@ -7,9 +7,11 @@ var App = {
     el: "#applicationContainer",
     productionApiUrl: "",
     stagingApiUrl: "http://staging.tutormate.org/api/v1",
-    developmentApiUrl: "http://localhost:3000",
+    developmentApiUrl: "http://localhost:3000/api/v1",
     maxStudentCount: 6,
     maxStageCount: 9,
+    minReadingStageForStrategies: 4,
+    storageLocalState: false,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",
@@ -20,12 +22,13 @@ var App = {
       rimes: "rimes",
       affixes: "affixes",
       stageStories: "stage_stories",
-      leveledTexts: "leveled_texts"
+      leveledTexts: "leveled_texts",
+      readingStrategies: "reading_strategies"
     },
   },
   StageStories: {},
   LeveledTexts: {},
-  url: "http://staging.tutormate.org/api/v1",
+  url: "http://localhost:3000/api/v1",
   currentUser: null,
   selectedStudent: null,
   selectedActivity: null,
@@ -43,6 +46,7 @@ var App = {
     App.roster.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
     App.roster.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
     App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
+    App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 5});
   },
 
   initializeStageStoryTestData: function(){
@@ -60,43 +64,31 @@ var App = {
     //   ]
     // }
 
-    for(var stageIndex=4;stageIndex<8; stageIndex=stageIndex+1)
+    for(var stageIndex=4; stageIndex<8; stageIndex=stageIndex+1)
     {
         App.StageStories[stageIndex]=[];
-      _.forEach(["Dentist","Chores","Digging"], function(title) {
+      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
+
         var pages = [];
         pages.push({image: "dentist1.jpg", lines: "Dentist"});
         pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
         pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.StageStories[stageIndex].push({title: title+stageIndex, pages: pages});
+        App.StageStories[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
       });
     }
   },
 
   initializeLeveledTextsTestData: function(){
-    // App.StageStories = {
-    //   "1": [
-    //     { 
-    //       title: "Dentist",
-    //       pages: [
-    //         { 
-    //           lines: "",
-    //           image: ""
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // }
 
-    for(var stageIndex=1;stageIndex<10; stageIndex=stageIndex+1)
+    for(var stageIndex=1; stageIndex<10; stageIndex=stageIndex+1)
     {
         App.LeveledTexts[stageIndex]=[];
-      _.forEach(["Dentist","Chores","Digging"], function(title) {
+      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
         var pages = [];
         pages.push({image: "dentist1.jpg", lines: "Dentist"});
         pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
         pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.LeveledTexts[stageIndex].push({title: title+stageIndex+":LT", pages: pages});
+        App.LeveledTexts[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
       });
     }
   },
@@ -109,6 +101,17 @@ var App = {
   App.roster.each(function(student) {
     var a, z, c, A, Z;
     var user_id= student.get("id");
+
+    App.stimuli.create({reading_stage: 4, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_one_syllable_words", value: "Chunking one syllable words", assessment:"mastered", user_id: user_id});
+    App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "flipping_vowel_sounds", value: "Flipping vowel sounds", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "skipping_and_returning", value: "Skipping and returning", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 6, skill: App.Config.skill.readingStrategies, sub_skill: "listening_and_self_correcting", value: "Listening and self-correcting", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "reading_smoothly_and_expressively", value: "Reading smoothly and expressively", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "paying_attention_to_punctuation", value: "Paying attention to punctuation", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "visualizing", value: "Visualizing", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "predicting_and_asking_questions", value: "Predicting and asking questions", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "identifying_affixes", value: "Identifying affixes", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_multi_syllable_words", value: "Chunking multi syllable words", assessment:"clear", user_id: user_id});
 
     for(var stageIndex=1; stageIndex<10; stageIndex = stageIndex + 1){
 
@@ -176,6 +179,9 @@ var App = {
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }
+
+
+
     }
   });
 
