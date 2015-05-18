@@ -72,6 +72,55 @@ var App = {
         T: ["Tot", "Tan", "Tin"],
         V: ["Vat", "Vet", "Van"],
         W: ["Wet", "Wit", "Win"]
+      },
+      3: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      4: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      5: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      6: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      7: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      8: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      9: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
       }
     }
   },
@@ -194,11 +243,11 @@ var App = {
 
       if(stageIndex===3){
 
-        _.forEach(["b","c","d"], function(o) {
-          App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
-        });
+        // _.forEach(["b","c","d"], function(o) {
+        //   App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
+        // });
 
-        _.forEach(["at","ap","ad"], function(o) {
+        _.forEach(["at","et","it","ot","ut"], function(o) {
           App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }
@@ -216,7 +265,7 @@ var App = {
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
         });
 
-        _.forEach(["at"+stageIndex,"ap","ad","am"], function(o) {
+        _.forEach(["at"+stageIndex,"et","it","ot","ut"], function(o) {
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }

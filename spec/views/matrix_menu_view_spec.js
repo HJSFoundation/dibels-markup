@@ -139,6 +139,15 @@ describe('App.Views.MatrixMenu', function() {
         expect(makeActive).to.have.been.called;
       });
 
+      it("clears stage", function() {
+        var makeActive = sinon.spy();
+        sinon.spy(App.Dispatcher, "trigger");
+        var event_payload = {label: "LETTER NAMES", makeActive: makeActive};
+        subject.handleMatrixMenuTabActiveRequest(event_payload);
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("StageClearRequested");
+        App.Dispatcher.trigger.restore();
+      });
+
       it("inactivates the non clicked tabs", function() {
         var makeActive = sinon.spy();
         var makeInactive = sinon.spy();
@@ -147,7 +156,14 @@ describe('App.Views.MatrixMenu', function() {
         subject.handleMatrixMenuTabActiveRequest(event_payload);
         expect(makeInactive).to.have.been.called;
       });
+
+      it("sets selectedStimulus to null", function() {
+        App.selectedStimulus = "a";
+        subject.handleMatrixStudentSelectorTabActiveRequest();
+        expect(App.selectedStimulus).to.equal(null);
+      });
     });
+
     describe("#handleMatrixStudentSelectorTabActiveRequest", function() {
       it("sets activeTabDefs", function() {
         subject.render();
