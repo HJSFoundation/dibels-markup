@@ -26,11 +26,6 @@ var App = {
       readingStrategies: "reading_strategies"
     },
   },
-<<<<<<< HEAD
-  StageStories: {},
-  LeveledTexts: {},
-=======
->>>>>>> master
   url: "http://staging.tutormate.org/api/v1",
   currentUser: null,
   selectedStudent: null,
