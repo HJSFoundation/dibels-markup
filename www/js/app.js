@@ -33,8 +33,8 @@ var App = {
   selectedStimulus: null,
   selectedSkill: null,
 
-  Data : {
-    words: {
+  ActivityStimuli : {
+    wordsByStage: {
       2: { // 17 consonants
         b: ["bat", "bet", "bit", "but"],
         c: ["cat", "cot", "cut"],
@@ -79,11 +79,31 @@ var App = {
         ut: ["but","cut","nut","hut"]
       },
       4: {
-        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
-        et: ["bet","get","jet","let","met","net","pet","set","wet"],
-        it: ["bit","fit","kit","pit","sit"],
-        ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"]
+        ad: ["bad","dad","mad","pad","sad"],
+        am: ["dam","ham","jam"],
+        an: ["ban","can","fan","man","pan","ran","tan","van"],
+        ap: ["cap","lap","map","nap","rap","tap","zap"],
+        at: ["cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"],
+        ed: ["bed","fed","led","red"],
+        em: ["gem","hem"],
+        en: ["den","hen","men","pen","ten"],
+        ep: ["pep"],
+        et: ["bet","get","jet","let","met","net","pet","set","vet","wet"],
+        id: ["kid","bid","hid","did"],
+        im: ["dim","him","rim"],
+        in: ["bin","fin","pin","tin","win"],
+        ip: ["dip","hip","lip","rip","tip","zip"],
+        it: ["bit","fit","kit","lit","pit","sit"],
+        od: ["nod","rod","cod"],
+        om: ["mom","pom"],
+        on: ["won","ton","son"],
+        op: ["hop","mop","pop","top"],
+        ot: ["cot","dot","got","hot","lot","not","pot","rot","tot"],
+        ud: ["mud","bud","cud"],
+        um: ["bum","gum","hum"],
+        un: ["bun","fun","run","sun"],
+        up: ["cup","pup"],
+        ut: ["but","cut","gut","hut","nut","rut"]      
       },
       5: {
         at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
@@ -208,8 +228,23 @@ var App = {
         });
       }
 
+      if(stageIndex===4){
 
-      if(stageIndex>3){
+        a="a".charCodeAt(0);
+        z="c".charCodeAt(0);
+        c;
+        for( c = a; c <= z; c = c + 1) {
+          App.stimuli.create({reading_stage: stageIndex, skill:App.Config.skill.sightWords, value: String.fromCharCode(c)+"asdas", assessment:"clear", user_id: user_id});
+        }
+
+
+        _.forEach(App.ActivityStimuli.wordsByStage[stageIndex], function(o,key) {
+          App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
+        });
+      }
+
+
+      if(stageIndex>4){
         a="a".charCodeAt(0);
         z="c".charCodeAt(0);
         c;
