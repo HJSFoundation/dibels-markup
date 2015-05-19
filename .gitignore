@@ -4,4 +4,4 @@ node_modules
 *.sublime-workspace
 www/css/index.css
 platforms/*
-www/img/story/**/*.jpg
+www/img/stories/**/*.jpg

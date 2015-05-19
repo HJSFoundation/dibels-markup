@@ -7,9 +7,17 @@ App.Views.LeveledTextPage = Backbone.View.extend({
     "click" : "removeView"
   },
 
+  stories: [],
+  pages: [],
+  storyId: null,
+
   initialize: function() {
     _.bindAll(this);
     this.listen();
+    for(var stage = 1;stage <= App.Config.maxStageCount; stage=stage+1){
+      this.stories[stage] = _.where(App.Data.Stories, {reading_level: App.Data.leveledTextReadingStageMap[stage], story_type: "reading"})
+    }
+
   },
 
   listen: function() {
@@ -36,7 +44,8 @@ App.Views.LeveledTextPage = Backbone.View.extend({
 
   templateJSON: function(){
     return {
-      pages: this.pages
+      pages: this.pages,
+      storyId: this.storyId
     }
   },
 
@@ -47,12 +56,13 @@ App.Views.LeveledTextPage = Backbone.View.extend({
     return false;
   },
 
-  handleStoryChangeRequest: function(event_payload) {
-    var storiesForStage = App.LeveledTexts[App.selectedStudent.get("reading_stage")];
-    var index = _.findIndex(storiesForStage, function(story){
-      return story.id === event_payload.id;
+  handleStoryChangeRequest: function(requestedStory) {
+    var storiesForStage = this.stories[App.selectedStudent.get('reading_stage')];
+    var story = _.find(storiesForStage, function(story){
+      return story.content_id === requestedStory.id;
     });
-    this.pages = _.clone(storiesForStage[index].pages);
+    this.storyId = story.content_id;
+    this.pages = _.clone(story.pages);
     _.each(this.pages, function(page){
       page.linesArray = page.lines.split("\n");
     })

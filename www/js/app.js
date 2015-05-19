@@ -26,8 +26,6 @@ var App = {
       readingStrategies: "reading_strategies"
     },
   },
-  StageStories: {},
-  LeveledTexts: {},
   url: "http://staging.tutormate.org/api/v1",
   currentUser: null,
   selectedStudent: null,
@@ -137,50 +135,6 @@ var App = {
     App.roster.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
     App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
     App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 5});
-  },
-
-  initializeStageStoryTestData: function(){
-    // App.StageStories = {
-    //   "1": [
-    //     { 
-    //       title: "Dentist",
-    //       pages: [
-    //         { 
-    //           lines: "",
-    //           image: ""
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // }
-
-    for(var stageIndex=4; stageIndex<8; stageIndex=stageIndex+1)
-    {
-        App.StageStories[stageIndex]=[];
-      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
-
-        var pages = [];
-        pages.push({image: "dentist1.jpg", lines: "Dentist"});
-        pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-        pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.StageStories[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
-      });
-    }
-  },
-
-  initializeLeveledTextsTestData: function(){
-
-    for(var stageIndex=1; stageIndex<10; stageIndex=stageIndex+1)
-    {
-        App.LeveledTexts[stageIndex]=[];
-      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
-        var pages = [];
-        pages.push({image: "dentist1.jpg", lines: "Dentist"});
-        pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-        pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.LeveledTexts[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
-      });
-    }
   },
 
   initializeStimuliTestData: function  (){

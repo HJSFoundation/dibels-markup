@@ -24,6 +24,7 @@ module.exports = function(config) {
       'node_modules/chai-jquery/chai-jquery.js',
       'www/js/handlebarsHelpers.js',
       'www/js/app.js',
+      'www/js/storyData.js',      
       'www/js/compiled_templates/*.js',
       'www/js/models/*.js',
       'www/js/collections/*.js',

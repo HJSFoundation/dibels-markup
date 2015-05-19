@@ -120,17 +120,19 @@ this["App"]["templates"]["groupManagement"] = Handlebars.template({"compiler":[6
 this["App"]["templates"]["leveledStories"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Leveled Stories</p>\n</div>\n";
 },"useData":true});
-this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "        <div class=\"story__page\">\n          <figure class=\"story__image js-storyFlip\">\n            <img src=\"img/"
+  return "        <div class=\"story__page\">\n          <figure class=\"story__image js-storyFlip\">\n            <img src=\"img/stories/"
+    + alias2(alias1((depths[1] != null ? depths[1].storyId : depths[1]), depth0))
+    + "/"
     + alias2(alias1((depth0 != null ? depth0.image : depth0), depth0))
     + "\" alt="
     + alias2(alias1((depth0 != null ? depth0.image : depth0), depth0))
     + ">\n            <figcaption class=\"story__text\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(2, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "            </figcaption>\n          </figure>\n          <div class=\"story__text story__text--teacher js-storyTextTeacher\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n";
 },"2":function(depth0,helpers,partials,data) {
     var alias1=this.escapeExpression;
@@ -148,13 +150,13 @@ this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(
     + ".</span>"
     + alias1(this.lambda(depth0, depth0))
     + "</br>\n";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
-},"useData":true});
+},"useData":true,"useDepths":true});
 this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div id=\"loginContainer\" class=\"login container\">\n  <div class=\"login__container grid grid--center grid--column\">\n    <header class=\"login__header\">\n      <div class=\"login__logo\">\n      <img src=\"/img/logo-tn.svg\" alt=\"\">\n    </header>\n    <fieldset>\n      <h2 class=\"login__error js-login-error\">Incorrect username/password</h2>\n      <input class=\"login__field login__field--email\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n      <input class=\"login__field login__field--password\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n      <input class=\"button button--primary login__button\" type=\"button\" value=\"Log In\" id=\"submit\">\n    </fieldset>\n    <input type=\"button\" class=\"button\" value=\"Forgot Password\" id=\"reset\">\n    \n  </div>\n  <div class=\"teachermate-logo\">\n    <img src=\"/img/logo-teachermate.svg\" alt=\"\">\n  </div>\n  <footer class=\"footer--login\">\n  </footer>\n</div>\n\n\n\n\n<script>  //auto form field for development\n        $(\"#email-field\").val(\"randy-teacher@test.org\");\n        $(\"#password-field\").val(\"12345678\");\n    </script>";
 },"useData":true});
@@ -253,17 +255,19 @@ this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler"
     + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n</div>";
 },"useData":true});
-this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "        <div class=\"story__page\">\n          <figure class=\"story__image js-storyFlip\">\n            <img src=\"img/"
+  return "        <div class=\"story__page\">\n          <figure class=\"story__image js-storyFlip\">\n            <img src=\"img/stories/"
+    + alias2(alias1((depths[1] != null ? depths[1].storyId : depths[1]), depth0))
+    + "/"
     + alias2(alias1((depth0 != null ? depth0.image : depth0), depth0))
     + "\" alt="
     + alias2(alias1((depth0 != null ? depth0.image : depth0), depth0))
     + ">\n            <figcaption class=\"story__text\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(2, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "            </figcaption>\n          </figure>\n          <div class=\"story__text story__text--teacher js-storyTextTeacher\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.linesArray : depth0),{"name":"each","hash":{},"fn":this.program(4, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "          </div>\n        </div>\n";
 },"2":function(depth0,helpers,partials,data) {
     var alias1=this.escapeExpression;
@@ -281,13 +285,13 @@ this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(d
     + ".</span>"
     + alias1(this.lambda(depth0, depth0))
     + "</br>\n";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
-},"useData":true});
+},"useData":true,"useDepths":true});
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 

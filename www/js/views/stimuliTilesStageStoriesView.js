@@ -4,10 +4,14 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
   gridClass: "js-stimuliTilesStageStories",
   tileClass: "tile grid-cell u-text-center",
   tiles: [],
+  stories:[],
 
   initialize: function() {
     _.bindAll(this);
     this.listen();
+    for(var stage = 1;stage <= App.Config.maxStageCount; stage=stage+1){
+      this.stories[stage] = _.where(App.Data.Stories, {reading_level: App.Data.stageStoryReadingStageMap[stage], story_type: "controlled"})
+    }
   },
 
   listen: function() {
@@ -28,9 +32,9 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stories = App.StageStories[App.selectedStudent.get('reading_stage')];
+    var stories = this.stories[App.selectedStudent.get('reading_stage')];
     _.each(stories,function(story) {
-      var view = new App.Views.StoryTile({ className: that.tileClass, id: story.id, title: story.title, storyType: App.Config.skill.stageStories, index: (i += 1) + ". " });
+      var view = new App.Views.StoryTile({ className: that.tileClass, id: story.content_id, title: story.title, storyType: App.Config.skill.stageStories, index: (i += 1) + ". " });
       that.tiles.push(view);
       that.$gridClass.append(view.render().el);
     });
