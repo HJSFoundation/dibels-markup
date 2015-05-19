@@ -6,7 +6,7 @@ App.Views.StageStimulusOnsetRimesWords = Backbone.View.extend({
   },
 
   render: function(stimulus_object) {
-    var words=App.Data.words[App.selectedStudent.get("reading_stage")][stimulus_object.value];
+    var words=App.ActivityStimuli.wordsByStage[App.selectedStudent.get("reading_stage")][stimulus_object.value];
     this.$el.html(this.template({words: words}));
    $('.stage__stimulus__gallery').flickity({
       // options

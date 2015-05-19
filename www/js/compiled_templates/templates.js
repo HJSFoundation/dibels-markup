@@ -219,13 +219,13 @@ this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"stage__stimulus--letters stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
+  return "<div class=\"stage__stimulus--letters  animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n    <img src=\"img/letterWords/"
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + ".svg\" alt=\""
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
-    + "\">\n  </div>\n</div>";
+    + "\">\n  </div>\n</div>\n\n\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "    <div class=\"stimulus-cell\">\n      <span>"
