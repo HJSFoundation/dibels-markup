@@ -23,12 +23,6 @@ describe('App.Views.LeveledTextPage', function() {
     expect(subject.template()).to.exist;
   });
 
-  describe("events", function() {
-    it("handles the click event", function() {
-      expect(subject.events.click).to.equal('removeView');
-    });
-  });
-
   describe("#initialize", function() {
     it("calls listen", function() {
       subject.listen = sinon.spy();
@@ -51,6 +45,11 @@ describe('App.Views.LeveledTextPage', function() {
     it("creates a story page image flip button view", function() {
       subject.render();
       expect(subject.storyButtonFlipView).to.be.an.instanceOf(App.Views.ButtonFlip);
+    });
+
+    it("creates a story page close story button view", function() {
+      subject.render();
+      expect(subject.storyButtonCloseStoryView).to.be.an.instanceOf(App.Views.ButtonCloseStory);
     });
 
     it("creates reading strategies when selected student reading stage in range", function() {
@@ -90,6 +89,12 @@ describe('App.Views.LeveledTextPage', function() {
       subject.listen();
       expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "flipStoryButtonTapped", subject.handleFlipStoryRequest);
     });
+
+    it("listens for close story button tapped", function() {
+      subject.listenTo = sinon.spy();
+      subject.listen();
+      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "CloseStoryPage", subject.handleCloseStoryPage);
+    });
   });
 
   describe("handlers", function() {
@@ -99,6 +104,12 @@ describe('App.Views.LeveledTextPage', function() {
       subject.handleStoryChangeRequest({id: 6670 });
       expect(subject.pages).to.be.instanceof(Array);
       expect(subject.render).to.have.been.called;
+    });
+
+    it("#handleCloseStoryPage", function() {
+      sinon.spy(subject, "removeView");
+      subject.handleCloseStoryPage();
+      expect(subject.removeView).to.have.been.called;
     });
 
     describe("#handleFlipStoryRequest", function() {
