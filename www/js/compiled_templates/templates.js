@@ -20,7 +20,7 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
     + "\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonCloseStory"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "\n<svg class=\"icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n";
+    return "\n<svg class=\"icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n<svg class=\"icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>";
 },"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
