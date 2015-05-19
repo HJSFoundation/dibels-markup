@@ -156,6 +156,8 @@ var App = {
     App.stimuli.create({reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "predicting_and_asking_questions", value: "Predicting and asking questions", assessment:"clear", user_id: user_id});
     App.stimuli.create({reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "identifying_affixes", value: "Identifying affixes", assessment:"clear", user_id: user_id});
     App.stimuli.create({reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_multi_syllable_words", value: "Chunking multi syllable words", assessment:"clear", user_id: user_id});
+    App.stimuli.create({reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "making_inferences", value: "Making inferences", assessment:"clear", user_id: user_id});
+
 
     for(var stageIndex=1; stageIndex<10; stageIndex = stageIndex + 1){
 

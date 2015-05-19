@@ -3,10 +3,6 @@ App.Views.LeveledTextPage = Backbone.View.extend({
 
   storyStimulusEl: ".js-storyFlip",
 
-  events:{
-    "click" : "removeView"
-  },
-
   stories: [],
   pages: [],
   storyId: null,
@@ -23,6 +19,7 @@ App.Views.LeveledTextPage = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.leveledTexts, this.handleStoryChangeRequest);
     this.listenTo(App.Dispatcher, "flipStoryButtonTapped", this.handleFlipStoryRequest);
+    this.listenTo(App.Dispatcher, "CloseStoryPage", this.handleCloseStoryPage);
   },
 
   render: function() {
@@ -40,6 +37,7 @@ App.Views.LeveledTextPage = Backbone.View.extend({
     }
 
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
+    this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({el: ".js-storyButtonCloseStory"});
   },
 
   templateJSON: function(){
@@ -81,5 +79,9 @@ App.Views.LeveledTextPage = Backbone.View.extend({
       $(".js-storyTextTeacher").show();
     }
     this.flipped = !this.flipped;
+  },
+
+  handleCloseStoryPage: function(){
+    this.removeView();
   }
 });
