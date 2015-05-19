@@ -44,23 +44,28 @@ App.Views.MenuActivity = Backbone.View.extend({
     _.each(this.config.buttonMap[tab.key], function(key) {
       that.buttons[key].$el.show();
     });
+    var activity;
     if(_.indexOf(this.config.buttonMap[tab.key], App.selectedActivity)===-1){
-      var activity = this.config.buttonMap[tab.key][0];
-      this.handleActivityMenuButtonActiveRequest(activity);
+      activity = this.config.buttonMap[tab.key][0];
+    }else{
+      activity = App.selectedActivity;
     }
+    this.handleActivityMenuButtonActiveRequest(activity);
   },
 
   handleActivityMenuButtonActiveRequest: function(selectedActivity){
     var that = this;
+    this.isActive = false;
     _.each(this.buttons, function(button, key) {
       if (selectedActivity === key) {
+        that.isActive = true;
         button.makeActive();
         App.selectedActivity = selectedActivity;
       } else {
         button.makeInactive();
       }
     });
-    if (App.selectedStimulus !== null) {
+    if (App.selectedStimulus !== null && (that.isActive)) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
       App.Dispatcher.trigger("StimulusChangeRequested:"+skill, {skill:skill, value: value});

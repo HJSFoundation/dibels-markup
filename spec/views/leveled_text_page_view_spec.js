@@ -29,10 +29,17 @@ describe('App.Views.LeveledTextPage', function() {
     });
   });
 
-  it("initialize calls listen", function() {
-    subject.listen = sinon.spy();
-    subject.initialize();
-    expect(subject.listen).to.have.been.called;
+  describe("#initialize", function() {
+    it("calls listen", function() {
+      subject.listen = sinon.spy();
+      subject.initialize();
+      expect(subject.listen).to.have.been.called;
+    });
+
+    it("fills the stories array", function() {
+      expect(subject.stories).not.to.be.empty;
+    });
+    
   });
 
   describe("#render", function() {
@@ -89,7 +96,7 @@ describe('App.Views.LeveledTextPage', function() {
     it("#handleStoryChangeRequest", function() {
       App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
       sinon.spy(subject, "render");
-      subject.handleStoryChangeRequest({id:"1"});
+      subject.handleStoryChangeRequest({id: 6670 });
       expect(subject.pages).to.be.instanceof(Array);
       expect(subject.render).to.have.been.called;
     });

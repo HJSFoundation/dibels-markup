@@ -29,6 +29,10 @@ describe('App.Views.StimuliTilesLeveledTexts', function() {
       subject.initialize();
       expect(subject.listen).to.have.been.called;
     });
+    it("fills stories array", function() {
+      subject.initialize();
+      expect(subject.stories).not.to.be.empty;
+    });
   });
 
   it("#render", function() {

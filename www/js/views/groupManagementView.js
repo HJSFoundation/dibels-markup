@@ -15,7 +15,7 @@ App.Views.GroupManagement = Backbone.View.extend({
     }
 
     App.students.at(0).set("reading_stage",4);
-    App.students.at(1).set("reading_stage",5);
+    App.students.at(1).set("reading_stage",4);
     App.students.at(2).set("reading_stage",6);
     App.students.at(3).set("reading_stage",1);
     App.students.at(4).set("reading_stage",2);

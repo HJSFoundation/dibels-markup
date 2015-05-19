@@ -73,14 +73,26 @@ describe('App.Views.MenuActivity', function() {
   });
 
   describe("handlers", function() {
-    it("#handleSkillChangeRequest", function() {
-      App.selectedActivity = "phrases";
-      sinon.spy(subject, "handleActivityMenuButtonActiveRequest");
-      subject.handleSkillChangeRequest({key: App.Config.skill.letterNames});
-      expect(subject.buttons.letters.$el).to.be.visible;
-      expect(subject.buttons.tiles.$el).not.to.be.visible;
-      expect(subject.handleActivityMenuButtonActiveRequest).to.have.been.called;
-    });
+    describe("#handleSkillChangeRequest", function() {
+
+      it("calls handleActivityMenuButtonActiveRequest with the default activity", function() {
+        App.selectedActivity = "phrases";
+        sinon.spy(subject, "handleActivityMenuButtonActiveRequest");
+        subject.handleSkillChangeRequest({key: App.Config.skill.letterNames});
+        expect(subject.buttons.letters.$el).to.be.visible;
+        expect(subject.buttons.tiles.$el).not.to.be.visible;
+        expect(subject.handleActivityMenuButtonActiveRequest).to.have.been.calledWith(subject.config.buttonMap[App.Config.skill.letterNames][0]);
+      });
+
+      it("#handleSkillChangeRequest", function() {
+        App.selectedActivity = "letters";
+        sinon.spy(subject, "handleActivityMenuButtonActiveRequest");
+        subject.handleSkillChangeRequest({key: App.Config.skill.letterNames});
+        expect(subject.buttons.letters.$el).to.be.visible;
+        expect(subject.buttons.tiles.$el).not.to.be.visible;
+        expect(subject.handleActivityMenuButtonActiveRequest).to.have.been.calledWith(App.selectedActivity);
+      });
+    }); 
 
     describe("#handleActivityMenuButtonActiveRequest", function() {
       it("makes active the selected activity", function() {
@@ -111,6 +123,14 @@ describe('App.Views.MenuActivity', function() {
         App.selectedStimulus = null;
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleActivityMenuButtonActiveRequest("words");
+        expect(App.Dispatcher.trigger).not.to.have.been.called;
+        App.Dispatcher.trigger.restore();
+      });
+
+      it("does not trigger a stimulus change request when selected stimulus is not null and no activity active", function() {
+        App.selectedStimulus = new App.Models.Stimulus({skill: "leveled_texts", value: "a"});
+        sinon.spy(App.Dispatcher, "trigger");
+        subject.handleActivityMenuButtonActiveRequest("leveled_texts");
         expect(App.Dispatcher.trigger).not.to.have.been.called;
         App.Dispatcher.trigger.restore();
       });

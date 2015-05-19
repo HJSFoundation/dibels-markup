@@ -38,31 +38,6 @@ function initializeTestData (){
 
   // localStorage.clear();
 
-  for(var stageIndex=4; stageIndex<8; stageIndex=stageIndex+1)
-  {
-    App.StageStories[stageIndex]=[];
-    _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
-
-      var pages = [];
-      pages.push({image: "dentist1.jpg", lines: "Dentist"});
-      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-      App.StageStories[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
-    });
-  }
-
-  for(var stageIndex=1; stageIndex<10; stageIndex=stageIndex+1)
-  {
-    App.LeveledTexts[stageIndex]=[];
-    _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
-      var pages = [];
-      pages.push({image: "dentist1.jpg", lines: "Dentist"});
-      pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-      pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-      App.LeveledTexts[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
-    });
-  }
-
   // App.students = new App.Collections.Students({localStorageName: "students"});
   App.roster = new App.Collections.Students();
   // App.roster.fetch();
@@ -235,22 +210,6 @@ function  initializeStimuliFullTestData(){
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }
-
-      if(stageIndex>3 && stageIndex<8){
-        _.forEach(["Dentist"+stageIndex,"Chores","Digging","Getting Dressed","I Don't Like It",
-          "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
-          "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
-          "The Last Hurrah","My Forgone Solution"], function(title) {
-          App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.stageStories, value: title, assessment:"clear", user_id: user_id});
-        });
-      }
-
-      _.forEach(["ltDentist"+stageIndex,"Chores","Digging","Getting Dressed","I Don't Like It",
-        "In Our House","Lost Keys","My Baby Chick","No More Training Wheels",
-        "Picture Album","Rex","Sick","Mr. and Mrs. Orange","Dancing Like a Monkey",
-        "The Last Hurrah","My Forgone Solution"], function(title) {
-        App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.leveledTexts, value: title, assessment:"clear", user_id: user_id});
-      });
     }
   });
 }

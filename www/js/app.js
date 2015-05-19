@@ -26,8 +26,11 @@ var App = {
       readingStrategies: "reading_strategies"
     },
   },
+<<<<<<< HEAD
   StageStories: {},
   LeveledTexts: {},
+=======
+>>>>>>> master
   url: "http://staging.tutormate.org/api/v1",
   currentUser: null,
   selectedStudent: null,
@@ -36,34 +39,93 @@ var App = {
   selectedSkill: null,
 
   Data : {
-    letterWords: [
-      {"a": "Apple"},
-      {"b": "Boy"},
-      {"c": "Cap"},
-      {"d": "Doll"},
-      {"e": "Egg"},
-      {"f": "Fan"},
-      {"g": "Girl"},
-      {"h": "Horse"},
-      {"i": "Insect"},
-      {"j": "Jar"},
-      {"k": "Kite"},
-      {"l": "Lion"},
-      {"m": "Map"},
-      {"n": "Nest"},
-      {"o": "Orange"},
-      {"p": "Pan"},
-      {"q": "Queen"},
-      {"r": "Rabbit"},
-      {"s": "Sun"},
-      {"t": "Tiger"},
-      {"u": "Umbrella"},
-      {"v": "Volcano"},
-      {"w": "Watermelon"},
-      {"x": "Xylophone"},
-      {"y": "Yellow"},
-      {"z": "Zebra"}
-    ]
+    words: {
+      2: { // 17 consonants
+        b: ["bat", "bet", "bit", "but"],
+        c: ["cat", "cot", "cut"],
+        d: ["dot", "dog", "dip"],
+        f: ["fat", "fit", "fun"],
+        g: ["get", "got", "gap"],
+        h: ["hat", "hit", "hot", "hut"], 
+        j: ["jet", "jug", "jam"],
+        k: ["kit", "kin", "kid"],
+        l: ["let", "lot", "lit"],
+        m: ["mat", "met", "man"],
+        n: ["net", "not", "nut"], 
+        p: ["pat", "pet", "pit", "pot"],  
+        r: ["rat", "rap", "rot"],
+        s: ["sat", "set", "sit"], 
+        t: ["tot", "tan", "tin"],
+        v: ["vat", "vet", "van"],
+        w: ["wet", "wit", "win"],
+        B: ["Bat", "Bet", "Bit", "But"],
+        C: ["Cat", "Cot", "Cut"],
+        D: ["Dot", "Dog", "Dip"],
+        F: ["Fat", "Fit", "Fun"],
+        G: ["Get", "Got", "Gap"],
+        H: ["Hat", "Hit", "Hot", "Hut"], 
+        J: ["Jet", "Jug", "Jam"],
+        K: ["Kit", "Kin", "Kid"],
+        L: ["Let", "Lot", "Lit"],
+        M: ["Mat", "Met", "Man"],
+        N: ["Net", "Not", "Nut"], 
+        P: ["Pat", "Pet", "Pit", "Pot"],  
+        R: ["Rat", "Rap", "Rot"],
+        S: ["Sat", "Set", "Sit"], 
+        T: ["Tot", "Tan", "Tin"],
+        V: ["Vat", "Vet", "Van"],
+        W: ["Wet", "Wit", "Win"]
+      },
+      3: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      4: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      5: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      6: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      7: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      8: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      },
+      9: {
+        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+        et: ["bet","get","jet","let","met","net","pet","set","wet"],
+        it: ["bit","fit","kit","pit","sit"],
+        ot: ["dot","hot","lot","not","tot"],
+        ut: ["but","cut","nut","hut"]
+      }
+    }
   },
 
   initializeStudentTestData: function(){
@@ -78,50 +140,6 @@ var App = {
     App.roster.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
     App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
     App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 5});
-  },
-
-  initializeStageStoryTestData: function(){
-    // App.StageStories = {
-    //   "1": [
-    //     { 
-    //       title: "Dentist",
-    //       pages: [
-    //         { 
-    //           lines: "",
-    //           image: ""
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // }
-
-    for(var stageIndex=4; stageIndex<8; stageIndex=stageIndex+1)
-    {
-        App.StageStories[stageIndex]=[];
-      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
-
-        var pages = [];
-        pages.push({image: "dentist1.jpg", lines: "Dentist"});
-        pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-        pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.StageStories[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
-      });
-    }
-  },
-
-  initializeLeveledTextsTestData: function(){
-
-    for(var stageIndex=1; stageIndex<10; stageIndex=stageIndex+1)
-    {
-        App.LeveledTexts[stageIndex]=[];
-      _.forEach({1:"Dentist",2:"Chores",3:"Digging"}, function(title, key) {
-        var pages = [];
-        pages.push({image: "dentist1.jpg", lines: "Dentist"});
-        pages.push({image: "dentist2.jpg", lines: "I am at the dentist.\nWill it hurt?"});
-        pages.push({image: "dentist3.jpg", lines: "“Open up your mouth,” says the dentist.\n“It will not hurt.”"});
-        App.LeveledTexts[stageIndex].push({id: key, title: title+stageIndex, pages: pages});
-      });
-    }
   },
 
   initializeStimuliTestData: function  (){
@@ -184,11 +202,11 @@ var App = {
 
       if(stageIndex===3){
 
-        _.forEach(["b","c","d"], function(o) {
-          App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
-        });
+        // _.forEach(["b","c","d"], function(o) {
+        //   App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
+        // });
 
-        _.forEach(["at","ap","ad"], function(o) {
+        _.forEach(["at","et","it","ot","ut"], function(o) {
           App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }
@@ -206,7 +224,7 @@ var App = {
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
         });
 
-        _.forEach(["at"+stageIndex,"ap","ad","am"], function(o) {
+        _.forEach(["at"+stageIndex,"et","it","ot","ut"], function(o) {
           App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});
         });
       }

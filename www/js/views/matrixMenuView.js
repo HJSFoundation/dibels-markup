@@ -5,7 +5,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   tabDefs: {
     letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames},
-    letterSounds: { label: "LETTER SOUNDS", key: App.Config.skill.letterSounds},
+    letterSounds: { label: "CONSONANT SOUNDS", key: App.Config.skill.letterSounds},
     sightWords: { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
     onsetRimes: { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
     cvts: { label: "CVT WORDS", key: App.Config.skill.cvts},
@@ -91,10 +91,12 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   handleMatrixMenuTabActiveRequest: function(selectedTab) {
     var that = this;
+    App.selectedStimulus = null;
     _.each(this.activeTabDefs, function(tab) {
       if (selectedTab.label === tab.label) {
         selectedTab.makeActive();
         App.selectedSkill = tab.key;
+        App.Dispatcher.trigger("StageClearRequested");
         App.Dispatcher.trigger("SkillChangeRequested:" + tab.key);
       } else {
         that.tabViews[tab.key].makeInactive();
