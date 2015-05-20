@@ -113,7 +113,6 @@ function initializeTestData (){
         });
       }
 
-
       if(stageIndex>4){
         a="a".charCodeAt(0);
         z="c".charCodeAt(0);
@@ -122,14 +121,16 @@ function initializeTestData (){
           App.stimuli.create({reading_stage: stageIndex, skill:App.Config.skill.sightWords, value: String.fromCharCode(c)+"asdas", assessment:"clear", user_id: user_id});
         }
 
+        if(stageIndex<9){
 
-        _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["onsets"], function(o,key) {
-          App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: key, assessment:"clear", user_id: user_id});
-        });
+          _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["onsets"], function(o,key) {
+            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: key, assessment:"clear", user_id: user_id});
+          });
 
-        _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["rimes"], function(o,key) {
-          App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
-        });
+          _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["rimes"], function(o,key) {
+            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
+          });
+        }
       }
     }
   });

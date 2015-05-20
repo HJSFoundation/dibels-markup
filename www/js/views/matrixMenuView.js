@@ -28,7 +28,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
       "6":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
       "7":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
       "8":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts],
-      "9":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts]
+      "9":[this.tabDefs.sightWords, this.tabDefs.affixes, this.tabDefs.leveledTexts]
     };
 
     this.render();

@@ -241,18 +241,23 @@ var App = {
         }
       },
       8: {
-        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
-        et: ["bet","get","jet","let","met","net","pet","set","wet"],
-        it: ["bit","fit","kit","pit","sit"],
-        ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"],
-      },
-      9: {
-        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
-        et: ["bet","get","jet","let","met","net","pet","set","wet"],
-        it: ["bit","fit","kit","pit","sit"],
-        ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"],
+        onsets: {
+
+        },
+        rimes: {
+          ash: ["bash","cash","dash","flash","mash","rash","slash","smash","trash","wash"],
+          aw : ["claw","draw","jaw","paw","raw","saw","thaw"],
+          est: ["best","chest","nest","pest","rest","test","vest","west"],
+          ew : ["blew","crew","flew","grew","knew","stew","dew","new","drew","few"],
+          ight:["fight","light","might","night","right","sight","tight"],
+          ish: ["dish","fish","wish"],
+          ost: ["cost","frost","lost","most"],
+          ould:["should","could","would"],
+          ound:["bound","round","pound","found","mound"],
+          ow : ["blow","bow","crow","know","low","mow","row","show","slow","snow","tow","grow","how","now","wow","cow"],
+          ush: ["blush","brush","crush","flush","hush","mush","rush","slush","push"],
+          ust: ["bust","crust","dust","gust","just","must","rust","trust"]
+        }
       }
     }
   },
@@ -350,14 +355,16 @@ var App = {
             App.stimuli.create({reading_stage: stageIndex, skill:App.Config.skill.sightWords, value: String.fromCharCode(c)+"asdas", assessment:"clear", user_id: user_id});
           }
 
+          if(stageIndex<9){
 
-          _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["onsets"], function(o,key) {
-            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: key, assessment:"clear", user_id: user_id});
-          });
+            _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["onsets"], function(o,key) {
+              App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: key, assessment:"clear", user_id: user_id});
+            });
 
-          _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["rimes"], function(o,key) {
-            App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
-          });
+            _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["rimes"], function(o,key) {
+              App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
+            });
+          }
         }
       }
     });
