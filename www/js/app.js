@@ -86,10 +86,11 @@ var App = {
         um: ["bum","gum","hum"],
         un: ["bun","fun","run","sun"],
         up: ["cup","pup"],
-        ut: ["but","cut","gut","hut","nut","rut"]      
+        ut: ["but","cut","gut","hut","nut","rut"]     
       },
       5: {
-        rimes:{
+        rimes: 
+        {
           ape: ["cape","drape","grape","tape"],
           ate: ["ate","date","fate","gate","hate","late","plate","skate","state","nate"],
           ide: ["bride","glide","hide","pride","ride","side","slide","tide","wide"],
@@ -106,7 +107,8 @@ var App = {
           une: ["prune","tune"],
           ute: ["cute","flute","mute","lute"]
         },
-        onsets: {
+        onsets: 
+        {
           bl: ["blade","blame","bled","blot"],
           br: ["brat","brim","bride"],
           cl: ["clam","clap","clip"],
@@ -118,7 +120,10 @@ var App = {
           pl: ["plan","plop","plot","plum","plate"],
           pr: ["prop","pride","prune"],
           sl: ["slam","slap","sled","slide","slim","slime","slip","slit","slot"],
-          tr: ["trade","trap","trim","trip"]
+          tr: ["trade","trap","trim","trip"],
+          sk: ["skin","skip","skit"],
+          sp: ["spade","sped","spin","spine","spit","spot","spun"],
+          st: ["state","stone","stop","stun"]
         }
       },
       6: {
@@ -187,25 +192,67 @@ var App = {
         }
       },
       7: {
-        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
-        et: ["bet","get","jet","let","met","net","pet","set","wet"],
-        it: ["bit","fit","kit","pit","sit"],
-        ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"]
+        onsets: {
+          spr: ["spring","sprint","sprang"],
+          str: ["string","stray","stripe"]
+        },
+        rimes: {
+          ab:  ["cab","tab","dab","jab","grab","crab","slab"],
+          ace: ["brace","face","grace","lace","pace","place","race","space","trace"],
+          ag:  ["bag","brag","drag","flag","nag","rag","sag","snag","tag","wag","zag"],
+          age: ["page","rage","stage","wage"],
+          ake: ["bake","brake","cake","fake","flake","lake","make","rake","shake","snake","stake","take","wake"],
+          ale: ["male","pale","stale","tale","whale"],
+          ard: ["card","hard","lard","shard","yard"],
+          are: ["bare","care","dare","rare","share","spare","stare","glare"],
+          ark: ["bark","dark","mark","park","shark","spark"],
+          arm: ["charm","farm","harm","warm"],
+          art: ["cart","chart","dart","part","smart","start","mart"],
+          ase: ["base","case","vase","chase"],
+          ave: ["cave","gave","grave","pave","save","shave","slave","wave"],
+          aze: ["daze","maze","gaze","haze","blaze","glaze","graze","craze"],
+          eg:  ["beg","leg","peg"],
+          elt: ["belt","felt","melt"],
+          ib:  ["rib","bib","fib","crib"],
+          ibe: ["bribe","tribe"],
+          ice: ["mice","nice","price","rice","slice","spice"],
+          ig:  ["big","dig","fig","pig","wig"],
+          ike: ["bike","dike","hike","like","pike"],
+          ile: ["file","mile","pile","smile","tile","while"],
+          ilk: ["milk","silk"],
+          ire: ["tire","wire","hire",""],
+          ive: ["dive","drive","five","hive","live"],
+          ix:  ["fix","mix","six"],
+          ob:  ["mob","cob","job","slob","blob","snob"],
+          obe: ["lobe","robe","globe","probe"],
+          og:  ["fog","frog","hog","jog","log"],
+          oke: ["choke","joke","poke","smoke","spoke","woke"],
+          old: ["bold","cold","fold","gold","hold","mold","sold","told"],
+          ole: ["hole","mole","pole","role","sole","stole","whole"],
+          ore: ["bore","chore","core","more","shore","sore","store","tore","wore"],
+          orn: ["born","corn","horn","torn","worn"],
+          ose: ["close","hose","nose","pose","rose","those"],
+          ox:  ["box","fox"],
+          ub:  ["cub","hub","pub","rub","snub","sub","tub"],
+          ube: ["cube","tube"],
+          ug:  ["bug","dug","hug","jug","plug","rug","slug","snug","tug"],
+          ule: ["mule","rule"],
+          urn: ["burn","churn","spurn","turn"]
+        }
       },
       8: {
         at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
         et: ["bet","get","jet","let","met","net","pet","set","wet"],
         it: ["bit","fit","kit","pit","sit"],
         ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"]
+        ut: ["but","cut","nut","hut"],
       },
       9: {
         at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
         et: ["bet","get","jet","let","met","net","pet","set","wet"],
         it: ["bit","fit","kit","pit","sit"],
         ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"]
+        ut: ["but","cut","nut","hut"],
       }
     }
   },
