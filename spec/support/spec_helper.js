@@ -91,8 +91,6 @@ function initializeTestData (){
         });
       }
 
-      }
-
       if(stageIndex===3){
 
         _.forEach(["at","et","it","ot","ut"], function(o) {
