@@ -68,7 +68,12 @@ App.Views.MenuActivity = Backbone.View.extend({
     if (App.selectedStimulus !== null && (that.isActive)) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
-      App.Dispatcher.trigger("StimulusChangeRequested:"+skill, {skill:skill, value: value});
+      App.Dispatcher.trigger("StimulusChangeRequested:"+skill, 
+        {
+          skill: skill,
+          value: value,
+          model: App.selectedStimulus
+        });
     }
   }
 });
