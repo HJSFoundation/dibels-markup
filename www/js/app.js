@@ -52,24 +52,7 @@ var App = {
         s: ["sat", "set", "sit"], 
         t: ["tot", "tan", "tin"],
         v: ["vat", "vet", "van"],
-        w: ["wet", "wit", "win"],
-        B: ["Bat", "Bet", "Bit", "But"],
-        C: ["Cat", "Cot", "Cut"],
-        D: ["Dot", "Dog", "Dip"],
-        F: ["Fat", "Fit", "Fun"],
-        G: ["Get", "Got", "Gap"],
-        H: ["Hat", "Hit", "Hot", "Hut"], 
-        J: ["Jet", "Jug", "Jam"],
-        K: ["Kit", "Kin", "Kid"],
-        L: ["Let", "Lot", "Lit"],
-        M: ["Mat", "Met", "Man"],
-        N: ["Net", "Not", "Nut"], 
-        P: ["Pat", "Pet", "Pit", "Pot"],  
-        R: ["Rat", "Rap", "Rot"],
-        S: ["Sat", "Set", "Sit"], 
-        T: ["Tot", "Tan", "Tin"],
-        V: ["Vat", "Vet", "Van"],
-        W: ["Wet", "Wit", "Win"]
+        w: ["wet", "wit", "win"]
       },
       3: {
         at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
@@ -200,28 +183,12 @@ var App = {
 
       if(stageIndex===2){
 
-        a="a".charCodeAt(0);
-        z="c".charCodeAt(0);
-
-        for( c = a; c <= z; c = c + 1) {
-          App.stimuli.create({reading_stage: 2, skill:App.Config.skill.letterSounds, value: String.fromCharCode(c), assessment:"clear", user_id: user_id});
-        }
-
-        A="A".charCodeAt(0);
-        Z="C".charCodeAt(0);
-
-        for(
-          c=A; c<=Z;c=c+1) {
-          App.stimuli.create({reading_stage: 2, skill:App.Config.skill.letterSounds, value: String.fromCharCode(c), assessment:"clear", user_id: user_id});
-        }
-
+        _.each(App.ActivityStimuli.wordsByStage[2], function(value,key){
+          App.stimuli.create({reading_stage: 2, skill:App.Config.skill.letterSounds, value: key, assessment:"clear", user_id: user_id});
+        });
       }
 
       if(stageIndex===3){
-
-        // _.forEach(["b","c","d"], function(o) {
-        //   App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.onsets, value: o, assessment:"clear", user_id: user_id});
-        // });
 
         _.forEach(["at","et","it","ot","ut"], function(o) {
           App.stimuli.create({reading_stage: 3, skill: App.Config.skill.cvts, sub_skill: App.Config.skill.rimes, value: o, assessment:"clear", user_id: user_id});

@@ -4,7 +4,7 @@ App.Views.MenuActivity = Backbone.View.extend({
   config: {
     buttonMap: {
       letter_names: ["letters", "whiteboard"],
-      letter_sounds: ["letters", "words", "whiteboard"],
+      letter_sounds: ["letters", "words", "tiles", "whiteboard"],
       sight_words: ["words","phrases","whiteboard"],
       onset_rimes: ["words","phrases","tiles", "whiteboard"],
       cvts: ["words","phrases","tiles", "whiteboard"],
