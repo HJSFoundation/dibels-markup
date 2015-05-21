@@ -16,8 +16,6 @@ App.Views.ReadingStage = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
-    console.log("click:ReadingStage");
-
     return false;
   }
 });

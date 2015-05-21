@@ -16,7 +16,6 @@ App.Views.EditStudent = Backbone.View.extend({
 
   handleClick: function() {
     this.remove();
-    console.log("click:EditStudent")
     return false;
   }
 });

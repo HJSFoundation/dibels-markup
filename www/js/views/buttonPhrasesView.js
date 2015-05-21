@@ -37,7 +37,6 @@ App.Views.ButtonPhrases = Backbone.View.extend({
 
   handleClick: function() {
     App.Dispatcher.trigger("activityMenuButtonActiveRequest", this.activity);
-    console.log("button phrases clicked");
     return false;
   }
 });

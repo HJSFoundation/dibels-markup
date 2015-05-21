@@ -9,19 +9,19 @@ App.Views.GroupManagement = Backbone.View.extend({
     _.bindAll(this);
     this.render();
 
+    var testReadingStage = [5,4,7,9,2,3];
     App.students = new App.Collections.Students();
-    for(var i=0; i <= App.Config.maxStudentCount; i = i+1){
+    for(var i=0; (i <= App.Config.maxStudentCount) && (i<App.roster.length); i = i+1){
       App.students.add(App.roster.at(i));
+
+      App.students.at(i).set("reading_stage",testReadingStage[i]);
     }
 
-    App.students.at(0).set("reading_stage",5);
-    App.students.at(1).set("reading_stage",4);
-    App.students.at(2).set("reading_stage",7);
-    App.students.at(3).set("reading_stage",9);
-    App.students.at(4).set("reading_stage",2);
-    App.students.at(5).set("reading_stage",3);
+    console.log("App.roster.length:", App.roster.length);
 
-    App.selectedStudent = App.students.at(0);
+    if(App.students.length>0){
+      App.selectedStudent = App.students.at(0);
+    }
     App.selectedSkill = "";
 
   },

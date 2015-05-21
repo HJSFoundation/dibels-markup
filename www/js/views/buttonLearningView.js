@@ -33,7 +33,6 @@ App.Views.ButtonLearning = Backbone.View.extend({
   },
 
   handleClick: function() {
-    console.log("buttonLearning clicked");
     App.Dispatcher.trigger("buttonAssessmentClicked","learning");
     return false;
   }

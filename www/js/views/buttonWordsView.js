@@ -26,19 +26,16 @@ events: {
     this.status = "st-active";
     this.render();
     App.selectedActivity = this.key;
-    console.log("button words active");
 
   },
 
   makeInactive: function() {
     this.status = "";
     this.render();
-    console.log("button words inactive");
   },
 
   handleClick: function() {
     App.Dispatcher.trigger("activityMenuButtonActiveRequest", this.activity);
-    console.log("button words clicked");
     return false;
   }
 });

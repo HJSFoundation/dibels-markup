@@ -36,7 +36,6 @@ App.Views.ButtonLetters = Backbone.View.extend({
 
   handleClick: function() {
     App.Dispatcher.trigger("activityMenuButtonActiveRequest", this.activity);
-    console.log("button letters clicked");
     return false;
   }
 });

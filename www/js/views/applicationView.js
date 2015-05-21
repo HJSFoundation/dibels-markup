@@ -18,21 +18,22 @@ App.Views.Application = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
   },
 
-  handleLoggedIn: function() {
-    App.initializeStudentTestData();
-    App.initializeStimuliTestData();
-    this.initializeDeviceSelect();
-  },
-
   // handleLoggedIn: function() {
-  //   this.initializeStudentCollection();
+  //   App.initializeStudentTestData();
+  //   App.initializeStimuliTestData();
   //   this.initializeDeviceSelect();
   // },
 
+  handleLoggedIn: function() {
+    this.initializeStudentCollection();
+  },
+
   initializeStudentCollection: function(){
     $.ajaxSetup({beforeSend:this.sendAuthentication});
+
     localStorage.clear();
     console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
+
     App.roster = new App.Collections.Students();
     App.roster.fetch({
       success: this.initializeStimuliCollections,
@@ -57,9 +58,14 @@ App.Views.Application = Backbone.View.extend({
   },
 
   initializeDeviceSelect: function() {
+    this.loginView.remove();
+    this.stopListening(App.Dispatcher, "loginSuccess");
+    $(App.Config.el).empty();
+    if(this.deviceSelect){
+      this.deviceSelect.remove()
+    }
     this.deviceSelect = new App.Views.DeviceSelect();
     $(App.Config.el).append(this.deviceSelect.render().el);
-    this.loginView.remove();
   }
 
 });

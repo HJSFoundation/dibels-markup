@@ -7,6 +7,9 @@ App.Views.DeviceSelect = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
+    if(this.groupManagement){
+      this.groupManagement.remove();
+    }
     this.render();
   },
 
