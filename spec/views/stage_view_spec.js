@@ -53,10 +53,6 @@ describe('App.Views.Stage', function() {
       expect(subject.stageViews.phrases).to.be.an.instanceOf(App.Views.StageStimulusPhrases);
     });
 
-    it("creates a stage stimulus whiteboard view", function() {
-      expect(subject.stageViews.whiteboard).to.be.an.instanceOf(App.Views.StageStimulusWhiteboard);
-    });
-
     it("creates a stage story page view", function() {
       expect(subject.stageStoryPageView).to.be.an.instanceOf(App.Views.StageStoryPage);
     });
