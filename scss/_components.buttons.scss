@@ -154,14 +154,12 @@ button,
 
 .button--story-close {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 43px;
-  height: 43px;
+  top: 5px;
+  left: 5px;
+  width: 45px;
+  height: 45px;
   z-index: 200;
   fill: $white;
-  bottom: 0;
-  padding: 0;
 
   .icon-close--story {
     width: 45px;
