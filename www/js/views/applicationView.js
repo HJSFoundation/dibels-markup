@@ -19,17 +19,20 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-    //this.initializeStudentCollection();
-
     App.initializeStudentTestData();
     App.initializeStimuliTestData();
     this.initializeDeviceSelect();
   },
 
+  // handleLoggedIn: function() {
+  //   this.initializeStudentCollection();
+  //   this.initializeDeviceSelect();
+  // },
+
   initializeStudentCollection: function(){
     $.ajaxSetup({beforeSend:this.sendAuthentication});
-    // localStorage.clear();
-    // console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
+    localStorage.clear();
+    console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
     App.roster = new App.Collections.Students();
     App.roster.fetch({
       success: this.initializeStimuliCollections,

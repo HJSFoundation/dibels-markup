@@ -5,10 +5,10 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   tabDefs: {
     letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames},
-    letterSounds: { label: "CONSONANT SOUNDS", key: App.Config.skill.letterSounds},
+    letterSounds: { label: "ONSETS & RIMES", key: App.Config.skill.letterSounds},
     sightWords: { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
     onsetRimes: { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
-    cvts: { label: "CVT WORDS", key: App.Config.skill.cvts},
+    cvts: { label: "ONSETS & RIMES", key: App.Config.skill.cvts},
     affixes: { label: "AFFIXES", key: App.Config.skill.affixes},
     stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories},
     leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
@@ -28,7 +28,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
       "6":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
       "7":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.stageStories, this.tabDefs.leveledTexts],
       "8":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts],
-      "9":[this.tabDefs.sightWords, this.tabDefs.onsetRimes, this.tabDefs.affixes, this.tabDefs.leveledTexts]
+      "9":[this.tabDefs.sightWords, this.tabDefs.affixes, this.tabDefs.leveledTexts]
     };
 
     this.render();

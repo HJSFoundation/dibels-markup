@@ -3,12 +3,12 @@ App.Views.MenuActivity = Backbone.View.extend({
 
   config: {
     buttonMap: {
-      letter_names: ["letters", "whiteboard"],
-      letter_sounds: ["letters", "words", "whiteboard"],
-      sight_words: ["words","phrases","whiteboard"],
-      onset_rimes: ["words","phrases","tiles", "whiteboard"],
-      cvts: ["words","phrases","tiles", "whiteboard"],
-      affixes: ["words","phrases","tiles", "whiteboard"],
+      letter_names: ["letters"],
+      letter_sounds: ["letters", "words", "tiles"],
+      sight_words: ["words","phrases"],
+      onset_rimes: ["words","phrases","tiles"],
+      cvts: ["words","phrases","tiles"],
+      affixes: ["words","phrases","tiles"],
       stage_stories: [],
       leveled_texts:[]
     }
@@ -23,7 +23,6 @@ App.Views.MenuActivity = Backbone.View.extend({
     this.buttons.words = new App.Views.ButtonWords({el: ".js-buttonWords"});
     this.buttons.phrases = new App.Views.ButtonPhrases({el: ".js-buttonPhrases"});
     this.buttons.tiles = new App.Views.ButtonTiles({el: ".js-buttonTiles"});
-    this.buttons.whiteboard = new App.Views.ButtonWhiteboard({el: ".js-buttonWhiteboard"});
     this.listen();
   },
 
@@ -68,7 +67,12 @@ App.Views.MenuActivity = Backbone.View.extend({
     if (App.selectedStimulus !== null && (that.isActive)) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
-      App.Dispatcher.trigger("StimulusChangeRequested:"+skill, {skill:skill, value: value});
+      App.Dispatcher.trigger("StimulusChangeRequested:"+skill, 
+        {
+          skill: skill,
+          value: value,
+          model: App.selectedStimulus
+        });
     }
   }
 });

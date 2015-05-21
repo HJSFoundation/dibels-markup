@@ -156,34 +156,27 @@ button,
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px;
-  height: 50px;
+  width: 43px;
+  height: 43px;
   z-index: 200;
   fill: $white;
-  background: $black;
   bottom: 0;
   padding: 0;
-  border-radius: 50%;
+
+  .icon-close--story {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: $black;
+    border-radius: 50%;
+  }
   .icon-close {
     display: inline-block;
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  .icon-close-filled {
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
   }
 
   &:hover {
