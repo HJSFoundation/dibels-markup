@@ -30,15 +30,22 @@ describe('App.Views.EditStudent', function() {
   });
 
   describe("events", function() {
-    it("calls handleClick on click event", function() {
-      expect(subject.events.click).to.equal("handleClick");
+    it("calls handleTabRequest on click js-editReadingStage event", function() {
+      expect(subject.events["click #js-editReadingStage"]).to.equal("handleTabRequest");
+    });
+    it("calls handleTabRequest on click js-editAssignments event", function() {
+      expect(subject.events["click #js-editAssignments"]).to.equal("handleTabRequest");
+    });
+    it("calls handleTabRequest on click js-editNotes event", function() {
+      expect(subject.events["click #js-editNotes"]).to.equal("handleTabRequest");
     });
   });
 
-  it("#handleClick", function() {
-    $(".js-overlay").append(subject.render().el);
-    expect($(".js-overlay")).not.to.be.empty;
-    subject.handleClick();
-    expect($(".js-overlay")).to.be.empty;
+  it("#handleTabRequest", function() {
+    sinon.spy(subject, "makeActive");
+    sinon.spy(subject, "makeInactive");
+    subject.handleTabRequest({currentTarget: {id: "js-editNotes"}});
+    expect(subject.makeInactive).to.have.been.called;
+    expect(subject.makeActive).to.have.been.calledWith("js-editNotes");
   });
 });
