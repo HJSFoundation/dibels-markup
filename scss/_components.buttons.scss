@@ -151,3 +151,22 @@ button,
   background-color: $bg-drawer;
   color: $white;
 }
+
+.button--story-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 200;
+  fill: $gray-dark;
+
+  &:hover {
+    .icon-close {
+      display: none;
+    }
+    .icon-close-filled {
+      display: inline-block;
+    }
+  }
+}

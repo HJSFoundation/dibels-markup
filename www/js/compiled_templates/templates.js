@@ -20,7 +20,7 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
     + "\"></span>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonCloseStory"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div style=\"position:absolute;top:0px;left:0px;width:50px;height:50px;z-index:200;background-color: red\">\n<p>here is the close</p>\n\n</div>";
+    return "<svg class=\"icon-close\"><use xlink:href=\"#icon-close\"></use></svg>";
 },"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -158,7 +158,7 @@ this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"js-storyButtonCloseStory\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
+    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--story-close js-storyButtonCloseStory\"></button>      \n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
 },"useData":true,"useDepths":true});
 this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div id=\"loginContainer\" class=\"login container\">\n  <div class=\"login__container grid grid--center grid--column\">\n    <header class=\"login__header\">\n      <div class=\"login__logo\">\n      <img src=\"/img/logo-tn.svg\" alt=\"\">\n    </header>\n    <fieldset>\n      <h2 class=\"login__error js-login-error\">Incorrect username/password</h2>\n      <input class=\"login__field login__field--email\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n      <input class=\"login__field login__field--password\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n      <input class=\"button button--primary login__button\" type=\"button\" value=\"Log In\" id=\"submit\">\n    </fieldset>\n    <input type=\"button\" class=\"button\" value=\"Forgot Password\" id=\"reset\">\n    \n  </div>\n  <div class=\"teachermate-logo\">\n    <img src=\"/img/logo-teachermate.svg\" alt=\"\">\n  </div>\n  <footer class=\"footer--login\">\n  </footer>\n</div>\n\n\n\n\n<script>  //auto form field for development\n        $(\"#email-field\").val(\"randy-teacher@test.org\");\n        $(\"#password-field\").val(\"12345678\");\n    </script>";
@@ -293,7 +293,7 @@ this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(d
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"js-storyButtonCloseStory\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
+    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--story-close js-storyButtonCloseStory\"></button>      \n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
 },"useData":true,"useDepths":true});
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

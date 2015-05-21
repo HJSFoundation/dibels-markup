@@ -11,7 +11,7 @@ var App = {
     maxStudentCount: 6,
     maxStageCount: 9,
     minReadingStageForStrategies: 4,
-    storageLocalState: true,
+    storageLocalState: false,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",
