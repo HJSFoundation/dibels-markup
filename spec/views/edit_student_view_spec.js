@@ -30,6 +30,9 @@ describe('App.Views.EditStudent', function() {
   });
 
   describe("events", function() {
+    it("calls handleCloseRequest on click js-editStudentButtonClose event", function() {
+      expect(subject.events["click .js-editStudentButtonClose"]).to.equal("handleCloseRequest");
+    });
     it("calls handleTabRequest on click js-editReadingStage event", function() {
       expect(subject.events["click #js-editReadingStage"]).to.equal("handleTabRequest");
     });

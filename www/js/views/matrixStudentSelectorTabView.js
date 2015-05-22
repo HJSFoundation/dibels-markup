@@ -52,8 +52,8 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   },
 
   handleIconClick: function(event) {
-    this.editStudent = new App.Views.EditStudent();
-    $(".js-overlay").append(this.editStudent.render().el);
+    this.editStudent = new App.Views.EditStudent({el: ".js-overlay"});
+    // $(".js-overlay").append(this.editStudent.render().el);
     return false;
   }
 });

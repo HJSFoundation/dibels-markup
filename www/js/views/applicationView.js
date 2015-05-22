@@ -36,7 +36,7 @@ App.Views.Application = Backbone.View.extend({
 
     App.roster = new App.Collections.Students();
     App.roster.fetch({
-      success: this.initializeStimuliCollections,
+      success: this.initializeNotesCollection,
       error: this.initializeStudentCollectionFail
      });
   },
@@ -45,7 +45,22 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
+  initializeNotesCollection: function(){
+    $.ajaxSetup({beforeSend:this.sendAuthentication});
+
+    App.notes = new App.Collections.Notes();
+    App.notes.fetch({
+      success: this.initializeStimuliCollections,
+      error: this.initializeNotesCollectionFail
+     });
+  },
+
+  initializeNotesCollectionFail: function(){
+    console.log("initializeNotesCollectionFail");
+  },
+
   initializeStimuliCollections: function(){
+
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
       success: this.initializeDeviceSelect,
