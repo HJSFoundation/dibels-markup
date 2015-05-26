@@ -20,7 +20,7 @@ describe('App.Views.Application', function() {
   });
 
   xit("#sendAuthentication", function() {
-    App.currentUser={
+    App.loggedInTeacher={
       email: "someone@somewhere.com",
       token: "1234567890"
     };

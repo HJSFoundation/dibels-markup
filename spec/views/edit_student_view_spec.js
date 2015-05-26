@@ -44,6 +44,65 @@ describe('App.Views.EditStudent', function() {
     });
   });
 
+  describe("#initialize", function() {
+    it("calls render", function() {
+      sinon.spy(subject, "render");
+      subject.initialize();
+      expect(subject.render).to.have.been.called;
+    });
+    it("caches edit container element", function() {
+      subject.initialize();
+      expect(subject.$editContainer).not.to.be.null;
+    });
+    it("creates an edit student notes view", function() {
+      subject.initialize();
+      expect(subject.views["js-editNotes"]).to.be.an.instanceOf(App.Views.EditStudentNotesView);
+      expect(subject.views["js-editReadingStage"]).to.be.an.instanceOf(App.Views.EditStudentReadingStageView);
+    });
+    it("#makeActive", function() {
+      sinon.spy(subject, "makeActive");
+      subject.initialize();
+      expect(subject.makeActive).to.have.been.called;
+    });
+  });
+
+  it("#render", function() {
+    subject.render();
+    expect(subject.$el).not.to.be.empty;
+  });
+
+  it("#templateJSON", function() {
+    App.selectedStudent.set("reading_stage",1);
+    App.selectedStudent.set("first_name","Bob");
+    App.selectedStudent.set("last_name","Jones");
+    expect(subject.templateJSON().reading_stage).to.equal(1);
+    expect(subject.templateJSON().student_shortname).to.equal("BOB J.");
+  });
+
+  describe("#makeActive", function() {
+    it("adds the selected class to the tab", function() {
+      appendFixture("div", { id: "js-editNotes" });
+      subject.makeActive("js-editNotes");
+      expect($("#" + "js-editNotes")).to.have.class("st-selected");
+    });
+    it("renders the selected tab", function() {
+      sinon.spy(subject.views["js-editNotes"], "render");
+      subject.makeActive("js-editNotes");
+      expect(subject.views["js-editNotes"].render).to.have.been.called;
+    });
+  });
+
+  describe("#makeInactive", function() {
+    it("removes selected class from all tabs", function() {
+      appendFixture("div", { id: "js-editNotes" });
+      subject.makeActive("js-editNotes");
+      subject.makeInactive();
+      for(var i=0;i< subject.ids.length; i=i+1){
+        expect($("#" + subject.ids[i])).not.to.have.class("st-selected");
+      }
+    }); 
+  });
+
   it("#handleTabRequest", function() {
     sinon.spy(subject, "makeActive");
     sinon.spy(subject, "makeInactive");

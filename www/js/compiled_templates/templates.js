@@ -123,20 +123,31 @@ this["App"]["templates"]["editStudent"] = Handlebars.template({"compiler":[6,">=
     + alias3(((helper = (helper = helpers.student_shortname || (depth0 != null ? depth0.student_shortname : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"student_shortname","hash":{},"data":data}) : helper)))
     + "</span>\n    <span class=\"menu__icon icon icon-edit\"></span>\n    \n  </a>\n  <div class=\"stage stage--edit\">\n    <menu class=\"stage--edit__menu\">\n      <div class=\"menu--tabs menu--tabs--edit u-text-center grid u-text-center\">\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editReadingStage\">Reading Stage</a>\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editAssignments\">Assignments</a>\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editNotes\">Notes</a>\n      </div>\n    </menu>\n    <div class=\"js-editContainer\"></div>\n\n  </div>\n</div>";
 },"useData":true});
-this["App"]["templates"]["editStudentNotes"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["App"]["templates"]["editStudentNote"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "        <li>\n          <h4>\n            <span class=\"edit-notes__time\">"
+  return "  <h4>\n    <span id=\""
+    + alias2(alias1((depth0 != null ? depth0.id : depth0), depth0))
+    + "\" class=\"edit-notes__time\">"
     + alias2(alias1((depth0 != null ? depth0.updatedDate : depth0), depth0))
-    + "</span>\n          </h4>\n          <p>"
+    + "</span>\n  </h4>\n  <p>"
     + alias2(alias1((depth0 != null ? depth0.shortContent : depth0), depth0))
-    + "</p>\n        </li>\n";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
+    + "</p>\n";
+},"useData":true});
+this["App"]["templates"]["editStudentNotes"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"stage--edit__content grid js-editStudentNotes\">\n<!-- \n<div class=\"js-editStudentNotesArticle\"></div>\n<div class=\"js-editStudentNotesList\"></div>\n\n --></div>\n";
+},"useData":true});
+this["App"]["templates"]["editStudentNotesArticle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"stage--edit__content grid\">\n  <article class=\"stage--edit__notes grid-cell u-3of4\">\n    <header class=\"edit-notes__header\">\n      <span class=\"edit-notes__time\">march 12, 2015:</span>\n    </header>\n    <section class=\"edit-notes__body\">\n      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n    </section>\n  </article>\n  <aside class=\"stage--edit__archive grid-cell u-1of4\">\n    <div class=\"edit-archive__list\">\n      <ul>\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.notes : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "      </ul>\n    </div>\n  </aside>\n</div>\n";
+  return "<article class=\"stage--edit__notes grid-cell u-3of4\">\n  <header class=\"edit-notes__header\">\n    <span class=\"edit-notes__time\">"
+    + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
+    + "</span>\n  </header>\n  <section class=\"edit-notes__body\">\n   <textarea>"
+    + alias3(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"content","hash":{},"data":data}) : helper)))
+    + "</textarea>\n  </section>\n</article>\n\n";
+},"useData":true});
+this["App"]["templates"]["editStudentNotesList"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<aside class=\"stage--edit__archive grid-cell u-1of4\">\n  <div class=\"edit-archive__list\">\n    <ul class=\"js-editStudentNote\">\n      \n    </ul>\n  </div>\n</aside>\n\n";
 },"useData":true});
 this["App"]["templates"]["editStudentReadingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage--edit__content grid\">\n  <div class=\"reading-stage-chooser grid grid--wrap grid--center\">\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">1</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">2</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">3</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">4</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">5</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">6</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">7</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">8</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">9</a>\n  </div>\n</div>\n";

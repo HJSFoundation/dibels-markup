@@ -33,7 +33,7 @@ App.Views.Login = Backbone.View.extend({
       success: function(responseData) {
 
         console.log(responseData);
-        App.currentUser = responseData;
+        App.loggedInTeacher = responseData;
         that.handleLoginSuccess();
       },
       error: function(responseData) {

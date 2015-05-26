@@ -8,8 +8,8 @@ App.Views.Application = Backbone.View.extend({
   },
 
   sendAuthentication: function (xhr) {
-    var email = App.currentUser.email;
-    var token = App.currentUser.token;
+    var email = App.loggedInTeacher.email;
+    var token = App.loggedInTeacher.token;
     var header= 'Token token="'+token+'", email="'+email+'"';
     xhr.setRequestHeader('Authorization', header);
   },

@@ -1,15 +1,10 @@
 App.Models.Note = Backbone.Model.extend({
 
-  "id": 0,
-  "classroom_id": 0,
-  "author_id": 0,
-  "user_id": 0,
-  "content": "",
-  "program_type": "teacher_notepad",
-  "test": false,
-  "archived": false,
-  "updated_at": "",
-  "created_at": "",
+  defaults: {
+
+    "content": "",
+    "program_type": "teacher_notepad"
+  },
 
   local: App.Config.storageLocalState,
 

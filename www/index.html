@@ -72,6 +72,10 @@
 
       <script type="text/javascript" src="js/views/editStudentView.js"></script>
       <script type="text/javascript" src="js/views/editStudentNotesView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesArticleView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesListView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNoteView.js"></script>
       <script type="text/javascript" src="js/views/editStudentReadingStageView.js"></script>
       <script type="text/javascript" src="js/views/matrixStudentSelectorView.js"></script>
       <script type="text/javascript" src="js/views/matrixMenuTabView.js"></script>
@@ -112,7 +116,7 @@
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
           // App.initialize();
-          this.applicationView = new App.Views.Application();
+          App.applicationView = new App.Views.Application();
         }, false);
       </script>
     </body>

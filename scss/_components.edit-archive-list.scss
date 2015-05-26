@@ -27,7 +27,7 @@
     background: darken($iron, 10%);
     border-bottom: 1px solid $white;
 
-    &:first-child {
+    &.st-selected {
       background: $white;
     }
   }
