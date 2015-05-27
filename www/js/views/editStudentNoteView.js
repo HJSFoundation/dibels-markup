@@ -9,6 +9,11 @@ App.Views.EditStudentNoteView = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
+    this.listen();
+  },
+
+  listen: function(){
+    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function() {

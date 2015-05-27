@@ -14,11 +14,14 @@ App.Views.EditStudentNotesListView = Backbone.View.extend({
 
   listen: function(){
     this.listenTo(App.Dispatcher, "editStudentNoteSelected", this.handleEditStudentNoteSelected);
+    this.listenTo(App.notes, "change", this.render);
   },
 
   render: function() {
     // var notes = App.notes.where({user_id: App.selectedStudent.get("id")});
-    var notes = App.notes.models;
+    var notes = _.sortBy(App.notes.models, function(note){
+      return -(new Date(note.get("updated_at")).valueOf());
+    });
     this.$el.html(this.template());
     var that = this;
     _.each(notes, function(note){

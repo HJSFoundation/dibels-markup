@@ -126,11 +126,11 @@ this["App"]["templates"]["editStudent"] = Handlebars.template({"compiler":[6,">=
 this["App"]["templates"]["editStudentNote"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "  <h4>\n    <span id=\""
+  return "<h4>\n  <span id=\""
     + alias2(alias1((depth0 != null ? depth0.id : depth0), depth0))
     + "\" class=\"edit-notes__time\">"
     + alias2(alias1((depth0 != null ? depth0.updatedDate : depth0), depth0))
-    + "</span>\n  </h4>\n  <p>"
+    + "</span>\n</h4>\n<p>"
     + alias2(alias1((depth0 != null ? depth0.shortContent : depth0), depth0))
     + "</p>\n";
 },"useData":true});

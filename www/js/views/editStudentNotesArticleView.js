@@ -2,6 +2,8 @@ App.Views.EditStudentNotesArticleView = Backbone.View.extend({
   template: App.templates.editStudentNotesArticle,
 
   events: {
+    "focus textarea": "handleFocus",
+    "blur textarea": "handleBlur"
   },
 
   initialize: function() {
@@ -19,6 +21,22 @@ App.Views.EditStudentNotesArticleView = Backbone.View.extend({
       date: this.model.updatedDate(),
       content: this.model.get("content")
     }
+  },
+
+  handleFocus: function(){
+    this.content = $(this.$el.selector+" textarea").val();
+    console.log("EditStudentNotesArticleView:handleFocus");
+  },
+
+  handleBlur: function(){
+    var newContent = $(this.$el.selector+" textarea").val();
+    if(newContent != this.model.get("content"))
+    {
+      this.model.set({content: newContent});
+      this.model.set({"updated_at": new Date()});
+      this.model.save();
+    }
+    console.log("EditStudentNotesArticleView:handleBlur");
   }
 
 });
