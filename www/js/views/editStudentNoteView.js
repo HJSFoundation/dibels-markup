@@ -2,7 +2,7 @@ App.Views.EditStudentNoteView = Backbone.View.extend({
   template: App.templates.editStudentNote,
 
   tagName: "li",
-  
+
   events: {
     "click": "handleClick"
   },
@@ -23,8 +23,16 @@ App.Views.EditStudentNoteView = Backbone.View.extend({
     }
   },
 
+  makeActive: function(){
+    this.$el.addClass("st-selected");
+  },
+
+  makeInactive: function(){
+    this.$el.removeClass("st-selected");
+  },
+
   handleClick: function(){
-    App.Dispatcher.trigger("editStudentNoteSelected", this.model);
-  }
+    App.Dispatcher.trigger("editStudentNoteSelected", this);
+  },
 
 });

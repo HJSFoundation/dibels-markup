@@ -10,7 +10,7 @@ App.Views.EditStudentNotesArticleView = Backbone.View.extend({
 
   render: function(noteModel) {
     this.model = noteModel;
-    this.$el.append(this.template(this.templateJSON()));
+    this.$el.html(this.template(this.templateJSON()));
     return this;
   },
 

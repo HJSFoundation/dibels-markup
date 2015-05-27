@@ -22,8 +22,4 @@ describe('App.Views.EditStudentNotesView', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#templateJSON", function() {
-    expect(subject.templateJSON().notes).to.be.instanceof(Array);
-  });
-
 });

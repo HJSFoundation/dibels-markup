@@ -135,19 +135,19 @@ this["App"]["templates"]["editStudentNote"] = Handlebars.template({"compiler":[6
     + "</p>\n";
 },"useData":true});
 this["App"]["templates"]["editStudentNotes"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage--edit__content grid js-editStudentNotes\">\n<!-- \n<div class=\"js-editStudentNotesArticle\"></div>\n<div class=\"js-editStudentNotesList\"></div>\n\n --></div>\n";
+    return "<div class=\"stage--edit__content grid js-editStudentNotes\">\n  <article class=\"stage--edit__notes grid-cell u-3of4 js-editStudentNotesArticle\">\n  </article>\n  <aside class=\"stage--edit__archive grid-cell u-1of4 js-editStudentNotesList\">\n  </aside>\n </div>\n";
 },"useData":true});
 this["App"]["templates"]["editStudentNotesArticle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<article class=\"stage--edit__notes grid-cell u-3of4\">\n  <header class=\"edit-notes__header\">\n    <span class=\"edit-notes__time\">"
+  return "<header class=\"edit-notes__header\">\n  <span class=\"edit-notes__time\">"
     + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
-    + "</span>\n  </header>\n  <section class=\"edit-notes__body\">\n   <textarea>"
+    + "</span>\n</header>\n<section class=\"edit-notes__body\">\n <textarea>"
     + alias3(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"content","hash":{},"data":data}) : helper)))
-    + "</textarea>\n  </section>\n</article>\n\n";
+    + "</textarea>\n</section>\n\n";
 },"useData":true});
 this["App"]["templates"]["editStudentNotesList"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<aside class=\"stage--edit__archive grid-cell u-1of4\">\n  <div class=\"edit-archive__list\">\n    <ul class=\"js-editStudentNote\">\n      \n    </ul>\n  </div>\n</aside>\n\n";
+    return "<div class=\"edit-archive__list\">\n  <ul class=\"js-editStudentNote\">\n    \n  </ul>\n</div>\n\n\n";
 },"useData":true});
 this["App"]["templates"]["editStudentReadingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage--edit__content grid\">\n  <div class=\"reading-stage-chooser grid grid--wrap grid--center\">\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">1</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">2</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">3</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">4</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">5</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">6</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">7</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">8</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">9</a>\n  </div>\n</div>\n";

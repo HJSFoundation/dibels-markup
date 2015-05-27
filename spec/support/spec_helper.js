@@ -38,6 +38,8 @@ function initializeTestData (){
 
   // localStorage.clear();
 
+  App.loggedInTeacher = {id: 313, classroom_id: 91};
+  
   App.notes = new App.Collections.Notes();
 
   // App.students = new App.Collections.Students({localStorageName: "students"});
