@@ -30,7 +30,7 @@
     color: $text-medium;
 
     td {
-      border-right: 1px solid $gray-med;
+      border-right: 1px solid $gray-dark;
 
       &:last-child {
         border-right: 0;
@@ -100,17 +100,35 @@
   position: relative;
   height: 25px;
   background-color: $black;
+
+  td {
+    height: 25px;
+  }
 }
 
 .student-choice {
   width: 100%;
   background: $black;
   color: $white;
+  cellspacing: 0;
+
+  tbody {
+    font-size: 14px;
+    font-weight: 300;
+
+  }
+
 
   td {
-    border-right: 1px solid $gray-light;
+    border-right: 1px solid $gray-dark;
     height: 25px;
     line-height: 25px;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 0;
+    text-align: left;
+    padding-left: 10px;
+    width: 16.66%;
 
     &:last-child {
       border-right: 0;
