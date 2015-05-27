@@ -1,9 +1,5 @@
-App.Views.EditStudentNotesListView = Backbone.View.extend({
+App.Views.EditStudentNotesList = Backbone.View.extend({
   template: App.templates.editStudentNotesList,
-
-  events: {
-    "click": "handleClick"
-  },
 
   noteViews: [],
 
@@ -18,14 +14,14 @@ App.Views.EditStudentNotesListView = Backbone.View.extend({
   },
 
   render: function() {
-    // var notes = App.notes.where({user_id: App.selectedStudent.get("id")});
-    var notes = _.sortBy(App.notes.models, function(note){
+    var filteredNotes = App.notes.where({user_id: App.selectedStudent.get("id")});
+    var notes = _.sortBy(filteredNotes, function(note){
       return -(new Date(note.get("updated_at")).valueOf());
     });
     this.$el.html(this.template());
     var that = this;
     _.each(notes, function(note){
-      var noteView = new App.Views.EditStudentNoteView({model: note});
+      var noteView = new App.Views.EditStudentNote({model: note});
       that.noteViews.push(noteView);
       $(".js-editStudentNote").append(noteView.render().el);
     });
@@ -33,7 +29,6 @@ App.Views.EditStudentNotesListView = Backbone.View.extend({
   },
 
   makeActive: function(noteView){
-    this.makeInactive();
     noteView.makeActive();
   },
 

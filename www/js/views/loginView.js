@@ -16,6 +16,8 @@ App.Views.Login = Backbone.View.extend({
   },
 
   submit: function(){
+    console.log("login submitted");
+
     var email = $("#email-field").val();
     var password = $("#password-field").val();
     var that = this;

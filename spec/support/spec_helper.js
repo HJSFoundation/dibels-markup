@@ -20,6 +20,11 @@ function appendFixture(nodeType, attrs, content) {
 window.expect = chai.expect;
 
 before(function() {
+  xhr = sinon.useFakeXMLHttpRequest();
+  requests = [];
+  xhr.onCreate = function(xhr) {
+    requests.push(xhr);
+  };
       // this.timeout(10000);
   initializeTestData();
 });
@@ -28,6 +33,7 @@ beforeEach(function() {
   $("body").append("<div id='applicationContainer'/>");
   App.Dispatcher = _.clone(Backbone.Events);
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
+
 });
 
 afterEach(function() {

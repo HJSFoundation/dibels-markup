@@ -1,4 +1,4 @@
-App.Views.EditStudentReadingStageView = Backbone.View.extend({
+App.Views.EditStudentReadingStage = Backbone.View.extend({
   template: App.templates.editStudentReadingStage,
 
   events: {
@@ -11,7 +11,7 @@ App.Views.EditStudentReadingStageView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
-    console.log("EditStudentReadingStageView: should render current stage highlighted");
+    console.log("EditStudentReadingStage: should render current stage highlighted");
    
     return this;
   },
@@ -19,7 +19,7 @@ App.Views.EditStudentReadingStageView = Backbone.View.extend({
   handleReadingStageChoice: function(readingStageChoiceClickEvent){
     var readingStage = parseInt(readingStageChoiceClickEvent.currentTarget.innerText);
     App.selectedStudent.set({reading_stage: readingStage});
-    console.log("EditStudentReadingStageView:handleReadingStageChoice should POST user_reading_stages model")
+    console.log("EditStudentReadingStage:handleReadingStageChoice should POST user_reading_stages model")
   }
 
 });

@@ -1,4 +1,4 @@
-App.Views.EditStudentNotesArticleView = Backbone.View.extend({
+App.Views.EditStudentNotesArticle = Backbone.View.extend({
   template: App.templates.editStudentNotesArticle,
 
   events: {
@@ -25,18 +25,27 @@ App.Views.EditStudentNotesArticleView = Backbone.View.extend({
 
   handleFocus: function(){
     this.content = $(this.$el.selector+" textarea").val();
-    console.log("EditStudentNotesArticleView:handleFocus");
+    console.log("EditStudentNotesArticle:handleFocus");
   },
 
   handleBlur: function(){
     var newContent = $(this.$el.selector+" textarea").val();
-    if(newContent != this.model.get("content"))
-    {
+    if(newContent != this.model.get("content")) {
       this.model.set({content: newContent});
       this.model.set({"updated_at": new Date()});
-      this.model.save();
+      this.model.save()
+        .done(this.addModel)
+        .fail(this.logfailure);
     }
-    console.log("EditStudentNotesArticleView:handleBlur");
+  },
+
+  logfailure: function() {
+    console.log("EditStudentNotesArticle: model saved failed");
+  }, 
+
+  addModel: function() {
+    App.notes.add(this.model);
+    console.log("EditStudentNotesArticle: model successfully saved");
   }
 
 });

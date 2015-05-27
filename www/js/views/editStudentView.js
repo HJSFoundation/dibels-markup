@@ -23,8 +23,8 @@ App.Views.EditStudent = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.$editContainer = $(this.editContainer);
-    this.views["js-editNotes"] = new App.Views.EditStudentNotesView({el: this.editContainer});
-    this.views["js-editReadingStage"] = new App.Views.EditStudentReadingStageView({el: this.editContainer});
+    this.views["js-editNotes"] = new App.Views.EditStudentNotes({el: this.editContainer});
+    this.views["js-editReadingStage"] = new App.Views.EditStudentReadingStage({el: this.editContainer});
     this.makeActive(this.ids[2]);
 
   },

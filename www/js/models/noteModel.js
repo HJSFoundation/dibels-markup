@@ -1,5 +1,7 @@
 App.Models.Note = Backbone.Model.extend({
 
+  urlRoot: App.url+"/notes",
+
   defaults: {
 
     "content": "",

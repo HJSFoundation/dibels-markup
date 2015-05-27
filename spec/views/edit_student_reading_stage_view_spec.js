@@ -1,4 +1,4 @@
-describe('App.Views.EditStudentReadingStageView', function() {
+describe('App.Views.EditStudentReadingStage', function() {
   var subject;
   var xhr;
   var requests;
@@ -10,7 +10,7 @@ describe('App.Views.EditStudentReadingStageView', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Views.EditStudentReadingStageView({el: '.js-editStudentReadingStage'});
+    subject = new App.Views.EditStudentReadingStage({el: '.js-editStudentReadingStage'});
   });
 
   it("has a template", function() {

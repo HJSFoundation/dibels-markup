@@ -1,4 +1,4 @@
-App.Views.EditStudentNoteView = Backbone.View.extend({
+App.Views.EditStudentNote = Backbone.View.extend({
   template: App.templates.editStudentNote,
 
   tagName: "li",
@@ -38,6 +38,7 @@ App.Views.EditStudentNoteView = Backbone.View.extend({
 
   handleClick: function(){
     App.Dispatcher.trigger("editStudentNoteSelected", this);
-  },
+    console.log("EditStudentNote:click")
+  }
 
 });

@@ -1,8 +1,5 @@
-App.Views.EditStudentNotesView = Backbone.View.extend({
+App.Views.EditStudentNotes = Backbone.View.extend({
   template: App.templates.editStudentNotes,
-
-  events: {
-  },
 
   initialize: function() {
     _.bindAll(this);
@@ -25,8 +22,8 @@ App.Views.EditStudentNotesView = Backbone.View.extend({
       "user_id": App.selectedStudent.id
     });
 
-    this.article = new App.Views.EditStudentNotesArticleView({el: ".js-editStudentNotesArticle"});
-    this.list = new App.Views.EditStudentNotesListView({el: ".js-editStudentNotesList"});
+    this.article = new App.Views.EditStudentNotesArticle({el: ".js-editStudentNotesArticle"});
+    this.list = new App.Views.EditStudentNotesList({el: ".js-editStudentNotesList"});
     this.article.render(noteModel);
     this.list.render();
     return this;

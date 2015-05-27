@@ -56,8 +56,8 @@ describe('App.Views.EditStudent', function() {
     });
     it("creates an edit student notes view", function() {
       subject.initialize();
-      expect(subject.views["js-editNotes"]).to.be.an.instanceOf(App.Views.EditStudentNotesView);
-      expect(subject.views["js-editReadingStage"]).to.be.an.instanceOf(App.Views.EditStudentReadingStageView);
+      expect(subject.views["js-editNotes"]).to.be.an.instanceOf(App.Views.EditStudentNotes);
+      expect(subject.views["js-editReadingStage"]).to.be.an.instanceOf(App.Views.EditStudentReadingStage);
     });
     it("#makeActive", function() {
       sinon.spy(subject, "makeActive");
