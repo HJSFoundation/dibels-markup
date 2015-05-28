@@ -47,7 +47,7 @@
   }
 
   &:hover::before,
-  &.st-active::before {
+  &.st-selected::before {
     background: $primary;
     color: black;
     z-index: -10;
