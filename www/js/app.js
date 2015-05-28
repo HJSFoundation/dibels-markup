@@ -27,7 +27,7 @@ var App = {
     },
   },
   url: "http://staging.tutormate.org/api/v1",
-  currentUser: null,
+  loggedInTeacher: null,
   selectedStudent: null,
   selectedActivity: null,
   selectedStimulus: null,

@@ -33,7 +33,6 @@ App.Views.ButtonClear = Backbone.View.extend({
   },
 
   handleClick: function() {
-    console.log("buttonClear clicked");
     App.Dispatcher.trigger("buttonAssessmentClicked","clear");
     return false;
   }

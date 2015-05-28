@@ -19,10 +19,6 @@ describe('App.Views.ButtonFlip', function() {
     _.bindAll.restore();
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
-  });
-
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });

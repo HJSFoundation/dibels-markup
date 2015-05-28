@@ -33,7 +33,6 @@ App.Views.ButtonNeedsWork = Backbone.View.extend({
   },
 
   handleClick: function() {
-    console.log("buttonNeedsWork clicked");
     App.Dispatcher.trigger("buttonAssessmentClicked","needs_work");
     return false;
   }
