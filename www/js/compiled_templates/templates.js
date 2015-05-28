@@ -117,11 +117,11 @@ this["App"]["templates"]["deviceSelect"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["editStudent"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"edit-student container container--overlay\">\n  <button class=\"button button--story-close js-editStudentButtonClose\">\n    <svg class=\"icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n    <svg class=\"icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n  </button>\n\n\n\n  <a href=\"#\" class=\"menu--tab menu--tab--edit-student\">\n    <span class=\"menu--number\">"
+  return "<div class=\"edit-student container container--overlay\">\n  <button class=\"button button--story-close js-editStudentButtonClose\">\n    <svg class=\"icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n    <svg class=\"icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n  </button>\n\n  <a href=\"#\" class=\"menu--tab menu--tab--edit-student\">\n    <span class=\"menu--number\">"
     + alias3(((helper = (helper = helpers.reading_stage || (depth0 != null ? depth0.reading_stage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"reading_stage","hash":{},"data":data}) : helper)))
     + "</span>\n    <span class=\"menu--title\">"
     + alias3(((helper = (helper = helpers.student_shortname || (depth0 != null ? depth0.student_shortname : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"student_shortname","hash":{},"data":data}) : helper)))
-    + "</span>\n    <span class=\"menu__icon icon icon-edit\"></span>\n\n  </a>\n  <div class=\"stage stage--edit\">\n    <menu class=\"stage--edit__menu\">\n      <div class=\"menu--tabs menu--tabs--edit u-text-center grid u-text-center\">\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editReadingStage\">Reading Stage</a>\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editNotes\">Notes</a>\n      </div>\n    </menu>\n    <div class=\"js-editContainer\"></div>\n\n  </div>\n</div>\n";
+    + "</span>\n    <span class=\"menu__icon icon icon-edit\"></span>\n  </a>\n\n  <div class=\"stage stage--edit\">\n    <menu class=\"stage--edit__menu\">\n      <div class=\"menu--tabs menu--tabs--edit u-text-center grid u-text-center\">\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editReadingStage\">Reading Stage</a>\n        <a href=\"#\" class=\"menu--tab grid-cell\" id=\"js-editNotes\">Notes</a>\n      </div>\n    </menu>\n    <div class=\"js-editContainer\"></div>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["editStudentNote"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
@@ -232,9 +232,6 @@ this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">
 },"useData":true});
 this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "  <div class=\"grid-cell js-buttonMastered\"></div>\n  <div class=\"grid-cell js-buttonLearning\"></div>\n  <div class=\"grid-cell js-buttonNeedsWork\"></div>\n  <div class=\"grid-cell js-buttonClear\"></div>\n";
-},"useData":true});
-this["App"]["templates"]["readingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Reading Stage</p>\n</div>";
 },"useData":true});
 this["App"]["templates"]["readingStrategies"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
