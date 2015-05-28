@@ -41,7 +41,6 @@ App.Views.StoryTile = Backbone.View.extend({
   },
 
   handleClick: function() {
-    console.log("StoryTileView.handleClick", "title:", this.title, "skill:", this.storyType);
     App.Dispatcher.trigger("StimulusChangeRequested:" + this.storyType, {skill: this.storyType, id: this.id});
     return false;
   },

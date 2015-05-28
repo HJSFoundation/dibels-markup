@@ -37,7 +37,6 @@ App.Views.ButtonTiles = Backbone.View.extend({
 
   handleClick: function() {
     App.Dispatcher.trigger("activityMenuButtonActiveRequest", this.activity);
-    console.log("button tiles clicked");
     return false;
   }
 });

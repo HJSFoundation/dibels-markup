@@ -49,8 +49,6 @@ App.Views.LeveledTextPage = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
-    console.log("click:LeveledTextPage");
-
     return false;
   },
 

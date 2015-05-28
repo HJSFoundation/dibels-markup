@@ -39,9 +39,6 @@ App.Views.ReadingStrategies = Backbone.View.extend({
     }
     this.state = !this.state;
     $(".js-readingStrategiesToggle").text(stateText+" reading strategies");
-
-    console.log("click:ReadingStrategies");
-
     return false;
   }
 });

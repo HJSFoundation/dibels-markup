@@ -20,6 +20,11 @@ function appendFixture(nodeType, attrs, content) {
 window.expect = chai.expect;
 
 before(function() {
+  xhr = sinon.useFakeXMLHttpRequest();
+  requests = [];
+  xhr.onCreate = function(xhr) {
+    requests.push(xhr);
+  };
       // this.timeout(10000);
   initializeTestData();
 });
@@ -28,6 +33,7 @@ beforeEach(function() {
   $("body").append("<div id='applicationContainer'/>");
   App.Dispatcher = _.clone(Backbone.Events);
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
+
 });
 
 afterEach(function() {
@@ -37,6 +43,10 @@ afterEach(function() {
 function initializeTestData (){
 
   // localStorage.clear();
+
+  App.loggedInTeacher = {id: 313, classroom_id: 91};
+  
+  App.notes = new App.Collections.Notes();
 
   // App.students = new App.Collections.Students({localStorageName: "students"});
   App.roster = new App.Collections.Students();

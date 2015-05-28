@@ -40,9 +40,11 @@
 
       <script type="text/javascript" src="js/models/studentModel.js"></script>
       <script type="text/javascript" src="js/models/stimulusModel.js"></script>
+      <script type="text/javascript" src="js/models/noteModel.js"></script>
 
       <script type="text/javascript" src="js/collections/studentsCollection.js"></script>
       <script type="text/javascript" src="js/collections/stimuliCollection.js"></script>
+      <script type="text/javascript" src="js/collections/notesCollection.js"></script>
 
       <script type="text/javascript" src="js/views/applicationView.js"></script>
       <script type="text/javascript" src="js/views/loginView.js"></script>
@@ -69,6 +71,12 @@
       <script type="text/javascript" src="js/views/menuActivityView.js"></script>
 
       <script type="text/javascript" src="js/views/editStudentView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesArticleView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesListView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNotesView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentNoteView.js"></script>
+      <script type="text/javascript" src="js/views/editStudentReadingStageView.js"></script>
       <script type="text/javascript" src="js/views/matrixStudentSelectorView.js"></script>
       <script type="text/javascript" src="js/views/matrixMenuTabView.js"></script>
       <script type="text/javascript" src="js/views/matrixStudentSelectorTabView.js"></script>
@@ -108,7 +116,7 @@
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
           // App.initialize();
-          this.applicationView = new App.Views.Application();
+          App.applicationView = new App.Views.Application();
         }, false);
       </script>
     </body>

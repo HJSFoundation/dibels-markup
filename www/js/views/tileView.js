@@ -43,11 +43,9 @@ App.Views.Tile = Backbone.View.extend({
     this.model.set("assessment", assessment);
     this.model.save({assessment: assessment});
     this.render();
-    console.log("TileView.setAssessment", "value:", this.model.get("value"), "skill:", this.model.get("skill"));
   },
 
   handleClick: function() {
-    console.log("TileView.handleClick", "value:", this.model.get("value"), "skill:", this.model.get("skill"));
     App.selectedStimulus = this.model;
     App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"), 
       {

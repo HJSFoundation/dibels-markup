@@ -25,7 +25,6 @@ App.Views.MatrixNonStudentSelectorTab = Backbone.View.extend({
   },
 
   handleClick: function(event) {
-    console.log("click tab");
     this.roster = new App.Views.Roster({el: ".js-overlay"});
     return false;
   },

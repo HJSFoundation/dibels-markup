@@ -8,8 +8,8 @@ App.Views.Application = Backbone.View.extend({
   },
 
   sendAuthentication: function (xhr) {
-    var email = App.currentUser.email;
-    var token = App.currentUser.token;
+    var email = App.loggedInTeacher.email;
+    var token = App.loggedInTeacher.token;
     var header= 'Token token="'+token+'", email="'+email+'"';
     xhr.setRequestHeader('Authorization', header);
   },
@@ -18,24 +18,25 @@ App.Views.Application = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
   },
 
-  handleLoggedIn: function() {
-    App.initializeStudentTestData();
-    App.initializeStimuliTestData();
-    this.initializeDeviceSelect();
-  },
-
   // handleLoggedIn: function() {
-  //   this.initializeStudentCollection();
+  //   App.initializeStudentTestData();
+  //   App.initializeStimuliTestData();
   //   this.initializeDeviceSelect();
   // },
 
+  handleLoggedIn: function() {
+    this.initializeStudentCollection();
+  },
+
   initializeStudentCollection: function(){
     $.ajaxSetup({beforeSend:this.sendAuthentication});
+
     localStorage.clear();
     console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
+
     App.roster = new App.Collections.Students();
     App.roster.fetch({
-      success: this.initializeStimuliCollections,
+      success: this.initializeNotesCollection,
       error: this.initializeStudentCollectionFail
      });
   },
@@ -44,7 +45,22 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
+  initializeNotesCollection: function(){
+    $.ajaxSetup({beforeSend:this.sendAuthentication});
+
+    App.notes = new App.Collections.Notes();
+    App.notes.fetch({
+      success: this.initializeStimuliCollections,
+      error: this.initializeNotesCollectionFail
+     });
+  },
+
+  initializeNotesCollectionFail: function(){
+    console.log("initializeNotesCollectionFail");
+  },
+
   initializeStimuliCollections: function(){
+
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
       success: this.initializeDeviceSelect,
@@ -57,9 +73,14 @@ App.Views.Application = Backbone.View.extend({
   },
 
   initializeDeviceSelect: function() {
+    this.loginView.remove();
+    this.stopListening(App.Dispatcher, "loginSuccess");
+    $(App.Config.el).empty();
+    if(this.deviceSelect){
+      this.deviceSelect.remove()
+    }
     this.deviceSelect = new App.Views.DeviceSelect();
     $(App.Config.el).append(this.deviceSelect.render().el);
-    this.loginView.remove();
   }
 
 });
