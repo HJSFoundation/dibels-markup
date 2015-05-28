@@ -4,13 +4,11 @@ App.Views.EditStudent = Backbone.View.extend({
   events: {
     "click .js-editStudentButtonClose": "handleCloseRequest",
     "click #js-editReadingStage": "handleTabRequest",
-    "click #js-editAssignments": "handleTabRequest",
     "click #js-editNotes": "handleTabRequest",
   },
 
   ids: [
     "js-editReadingStage",
-    "js-editAssignments",
     "js-editNotes"
   ],
 
@@ -25,7 +23,7 @@ App.Views.EditStudent = Backbone.View.extend({
     this.$editContainer = $(this.editContainer);
     this.views["js-editNotes"] = new App.Views.EditStudentNotes({el: this.editContainer});
     this.views["js-editReadingStage"] = new App.Views.EditStudentReadingStage({el: this.editContainer});
-    this.makeActive(this.ids[2]);
+    this.makeActive(this.ids[1]);
 
   },
 

@@ -36,9 +36,6 @@ describe('App.Views.EditStudent', function() {
     it("calls handleTabRequest on click js-editReadingStage event", function() {
       expect(subject.events["click #js-editReadingStage"]).to.equal("handleTabRequest");
     });
-    it("calls handleTabRequest on click js-editAssignments event", function() {
-      expect(subject.events["click #js-editAssignments"]).to.equal("handleTabRequest");
-    });
     it("calls handleTabRequest on click js-editNotes event", function() {
       expect(subject.events["click #js-editNotes"]).to.equal("handleTabRequest");
     });
@@ -100,7 +97,7 @@ describe('App.Views.EditStudent', function() {
       for(var i=0;i< subject.ids.length; i=i+1){
         expect($("#" + subject.ids[i])).not.to.have.class("st-selected");
       }
-    }); 
+    });
   });
 
   it("#handleTabRequest", function() {
