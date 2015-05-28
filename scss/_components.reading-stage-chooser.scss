@@ -46,7 +46,8 @@
     height: 140px;
   }
 
-  &:hover::before {
+  &:hover::before,
+  &.st-selected::before {
     background: $primary;
     color: black;
     z-index: -10;

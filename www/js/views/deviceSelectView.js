@@ -7,8 +7,8 @@ App.Views.DeviceSelect = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    if(this.groupManagement){
-      this.groupManagement.remove();
+    if(this.conferenceManagement){
+      this.conferenceManagement.remove();
     }
     this.render();
   },
@@ -19,8 +19,8 @@ App.Views.DeviceSelect = Backbone.View.extend({
   },
 
   handleClick: function() {
-    this.groupManagement = new App.Views.GroupManagement();
-    $(App.Config.el).append(this.groupManagement.render().el);
+    this.conferenceManagement = new App.Views.ConferenceManagement();
+    $(App.Config.el).append(this.conferenceManagement.render().el);
     this.remove();
     console.log("click:App.Views.DeviceSelect")
 
