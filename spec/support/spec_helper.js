@@ -45,7 +45,7 @@ function initializeTestData (){
   // localStorage.clear();
 
   App.loggedInTeacher = {id: 313, classroom_id: 91};
-  
+
   App.notes = new App.Collections.Notes();
 
   // App.students = new App.Collections.Students({localStorageName: "students"});
@@ -66,6 +66,43 @@ function initializeTestData (){
 
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
+
+  App.conferences = new App.Collections.Conferences();
+  App.conferences.add({
+    "id": 76,
+    "classroom_id": 91,
+    "name": "Clark Kempt",
+    "conference_type": "user",
+    "weight": 5,
+    "number_per_week": 3,
+    "last_conference_date": new Date(),
+    "test": false,
+    "archived": false,
+    "updated_at": "2015-05-28T20:50:29.060Z",
+    "created_at": "2015-05-28T20:50:29.060Z",
+    "user_ids": [
+      2
+    ]}
+  );
+
+  App.conferences.add({
+    "id": 97,
+    "classroom_id": 91,
+    "name": "Ledner, Schuppe and Jacobi",
+    "conference_type": "group",
+    "weight": 6,
+    "number_per_week": 2,
+    "last_conference_date": new Date(),
+    "test": false,
+    "archived": false,
+    "updated_at": "2015-05-28T20:50:29.535Z",
+    "created_at": "2015-05-28T20:50:29.535Z",
+    "user_ids": [
+    1,
+    3
+    ]
+  });
+
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
 
   // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});

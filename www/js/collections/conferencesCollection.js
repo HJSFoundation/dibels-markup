@@ -5,6 +5,8 @@ App.Collections.Conferences = Backbone.Collection.extend({
 
   local: App.Config.storageLocalState,
 
+  comparator: "name",
+
   parse: function(resp, xhr) {
     return resp.conferences;
   }

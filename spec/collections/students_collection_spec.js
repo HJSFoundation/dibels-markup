@@ -1,4 +1,4 @@
-describe('App.Collections.Students', function() {
+describe('App.Collections.Conferences', function() {
   var subject;
   var xhr;
   var requests;
@@ -10,15 +10,15 @@ describe('App.Collections.Students', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Collections.Students();
+    subject = new App.Collections.Conferences();
   });
 
-  it("has a student model", function() {
-    expect(new subject.model()).to.be.an.instanceof(App.Models.Student);
+  it("has a conference model", function() {
+    expect(new subject.model()).to.be.an.instanceof(App.Models.Conference);
   });
 
   xit("#parse", function() {
-    
+
   });
 
 });

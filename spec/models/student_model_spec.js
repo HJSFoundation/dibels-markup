@@ -10,12 +10,16 @@ describe('App.Models.Student', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Student({first_name: "Bernie", last_name: "Bivins"});
+    subject = new App.Models.Student({first_name: "Bernie", last_name: "Bivins", reading_stage: 3});
   });
 
   describe("methods", function() {
     it("#shortName", function() {
       expect(subject.shortName()).to.equal("BERNIE B.");
+    });
+
+    it("#readingStage", function() {
+      expect(subject.readingStage()).to.equal(3);
     });
   });
 });

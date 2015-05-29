@@ -69,8 +69,8 @@ App.Views.Application = Backbone.View.extend({
      });
   },
 
-  initializeNotesCollectionFail: function(){
-    console.log("initializeNotesCollectionFail");
+  initializeConferencesCollectionFail: function(){
+    console.log("initializeConferencesCollectionFail");
   },
 
   initializeStimuliCollections: function(){

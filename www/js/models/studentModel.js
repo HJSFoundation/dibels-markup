@@ -7,6 +7,9 @@ App.Models.Student = Backbone.Model.extend({
 
   local: App.Config.storageLocalState,
 
+  readingStage: function(){
+    return this.get("reading_stage");
+  },
 
   shortName: function() {
     return (this.get("first_name")+" "+this.get("last_name").charAt(0)+".").toUpperCase();

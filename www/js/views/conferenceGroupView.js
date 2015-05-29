@@ -1,16 +1,17 @@
-App.Views.ConferenceStudent = Backbone.View.extend({
-  template: App.templates.conferenceStudent,
+App.Views.ConferenceGroup = Backbone.View.extend({
+  template: App.templates.conferenceGroup,
 
   tagName: "tr",
   className: "student-row--group",
 
   events: {
-    "click .js-startSession": "handleStartSession"
+    "click .js-startSession": "handleStartSession",
+    "click .js-studentGroup": "handleGroupDropdown"
   },
 
-  initialize: function() {
+  initialize: function(options) {
     _.bindAll(this);
-    this.studentModel = App.roster.where({id: this.model.get("user_ids")[0]})[0];
+    this.students = options.students;
   },
 
   render: function() {
@@ -21,25 +22,23 @@ App.Views.ConferenceStudent = Backbone.View.extend({
   templateJSON: function() {
     return {
 
-      shortName: this.studentModel.shortName(),
-      reading_stage: this.studentModel.get("reading_stage"),
-      daysOnCurrentReadingStage: this.daysOnCurrentReadingStage(),
+      name: this.model.get("name"),
       daysSinceLastSession: this.daysSinceLastSession(),
       number_per_week: this.model.get("number_per_week")
     };
-  },
-
-  daysOnCurrentReadingStage: function(){
-    return "docrs";
   },
 
   daysSinceLastSession: function(){
     return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000* 3600 *24));
   },
 
+  handleGroupDropdown: function(){
+    App.Dispatcher.trigger("conferenceGroupDropdownRequested:"+this.model.get("id"));
+  },
+
   handleStartSession: function() {
-    App.selectedStudent = this.studentModel;
-    App.students.add(this.studentModel);
+    App.students.add(this.students);
+    App.selectedStudent = App.students.at(0);
     App.Dispatcher.trigger("startSessionRequested");
     return false;
   }
