@@ -4,7 +4,7 @@ App.Views.Application = Backbone.View.extend({
     this.loginView = new App.Views.Login();
     $(App.Config.el).append(this.loginView.render().el);
 
-    this.listen(); 
+    this.listen();
   },
 
   sendAuthentication: function (xhr) {
@@ -50,8 +50,22 @@ App.Views.Application = Backbone.View.extend({
 
     App.notes = new App.Collections.Notes();
     App.notes.fetch({
-      success: this.initializeStimuliCollections,
+      success: this.initializeConferencesCollection,
       error: this.initializeNotesCollectionFail
+     });
+  },
+
+  initializeNotesCollectionFail: function(){
+    console.log("initializeNotesCollectionFail");
+  },
+
+  initializeConferencesCollection: function(){
+    $.ajaxSetup({beforeSend:this.sendAuthentication});
+
+    App.conferences = new App.Collections.Conferences();
+    App.conferences.fetch({
+      success: this.initializeStimuliCollections,
+      error: this.initializeConferencesCollectionFail
      });
   },
 
