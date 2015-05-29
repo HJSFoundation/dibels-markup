@@ -14,7 +14,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
     var testReadingStage = [5,4,7,9,2,3];
     App.students = new App.Collections.Students();
-    for(var i=0; (i < App.Config.maxStudentCount) && (i<App.roster.length); i = i+1){
+    for(var i=0; (i < 4) && (i<App.roster.length); i = i+1){
       App.students.add(App.roster.at(i));
 
       App.students.at(i).set("reading_stage",testReadingStage[i]);

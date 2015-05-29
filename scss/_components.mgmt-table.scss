@@ -5,7 +5,6 @@
   text-transform: uppercase;
   background: $white;
 
-
   .table-column {
     width: 60px;
     text-align: center;
@@ -24,10 +23,10 @@
       width: 10px!important;
       background: url(../img/spacer.png);
     }
-  thead {
-    font-size: 8px;
-    background-color: $black;
-    color: $text-medium;
+    thead {
+      font-size: 8px;
+      background-color: $black;
+      color: $text-medium;
 
     td {
       border-right: 1px solid $gray-dark;
@@ -46,9 +45,6 @@
     font-size: 20px;
     font-weight: 600;
   }
-
-
-
 
   td {
     border: 1px solid $gray-light;
@@ -93,6 +89,17 @@
   .session-cell--start {
     background: $orange;
     color: white;
+
+    &.session-cell--start--student {
+      font-size: 14px;
+    }
+
+    .icon-add {
+      width: 25px;
+      fill: white;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
   }
 }
 
@@ -115,9 +122,7 @@
   tbody {
     font-size: 14px;
     font-weight: 300;
-
   }
-
 
   td {
     border-right: 1px solid $gray-dark;
