@@ -23,7 +23,7 @@ describe('App.Views.ConferenceGroupDropdown', function() {
   });
 
   describe("#initialize", function() {
-    xit("sets the conference id", function() {
+    it("sets the conference id", function() {
       expect(subject.conferenceId).to.equal(97);
     });
 
@@ -31,9 +31,9 @@ describe('App.Views.ConferenceGroupDropdown', function() {
       expect(subject.students[0]).to.be.an.instanceOf(App.Models.Student);
     });
 
-    xit("calls listen", function() {
+    it("calls listen", function() {
       sinon.spy(subject, "listen");
-      subject.initialize();
+      subject.initialize({conferenceId: 97, students: App.roster.models});
       expect(subject.listen).to.have.been.called;
     });
   });
