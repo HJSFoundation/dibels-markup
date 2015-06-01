@@ -58,7 +58,6 @@ function initializeTestData (){
   App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
   App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 1});
 
-
   App.students = new App.Collections.Students();
   for(var i=0; i < App.Config.maxStudentCount; i = i+1){
     App.students.add(App.roster.at(i));
@@ -66,6 +65,8 @@ function initializeTestData (){
 
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
+
+  App.roster.create({id: 18, first_name: "Some", last_name: "Guy", reading_stage: 5});
 
   App.conferences = new App.Collections.Conferences();
   App.conferences.add({
@@ -82,6 +83,23 @@ function initializeTestData (){
     "created_at": "2015-05-28T20:50:29.060Z",
     "user_ids": [
       2
+    ]}
+  );
+
+  App.conferences.add({
+    "id": 43,
+    "classroom_id": 91,
+    "name": "Some Guy",
+    "conference_type": "user",
+    "weight": 5,
+    "number_per_week": 3,
+    "last_conference_date": new Date(),
+    "test": false,
+    "archived": false,
+    "updated_at": "2015-05-28T20:50:29.060Z",
+    "created_at": "2015-05-28T20:50:29.060Z",
+    "user_ids": [
+      18
     ]}
   );
 

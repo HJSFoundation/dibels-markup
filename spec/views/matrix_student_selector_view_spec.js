@@ -20,10 +20,6 @@ describe('App.Views.MatrixStudentSelector', function() {
     _.bindAll.restore();
   });
 
-  it("has a reference to the element", function() {
-    expect(subject.$el).to.exist;
-  });
-
   it("has a template", function() {
     expect(subject.template()).to.exist;
   });
@@ -46,7 +42,7 @@ describe('App.Views.MatrixStudentSelector', function() {
       App.students = new App.Collections.Students();
       App.students.add(App.selectedStudent);
       subject.initialize();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", 
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest",
         {
           current: subject.tabs[App.selectedStudent.get("id")].model,
           previous: null
@@ -96,6 +92,25 @@ describe('App.Views.MatrixStudentSelector', function() {
         var event_payload = {current: {id:1}};
         subject.handleMatrixStudentSelectorTabActiveRequest(event_payload);
         expect(subject.tabs[0].makeInactive).to.have.been.called;
+      });
+    });
+
+    describe("#handleAddStudentRequested", function() {
+      xit("adds a selected student to the tabs object", function() { //TODO - figure out why tabs is not clearing on initialize.CUrrently we need to clear it.
+        subject.tabs = {};
+        App.students.add({id:1, first_name:"cool", last_name:"P"});
+        subject.render();
+        expect(subject.tabs["1"]).to.be.an.instanceOf(App.Views.MatrixStudentSelectorTab);
+        expect(subject.tabs["2"]).not.to.be.an.instanceOf(App.Views.MatrixStudentSelectorTab);
+        App.students.add({id:2, first_name:"joe", last_name:"F"});
+        subject.handleAddStudentRequested();
+        expect(subject.tabs["2"]).to.be.an.instanceOf(App.Views.MatrixStudentSelectorTab);
+      });
+
+      it("calls render", function() {
+        sinon.spy(subject, "render");
+        subject.handleAddStudentRequested();
+        expect(subject.render).to.have.been.called;
       });
     });
   });

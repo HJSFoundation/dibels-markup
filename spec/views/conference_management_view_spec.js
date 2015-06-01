@@ -73,14 +73,7 @@ describe('App.Views.ConferenceManagement', function() {
   });
 
   describe("#handleStartSessionRequested", function() {
-
     beforeEach(function() {
-      App.roster = new App.Collections.Students();
-      App.roster.create({id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7});
-      App.roster.create({id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3});
-      App.roster.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
-
-
       App.students = new App.Collections.Students();
       App.students.add(App.roster.at(0));
       App.students.add(App.roster.at(1));
@@ -99,6 +92,5 @@ describe('App.Views.ConferenceManagement', function() {
       subject.handleStartSessionRequested();
       expect($("container--management container").length).to.equal(0);
     });
-
   });
 });
