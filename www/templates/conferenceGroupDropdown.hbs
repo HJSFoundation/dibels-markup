@@ -1,14 +1,11 @@
-<tr class="session-row--dropdown js-groupDropdown">
+{{!-- <tr class="session-row--dropdown js-groupDropdown "> --}}
   <td colspan="12">
     <table class="student-choice" cellspacing="0">
     <tr>
-      <td colspan="4">Bruce B. • RS1</td>
-      <td colspan="4">Pietro M. • RS1</td>
-      <td colspan="4">Wanda M. • RS1</td>
-      <td colspan="4">Wendy P. • RS1</td>
-      <td colspan="4">Sandra S. • RS2</td>
-      <td colspan="4">Empty</td>
+      {{#each students}}
+        <td colspan="4">{{this.shortName}} • RS{{this.readingStage}}</td>
+      {{/each}}
     </tr>
   </table>
   </td>
-</tr>
+{{!-- </tr> --}}

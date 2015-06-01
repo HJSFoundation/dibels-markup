@@ -45,7 +45,21 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
+  initializeStudentTestReadingStages: function(){
+    var readingStage=1;
+    _.each(App.roster.models, function(student){
+      student.set({"reading_stage": readingStage});
+      readingStage=readingStage+1;
+      if(readingStage > App.Config.maxStageCount){
+        readingStage = 1;
+      }
+    },this)
+  },
+
   initializeNotesCollection: function(){
+
+    this.initializeStudentTestReadingStages();
+
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
     App.notes = new App.Collections.Notes();
@@ -69,15 +83,15 @@ App.Views.Application = Backbone.View.extend({
      });
   },
 
-  initializeNotesCollectionFail: function(){
-    console.log("initializeNotesCollectionFail");
+  initializeConferencesCollectionFail: function(){
+    console.log("initializeConferencesCollectionFail");
   },
 
   initializeStimuliCollections: function(){
 
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
-      success: this.initializeDeviceSelect,
+      success: this.initializeConferenceManagement,
       error: this.initializeStimuliCollectionFail
      });
   },
@@ -86,15 +100,15 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
-  initializeDeviceSelect: function() {
+  initializeConferenceManagement: function() {
     this.loginView.remove();
     this.stopListening(App.Dispatcher, "loginSuccess");
     $(App.Config.el).empty();
-    if(this.deviceSelect){
-      this.deviceSelect.remove()
+    if(this.conferenceManagement){
+      this.conferenceManagement.remove()
     }
-    this.deviceSelect = new App.Views.DeviceSelect();
-    $(App.Config.el).append(this.deviceSelect.render().el);
+    this.conferenceManagement = new App.Views.ConferenceManagement();
+    $(App.Config.el).append(this.conferenceManagement.render().el);
   }
 
 });

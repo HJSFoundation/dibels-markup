@@ -29,24 +29,24 @@ describe('App.Views.Application', function() {
   });
 
   xit("#initializeStudentCollection", function() {
-    
+
   });
 
   xit("#initializeStudentCollectionFail", function() {
-    
+
   });
 
   xit("#initializeStimuliCollections", function() {
-    
+
   });
 
   xit("#initializeStimuliCollectionFail", function() {
-    
+
   });
 
-  it("initializeDeviceSelect", function() {
-    subject.initializeDeviceSelect();
-    expect(subject.deviceSelect).to.be.an.instanceOf(App.Views.DeviceSelect);
+  it("initializeConferenceManagement", function() {
+    subject.initializeConferenceManagement();
+    expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
     expect($(App.Config.el)).not.to.be.empty;
     expect($("#loginContainer")).not.to.exist;
   });
