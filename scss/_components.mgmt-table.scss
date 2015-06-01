@@ -17,6 +17,8 @@
       width: 420px;
       text-align: left;
     }
+
+
   }
 
   .session-cell--spacer {
@@ -91,14 +93,14 @@
     color: white;
 
     &.session-cell--start--student {
-      font-size: 14px;
+      font-size: 11px;
     }
 
     .icon-add {
-      width: 25px;
+      width: 20px;
       fill: white;
       vertical-align: middle;
-      margin-right: 10px;
+      margin-right: 3px;
     }
   }
 }
