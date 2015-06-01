@@ -45,7 +45,21 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
+  initializeStudentTestReadingStages: function(){
+    var readingStage=1;
+    _.each(App.roster.models, function(student){
+      student.set({"reading_stage": readingStage});
+      readingStage=readingStage+1;
+      if(readingStage > App.Config.maxStageCount){
+        readingStage = 1;
+      }
+    },this)
+  },
+
   initializeNotesCollection: function(){
+
+    this.initializeStudentTestReadingStages();
+
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
     App.notes = new App.Collections.Notes();
