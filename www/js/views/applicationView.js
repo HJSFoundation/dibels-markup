@@ -77,7 +77,7 @@ App.Views.Application = Backbone.View.extend({
 
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
-      success: this.initializeDeviceSelect,
+      success: this.initializeConferenceManagement,
       error: this.initializeStimuliCollectionFail
      });
   },
@@ -86,15 +86,15 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
-  initializeDeviceSelect: function() {
+  initializeConferenceManagement: function() {
     this.loginView.remove();
     this.stopListening(App.Dispatcher, "loginSuccess");
     $(App.Config.el).empty();
-    if(this.deviceSelect){
-      this.deviceSelect.remove()
+    if(this.conferenceManagement){
+      this.conferenceManagement.remove()
     }
-    this.deviceSelect = new App.Views.DeviceSelect();
-    $(App.Config.el).append(this.deviceSelect.render().el);
+    this.conferenceManagement = new App.Views.ConferenceManagement();
+    $(App.Config.el).append(this.conferenceManagement.render().el);
   }
 
 });
