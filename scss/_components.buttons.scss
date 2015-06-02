@@ -89,6 +89,14 @@ button,
  }
 }
 
+.button--clear {
+  .icon-clear {
+    width: 34px;
+    margin: 10px auto 13px;
+    fill: $gray-med;
+  }
+}
+
 .button--timer {
   @extend %button;
 
