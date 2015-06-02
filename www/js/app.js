@@ -34,6 +34,8 @@ var App = {
   selectedSkill: null,
 
   ActivityStimuli : {
+    consonants: ["b","c","d","f","g","h","j","k","l","m","n","p","r","s","t","v","w"],
+
     wordsByStage: {
       2: { // 17 consonants
         b: ["bat", "bet", "bit", "but"],
@@ -41,15 +43,15 @@ var App = {
         d: ["dot", "dog", "dip"],
         f: ["fat", "fit", "fun"],
         g: ["get", "got", "gap"],
-        h: ["hat", "hit", "hot", "hut"], 
+        h: ["hat", "hit", "hot", "hut"],
         j: ["jet", "jug", "jam"],
         k: ["kit", "kin", "kid"],
         l: ["let", "lot", "lit"],
         m: ["mat", "met", "man"],
-        n: ["net", "not", "nut"], 
-        p: ["pat", "pet", "pit", "pot"],  
+        n: ["net", "not", "nut"],
+        p: ["pat", "pet", "pit", "pot"],
         r: ["rat", "rap", "rot"],
-        s: ["sat", "set", "sit"], 
+        s: ["sat", "set", "sit"],
         t: ["tot", "tan", "tin"],
         v: ["vat", "vet", "van"],
         w: ["wet", "wit", "win"]
@@ -86,10 +88,10 @@ var App = {
         um: ["bum","gum","hum"],
         un: ["bun","fun","run","sun"],
         up: ["cup","pup"],
-        ut: ["but","cut","gut","hut","nut","rut"]     
+        ut: ["but","cut","gut","hut","nut","rut"]
       },
       5: {
-        rimes: 
+        rimes:
         {
           ape: ["cape","drape","grape","tape"],
           ate: ["ate","date","fate","gate","hate","late","plate","skate","state","nate"],
@@ -107,7 +109,7 @@ var App = {
           une: ["prune","tune"],
           ute: ["cute","flute","mute","lute"]
         },
-        onsets: 
+        onsets:
         {
           bl: ["blade","blame","bled","blot"],
           br: ["brat","brim","bride"],

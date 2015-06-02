@@ -14,6 +14,7 @@ App.Views.Stage = Backbone.View.extend({
     this.stageViews.onsetRimesWords = new App.Views.StageStimulusOnsetRimesWords({ el: this.stageStimulusEl});
     this.stageViews.sightWordsWords= new App.Views.StageStimulusSightWordsWords({ el: this.stageStimulusEl});
     this.stageViews.phrases = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
+    this.stageViews.tiles = new App.Views.StageStimulusTiles({ el: this.stageStimulusEl});
     this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
     this.leveledTextPageView = new App.Views.LeveledTextPage({ el: ".js-overlay"});
 
@@ -73,6 +74,9 @@ App.Views.Stage = Backbone.View.extend({
         break;
       case "phrases":
         this.stageViews.phrases.render(stimulus_object);
+        break;
+      case "tiles":
+        this.stageViews.tiles.render(stimulus_object);
         break;
     }
   },

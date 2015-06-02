@@ -327,8 +327,22 @@ this["App"]["templates"]["stageStimulusSightWordsWords"] = Handlebars.template({
     + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n</div>";
 },"useData":true});
-this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage__stimulus stage__stimulus--tiles stage__stimulus--tiles--reverse grid\">\n  <div class=\"stage__stimulus--onsets-rimes grid-cell grid grid--space-between grid--center\">\n    <div class=\"stimulus__tile-column stimulus__tile-column--onset grid-cell animated slideInLeft u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">b</li>\n      </ul>\n    </div>\n    <div class=\"stimulus__tile-column stimulus__tile-column--rime grid-cell animated slideInDown u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">ad</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stage__stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stage__stimulus--tile-choices__wrapper stage__stimulus--tile-choices__wrapper\">\n      <li class=\"tile-choice\">an</li>\n      <li class=\"tile-choice\">at</li>\n      <li class=\"tile-choice\">ar</li>\n      <li class=\"tile-choice\">ag</li>\n      <li class=\"tile-choice\">it</li>\n      <li class=\"tile-choice\">ap</li>\n      <li class=\"tile-choice\">af</li>\n      <li class=\"tile-choice\">ah</li>\n      <li class=\"tile-choice\">am</li>\n      <li class=\"tile-choice\">and</li>\n      <li class=\"tile-choice\">anf</li>\n      <li class=\"tile-choice\">amf</li>\n      <li class=\"tile-choice\">all</li>\n      <li class=\"tile-choice\">alt</li>\n    </ul>\n  </div>\n</div>\n";
+this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "        <li class=\"tile-choice\">"
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + "</li>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"stage__stimulus stage__stimulus--tiles "
+    + alias3(((helper = (helper = helpers.subSkillClass || (depth0 != null ? depth0.subSkillClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"subSkillClass","hash":{},"data":data}) : helper)))
+    + " grid\">\n\n <div class=\"stage__stimulus--onsets-rimes grid-cell grid grid--space-between grid--center\">\n    <div class=\"stimulus__tile-column stimulus__tile-column--onset grid-cell animated slideInLeft u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
+    + alias3(((helper = (helper = helpers.onset || (depth0 != null ? depth0.onset : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"onset","hash":{},"data":data}) : helper)))
+    + "</li>\n      </ul>\n    </div>\n    <div class=\"stimulus__tile-column stimulus__tile-column--rime grid-cell animated slideInDown u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
+    + alias3(((helper = (helper = helpers.rime || (depth0 != null ? depth0.rime : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"rime","hash":{},"data":data}) : helper)))
+    + "</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stage__stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stage__stimulus--tile-choices__wrapper stage__stimulus--tile-choices__wrapper\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.choices : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    </ul>\n  </div>\n</div>\n\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus--whiteboard\">\n  <span>whiteboard</span>\n</div>";
