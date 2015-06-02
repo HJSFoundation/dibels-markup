@@ -37,7 +37,7 @@ App.Views.StageStoryPage = Backbone.View.extend({
     }
 
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
-    this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({el: ".js-storyButtonCloseStory"});
+    this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({el: ".js-storyButtonCloseStory", template: App.templates.buttonCloseStory});
   },
 
   templateJSON: function(){
