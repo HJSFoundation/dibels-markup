@@ -1,5 +1,5 @@
 App.Views.ButtonClear = Backbone.View.extend({
-  template: App.templates.buttonLearning,
+  // template: App.templates.buttonLearning,
 
   selectedClass: "",
 
