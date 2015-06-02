@@ -44,7 +44,7 @@ describe('App.Views.MatrixNonStudentSelectorTab', function() {
 
   it("#handleClick", function() {
     subject.handleClick();
-    expect(subject.roster).to.be.an.instanceOf(App.Views.Roster);
+    expect(subject.conferenceManagementSingle).to.be.an.instanceOf(App.Views.ConferenceManagementSingle);
   });
 
 });

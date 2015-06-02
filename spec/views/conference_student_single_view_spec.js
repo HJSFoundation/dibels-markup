@@ -1,4 +1,4 @@
-describe('App.Views.ConferenceStudent', function() {
+describe('App.Views.ConferenceStudentSingle', function() {
   var subject;
   var xhr;
   var requests;
@@ -11,7 +11,7 @@ describe('App.Views.ConferenceStudent', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceStudent({el: '#applicationContainer', model: App.conferences.at(0)});
+    subject = new App.Views.ConferenceStudentSingle({el: '#applicationContainer', model: App.conferences.at(0)});
   });
 
   afterEach(function() {
@@ -27,7 +27,7 @@ describe('App.Views.ConferenceStudent', function() {
   });
 
   it("#events", function() {
-    expect(subject.events["click .js-startSession"]).to.equal("handleStartSession");
+    expect(subject.events["click .js-addStudent"]).to.equal("handleAddStudent");
   });
 
   it("#renders", function() {
@@ -67,22 +67,22 @@ describe('App.Views.ConferenceStudent', function() {
     });
   });
 
-  describe("#handleStartSession", function() {
+  describe("#handleAddStudent", function() {
     it("sets the selected student", function() {
-      subject.handleStartSession()
+      subject.handleAddStudent()
       expect(App.selectedStudent).to.equal(subject.studentModel);
     });
 
     it("adds the student model to App.students", function() {
       App.students = new App.Collections.Students();
-      subject.handleStartSession()
+      subject.handleAddStudent()
       expect(App.students.length).to.equal(1);
     });
 
-    it("triggers startSessionRequested", function() {
+    it("triggers addStudentRequested", function() {
       sinon.spy(App.Dispatcher, "trigger");
-      subject.handleStartSession();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("startSessionRequested");
+      subject.handleAddStudent();
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("addStudentRequested");
       App.Dispatcher.trigger.restore();
     });
 

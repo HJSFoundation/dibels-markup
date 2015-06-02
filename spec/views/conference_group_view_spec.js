@@ -11,7 +11,7 @@ describe('App.Views.ConferenceGroup', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceGroup({el: '#applicationContainer', model: App.conferences.at(1), students: App.roster.models});
+    subject = new App.Views.ConferenceGroup({el: '#applicationContainer', model: App.conferences.at(1), students: App.roster.slice(0, 6)});
   });
 
   afterEach(function() {

@@ -53,7 +53,6 @@ describe('App.Views.ConferenceGroupDropdown', function() {
     describe("#handleGroupDropdown", function() {
       it("adds  or removes a hidden class", function() {
         subject.render();
-        // debugger
         expect(subject.el.className).to.contain("st-hidden");
         subject.handleGroupDropdown();
         expect(subject.el.className).not.to.contain("st-hidden");

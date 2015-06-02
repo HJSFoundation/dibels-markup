@@ -1,11 +1,11 @@
-App.Views.ConferenceStudent = Backbone.View.extend({
-  template: App.templates.conferenceStudent,
+App.Views.ConferenceStudentSingle = Backbone.View.extend({
+  template: App.templates.conferenceStudentSingle,
 
   tagName: "tr",
   className: "student-row--group",
 
   events: {
-    "click .js-startSession": "handleStartSession"
+    "click .js-addStudent": "handleAddStudent"
   },
 
   initialize: function() {
@@ -37,10 +37,10 @@ App.Views.ConferenceStudent = Backbone.View.extend({
     return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000* 3600 *24));
   },
 
-  handleStartSession: function() {
+  handleAddStudent: function() {
     App.selectedStudent = this.studentModel;
     App.students.add(this.studentModel);
-    App.Dispatcher.trigger("startSessionRequested");
+    App.Dispatcher.trigger("addStudentRequested");
     return false;
   }
 });

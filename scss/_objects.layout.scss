@@ -67,4 +67,8 @@ body {
     width: 100%;
     z-index: 100;
   }
+
+  &.container--management {
+    overflow: auto;
+  }
 }

@@ -5,4 +5,3 @@ node_modules
 www/css/index.css
 platforms/*
 www/img/stories/**/*.jpg
-www/js/compiled_templates/templates.js
