@@ -45,7 +45,7 @@ describe('App.Views.ConferenceStudentSingle', function() {
     });
 
     it("sets the daysOnCurrentReadingStage", function() {
-      expect(subject.templateJSON().daysOnCurrentReadingStage).to.equal("docrs");
+      expect(subject.templateJSON().daysOnCurrentReadingStage).to.be.a("number");
     });
 
     it("sets the daysSinceLastSession", function() {

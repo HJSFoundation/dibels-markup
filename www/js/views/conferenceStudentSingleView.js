@@ -30,7 +30,7 @@ App.Views.ConferenceStudentSingle = Backbone.View.extend({
   },
 
   daysOnCurrentReadingStage: function(){
-    return "docrs";
+    return this.studentModel.daysOnCurrentReadingStage();
   },
 
   daysSinceLastSession: function(){

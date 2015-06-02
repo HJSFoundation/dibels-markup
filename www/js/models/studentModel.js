@@ -13,5 +13,14 @@ App.Models.Student = Backbone.Model.extend({
 
   shortName: function() {
     return (this.get("first_name")+" "+this.get("last_name").charAt(0)+".").toUpperCase();
+  },
+
+  daysOnCurrentReadingStage: function(){
+    var updatedDate = this.get("reading_stage_updated_at");
+
+    updatedDate = (updatedDate?updatedDate:new Date());
+
+    return Math.ceil((new Date().valueOf() - new Date(updatedDate).valueOf()) / (1000* 3600 *24));
+
   }
 });
