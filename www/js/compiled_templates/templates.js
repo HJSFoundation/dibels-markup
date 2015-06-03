@@ -340,7 +340,7 @@ this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"1":functi
     + alias3(((helper = (helper = helpers.onset || (depth0 != null ? depth0.onset : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"onset","hash":{},"data":data}) : helper)))
     + "</li>\n      </ul>\n    </div>\n    <div class=\"stimulus__tile-column stimulus__tile-column--rime grid-cell animated slideInDown u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
     + alias3(((helper = (helper = helpers.rime || (depth0 != null ? depth0.rime : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"rime","hash":{},"data":data}) : helper)))
-    + "</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stage__stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stage__stimulus--tile-choices__wrapper stage__stimulus--tile-choices__wrapper\">\n"
+    + "</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stage__stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stage__stimulus--tile-choices__wrapper stage__stimulus--tile-choices__wrapper js-list\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.choices : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </ul>\n  </div>\n</div>\n\n";
 },"useData":true});

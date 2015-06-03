@@ -57,38 +57,42 @@ var App = {
         w: ["wet", "wit", "win"]
       },
       3: {
-        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
-        et: ["bet","get","jet","let","met","net","pet","set","wet"],
-        it: ["bit","fit","kit","pit","sit"],
-        ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"]
+        rimes: {
+          at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+          et: ["bet","get","jet","let","met","net","pet","set","wet"],
+          it: ["bit","fit","kit","pit","sit"],
+          ot: ["dot","hot","lot","not","tot"],
+          ut: ["but","cut","nut","hut"]
+        }
       },
       4: {
-        ad: ["bad","dad","mad","pad","sad"],
-        am: ["dam","ham","jam"],
-        an: ["ban","can","fan","man","pan","ran","tan","van"],
-        ap: ["cap","lap","map","nap","rap","tap","zap"],
-        at: ["cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"],
-        ed: ["bed","fed","led","red"],
-        em: ["gem","hem"],
-        en: ["den","hen","men","pen","ten"],
-        ep: ["pep"],
-        et: ["bet","get","jet","let","met","net","pet","set","vet","wet"],
-        id: ["kid","bid","hid","did"],
-        im: ["dim","him","rim"],
-        in: ["bin","fin","pin","tin","win"],
-        ip: ["dip","hip","lip","rip","tip","zip"],
-        it: ["bit","fit","kit","lit","pit","sit"],
-        od: ["nod","rod","cod"],
-        om: ["mom","pom"],
-        on: ["won","ton","son"],
-        op: ["hop","mop","pop","top"],
-        ot: ["cot","dot","got","hot","lot","not","pot","rot","tot"],
-        ud: ["mud","bud","cud"],
-        um: ["bum","gum","hum"],
-        un: ["bun","fun","run","sun"],
-        up: ["cup","pup"],
-        ut: ["but","cut","gut","hut","nut","rut"]
+        rimes:{
+          ad: ["bad","dad","mad","pad","sad"],
+          am: ["dam","ham","jam"],
+          an: ["ban","can","fan","man","pan","ran","tan","van"],
+          ap: ["cap","lap","map","nap","rap","tap","zap"],
+          at: ["cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"],
+          ed: ["bed","fed","led","red"],
+          em: ["gem","hem"],
+          en: ["den","hen","men","pen","ten"],
+          ep: ["pep"],
+          et: ["bet","get","jet","let","met","net","pet","set","vet","wet"],
+          id: ["kid","bid","hid","did"],
+          im: ["dim","him","rim"],
+          in: ["bin","fin","pin","tin","win"],
+          ip: ["dip","hip","lip","rip","tip","zip"],
+          it: ["bit","fit","kit","lit","pit","sit"],
+          od: ["nod","rod","cod"],
+          om: ["mom","pom"],
+          on: ["won","ton","son"],
+          op: ["hop","mop","pop","top"],
+          ot: ["cot","dot","got","hot","lot","not","pot","rot","tot"],
+          ud: ["mud","bud","cud"],
+          um: ["bum","gum","hum"],
+          un: ["bun","fun","run","sun"],
+          up: ["cup","pup"],
+          ut: ["but","cut","gut","hut","nut","rut"]
+        }
       },
       5: {
         rimes:
@@ -132,7 +136,7 @@ var App = {
         onsets:{
 
           ch: ["chain","chair","champ","charm","chart","chat","cheat","chill","chin","chip","choke","chop","chore"],
-          sh: ["shack","shade","shake","shame","shape","","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"],
+          sh: ["shack","shade","shake","shame","shape","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"],
           th: ["thank","thaw","then","thick","thin","thing","think"],
           wh: ["whale","wheat","wheel","when","while","what","white","why"]
         },
