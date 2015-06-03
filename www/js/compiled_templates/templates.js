@@ -318,7 +318,11 @@ this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({
     + "</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage__stimulus--phrases stage__stimulus__gallery animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";
+    var helper;
+
+  return "<div class=\"stage__stimulus--phrases stage__stimulus__gallery animated slideInRight\">\n  <span>"
+    + this.escapeExpression(((helper = (helper = helpers.phrase || (depth0 != null ? depth0.phrase : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"phrase","hash":{},"data":data}) : helper)))
+    + "</span>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusSightWordsWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

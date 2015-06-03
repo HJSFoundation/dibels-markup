@@ -141,6 +141,9 @@ describe('App.Views.Stage', function() {
     });
 
     describe("#handleOnsetRimesChangeRequest", function() {
+      beforeEach(function() {
+        model = new App.Models.Stimulus({value: "bl", sub_skill:"onsets", reading_stage: 5});
+      });
       it("handles selectedActivity === words", function() {
         App.selectedActivity = "words";
         sinon.spy(subject.stageViews.onsetRimesWords, "render");
@@ -149,9 +152,15 @@ describe('App.Views.Stage', function() {
       });
       it("handles selectedActivity === phrases", function() {
         App.selectedActivity = "phrases";
-        sinon.spy(subject.stageViews.phrases, "render");
-        subject.handleOnsetRimesChangeRequest({value: "b"});
-        expect(subject.stageViews.phrases.render).to.have.been.calledWith({value: "b"});
+        sinon.spy(subject.stageViews.phrases, "handleSkillChangeRequest");
+        subject.handleOnsetRimesChangeRequest({model: model});
+        expect(subject.stageViews.phrases.handleSkillChangeRequest).to.have.been.calledWith({model: model});
+      });
+      it("handles selectedActivity === tiles", function() {
+        App.selectedActivity = "tiles";
+        sinon.spy(subject.stageViews.tiles, "handleSkillChangeRequest");
+        subject.handleOnsetRimesChangeRequest({model: model});
+        expect(subject.stageViews.tiles.handleSkillChangeRequest).to.have.been.calledWith({model: model});
       });
     });
 

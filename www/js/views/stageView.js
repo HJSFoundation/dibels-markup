@@ -73,10 +73,10 @@ App.Views.Stage = Backbone.View.extend({
         this.stageViews.onsetRimesWords.render(stimulus_object);
         break;
       case "phrases":
-        this.stageViews.phrases.render(stimulus_object);
+        this.stageViews.phrases.handleSkillChangeRequest(stimulus_object);
         break;
       case "tiles":
-        this.stageViews.tiles.render(stimulus_object);
+        this.stageViews.tiles.handleSkillChangeRequest(stimulus_object);
         break;
     }
   },

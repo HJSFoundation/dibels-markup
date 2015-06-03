@@ -28,20 +28,6 @@ describe('App.Views.StageStimulusTiles', function() {
     });
   });
 
-  describe("#initialize", function() {
-    it("calls listen on initialize", function() {
-      sinon.spy(subject, "listen");
-      subject.initialize();
-      expect(subject.listen).to.have.been.called;
-    });
-  });
-
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, subject.handleSkillChangeRequest);
-  });
-
   describe("#render", function() {
     it("renders", function() {
       subject.render();

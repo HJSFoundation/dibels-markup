@@ -7,12 +7,12 @@ App.Views.StageStimulusTiles = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.listen();
+    // this.listen();
   },
 
-  listen: function() {
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleSkillChangeRequest);
-  },
+  // listen: function() {
+  //   this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleSkillChangeRequest);
+  // },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
