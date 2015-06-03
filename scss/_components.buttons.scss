@@ -168,6 +168,19 @@ button,
   height: 45px;
   z-index: 200;
   fill: $white;
+  &:before {
+    content: "";
+    position: absolute;
+    background: $black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    }
 
   .icon-close--story {
     width: 45px;
@@ -178,8 +191,7 @@ button,
     left: 0;
     right: 0;
     margin: auto;
-    background: $black;
-    border-radius: 50%;
+    
   }
   .icon-close {
     display: inline-block;
