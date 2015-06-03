@@ -298,7 +298,7 @@ this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"stage__stimulus--letters  animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
+  return "<div class=\"stimulus stimulus--letters animated slideInRight\">\n  <div class=\"stimulus-cell grid grid--center\">\n    <span>"
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n    <img src=\"img/letterWords/"
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
@@ -313,32 +313,32 @@ this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"stage__stimulus--words stage__stimulus__gallery animated slideInRight\">\n"
+  return "<div class=\"stimulus stimulus--words stage__stimulus__gallery animated slideInRight\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage__stimulus--phrases stage__stimulus__gallery animated slideInRight\">\n  <span>The ball is red.</span>\n</div>";
+    return "<div class=\"stimulus stimulus--phrases stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>The ball is red.</span>\n  </div>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusSightWordsWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"stage__stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <span>"
+  return "<div class=\"stimulus stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
     + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
-    + "</span>\n</div>";
+    + "</span>\n  </div>\n  \n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"stage__stimulus stage__stimulus--tiles stage__stimulus--tiles--reverse grid\">\n  <div class=\"stage__stimulus--onsets-rimes grid-cell grid grid--space-between grid--center\">\n    <div class=\"stimulus__tile-column stimulus__tile-column--onset grid-cell animated slideInLeft u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">b</li>\n      </ul>\n    </div>\n    <div class=\"stimulus__tile-column stimulus__tile-column--rime grid-cell animated slideInDown u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">ad</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stage__stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stage__stimulus--tile-choices__wrapper stage__stimulus--tile-choices__wrapper\">\n      <li class=\"tile-choice\">an</li>\n      <li class=\"tile-choice\">at</li>\n      <li class=\"tile-choice\">ar</li>\n      <li class=\"tile-choice\">ag</li>\n      <li class=\"tile-choice\">it</li>\n      <li class=\"tile-choice\">ap</li>\n      <li class=\"tile-choice\">af</li>\n      <li class=\"tile-choice\">ah</li>\n      <li class=\"tile-choice\">am</li>\n      <li class=\"tile-choice\">and</li>\n      <li class=\"tile-choice\">anf</li>\n      <li class=\"tile-choice\">amf</li>\n      <li class=\"tile-choice\">all</li>\n      <li class=\"tile-choice\">alt</li>\n    </ul>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage__stimulus--whiteboard\">\n  <span>whiteboard</span>\n</div>";
+    return "<div class=\"stimulus stimulus--whiteboard\">\n  <span>whiteboard</span>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"stage__stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <span>"
+  return "<div class=\"stimulus stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
     + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
-    + "</span>\n</div>";
+    + "</span>\n  </div>\n  \n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
