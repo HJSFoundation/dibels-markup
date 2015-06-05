@@ -79,11 +79,13 @@ this["App"]["templates"]["buttonTiles"] = Handlebars.template({"compiler":[6,">=
     + "\">\n  <svg class=\"icon-tiles\"><use xlink:href=\"#icon-tiles\"></use></svg>\n  <svg class=\"icon-tiles-filled st-hidden\"><use xlink:href=\"#icon-tiles-filled\"></use></svg>\n  <span class=\"icon-text__title\">Tiles</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonTimer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<button class=\"icon-text--vertical button--timer "
-    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-timer\"><use xlink:href=\"#icon-timer\"></use></svg>\n  <svg class=\"icon-timer-filled st-hidden\"><use xlink:href=\"#icon-timer-filled\"></use></svg>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
+  return "<button class=\"icon-text--vertical button--timer js-buttonTimer\">\n  <svg class=\"icon-timer "
+    + alias3(((helper = (helper = helpers.unfilledClass || (depth0 != null ? depth0.unfilledClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"unfilledClass","hash":{},"data":data}) : helper)))
+    + "\"><use xlink:href=\"#icon-timer\"></use></svg>\n  <svg class=\"icon-timer-filled "
+    + alias3(((helper = (helper = helpers.filledClass || (depth0 != null ? depth0.filledClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"filledClass","hash":{},"data":data}) : helper)))
+    + "\"><use xlink:href=\"#icon-timer-filled\"></use></svg>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -293,7 +295,7 @@ this["App"]["templates"]["roster"] = Handlebars.template({"compiler":[6,">= 2.0.
     return "<div class=\"container container--overlay\">\n  <div class=\"container--management container\">\n    <table class=\"management__table\" cellspacing=\"0\">\n      <colspan>\n        <col class=\"table-column table-column-1\">\n        <col class=\"table-column table-column-4\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col width=\"10\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column table-column-4\">\n      </colspan>\n\n      <thead>\n        <td colspan=\"2\" class=\"session-cell--name\">students</td>\n        <td >reading stage</td>\n        <td>growth</td>\n        <td>practice station score</td>\n        <td width=\"10\" class=\"session-cell--spacer\"></td>\n        <td>days on current reading stage</td>\n        <td>days since last session</td>\n        <td>days since last fluency assignment</td>\n        <td>desired sessions per week</td>\n        <td colspan=\"2\">blank</td>\n      </thead>\n\n      <tbody>\n\n\n      </tbody>\n    </table>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-stageButtonManage\"></div>\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div> \n";
+    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-stageButtonManage\"></div>\n    <div class=\"js-timer\"></div>\n\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -461,6 +463,17 @@ this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-
     + alias3(((helper = (helper = helpers.index || (depth0 != null ? depth0.index : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
     + alias3(((helper = (helper = helpers.stimulusValue || (depth0 != null ? depth0.stimulusValue : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"stimulusValue","hash":{},"data":data}) : helper)))
     + "</a>\n\n";
+},"useData":true});
+this["App"]["templates"]["timer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"timer animated fadeIn\" style=\"display:block;\">\n  <div class=\"timer__controls grid grid--wrap\">\n      <div class=\"timer__progress grid-cell u-1of3\">\n        <span>\n          <select id=\"minutes\">\n            <option value=\"0\">00</option>\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n          </select>:\n          <select id=\"seconds\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n          </select>\n        </span>\n      </div>\n      <button class=\"button button--warning "
+    + alias3(((helper = (helper = helpers.highlight || (depth0 != null ? depth0.highlight : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"highlight","hash":{},"data":data}) : helper)))
+    + " grid-cell u-1of3 js-timerButton\">"
+    + alias3(((helper = (helper = helpers.action || (depth0 != null ? depth0.action : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"action","hash":{},"data":data}) : helper)))
+    + "</button>\n      <a href=\"#\" class=\"icon "
+    + alias3(((helper = (helper = helpers.modifier || (depth0 != null ? depth0.modifier : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"modifier","hash":{},"data":data}) : helper)))
+    + " grid-cell u-1of3\"></a>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<p>Whiteboard</p>";

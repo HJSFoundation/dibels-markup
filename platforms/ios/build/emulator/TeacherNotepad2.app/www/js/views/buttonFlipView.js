@@ -1,1 +1,0 @@
-App.Views.ButtonFlip=Backbone.View.extend({template:App.templates.buttonFlip,events:{click:"handleflipScreen"},initialize:function(e){_.bindAll(this),this.eventName=e.eventName,this.render()},render:function(){this.$el.html(this.template())},handleflipScreen:function(){return App.Dispatcher.trigger(this.eventName),!1}});

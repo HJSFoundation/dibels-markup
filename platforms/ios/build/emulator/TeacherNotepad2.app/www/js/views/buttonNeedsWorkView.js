@@ -1,1 +1,0 @@
-App.Views.ButtonNeedsWork=Backbone.View.extend({template:App.templates.buttonNeedsWork,events:{click:"handleClick"},initialize:function(){_.bindAll(this),this.render()},render:function(){this.$el.html(this.template())},handleClick:function(){return App.Dispatcher.trigger("buttonAssessmentClicked","needsWork"),!1}});
