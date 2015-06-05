@@ -127,6 +127,14 @@ button,
 
 .button--manage {
   @include icon-hover(manage, 32px, $gray-light, $turquoise);
+  position: absolute;
+  top: 15px;
+  right: 0;
+
+  .icon-end-session {
+    width: 32px;
+    fill: $gray-med;
+  }
 }
 
 .button--flip {
