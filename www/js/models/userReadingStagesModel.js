@@ -1,13 +1,10 @@
-App.Models.UserReadingStage = Backbone.Model.extend({
-
-  defaults: {
-    context:"teacher_notepad",
-  },
+App.Models.UserReadingStages = Backbone.Model.extend({
 
   urlRoot: App.url+"/user_reading_stages",
   student_id: null,
   assessor_id: null,
   reading_stage:"",
+  context:"teacher_notepad",
 
   local: App.Config.storageLocalState
 

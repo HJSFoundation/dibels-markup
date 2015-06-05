@@ -9,7 +9,6 @@ App.Views.ButtonTimer = Backbone.View.extend({
   filledClass: "st-hidden",
   unfilledClass: "",
 
-
   initialize: function() {
     _.bindAll(this);
     this.render();
