@@ -53,6 +53,22 @@ describe('App.Views.EditStudentReadingStage', function() {
         subject.handleReadingStageChoice({currentTarget: {innerText: "3"}});
         expect(subject.makeActive).to.have.been.called;
       });
+
+      it("sets the reading stage on the selected student", function() {
+        subject.handleReadingStageChoice({currentTarget: {innerText: "3"}});
+        expect(App.selectedStudent.get("reading_stage")).to.equal(3);
+      });
+
+      it("calls save on the model", function() {
+        sinon.spy(App.Models, "UserReadingStages");
+        subject.handleReadingStageChoice({currentTarget: {innerText: "3"}});
+        expect(App.Models.UserReadingStages).to.have.been.calledWith({
+          student_id: App.selectedStudent.get("id"),
+          assessor_id: App.loggedInTeacher.id,
+          reading_stage: "3",
+          context: "teacher_notepad"
+        });
+      });
     });
   });
 
@@ -71,6 +87,14 @@ describe('App.Views.EditStudentReadingStage', function() {
       expect($("#applicationContainer .reading-stage__choice.st-selected")[0].innerText).to.equal("5");
       subject.makeInactive();
       expect($("#applicationContainer .reading-stage__choice.st-selected").length).to.equal(0);
+    });
+
+    describe("#updateUser", function() {
+     it("calls fetch on the roster", function() {
+       sinon.spy(App.roster, "fetch");
+       subject.updateUser();
+       expect(App.roster.fetch).to.have.been.called;
+     });
     });
   });
 });

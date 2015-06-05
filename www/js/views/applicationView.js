@@ -58,7 +58,7 @@ App.Views.Application = Backbone.View.extend({
 
   initializeNotesCollection: function(){
 
-    this.initializeStudentTestReadingStages();
+    // this.initializeStudentTestReadingStages();
 
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 

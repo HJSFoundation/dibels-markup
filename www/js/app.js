@@ -34,6 +34,7 @@ var App = {
   selectedSkill: null,
 
   ActivityStimuli : {
+
     wordsByStage: {
       2: { // 17 consonants
         b: ["bat", "bet", "bit", "but"],
@@ -41,55 +42,59 @@ var App = {
         d: ["dot", "dog", "dip"],
         f: ["fat", "fit", "fun"],
         g: ["get", "got", "gap"],
-        h: ["hat", "hit", "hot", "hut"], 
+        h: ["hat", "hit", "hot", "hut"],
         j: ["jet", "jug", "jam"],
         k: ["kit", "kin", "kid"],
         l: ["let", "lot", "lit"],
         m: ["mat", "met", "man"],
-        n: ["net", "not", "nut"], 
-        p: ["pat", "pet", "pit", "pot"],  
+        n: ["net", "not", "nut"],
+        p: ["pat", "pet", "pit", "pot"],
         r: ["rat", "rap", "rot"],
-        s: ["sat", "set", "sit"], 
+        s: ["sat", "set", "sit"],
         t: ["tot", "tan", "tin"],
         v: ["vat", "vet", "van"],
         w: ["wet", "wit", "win"]
       },
       3: {
-        at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
-        et: ["bet","get","jet","let","met","net","pet","set","wet"],
-        it: ["bit","fit","kit","pit","sit"],
-        ot: ["dot","hot","lot","not","tot"],
-        ut: ["but","cut","nut","hut"]
+        rimes: {
+          at: ["bat","cat","fat","hat","mat","rat","sat","vat"],
+          et: ["bet","get","jet","let","met","net","pet","set","wet"],
+          it: ["bit","fit","kit","pit","sit"],
+          ot: ["dot","hot","lot","not","tot"],
+          ut: ["but","cut","nut","hut"]
+        }
       },
       4: {
-        ad: ["bad","dad","mad","pad","sad"],
-        am: ["dam","ham","jam"],
-        an: ["ban","can","fan","man","pan","ran","tan","van"],
-        ap: ["cap","lap","map","nap","rap","tap","zap"],
-        at: ["cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"],
-        ed: ["bed","fed","led","red"],
-        em: ["gem","hem"],
-        en: ["den","hen","men","pen","ten"],
-        ep: ["pep"],
-        et: ["bet","get","jet","let","met","net","pet","set","vet","wet"],
-        id: ["kid","bid","hid","did"],
-        im: ["dim","him","rim"],
-        in: ["bin","fin","pin","tin","win"],
-        ip: ["dip","hip","lip","rip","tip","zip"],
-        it: ["bit","fit","kit","lit","pit","sit"],
-        od: ["nod","rod","cod"],
-        om: ["mom","pom"],
-        on: ["won","ton","son"],
-        op: ["hop","mop","pop","top"],
-        ot: ["cot","dot","got","hot","lot","not","pot","rot","tot"],
-        ud: ["mud","bud","cud"],
-        um: ["bum","gum","hum"],
-        un: ["bun","fun","run","sun"],
-        up: ["cup","pup"],
-        ut: ["but","cut","gut","hut","nut","rut"]     
+        rimes:{
+          ad: ["bad","dad","mad","pad","sad"],
+          am: ["dam","ham","jam"],
+          an: ["ban","can","fan","man","pan","ran","tan","van"],
+          ap: ["cap","lap","map","nap","rap","tap","zap"],
+          at: ["cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"],
+          ed: ["bed","fed","led","red"],
+          em: ["gem","hem"],
+          en: ["den","hen","men","pen","ten"],
+          ep: ["pep"],
+          et: ["bet","get","jet","let","met","net","pet","set","vet","wet"],
+          id: ["kid","bid","hid","did"],
+          im: ["dim","him","rim"],
+          in: ["bin","fin","pin","tin","win"],
+          ip: ["dip","hip","lip","rip","tip","zip"],
+          it: ["bit","fit","kit","lit","pit","sit"],
+          od: ["nod","rod","cod"],
+          om: ["mom","pom"],
+          on: ["won","ton","son"],
+          op: ["hop","mop","pop","top"],
+          ot: ["cot","dot","got","hot","lot","not","pot","rot","tot"],
+          ud: ["mud","bud","cud"],
+          um: ["bum","gum","hum"],
+          un: ["bun","fun","run","sun"],
+          up: ["cup","pup"],
+          ut: ["but","cut","gut","hut","nut","rut"]
+        }
       },
       5: {
-        rimes: 
+        rimes:
         {
           ape: ["cape","drape","grape","tape"],
           ate: ["ate","date","fate","gate","hate","late","plate","skate","state","nate"],
@@ -107,7 +112,7 @@ var App = {
           une: ["prune","tune"],
           ute: ["cute","flute","mute","lute"]
         },
-        onsets: 
+        onsets:
         {
           bl: ["blade","blame","bled","blot"],
           br: ["brat","brim","bride"],
@@ -130,7 +135,7 @@ var App = {
         onsets:{
 
           ch: ["chain","chair","champ","charm","chart","chat","cheat","chill","chin","chip","choke","chop","chore"],
-          sh: ["shack","shade","shake","shame","shape","","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"],
+          sh: ["shack","shade","shake","shame","shape","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"],
           th: ["thank","thaw","then","thick","thin","thing","think"],
           wh: ["whale","wheat","wheel","when","while","what","white","why"]
         },
@@ -257,6 +262,219 @@ var App = {
           ow : ["blow","bow","crow","know","low","mow","row","show","slow","snow","tow","grow","how","now","wow","cow"],
           ush: ["blush","brush","crush","flush","hush","mush","rush","slush","push"],
           ust: ["bust","crust","dust","gust","just","must","rust","trust"]
+        }
+      }
+    },
+
+    phrasesByStage: {
+
+      3: {
+        rimes: {
+          at: 'phrase"bat","cat","fat","hat","mat","rat","sat","vat"]',
+          et: 'phrase"bet","get","jet","let","met","net","pet","set","wet"]',
+          it: 'phrase"bit","fit","kit","pit","sit"]',
+          ot: 'phrase"dot","hot","lot","not","tot"]',
+          ut: 'phrase"but","cut","nut","hut"]'
+        }
+      },
+      4: {
+        rimes:{
+          ad: 'phrase"bad","dad","mad","pad","sad"]',
+          am: 'phrase"dam","ham","jam"]',
+          an: 'phrase"ban","can","fan","man","pan","ran","tan","van"]',
+          ap: 'phrase"cap","lap","map","nap","rap","tap","zap"]',
+          at: 'phrase"cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"]',
+          ed: 'phrase"bed","fed","led","red"]',
+          em: 'phrase"gem","hem"]',
+          en: 'phrase"den","hen","men","pen","ten"]',
+          ep: 'phrase"pep"]',
+          et: 'phrase"bet","get","jet","let","met","net","pet","set","vet","wet"]',
+          id: 'phrase"kid","bid","hid","did"]',
+          im: 'phrase"dim","him","rim"]',
+          in: 'phrase"bin","fin","pin","tin","win"]',
+          ip: 'phrase"dip","hip","lip","rip","tip","zip"]',
+          it: 'phrase"bit","fit","kit","lit","pit","sit"]',
+          od: 'phrase"nod","rod","cod"]',
+          om: 'phrase"mom","pom"]',
+          on: 'phrase"won","ton","son"]',
+          op: 'phrase"hop","mop","pop","top"]',
+          ot: 'phrase"cot","dot","got","hot","lot","not","pot","rot","tot"]',
+          ud: 'phrase"mud","bud","cud"]',
+          um: 'phrase"bum","gum","hum"]',
+          un: 'phrase"bun","fun","run","sun"]',
+          up: 'phrase"cup","pup"]',
+          ut: 'phrase"but","cut","gut","hut","nut","rut"]'
+        }
+      },
+      5: {
+        rimes:
+        {
+          ape: 'phrase"cape","drape","grape","tape"]',
+          ate: 'phrase"ate","date","fate","gate","hate","late","plate","skate","state","nate"]',
+          ide: 'phrase"bride","glide","hide","pride","ride","side","slide","tide","wide"]',
+          ime: 'phrase"crime","dime","grime","lime","slime","time"]',
+          ine: 'phrase"dine","fine","line","mine","nine","pine","spine","vine","wine"]',
+          ipe: 'phrase"wipe","pipe","ripe"]',
+          ite: 'phrase"bite","kite","site","spite","white "]',
+          ode: 'phrase"code","mode","rode"]',
+          ome: 'phrase"dome","home"]',
+          one: 'phrase"bone","cone","lone","stone","tone","zone"]',
+          ope: 'phrase"hope","mope","rope","slope"]',
+          ote: 'phrase"note","vote","wrote"]',
+          ude: 'phrase"dude","rude","crude"]',
+          une: 'phrase"prune","tune"]',
+          ute: 'phrase"cute","flute","mute","lute"]'
+        },
+        onsets:
+        {
+          bl: 'phrase"blade","blame","bled","blot"]',
+          br: 'phrase"brat","brim","bride"]',
+          cl: 'phrase"clam","clap","clip"]',
+          cr: 'phrase"crime","crop"]',
+          dr: 'phrase"drape","drip","drop"]',
+          fl: 'phrase"flame","flap","flat","fled","flip","flop","flute"]',
+          gl: 'phrase"glad","glide"]',
+          gr: 'phrase"grade","grape","grim","grime","grip","grin"]',
+          pl: 'phrase"plan","plop","plot","plum","plate"]',
+          pr: 'phrase"prop","pride","prune"]',
+          sl: 'phrase"slam","slap","sled","slide","slim","slime","slip","slit","slot"]',
+          tr: 'phrase"trade","trap","trim","trip"]',
+          sk: 'phrase"skin","skip","skit"]',
+          sp: 'phrase"spade","sped","spin","spine","spit","spot","spun"]',
+          st: 'phrase"state","stone","stop","stun"]'
+        }
+      },
+      6: {
+        onsets:{
+
+          ch: 'phrase"chain","chair","champ","charm","chart","chat","cheat","chill","chin","chip","choke","chop","chore"]',
+          sh: 'phrase"shack","shade","shake","shame","shape","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"]',
+          th: 'phrase"thank","thaw","then","thick","thin","thing","think"]',
+          wh: 'phrase"whale","wheat","wheel","when","while","what","white","why"]'
+        },
+        rimes:{
+
+          ack: 'phrase"back","black","crack","jack","lack","pack","rack","sack","shack","snack","track"]',
+          aid: 'phrase"braid","laid","paid","raid"]',
+          ail: 'phrase"fail","hail","jail","mail","nail","pail","rail","sail","snail","tail"]',
+          ain: 'phrase"brain","chain","drain","gain","grain","main","pain","plain","rain","stain","train"]',
+          air: 'phrase"chair","fair","flair","hair","pair","stair"]',
+          all: 'phrase"ball","call","fall","hall","mall","small","tall","wall"]',
+          amp: 'phrase"camp","champ","clamp","cramp","damp","lamp","ramp","stamp"]',
+          and: 'phrase"band","brand","grand","hand","land","sand","stand"]',
+          ang: 'phrase"bang","hang","gang","rang","sang"]',
+          ank: 'phrase"bank","crank","drank","sank","tank","thank","yank"]',
+          ant: 'phrase"ant","grant","pant","rant","slant","cant","want"]',
+          ar:  'phrase"bar","car","far","jar","star","tar","war"]',
+          ay:  'phrase"bay","clay","day","hay","lay","may","pay","play","ray","say","stay","tray","way"]',
+          ead: 'phrase"bead","lead","read"]',
+          eak: 'phrase"beak","bleak","freak","peak","sneak","speak","weak"]',
+          eam: 'phrase"beam","cream","dream","steam","team","gleam"]',
+          ear: 'phrase"clear","dear","fear","gear","hear","near","rear","spear","year"]',
+          eat: 'phrase"beat","cheat","heat","meat","neat","seat","treat","wheat"]',
+          eck: 'phrase"deck","neck","peck"]',
+          eed: 'phrase"bleed","deed","feed","freed","greed","need","seed","speed","weed"]',
+          eel: 'phrase"feel","heel","kneel","peel","reel","steel","wheel"]',
+          een: 'phrase"green","seen","teen","been"]',
+          eep: 'phrase"beep","creep","deep","jeep","keep","peep","sheep","sleep","steep","sweep","weep"]',
+          eet: 'phrase"beet","feet","fleet","greet","meet","sheet","street"]',
+          ell: 'phrase"bell","fell","sell","smell","spell","tell","well","yell"]',
+          end: 'phrase"bend","blend","lend","mend","send","spend"]',
+          ent: 'phrase"bent","cent","dent","lent","rent","sent","spent","tent","vent","went"]',
+          ick: 'phrase"brick","click","kick","lick","nick","sick","stick","thick","tick","trick"]',
+          ill: 'phrase"bill","chill","drill","fill","hill","kill","pill","skill","spill","still","will"]',
+          ing: 'phrase"bring","fling","king","ring","sing","sting","thing","wing"]',
+          ink: 'phrase"drink","link","mink","pink","rink","sink","stink","think","wink","blink"]',
+          int: 'phrase"flint","hint","lint","mint","print","tint"]',
+          oad: 'phrase"load","road","toad"]',
+          oan: 'phrase"groan","loan","moan"]',
+          oat: 'phrase"boat","coat","float","goat","moat","oat"]',
+          ock: 'phrase"block","clock","dock","flock","lock","rock","sock","stock"]',
+          oil: 'phrase"boil","broil","coil","soil","spoil","toil"]',
+          ong: 'phrase"long","song"]',
+          ood: 'phrase"good","hood","stood","wood"]',
+          ook: 'phrase"book","cook","crook","hook","look","shook","took"]',
+          ool: 'phrase"fool","pool","stool","tool","cool"]',
+          oom: 'phrase"boom","broom","groom","room","zoom"]',
+          oon: 'phrase"moon","noon","soon","spoon"]',
+          oop: 'phrase"goop","hoop","loop"]',
+          oot: 'phrase"boot","hoot","root","scoot","shoot","toot"]',
+          out: 'phrase"out","pout","shout","spout","trout"]',
+          oy:  'phrase"boy","coy","joy","toy"]',
+          uck: 'phrase"buck","duck","luck","stuck","truck","tuck"]',
+          ump: 'phrase"bump","dump","grump","jump","lump","plump","pump","slump"]',
+          ung: 'phrase"hung","lung","stung","sung"]',
+          unk: 'phrase"bunk","dunk","junk","punk","skunk","spunk","sunk","trunk"]',
+          unt: 'phrase"bunt","grunt","hunt","punt","runt","shunt","stunt"]',
+          y:   'phrase"by","cry","dry","fly","my","shy","sky","spy","try","why"]'
+        }
+      },
+      7: {
+        onsets: {
+          spr: 'phrase"spring","sprint","sprang"]',
+          str: 'phrase"string","stray","stripe"]'
+        },
+        rimes: {
+          ab:  'phrase"cab","tab","dab","jab","grab","crab","slab"]',
+          ace: 'phrase"brace","face","grace","lace","pace","place","race","space","trace"]',
+          ag:  'phrase"bag","brag","drag","flag","nag","rag","sag","snag","tag","wag","zag"]',
+          age: 'phrase"page","rage","stage","wage"]',
+          ake: 'phrase"bake","brake","cake","fake","flake","lake","make","rake","shake","snake","stake","take","wake"]',
+          ale: 'phrase"male","pale","stale","tale","whale"]',
+          ard: 'phrase"card","hard","lard","shard","yard"]',
+          are: 'phrase"bare","care","dare","rare","share","spare","stare","glare"]',
+          ark: 'phrase"bark","dark","mark","park","shark","spark"]',
+          arm: 'phrase"charm","farm","harm","warm"]',
+          art: 'phrase"cart","chart","dart","part","smart","start","mart"]',
+          ase: 'phrase"base","case","vase","chase"]',
+          ave: 'phrase"cave","gave","grave","pave","save","shave","slave","wave"]',
+          aze: 'phrase"daze","maze","gaze","haze","blaze","glaze","graze","craze"]',
+          eg:  'phrase"beg","leg","peg"]',
+          elt: 'phrase"belt","felt","melt"]',
+          ib:  'phrase"rib","bib","fib","crib"]',
+          ibe: 'phrase"bribe","tribe"]',
+          ice: 'phrase"mice","nice","price","rice","slice","spice"]',
+          ig:  'phrase"big","dig","fig","pig","wig"]',
+          ike: 'phrase"bike","dike","hike","like","pike"]',
+          ile: 'phrase"file","mile","pile","smile","tile","while"]',
+          ilk: 'phrase"milk","silk"]',
+          ire: 'phrase"tire","wire","hire",""]',
+          ive: 'phrase"dive","drive","five","hive","live"]',
+          ix:  'phrase"fix","mix","six"]',
+          ob:  'phrase"mob","cob","job","slob","blob","snob"]',
+          obe: 'phrase"lobe","robe","globe","probe"]',
+          og:  'phrase"fog","frog","hog","jog","log"]',
+          oke: 'phrase"choke","joke","poke","smoke","spoke","woke"]',
+          old: 'phrase"bold","cold","fold","gold","hold","mold","sold","told"]',
+          ole: 'phrase"hole","mole","pole","role","sole","stole","whole"]',
+          ore: 'phrase"bore","chore","core","more","shore","sore","store","tore","wore"]',
+          orn: 'phrase"born","corn","horn","torn","worn"]',
+          ose: 'phrase"close","hose","nose","pose","rose","those"]',
+          ox:  'phrase"box","fox"]',
+          ub:  'phrase"cub","hub","pub","rub","snub","sub","tub"]',
+          ube: 'phrase"cube","tube"]',
+          ug:  'phrase"bug","dug","hug","jug","plug","rug","slug","snug","tug"]',
+          ule: 'phrase"mule","rule"]',
+          urn: 'phrase"burn","churn","spurn","turn"]'
+        }
+      },
+      8: {
+        onsets: {
+
+        },
+        rimes: {
+          ash: 'phrase"bash","cash","dash","flash","mash","rash","slash","smash","trash","wash"]',
+          aw : 'phrase"claw","draw","jaw","paw","raw","saw","thaw"]',
+          est: 'phrase"best","chest","nest","pest","rest","test","vest","west"]',
+          ew : 'phrase"blew","crew","flew","grew","knew","stew","dew","new","drew","few"]',
+          ight:'phrase"fight","light","might","night","right","sight","tight"]',
+          ish: 'phrase"dish","fish","wish"]',
+          ost: 'phrase"cost","frost","lost","most"]',
+          ould:'phrase"should","could","would"]',
+          ound:'phrase"bound","round","pound","found","mound"]',
+          ow : 'phrase"blow","bow","crow","know","low","mow","row","show","slow","snow","tow","grow","how","now","wow","cow"]',
+          ush: 'phrase"blush","brush","crush","flush","hush","mush","rush","slush","push"]',
+          ust: 'phrase"bust","crust","dust","gust","just","must","rust","trust"]'
         }
       }
     }
