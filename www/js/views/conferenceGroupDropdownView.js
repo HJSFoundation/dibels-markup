@@ -10,8 +10,8 @@ App.Views.ConferenceGroupDropdown = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function(){
-    this.listenTo(App.Dispatcher, "conferenceGroupDropdownRequested:"+this.conferenceId, this.handleGroupDropdown);
+  listen: function() {
+    this.listenTo(App.Dispatcher, "conferenceGroupDropdownRequested:" + this.conferenceId, this.handleGroupDropdown);
   },
 
   render: function() {
@@ -25,9 +25,8 @@ App.Views.ConferenceGroupDropdown = Backbone.View.extend({
     };
   },
 
-  handleGroupDropdown: function(){
+  handleGroupDropdown: function() {
     console.log("ConferenceGroupDropdown:handleGroupDropdown");
     this.$el.toggleClass("st-hidden");
   }
-
 });

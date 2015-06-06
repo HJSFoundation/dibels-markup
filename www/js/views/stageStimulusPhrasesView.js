@@ -9,13 +9,13 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       phrase: this.phrase
-    }
+    };
   },
 
-  handleSkillChangeRequest: function(stimulus_object){
+  handleSkillChangeRequest: function(stimulus_object) {
     var model = stimulus_object.model;
     var readingStage = model.get("reading_stage");
     var value = model.get("value");

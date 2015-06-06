@@ -5,9 +5,7 @@ App.Views.StageStimulusSightWordsWords = Backbone.View.extend({
     _.bindAll(this);
   },
 
-
   render: function(stimulus_object) {
     this.$el.html(this.template(stimulus_object));
   }
-  
 });

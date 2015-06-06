@@ -2,7 +2,7 @@ App.Views.ButtonMatrixOpen = Backbone.View.extend({
   template: App.templates.buttonMatrixOpen,
 
   events: {
-    'click' : 'handleOpenMatrix'
+    'click': 'handleOpenMatrix'
   },
 
   initialize: function() {

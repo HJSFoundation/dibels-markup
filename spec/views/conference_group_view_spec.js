@@ -69,13 +69,13 @@ describe('App.Views.ConferenceGroup', function() {
 
   describe("#handleStartSession", function() {
     it("sets the selected student", function() {
-      subject.handleStartSession()
+      subject.handleStartSession();
       expect(App.selectedStudent).to.equal(App.students.at(0));
     });
 
     it("adds the student model to App.students", function() {
       App.students = new App.Collections.Students();
-      subject.handleStartSession()
+      subject.handleStartSession();
       expect(App.students.length).to.equal(6);
     });
 
@@ -84,6 +84,5 @@ describe('App.Views.ConferenceGroup', function() {
       subject.handleStartSession();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("startSessionRequested");
     });
-
   });
 });

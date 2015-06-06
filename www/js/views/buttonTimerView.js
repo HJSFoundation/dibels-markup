@@ -1,13 +1,13 @@
 App.Views.ButtonTimer = Backbone.View.extend({
   template: App.templates.buttonTimer,
 
-  events: {
-    'click .js-buttonTimer' : 'handleDisplayTimer'
-  },
-
   buttonActive: false,
   filledClass: "st-hidden",
   unfilledClass: "",
+
+  events: {
+    'click .js-buttonTimer': 'handleDisplayTimer'
+  },
 
   initialize: function() {
     _.bindAll(this);
@@ -18,20 +18,20 @@ App.Views.ButtonTimer = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function  () {
+  templateJSON: function() {
     return {
       filledClass: this.filledClass,
       unfilledClass: this.unfilledClass
-    }
+    };
   },
 
   handleDisplayTimer: function() {
-    console.log("ButtonTimer.handleDisplayTimer")
+    console.log("ButtonTimer.handleDisplayTimer");
     this.buttonActive = !this.buttonActive;
-    if(this.buttonActive){
+    if (this.buttonActive) {
       this.filledClass = "";
       this.unfilledClass = "st-hidden";
-    }else{
+    } else {
       this.filledClass = "st-hidden";
       this.unfilledClass = "";
     }

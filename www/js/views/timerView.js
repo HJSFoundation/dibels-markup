@@ -1,16 +1,15 @@
 App.Views.Timer = Backbone.View.extend({
   template: App.templates.timer,
 
-  events: {
-    "click .js-timerButton": "handleTimerButtonClick"
-  },
-
   action: "start",
   visible: false,
-
   time: {
     seconds: 0,
     minutes: 0
+  },
+
+  events: {
+    "click .js-timerButton": "handleTimerButtonClick"
   },
 
   initialize: function() {
@@ -19,7 +18,8 @@ App.Views.Timer = Backbone.View.extend({
     this.initializeMinutes();
     this.listen();
   },
-  listen: function(){
+
+  listen: function() {
     this.listenTo(App.Dispatcher, "toggleTimerRequested", this.toggleTimerRequested);
   },
 
@@ -27,77 +27,76 @@ App.Views.Timer = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       visible: (this.visible? "display:block;":""),
       action: this.action,
       seconds: this.seconds,
       minutes: this.minutes
-    }
+    };
   },
 
-  formatTime: function(time){
-    var s=time.toString();
-    if(s.length<2){
-      s="0"+s;
+  formatTime: function(time) {
+    var string = time.toString();
+    if (string.length < 2) {
+      string = "0" + string;
     }
-    return s;
+    return string;
   },
 
-  initializeSeconds: function(step){
+  initializeSeconds: function(step) {
     this.seconds = [];
-    for(var i=0;i<60;i+=step){
+    for (var i=0; i<60; i+=step) {
       this.seconds.push({value: i, display: this.formatTime(i)});
     }
   },
 
-  initializeMinutes: function(){
+  initializeMinutes: function() {
     this.minutes = [];
-    for(var i=0;i<31;i++){
+    for (var i=0; i<31; i+=1) {
       this.minutes.push({value: i, display: this.formatTime(i)});
     }
   },
 
-  toggleTimerRequested: function(){
+  toggleTimerRequested: function() {
     this.visible = !this.visible;
     this.render();
   },
 
-  startTimer: function(){
+  startTimer: function() {
     this.initializeSeconds(1);
-    this.action = "stop"
+    this.action = "stop";
     this.render();
     this.renderTimerDisplay();
     this.disableTimeSelection();
     this.interval = setInterval(this.updateTimerDisplay, 1000);
   },
 
-  stopTimer: function(secondsStep){
+  stopTimer: function(secondsStep) {
     clearInterval(this.interval);
     this.initializeSeconds(secondsStep);
-    this.action = "start"
+    this.action = "start";
     this.render();
     this.enableTimeSelection();
     this.renderTimerDisplay();
-
   },
 
-  enableTimeSelection: function(){
+  enableTimeSelection: function() {
     $("#minutes").prop("disabled",false);
     $("#seconds").prop("disabled",false);
   },
 
-  disableTimeSelection: function(){
+  disableTimeSelection: function() {
     $("#minutes").prop("disabled",true);
     $("#seconds").prop("disabled",true);
   },
 
-  updateTimerDisplay: function(){
-    this.time.seconds = this.time.seconds-1;
-    if(this.time.seconds < 0){
+  updateTimerDisplay: function() {
+    this.time.seconds -= 1;
+    if (this.time.seconds < 0) {
       this.time.seconds = 59;
-      this.time.minutes=this.time.minutes-1;
-      if(this.time.minutes < 0){
+      this.time.minutes -= 1;
+      if (this.time.minutes < 0) {
         this.time.seconds = 0;
         this.time.minutes = 0;
         this.stopTimer(5);
@@ -106,25 +105,23 @@ App.Views.Timer = Backbone.View.extend({
     this.renderTimerDisplay();
   },
 
-  renderTimerDisplay: function(){
+  renderTimerDisplay: function() {
     $("#minutes").val(this.time.minutes);
     $("#seconds").val(this.time.seconds);
   },
 
-  setButtonText: function(string){
+  setButtonText: function(string) {
     $(".js-timerButton").text(string);
   },
 
-  handleTimerButtonClick: function(){
-    if(this.action === "start"){
+  handleTimerButtonClick: function() {
+    if (this.action === "start") {
       this.time.seconds = $("#seconds").val();
       this.time.minutes = $("#minutes").val();
       this.startTimer();
-    }else{
+    } else {
       this.stopTimer(1);
     }
-
     return false;
   }
-
 });

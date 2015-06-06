@@ -1,11 +1,12 @@
 App.Views.ButtonLetters = Backbone.View.extend({
   template: App.templates.buttonLetters,
 
+  status: "",
+  activity: "letters",
+
   events: {
     "click": "handleClick"
   },
-  status: "",
-  activity: "letters",
 
   initialize: function() {
     _.bindAll(this);
@@ -16,7 +17,7 @@ App.Views.ButtonLetters = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       selectedClass: this.status
     };
@@ -26,7 +27,6 @@ App.Views.ButtonLetters = Backbone.View.extend({
     this.status = "st-active";
     this.render();
     App.selectedActivity = this.key;
-
   },
 
   makeInactive: function() {

@@ -4,7 +4,7 @@ App.Views.Tile = Backbone.View.extend({
   selectedClass: "",
 
   events: {
-    "click" : "handleClick"
+    "click": "handleClick"
   },
 
   initialize: function(options) {
@@ -47,7 +47,7 @@ App.Views.Tile = Backbone.View.extend({
 
   handleClick: function() {
     App.selectedStimulus = this.model;
-    App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"), 
+    App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"),
       {
         skill: this.model.get("skill"),
         value: this.model.get("value"),

@@ -2,7 +2,7 @@ App.Views.Login = Backbone.View.extend({
   template: App.templates.login,
 
   events: {
-    "click #submit" : "submit",
+    "click #submit": "submit",
   },
 
   initialize: function() {
@@ -15,9 +15,8 @@ App.Views.Login = Backbone.View.extend({
     return this;
   },
 
-  submit: function(){
+  submit: function() {
     console.log("login submitted");
-
     var email = $("#email-field").val();
     var password = $("#password-field").val();
     var that = this;
@@ -31,9 +30,7 @@ App.Views.Login = Backbone.View.extend({
         password: password
       },
       dataType: 'json',
-
       success: function(responseData) {
-
         console.log(responseData);
         App.loggedInTeacher = responseData;
         that.handleLoginSuccess();

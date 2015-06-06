@@ -27,5 +27,4 @@ describe('App.Views.StageStimulusSightWordsWords', function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;
   });
-
 });

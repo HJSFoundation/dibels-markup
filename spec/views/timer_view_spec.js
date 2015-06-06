@@ -53,7 +53,7 @@ describe('App.Views.Timer', function() {
   it("#listen", function() {
     sinon.spy(subject, "listenTo");
     subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "toggleTimerRequested", subject.toggleTimerRequested);App.Dispatcher, "toggleTimerRequested", this.toggleTimerRequested
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "toggleTimerRequested", subject.toggleTimerRequested);
   });
 
   it("#render", function() {

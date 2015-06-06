@@ -20,5 +20,4 @@ describe('App.Collections.Stimuli', function() {
   it("has a stimulus model", function() {
     expect(new subject.model()).to.be.an.instanceof(App.Models.Stimulus);
   });
-
 });

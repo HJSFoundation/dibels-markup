@@ -69,13 +69,13 @@ describe('App.Views.ConferenceStudent', function() {
 
   describe("#handleStartSession", function() {
     it("sets the selected student", function() {
-      subject.handleStartSession()
+      subject.handleStartSession();
       expect(App.selectedStudent).to.equal(subject.studentModel);
     });
 
     it("adds the student model to App.students", function() {
       App.students = new App.Collections.Students();
-      subject.handleStartSession()
+      subject.handleStartSession();
       expect(App.students.length).to.equal(1);
     });
 
@@ -85,6 +85,5 @@ describe('App.Views.ConferenceStudent', function() {
       expect(App.Dispatcher.trigger).to.have.been.calledWith("startSessionRequested");
       App.Dispatcher.trigger.restore();
     });
-
   });
 });

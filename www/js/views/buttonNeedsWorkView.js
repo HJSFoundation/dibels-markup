@@ -4,7 +4,7 @@ App.Views.ButtonNeedsWork = Backbone.View.extend({
   selectedClass: "",
 
   events: {
-    "click" : "handleClick"
+    "click": "handleClick"
   },
 
   initialize: function() {
@@ -16,24 +16,24 @@ App.Views.ButtonNeedsWork = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       selectedClass: this.selectedClass
     };
   },
 
-  makeActive: function(){
+  makeActive: function() {
     this.selectedClass = "st-selected";
     this.render();
   },
 
-  makeInactive: function(){
+  makeInactive: function() {
     this.selectedClass = "";
     this.render();
   },
 
   handleClick: function() {
-    App.Dispatcher.trigger("buttonAssessmentClicked","needs_work");
+    App.Dispatcher.trigger("buttonAssessmentClicked", "needs_work");
     return false;
   }
 });

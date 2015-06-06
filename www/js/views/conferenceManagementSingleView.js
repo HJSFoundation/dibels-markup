@@ -5,14 +5,12 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-
     App.selectedSkill = "";
-
     this.listen();
     this.render();
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(App.Dispatcher, "addStudentRequested", this.handleAddStudentRequested);
   },
 

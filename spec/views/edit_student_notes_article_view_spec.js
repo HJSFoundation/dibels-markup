@@ -13,7 +13,7 @@ describe('App.Views.EditStudentNotesArticle', function() {
 
     sinon.stub(_, "bindAll");
     subject = new App.Views.EditStudentNotesArticle({el: '#applicationContainer'});
-    model = new App.Models.Note({ 
+    model = new App.Models.Note({
       "id": 80,
       "classroom_id": 91,
       "author_id": 313,
@@ -45,7 +45,7 @@ describe('App.Views.EditStudentNotesArticle', function() {
     expect(subject.templateJSON().date).to.equal("May 27, 2015");
     expect(subject.templateJSON().content).to.equal("new01234567890123456789012345678901234567890123456789");
   });
-  
+
   describe("handlers", function() {
     it("#handleFocus", function() {
       subject.render(model);

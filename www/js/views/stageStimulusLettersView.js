@@ -16,5 +16,5 @@ App.Views.StageStimulusLetters = Backbone.View.extend({
 
   handleSkillChangeRequest: function(stimulus_object) {
     this.render(stimulus_object);
-  },
+  }
 });

@@ -2,7 +2,7 @@ App.Views.ButtonCloseStory = Backbone.View.extend({
   template: App.templates.buttonCloseStory,
 
   events: {
-    'click' : 'handleClick'
+    'click': 'handleClick'
   },
 
   initialize: function() {

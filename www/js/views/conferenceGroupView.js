@@ -21,19 +21,18 @@ App.Views.ConferenceGroup = Backbone.View.extend({
 
   templateJSON: function() {
     return {
-
       name: this.model.get("name"),
       daysSinceLastSession: this.daysSinceLastSession(),
       number_per_week: this.model.get("number_per_week")
     };
   },
 
-  daysSinceLastSession: function(){
-    return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000* 3600 *24));
+  daysSinceLastSession: function() {
+    return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000 * 3600 * 24));
   },
 
-  handleGroupDropdown: function(){
-    App.Dispatcher.trigger("conferenceGroupDropdownRequested:"+this.model.get("id"));
+  handleGroupDropdown: function() {
+    App.Dispatcher.trigger("conferenceGroupDropdownRequested:" + this.model.get("id"));
   },
 
   handleStartSession: function() {

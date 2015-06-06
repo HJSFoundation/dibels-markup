@@ -74,7 +74,6 @@ describe('App.Views.MenuActivity', function() {
 
   describe("handlers", function() {
     describe("#handleSkillChangeRequest", function() {
-
       it("calls handleActivityMenuButtonActiveRequest with the default activity", function() {
         App.selectedActivity = "phrases";
         sinon.spy(subject, "handleActivityMenuButtonActiveRequest");
@@ -92,7 +91,7 @@ describe('App.Views.MenuActivity', function() {
         expect(subject.buttons.tiles.$el).not.to.be.visible;
         expect(subject.handleActivityMenuButtonActiveRequest).to.have.been.calledWith(App.selectedActivity);
       });
-    }); 
+    });
 
     describe("#handleActivityMenuButtonActiveRequest", function() {
       it("makes active the selected activity", function() {
@@ -115,7 +114,7 @@ describe('App.Views.MenuActivity', function() {
 
         subject.handleActivityMenuButtonActiveRequest("words");
 
-        expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:"+skill, {model: App.selectedStimulus, skill:skill, value: value});
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:" + skill, {model: App.selectedStimulus, skill:skill, value: value});
         App.Dispatcher.trigger.restore();
       });
 

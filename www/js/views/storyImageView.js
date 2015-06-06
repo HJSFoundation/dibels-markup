@@ -14,6 +14,6 @@ App.Views.StoryImage = Backbone.View.extend({
     return {
       image: "dentist1",
       lines: "this is some text.\nthis is the second line"
-    }
+    };
   }
 });

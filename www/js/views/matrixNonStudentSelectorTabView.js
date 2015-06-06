@@ -27,5 +27,5 @@ App.Views.MatrixNonStudentSelectorTab = Backbone.View.extend({
   handleClick: function(event) {
     this.conferenceManagementSingle = new App.Views.ConferenceManagementSingle({el: ".js-overlay"});
     return false;
-  },
+  }
 });

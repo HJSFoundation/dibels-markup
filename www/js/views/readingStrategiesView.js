@@ -1,14 +1,13 @@
 App.Views.ReadingStrategies = Backbone.View.extend({
   template: App.templates.readingStrategies,
 
-  events: {
-    "click .js-readingStrategiesToggle": "handleToggle"
-  },
-
   state: false,
   stateText: "show",
   stateClass: "",
 
+  events: {
+    "click .js-readingStrategiesToggle": "handleToggle"
+  },
 
   initialize: function() {
     _.bindAll(this);
@@ -21,24 +20,24 @@ App.Views.ReadingStrategies = Backbone.View.extend({
     this.menuAssessment = new App.Views.MenuAssessment({el: ".js-menuAssessment"});
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       stateClass: this.stateClass,
       stateText: this.stateText
-    }
+    };
   },
 
   handleToggle: function() {
     var stateText;
-    if(this.state){
+    if (this.state) {
       $(".js-matrixReadingStrategies").removeClass("st-active");
       stateText="show";
-    }else{
+    } else {
       $(".js-matrixReadingStrategies").addClass("st-active");
       stateText="hide";
     }
     this.state = !this.state;
-    $(".js-readingStrategiesToggle").text(stateText+" reading strategies");
+    $(".js-readingStrategiesToggle").text(stateText + " reading strategies");
     return false;
   }
 });

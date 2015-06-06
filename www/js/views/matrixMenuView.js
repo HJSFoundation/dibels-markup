@@ -2,7 +2,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
   template: App.templates.matrixMenu,
 
   gridClass: "js-matrixMenuTabs",
-
   tabDefs: {
     letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames},
     letterSounds: { label: "ONSETS & RIMES", key: App.Config.skill.letterSounds},
@@ -13,12 +12,10 @@ App.Views.MatrixMenu = Backbone.View.extend({
     stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories},
     leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
   },
-
   tabViews: {},
 
   initialize: function() {
     _.bindAll(this);
-
     this.tabsByStage = {
       "1":[this.tabDefs.letterNames, this.tabDefs.leveledTexts],
       "2":[this.tabDefs.letterSounds, this.tabDefs.leveledTexts],
@@ -41,12 +38,9 @@ App.Views.MatrixMenu = Backbone.View.extend({
   },
 
   render: function() {
-
     var that = this;
-
     this.$el.html(this.template(this.templateJSON()));
     this.$gridClass = $("." + this.gridClass);
-
     _.each(this.tabViews, function(tabView) {
       tabView.remove();
     });
@@ -61,12 +55,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
       var view = that.tabViews[tab.key] = new App.Views.MatrixMenuTab(options);
       that.$gridClass.append(view.render().el);
     });
-
-  // BUTTONS THAT MOVE READING STAGE UP AND DOWN
-    // this.stageUpTab = new App.Views.ButtonMatrixStageUp();
-    // this.stageDownTab = new App.Views.ButtonMatrixStageDown();
-    // this.$gridClass.append(this.stageDownTab.render().el);
-    // this.$gridClass.append(this.stageUpTab.render().el);
     this.closeTab = new App.Views.ButtonMatrixClose();
     this.$gridClass.append(this.closeTab.render().el);
   },
@@ -77,7 +65,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
     };
   },
 
-  selectedSkillAvailable: function(){
+  selectedSkillAvailable: function() {
     var that = this;
     this.returnValue = false;
     _.each(this.activeTabDefs, function (tab) {

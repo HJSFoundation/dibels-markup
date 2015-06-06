@@ -1,16 +1,16 @@
 App.Views.Application = Backbone.View.extend({
+
   initialize: function() {
     _.bindAll(this);
     this.loginView = new App.Views.Login();
     $(App.Config.el).append(this.loginView.render().el);
-
     this.listen();
   },
 
-  sendAuthentication: function (xhr) {
+  sendAuthentication: function(xhr) {
     var email = App.loggedInTeacher.email;
     var token = App.loggedInTeacher.token;
-    var header= 'Token token="'+token+'", email="'+email+'"';
+    var header= 'Token token="'+ token +'", email="'+ email +'"';
     xhr.setRequestHeader('Authorization', header);
   },
 
@@ -28,7 +28,7 @@ App.Views.Application = Backbone.View.extend({
     this.initializeStudentCollection();
   },
 
-  initializeStudentCollection: function(){
+  initializeStudentCollection: function() {
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
     localStorage.clear();
@@ -41,25 +41,25 @@ App.Views.Application = Backbone.View.extend({
      });
   },
 
-  initializeStudentCollectionFail: function(){
+  initializeStudentCollectionFail: function() {
     console.log("initializeStudentCollectionFail");
   },
 
-  initializeStudentTestReadingStages: function(){
-    var readingStage=1;
+  initializeStudentTestReadingStages: function() {
+    var readingStage = 1;
     _.each(App.roster.models, function(student){
       student.set({"reading_stage": readingStage});
-      readingStage=readingStage+1;
-      if(readingStage > App.Config.maxStageCount){
+      readingStage = readingStage + 1;
+      if (readingStage > App.Config.maxStageCount) {
         readingStage = 1;
       }
-    },this)
+    },this);
   },
 
-  initializeNotesCollection: function(){
+  initializeNotesCollection: function() {
+    console.log("initializing NotesCollection");
 
     // this.initializeStudentTestReadingStages();
-
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
     App.notes = new App.Collections.Notes();
@@ -69,13 +69,13 @@ App.Views.Application = Backbone.View.extend({
      });
   },
 
-  initializeNotesCollectionFail: function(){
+  initializeNotesCollectionFail: function() {
     console.log("initializeNotesCollectionFail");
   },
 
-  initializeConferencesCollection: function(){
+  initializeConferencesCollection: function() {
+    console.log("initializeConferencesCollection");
     $.ajaxSetup({beforeSend:this.sendAuthentication});
-
     App.conferences = new App.Collections.Conferences();
     App.conferences.fetch({
       success: this.initializeStimuliCollections,
@@ -83,12 +83,12 @@ App.Views.Application = Backbone.View.extend({
      });
   },
 
-  initializeConferencesCollectionFail: function(){
+  initializeConferencesCollectionFail: function() {
     console.log("initializeConferencesCollectionFail");
   },
 
-  initializeStimuliCollections: function(){
-
+  initializeStimuliCollections: function() {
+    console.log("initializeStimuliCollections");
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
       success: this.initializeConferenceManagement,
@@ -96,19 +96,19 @@ App.Views.Application = Backbone.View.extend({
      });
   },
 
-  initializeStimuliCollectionFail: function(){
+  initializeStimuliCollectionFail: function() {
     console.log("initializeStudentCollectionFail");
   },
 
   initializeConferenceManagement: function() {
+    console.log("initializeConferenceManagement");
     this.loginView.remove();
     this.stopListening(App.Dispatcher, "loginSuccess");
     $(App.Config.el).empty();
-    if(this.conferenceManagement){
-      this.conferenceManagement.remove()
+    if (this.conferenceManagement) {
+      this.conferenceManagement.remove();
     }
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
   }
-
 });

@@ -4,7 +4,7 @@ App.Views.StoryTile = Backbone.View.extend({
   selectedClass: "",
 
   events: {
-    "click" : "handleClick"
+    "click": "handleClick"
   },
 
   initialize: function(options) {
@@ -46,10 +46,10 @@ App.Views.StoryTile = Backbone.View.extend({
   },
 
   handleStimulusChangeRequested: function(options) {
-    if(options.skill === this.storyType){
-      if((options.index === this.index)) {
+    if (options.skill === this.storyType) {
+      if ((options.index === this.index)) {
         this.selectedClass = "st-selected";
-      }else{
+      } else {
         this.selectedClass = "";
       }
     }

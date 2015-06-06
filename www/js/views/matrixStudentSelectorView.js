@@ -7,7 +7,6 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     _.bindAll(this);
     this.listen();
     this.render();
-
   },
 
   listen: function() {
@@ -24,7 +23,7 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     });
 
     var nonStudentTabCount = App.Config.maxStudentCount - App.students.length;
-    for(; nonStudentTabCount > 0 ; nonStudentTabCount--){
+    for (; nonStudentTabCount > 0 ; nonStudentTabCount -= 1) {
       var view = new App.Views.MatrixNonStudentSelectorTab();
       $('.js-matrixStudentSelectorTabs').append(view.render().el);
     }
@@ -35,7 +34,6 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
         previous: null
       }
     );
-
   },
 
   handleMatrixStudentSelectorTabActiveRequest: function(students) {
@@ -49,7 +47,7 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     });
   },
 
-  handleAddStudentRequested: function(){
+  handleAddStudentRequested: function() {
     _.each(this.tabs, function(tab) {
       tab.remove();
     });

@@ -20,7 +20,6 @@ App.Views.ConferenceStudent = Backbone.View.extend({
 
   templateJSON: function() {
     return {
-
       shortName: this.studentModel.shortName(),
       reading_stage: this.studentModel.get("reading_stage"),
       daysOnCurrentReadingStage: this.daysOnCurrentReadingStage(),
@@ -29,12 +28,12 @@ App.Views.ConferenceStudent = Backbone.View.extend({
     };
   },
 
-  daysOnCurrentReadingStage: function(){
+  daysOnCurrentReadingStage: function() {
     return this.studentModel.daysOnCurrentReadingStage();
   },
 
-  daysSinceLastSession: function(){
-    return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000* 3600 *24));
+  daysSinceLastSession: function() {
+    return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000 * 3600 * 24));
   },
 
   handleStartSession: function() {

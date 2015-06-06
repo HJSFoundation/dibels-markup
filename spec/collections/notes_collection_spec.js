@@ -18,8 +18,6 @@ describe('App.Collections.Notes', function() {
   });
 
   xit("#parse", function() {
-    
+
   });
-
 });
-

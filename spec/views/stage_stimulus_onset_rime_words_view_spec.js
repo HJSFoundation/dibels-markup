@@ -28,5 +28,4 @@ describe('App.Views.StageStimulusOnsetRimesWords', function() {
     subject.render({value: "b"});
     expect(subject.$el).not.to.be.empty;
   });
-
 });

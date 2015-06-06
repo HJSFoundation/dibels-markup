@@ -9,8 +9,8 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.listen();
-    for(var stage = 1;stage <= App.Config.maxStageCount; stage=stage+1){
-      this.stories[stage] = _.where(App.Stories, {reading_level: App.stageStoryReadingStageMap[stage], story_type: "controlled"})
+    for (var stage = 1; stage <= App.Config.maxStageCount; stage +=1) {
+      this.stories[stage] = _.where(App.Stories, {reading_level: App.stageStoryReadingStageMap[stage], story_type: "controlled"});
     }
   },
 
@@ -24,7 +24,6 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.affixes, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.letterNames, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.letterSounds, this.handleSkillReplaceRequest);
-
   },
 
   render: function() {
@@ -56,5 +55,4 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     });
     this.tiles = [];
   }
-  
 });
