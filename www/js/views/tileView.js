@@ -62,10 +62,10 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   handleStimulusChangeRequested: function(options) {
-    if((options.value === this.model.get("value")) && (options.skill === this.model.get("skill"))) {
+    if ((options.value === this.model.get("value")) && (options.skill === this.model.get("skill"))) {
       this.selectedClass = "st-selected";
       this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
-    }else{
+    } else {
       this.selectedClass = "";
       this.stopListening(App.Dispatcher, "buttonAssessmentClicked");
     }

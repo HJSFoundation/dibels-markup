@@ -42,7 +42,7 @@ App.Views.EditStudent = Backbone.View.extend({
   },
 
   makeInactive: function() {
-    for(var i=0; i< this.ids.length; i=i+1){
+    for (var i=0; i< this.ids.length; i += 1) {
       $("#" + this.ids[i]).removeClass("st-selected");
     }
     this.$editContainer.empty();
