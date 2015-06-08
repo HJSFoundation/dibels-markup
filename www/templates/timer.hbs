@@ -1,0 +1,23 @@
+<div class="timer animated fadeIn" style="display:block;">
+  <div class="timer__controls grid grid--wrap">
+      <div class="timer__progress grid-cell u-1of3">
+        <span>
+          <select id="minutes">
+            <option value="0">00</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>:
+          <select id="seconds">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </span>
+      </div>
+      <button class="button button--warning {{highlight}} grid-cell u-1of3 js-timerButton">{{action}}</button>
+      <a href="#" class="icon {{modifier}} grid-cell u-1of3"></a>
+  </div>
+</div>

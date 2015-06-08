@@ -3,5 +3,7 @@ node_modules
 *.sublime-project
 *.sublime-workspace
 www/css/index.css
-platforms/*
+platforms/**/*
 www/img/stories/**/*.jpg
+
+

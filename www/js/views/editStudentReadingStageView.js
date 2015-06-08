@@ -31,7 +31,22 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     this.makeInactive();
     this.makeActive(readingStage);
     App.selectedStudent.set({reading_stage: readingStage});
-    console.log("EditStudentReadingStage:handleReadingStageChoice should POST user_reading_stages model")
+    var model = new App.Models.UserReadingStage({
+      student_id: App.selectedStudent.get("id"),
+      assessor_id: App.loggedInTeacher.id,
+      reading_stage: readingStage.toString()
+    });
+    model.save()
+      .done(this.updateUser)
+      .fail(this.logFailure);
+  },
+
+  updateUser: function(model, response, options){
+    App.roster.fetch();
+  },
+
+  logFailure: function(model, response, options){
+    console.log("failed updating user reading stage\n"+response);
   }
 
 });
