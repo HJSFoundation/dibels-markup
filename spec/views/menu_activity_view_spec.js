@@ -106,15 +106,27 @@ describe('App.Views.MenuActivity', function() {
         expect(subject.buttons.tiles.makeInactive).to.have.been.called;
       });
 
-      it("triggers stimulus change request when selected stimulus is not null", function() {
-        App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "b"});
+      it("triggers stimulus change request when selected stimulus is not null and selected student reading stage equals selected stimulus reading stage", function() {
+        App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "b", reading_stage: "2"});
+        App.selectedStudent.set({reading_stage: 2});
         sinon.spy(App.Dispatcher, "trigger");
         var skill = App.selectedStimulus.get("skill");
         var value = App.selectedStimulus.get("value");
-
         subject.handleActivityMenuButtonActiveRequest("words");
 
         expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:" + skill, {model: App.selectedStimulus, skill:skill, value: value});
+        App.Dispatcher.trigger.restore();
+      });
+
+      it("does not trigger stimulus change request when selected stimulus is not null and selected student reading stage doesnot equal selected stimulus reading stage", function() {
+        App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "b", reading_stage: "2"});
+        App.selectedStudent.set({reading_stage: 4});
+        sinon.spy(App.Dispatcher, "trigger");
+        var skill = App.selectedStimulus.get("skill");
+        var value = App.selectedStimulus.get("value");
+        subject.handleActivityMenuButtonActiveRequest("words");
+
+        expect(App.Dispatcher.trigger).not.to.have.been.called;
         App.Dispatcher.trigger.restore();
       });
 

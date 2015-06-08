@@ -99,6 +99,10 @@ App.Views.Stage = Backbone.View.extend({
       case "letters":
         this.stageViews.letters.render(stimulus_object);
         break;
+      case "tiles":
+        this.stageViews.tiles.handleSkillChangeRequest(stimulus_object);
+        break;
+
     }
   },
 

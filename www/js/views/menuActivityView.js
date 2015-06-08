@@ -64,7 +64,7 @@ App.Views.MenuActivity = Backbone.View.extend({
         button.makeInactive();
       }
     });
-    if (App.selectedStimulus !== null && (that.isActive)) {
+    if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage")==App.selectedStimulus.get("reading_stage"))) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
       App.Dispatcher.trigger("StimulusChangeRequested:" + skill,
