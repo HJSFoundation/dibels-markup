@@ -2,6 +2,7 @@ App.Views.Application = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
+    // StatusBar.hide();
     this.loginView = new App.Views.Login();
     $(App.Config.el).append(this.loginView.render().el);
     this.listen();
