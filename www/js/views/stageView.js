@@ -2,9 +2,7 @@ App.Views.Stage = Backbone.View.extend({
   template: App.templates.stage,
 
   flipped: false,
-
   stageStimulusEl: ".js-stageStimulus",
-
   stageViews: {},
 
   initialize: function() {
@@ -12,7 +10,7 @@ App.Views.Stage = Backbone.View.extend({
     this.render();
     this.stageViews.letters = new App.Views.StageStimulusLetters({ el: this.stageStimulusEl});
     this.stageViews.onsetRimesWords = new App.Views.StageStimulusOnsetRimesWords({ el: this.stageStimulusEl});
-    this.stageViews.sightWordsWords= new App.Views.StageStimulusSightWordsWords({ el: this.stageStimulusEl});
+    this.stageViews.sightWordsWords = new App.Views.StageStimulusSightWordsWords({ el: this.stageStimulusEl});
     this.stageViews.phrases = new App.Views.StageStimulusPhrases({ el: this.stageStimulusEl});
     this.stageViews.tiles = new App.Views.StageStimulusTiles({ el: this.stageStimulusEl});
     this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
@@ -42,7 +40,6 @@ App.Views.Stage = Backbone.View.extend({
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.letterSounds, this.handleLetterSoundsChangeRequest);
     this.listenTo(App.Dispatcher, "StageClearRequested" , this.handleStageClearRequest);
-
   },
 
   render: function() {
@@ -69,8 +66,8 @@ App.Views.Stage = Backbone.View.extend({
     this.flipped = !this.flipped;
   },
 
-  handleOnsetRimesChangeRequest: function(stimulus_object){
-    switch(App.selectedActivity){
+  handleOnsetRimesChangeRequest: function(stimulus_object) {
+    switch (App.selectedActivity) {
       case "words":
         this.stageViews.onsetRimesWords.render(stimulus_object);
         break;
@@ -83,8 +80,8 @@ App.Views.Stage = Backbone.View.extend({
     }
   },
 
-  handleSightWordsChangeRequest: function(stimulus_object){
-    switch(App.selectedActivity){
+  handleSightWordsChangeRequest: function(stimulus_object) {
+    switch (App.selectedActivity) {
       case "words":
         this.stageViews.sightWordsWords.render(stimulus_object);
         break;
@@ -94,18 +91,22 @@ App.Views.Stage = Backbone.View.extend({
     }
   },
 
-  handleLetterSoundsChangeRequest: function(stimulus_object){
-    switch(App.selectedActivity){
+  handleLetterSoundsChangeRequest: function(stimulus_object) {
+    switch (App.selectedActivity) {
       case "words":
         this.stageViews.onsetRimesWords.render(stimulus_object);
         break;
       case "letters":
         this.stageViews.letters.render(stimulus_object);
         break;
+      case "tiles":
+        this.stageViews.tiles.handleSkillChangeRequest(stimulus_object);
+        break;
+
     }
   },
 
-  handleStageClearRequest: function(){
+  handleStageClearRequest: function() {
     $(this.stageStimulusEl).empty();
     App.selectedStimulus = null;
   }

@@ -27,7 +27,7 @@ describe('App.Views.EditStudentNotesList', function() {
     subject.initialize();
     expect(subject.listen).to.have.been.called;
   });
-  
+
   describe("#listen", function() {
     it("listens for editStudentNoteSelected", function() {
       sinon.spy(subject, "listenTo");
@@ -40,8 +40,7 @@ describe('App.Views.EditStudentNotesList', function() {
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.notes, "change", subject.render);
     });
-  });  
-  
+  });
 
   describe("#render", function() {
     it("renders", function() {
@@ -64,7 +63,7 @@ describe('App.Views.EditStudentNotesList', function() {
         subject.handleEditStudentNoteSelected(noteView);
         expect(subject.makeActive).to.have.been.calledWith(noteView);
       });
-    }); 
+    });
   });
 
   describe("helpers", function() {

@@ -87,7 +87,7 @@ describe('App.Views.Tile', function() {
   it("#templateJSON", function() {
     expect(subject.templateJSON().index).to.equal(subject.index);
     expect(subject.templateJSON().stimulusValue).to.equal(subject.model.get("value"));
-    expect(subject.templateJSON().assessmentClass).to.equal("st-"+subject.model.get("assessment"));
+    expect(subject.templateJSON().assessmentClass).to.equal("st-" + subject.model.get("assessment"));
     expect(subject.templateJSON().selected).to.equal(subject.selected);
   });
 

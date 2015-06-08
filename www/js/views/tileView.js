@@ -4,7 +4,7 @@ App.Views.Tile = Backbone.View.extend({
   selectedClass: "",
 
   events: {
-    "click" : "handleClick"
+    "click": "handleClick"
   },
 
   initialize: function(options) {
@@ -47,7 +47,7 @@ App.Views.Tile = Backbone.View.extend({
 
   handleClick: function() {
     App.selectedStimulus = this.model;
-    App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"), 
+    App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"),
       {
         skill: this.model.get("skill"),
         value: this.model.get("value"),
@@ -62,10 +62,10 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   handleStimulusChangeRequested: function(options) {
-    if((options.value === this.model.get("value")) && (options.skill === this.model.get("skill"))) {
+    if ((options.value === this.model.get("value")) && (options.skill === this.model.get("skill"))) {
       this.selectedClass = "st-selected";
       this.listenTo(App.Dispatcher, "buttonAssessmentClicked", this.handleButtonAssessmentClicked);
-    }else{
+    } else {
       this.selectedClass = "";
       this.stopListening(App.Dispatcher, "buttonAssessmentClicked");
     }

@@ -59,5 +59,4 @@ describe('App.Views.ConferenceGroupDropdown', function() {
       });
     });
   });
-
 });

@@ -8,7 +8,7 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(App.Dispatcher, "editStudentNoteSelected", this.handleEditStudentNoteSelected);
     this.listenTo(App.notes, "change", this.render);
   },
@@ -28,17 +28,17 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
     return this;
   },
 
-  makeActive: function(noteView){
+  makeActive: function(noteView) {
     noteView.makeActive();
   },
 
-  makeInactive: function(){
+  makeInactive: function() {
     _.each(this.noteViews, function(noteView){
       noteView.makeInactive();
     });
   },
 
-  handleEditStudentNoteSelected: function(noteView){
+  handleEditStudentNoteSelected: function(noteView) {
     this.makeInactive();
     this.makeActive(noteView);
   }

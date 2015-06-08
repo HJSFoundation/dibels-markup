@@ -16,7 +16,6 @@ describe('App.Views.MatrixMenu', function() {
     App.selectedStudent = new App.Models.Student({reading_stage:1});
     var studentReadingStage = App.selectedStudent.get("reading_stage");
     subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
-
   });
 
   afterEach(function() {
@@ -57,8 +56,7 @@ describe('App.Views.MatrixMenu', function() {
     });
 
     it("creates all required tab views for reading_stage", function() {
-      for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
-
+      for (var stage = 0; stage < App.Config.maxStageCount; stage += 1) {
         var stageKey = String.fromCharCode(("1".charCodeAt(0)) + stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
         App.selectedStudent = new App.Models.Student({ reading_stage:stageKey });
@@ -68,15 +66,14 @@ describe('App.Views.MatrixMenu', function() {
 
         var skills = subject.tabsByStage[stageKey];
 
-        _.each(skills, function(skill){
+        _.each(skills, function(skill) {
           expect(subject.tabViews[skill.key]).not.to.be.undefined;
         });
-      };
+      }
     });
 
     it("creates only required tab views for reading_stage", function() {
-      for(var stage = 0; stage < App.Config.maxStageCount; stage++) {
-
+      for (var stage = 0; stage < App.Config.maxStageCount; stage += 1) {
         var stageKey = String.fromCharCode(("1".charCodeAt(0)) + stage);
         subject = new App.Views.MatrixMenu({ el: '.js-matrixMenu' });
         App.selectedStudent = new App.Models.Student({ reading_stage:stageKey });
@@ -93,7 +90,7 @@ describe('App.Views.MatrixMenu', function() {
           }, this);
           expect(skillKey).not.to.be.undefined;
         });
-      };
+      }
     });
 
     it("creates a leveled texts tab view", function() {
@@ -121,7 +118,7 @@ describe('App.Views.MatrixMenu', function() {
     });
 
     it("#selectedSkillAvailable", function() {
-      App.selectedSkill = App.Config.skill.sightWords; 
+      App.selectedSkill = App.Config.skill.sightWords;
       expect(subject.selectedSkillAvailable()).to.be.false; // student is stage 1 so sightWords not available
     });
   });

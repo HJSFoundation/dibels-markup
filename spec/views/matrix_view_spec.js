@@ -13,7 +13,6 @@ describe('App.Views.Matrix', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrix" });
     App.selectedStudent = new App.Models.Student({id:1, first_name:"jobe", last_name: "C", reading_stage:1});
-
     subject = new App.Views.Matrix({el: '.js-matrix'});
   });
 

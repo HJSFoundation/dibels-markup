@@ -3,7 +3,6 @@ describe('App.Views.MatrixNonStudentSelectorTab', function() {
   var xhr;
   var requests;
 
-
   beforeEach(function() {
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
@@ -46,5 +45,4 @@ describe('App.Views.MatrixNonStudentSelectorTab', function() {
     subject.handleClick();
     expect(subject.conferenceManagementSingle).to.be.an.instanceOf(App.Views.ConferenceManagementSingle);
   });
-
 });

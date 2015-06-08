@@ -141,21 +141,26 @@ describe('App.Views.Stage', function() {
     });
 
     describe("#handleOnsetRimesChangeRequest", function() {
+      var model;
+
       beforeEach(function() {
-        model = new App.Models.Stimulus({value: "bl", sub_skill:"onsets", reading_stage: 5});
+        model = new App.Models.Stimulus({value: "bl", sub_skill: "onsets", reading_stage: 5});
       });
+
       it("handles selectedActivity === words", function() {
         App.selectedActivity = "words";
         sinon.spy(subject.stageViews.onsetRimesWords, "render");
         subject.handleOnsetRimesChangeRequest({value: "b"});
         expect(subject.stageViews.onsetRimesWords.render).to.have.been.calledWith({value: "b"});
       });
+
       it("handles selectedActivity === phrases", function() {
         App.selectedActivity = "phrases";
         sinon.spy(subject.stageViews.phrases, "handleSkillChangeRequest");
         subject.handleOnsetRimesChangeRequest({model: model});
         expect(subject.stageViews.phrases.handleSkillChangeRequest).to.have.been.calledWith({model: model});
       });
+
       it("handles selectedActivity === tiles", function() {
         App.selectedActivity = "tiles";
         sinon.spy(subject.stageViews.tiles, "handleSkillChangeRequest");
@@ -171,6 +176,7 @@ describe('App.Views.Stage', function() {
         subject.handleSightWordsChangeRequest({value: "b"});
         expect(subject.stageViews.sightWordsWords.render).to.have.been.calledWith({value: "b"});
       });
+
       it("handles selectedActivity === phrases", function() {
         App.selectedActivity = "phrases";
         sinon.spy(subject.stageViews.phrases, "render");
@@ -186,6 +192,7 @@ describe('App.Views.Stage', function() {
         subject.handleLetterSoundsChangeRequest({value: "b"});
         expect(subject.stageViews.onsetRimesWords.render).to.have.been.calledWith({value: "b"});
       });
+
       it("handles selectedActivity === letters", function() {
         App.selectedActivity = "letters";
         sinon.spy(subject.stageViews.letters, "render");

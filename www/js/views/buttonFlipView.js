@@ -2,7 +2,7 @@ App.Views.ButtonFlip = Backbone.View.extend({
   template: App.templates.buttonFlip,
 
   events: {
-    'click' : 'handleflipScreen'
+    'click': 'handleflipScreen'
   },
 
   initialize: function(options) {

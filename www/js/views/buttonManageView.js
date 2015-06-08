@@ -2,7 +2,7 @@ App.Views.ButtonManage = Backbone.View.extend({
   template: App.templates.buttonManage,
 
   events: {
-    'click' : 'handleDisplayManage'
+    'click': 'handleDisplayManage'
   },
 
   initialize: function() {
@@ -15,7 +15,6 @@ App.Views.ButtonManage = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    // App.Dispatcher.trigger('displayTimerButtonTapped');
     console.log("handleDisplayManage");
     return false;
   }

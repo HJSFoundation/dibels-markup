@@ -56,13 +56,12 @@ describe('App.Views.StageStoryPage', function() {
       subject.render();
       expect(subject.readingStrategies).to.be.an.instanceOf(App.Views.ReadingStrategies);
     });
-    
+
     it("does not create reading strategies when selected student reading stage out of range", function() {
       App.selectedStudent.set({reading_stage: 0});
       subject.render();
       expect(subject.readingStrategies).to.be.undefined;
     });
-    
   });
 
   it("#templateJSON", function() {
@@ -124,7 +123,6 @@ describe('App.Views.StageStoryPage', function() {
         expect($(subject.storyStimulusEl)).to.have.class("st-unflipped");
         expect($(subject.storyStimulusEl)).not.to.have.class("st-flipped");
         expect($(".js-storyTextTeacher")).to.be.hidden;
-
       });
 
       it("handles flip story request from the unflipped state", function() {

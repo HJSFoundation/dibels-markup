@@ -39,6 +39,6 @@ describe('App.Views.ButtonManage', function() {
   });
 
   xit("#handleDisplayManage", function() {
-    
+
   });
 });

@@ -29,6 +29,7 @@ describe('App.Views.StageStimulusPhrases', function() {
   });
 
   describe("#handleSkillChangeRequest", function() {
+    var model;
 
     beforeEach(function(){
       model = new App.Models.Stimulus({ value: "ome", sub_skill: "rimes", reading_stage: 5});

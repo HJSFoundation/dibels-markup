@@ -20,6 +20,5 @@ describe('App.Collections.Conferences', function() {
   xit("#parse", function() {
 
   });
-
 });
 

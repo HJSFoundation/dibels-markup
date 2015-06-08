@@ -4,6 +4,7 @@ App.stageStoryReadingStageMap = {
   6: "d",
   7: "e"
 };
+
 App.leveledTextReadingStageMap = {
   1: "a",
   2: "a",
@@ -15,6 +16,7 @@ App.leveledTextReadingStageMap = {
   8: "fg",
   9: "hi"
 };
+
  App.Stories = [
   {title: "The Red Ball", reading_level: "c", weight: 6, slug: "theredball", content_id: 6728, author: "na", pages: [{"lines":"The Red Ball", "image":"large_theredball_02@2x.jpg"}, {"lines":"Pam and Tom play ball.", "image":"large_theredball_02@2x.jpg"}, {"lines":"The ball is blue.", "image":"large_theredball_03@2x.jpg"}, {"lines":"It is a little blue ball.", "image":"large_theredball_04@2x.jpg"}, {"lines":"Pam and Tom play ball in the sun.", "image":"large_theredball_05@2x.jpg"}, {"lines":"Pam and Tom like to hit the ball.\nPop!", "image":"large_theredball_06@2x.jpg"}, {"lines":"Pam and Tom like to run for the ball.", "image":"large_theredball_07@2x.jpg"}, {"lines":"Pam and Tom run to get the little blue ball,", "image":"large_theredball_08@2x.jpg"}, {"lines":"but the little blue ball is a little red ball!", "image":"large_theredball_09@2x.jpg"}], questions: {}, story_type: "controlled"},
   {title: "The Sad Cat", reading_level: "c", weight: 7, slug: "thesadcat", content_id: 6729, author: "na", pages: [{"lines":"The Sad Cat", "image":"large_thesadcat_03@2x.jpg"}, {"lines":"Pat and Meg see a big sad cat.", "image":"large_thesadcat_02@2x.jpg"}, {"lines":"Why is the cat sad?\nPat and Meg pet the big sad cat.", "image":"large_thesadcat_03@2x.jpg"}, {"lines":"Pat and Meg fed the cat a can.", "image":"large_thesadcat_04@2x.jpg"}, {"lines":"Pat and Meg see a little green ball.", "image":"large_thesadcat_05@2x.jpg"}, {"lines":"Pat and Meg got the ball.  The big cat can play!", "image":"large_thesadcat_06@2x.jpg"}, {"lines":"The big cat ran to the little green ball.  Pat and Meg hug.", "image":"large_thesadcat_07@2x.jpg"}, {"lines":"The big cat got the ball.  The big cat is not sad!", "image":"large_thesadcat_08@2x.jpg"}, {"lines":"The big cat can jump on the ball!  The big cat is funny!", "image":"large_thesadcat_09@2x.jpg"}], questions: {}, story_type: "controlled"},

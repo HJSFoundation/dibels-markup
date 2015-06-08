@@ -29,6 +29,7 @@ describe('App.Views.StimuliTilesLeveledTexts', function() {
       subject.initialize();
       expect(subject.listen).to.have.been.called;
     });
+
     it("fills stories array", function() {
       subject.initialize();
       expect(subject.stories).not.to.be.empty;
@@ -44,45 +45,44 @@ describe('App.Views.StimuliTilesLeveledTexts', function() {
     it("listens for the SkillChangeRequested:LeveledTexts event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.leveledTexts, subject.handleSkillChangeRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.leveledTexts, subject.handleSkillChangeRequest);
     });
 
     it("listens for the SkillChangeRequested:StageStories event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.stageStories, subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.stageStories, subject.handleSkillReplaceRequest);
     });
 
     it("listens for the SkillChangeRequested:SightWords event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.sightWords, subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.sightWords, subject.handleSkillReplaceRequest);
     });
 
     it("listens for the SkillChangeRequested:OnsetRimes event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.onsetRimes, subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.onsetRimes, subject.handleSkillReplaceRequest);
     });
 
     it("listens for the SkillChangeRequested:Affixes event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.affixes, subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.affixes, subject.handleSkillReplaceRequest);
     });
 
     it("listens for the SkillChangeRequested:LetterSounds event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.letterSounds, subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.letterSounds, subject.handleSkillReplaceRequest);
     });
 
     it("listens for the SkillChangeRequested:LetterNames event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:"+App.Config.skill.letterNames, subject.handleSkillReplaceRequest);
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.letterNames, subject.handleSkillReplaceRequest);
     });
-
   });
 
   describe("#templateJSON", function() {
@@ -104,6 +104,5 @@ describe('App.Views.StimuliTilesLeveledTexts', function() {
       subject.handleSkillReplaceRequest();
       expect(subject.tiles).to.be.empty;
     });
-
   });
 });

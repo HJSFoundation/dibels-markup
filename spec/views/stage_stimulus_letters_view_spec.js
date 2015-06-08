@@ -36,7 +36,7 @@ describe('App.Views.StageStimulusLetters', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, subject.handleSkillChangeRequest);
     });
   });
-  
+
   it("#render", function() {
     subject.render();
     expect(subject.$el).not.to.be.empty;

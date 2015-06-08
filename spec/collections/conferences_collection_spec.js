@@ -22,7 +22,7 @@ describe('App.Collections.Conferences', function() {
   });
 
   it("#parse", function() {
-    resp = {
+    var resp = {
       "conferences": [
         {
           "id": 76,
@@ -41,9 +41,7 @@ describe('App.Collections.Conferences', function() {
           ]
         }
       ]
-    }
+    };
     expect(subject.parse(resp, xhr)).to.equal(resp.conferences);
   });
-
 });
-

@@ -11,6 +11,7 @@ var App = {
     maxStudentCount: 6,
     maxStageCount: 9,
     minReadingStageForStrategies: 4,
+    firstStageWithSubSkill: 3,
     storageLocalState: false,
     skill: {
       letterNames: "letter_names",
@@ -34,7 +35,6 @@ var App = {
   selectedSkill: null,
 
   ActivityStimuli : {
-
     wordsByStage: {
       2: { // 17 consonants
         b: ["bat", "bet", "bit", "but"],
@@ -65,7 +65,7 @@ var App = {
         }
       },
       4: {
-        rimes:{
+        rimes: {
           ad: ["bad","dad","mad","pad","sad"],
           am: ["dam","ham","jam"],
           an: ["ban","can","fan","man","pan","ran","tan","van"],
@@ -94,8 +94,7 @@ var App = {
         }
       },
       5: {
-        rimes:
-        {
+        rimes: {
           ape: ["cape","drape","grape","tape"],
           ate: ["ate","date","fate","gate","hate","late","plate","skate","state","nate"],
           ide: ["bride","glide","hide","pride","ride","side","slide","tide","wide"],
@@ -112,8 +111,7 @@ var App = {
           une: ["prune","tune"],
           ute: ["cute","flute","mute","lute"]
         },
-        onsets:
-        {
+        onsets: {
           bl: ["blade","blame","bled","blot"],
           br: ["brat","brim","bride"],
           cl: ["clam","clap","clip"],
@@ -132,15 +130,13 @@ var App = {
         }
       },
       6: {
-        onsets:{
-
+        onsets: {
           ch: ["chain","chair","champ","charm","chart","chat","cheat","chill","chin","chip","choke","chop","chore"],
           sh: ["shack","shade","shake","shame","shape","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"],
           th: ["thank","thaw","then","thick","thin","thing","think"],
           wh: ["whale","wheat","wheel","when","while","what","white","why"]
         },
-        rimes:{
-
+        rimes: {
           ack: ["back","black","crack","jack","lack","pack","rack","sack","shack","snack","track"],
           aid: ["braid","laid","paid","raid"],
           ail: ["fail","hail","jail","mail","nail","pail","rail","sail","snail","tail"],
@@ -267,7 +263,6 @@ var App = {
     },
 
     phrasesByStage: {
-
       3: {
         rimes: {
           at: 'phrase"bat","cat","fat","hat","mat","rat","sat","vat"]',
@@ -278,7 +273,7 @@ var App = {
         }
       },
       4: {
-        rimes:{
+        rimes: {
           ad: 'phrase"bad","dad","mad","pad","sad"]',
           am: 'phrase"dam","ham","jam"]',
           an: 'phrase"ban","can","fan","man","pan","ran","tan","van"]',
@@ -307,8 +302,7 @@ var App = {
         }
       },
       5: {
-        rimes:
-        {
+        rimes: {
           ape: 'phrase"cape","drape","grape","tape"]',
           ate: 'phrase"ate","date","fate","gate","hate","late","plate","skate","state","nate"]',
           ide: 'phrase"bride","glide","hide","pride","ride","side","slide","tide","wide"]',
@@ -325,8 +319,7 @@ var App = {
           une: 'phrase"prune","tune"]',
           ute: 'phrase"cute","flute","mute","lute"]'
         },
-        onsets:
-        {
+        onsets: {
           bl: 'phrase"blade","blame","bled","blot"]',
           br: 'phrase"brat","brim","bride"]',
           cl: 'phrase"clam","clap","clip"]',
@@ -345,15 +338,13 @@ var App = {
         }
       },
       6: {
-        onsets:{
-
+        onsets: {
           ch: 'phrase"chain","chair","champ","charm","chart","chat","cheat","chill","chin","chip","choke","chop","chore"]',
           sh: 'phrase"shack","shade","shake","shame","shape","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"]',
           th: 'phrase"thank","thaw","then","thick","thin","thing","think"]',
           wh: 'phrase"whale","wheat","wheel","when","while","what","white","why"]'
         },
-        rimes:{
-
+        rimes: {
           ack: 'phrase"back","black","crack","jack","lack","pack","rack","sack","shack","snack","track"]',
           aid: 'phrase"braid","laid","paid","raid"]',
           ail: 'phrase"fail","hail","jail","mail","nail","pail","rail","sail","snail","tail"]',
@@ -480,12 +471,10 @@ var App = {
     }
   },
 
-  initializeStudentTestData: function(){
-
+  initializeStudentTestData: function() {
     localStorage.clear();
 
     App.roster = new App.Collections.Students();
-    // App.roster.fetch();
     App.roster.create({id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7});
     App.roster.create({id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3});
     App.roster.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
@@ -494,11 +483,8 @@ var App = {
     App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 5});
   },
 
-  initializeStimuliTestData: function  (){
-
-  // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
+  initializeStimuliTestData: function() {
     App.stimuli = new App.Collections.Stimuli();
-  // App.stimuli.fetch();
     App.roster.each(function(student) {
       var a, z, c, A, Z;
       var user_id= student.get("id");

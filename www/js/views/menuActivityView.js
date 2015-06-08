@@ -44,9 +44,9 @@ App.Views.MenuActivity = Backbone.View.extend({
       that.buttons[key].$el.show();
     });
     var activity;
-    if(_.indexOf(this.config.buttonMap[tab.key], App.selectedActivity)===-1){
+    if (_.indexOf(this.config.buttonMap[tab.key], App.selectedActivity) === -1) {
       activity = this.config.buttonMap[tab.key][0];
-    }else{
+    } else {
       activity = App.selectedActivity;
     }
     this.handleActivityMenuButtonActiveRequest(activity);
@@ -64,15 +64,16 @@ App.Views.MenuActivity = Backbone.View.extend({
         button.makeInactive();
       }
     });
-    if (App.selectedStimulus !== null && (that.isActive)) {
+    if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage")==App.selectedStimulus.get("reading_stage"))) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
-      App.Dispatcher.trigger("StimulusChangeRequested:"+skill, 
+      App.Dispatcher.trigger("StimulusChangeRequested:" + skill,
         {
           skill: skill,
           value: value,
           model: App.selectedStimulus
-        });
+        }
+      );
     }
   }
 });

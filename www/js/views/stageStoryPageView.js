@@ -2,7 +2,6 @@ App.Views.StageStoryPage = Backbone.View.extend({
   template: App.templates.stageStoryPage,
 
   storyStimulusEl: ".js-storyFlip",
-
   stories: [],
   pages: [],
   storyId: null,
@@ -10,10 +9,9 @@ App.Views.StageStoryPage = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.listen();
-    for(var stage = 1;stage <= App.Config.maxStageCount; stage=stage+1){
-      this.stories[stage] = _.where(App.Stories, {reading_level: App.stageStoryReadingStageMap[stage], story_type: "controlled"})
+    for (var stage = 1; stage <= App.Config.maxStageCount; stage += 1) {
+      this.stories[stage] = _.where(App.Stories, {reading_level: App.stageStoryReadingStageMap[stage], story_type: "controlled"});
     }
-
   },
 
   listen: function() {
@@ -25,26 +23,25 @@ App.Views.StageStoryPage = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     $('.stage--story__gallery').flickity({
-      // options
       cellAlign: 'left',
       contain: true,
       prevNextButtons: false,
       pageDots: false
     });
 
-    if(App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies){
-      this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies"})
+    if (App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies) {
+      this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies"});
     }
 
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
     this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({el: ".js-storyButtonCloseStory"});
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       pages: this.pages,
       storyId: this.storyId
-    }
+    };
   },
 
   removeView: function() {
@@ -61,7 +58,7 @@ App.Views.StageStoryPage = Backbone.View.extend({
     this.pages = _.clone(story.pages);
     _.each(this.pages, function(page){
       page.linesArray = page.lines.split("\n");
-    })
+    });
     this.render();
   },
 
@@ -79,8 +76,7 @@ App.Views.StageStoryPage = Backbone.View.extend({
     this.flipped = !this.flipped;
   },
 
-  handleCloseStoryPage: function(){
+  handleCloseStoryPage: function() {
     this.removeView();
   }
-
 });

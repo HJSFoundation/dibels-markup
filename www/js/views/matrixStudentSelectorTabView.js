@@ -37,8 +37,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   },
 
   handleClick: function() {
-
-    if(this.model.get("reading_stage") !== App.selectedStudent.get("reading_stage")){
+    if (this.model.get("reading_stage") !== App.selectedStudent.get("reading_stage")) {
       App.Dispatcher.trigger("StageClearRequested");
     }
     var previous = App.selectedStudent;
@@ -53,7 +52,6 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
 
   handleIconClick: function(event) {
     this.editStudent = new App.Views.EditStudent({el: ".js-overlay"});
-    // $(".js-overlay").append(this.editStudent.render().el);
     return false;
   }
 });

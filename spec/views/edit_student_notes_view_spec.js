@@ -29,7 +29,7 @@ describe('App.Views.EditStudentNotes', function() {
       subject.initialize();
       expect(subject.render).to.have.been.called;
     });
-    
+
     it("calls listen on initialize", function() {
       sinon.spy(subject, "listen");
       subject.initialize();

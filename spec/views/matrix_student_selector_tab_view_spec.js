@@ -3,7 +3,6 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
   var xhr;
   var requests;
 
-
   beforeEach(function() {
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
@@ -79,15 +78,15 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
         var previous = App.selectedStudent = new App.Models.Student({id:1, first_name: "Bernie", last_name: "Bivins", reading_stage: 2});
 
         subject.handleClick();
-        expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest", 
-          { current: subject.model, 
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixStudentSelectorTabActiveRequest",
+          { current: subject.model,
             previous: previous
         });
         App.Dispatcher.trigger.restore();
       });
 
       it("triggers the stageClearRequested if the reading stages do not match", function() {
-        App.selectedStudent = new App.Models.Student({id:2, first_name: "Bernie", last_name: "Bivins", reading_stage: 4}),
+        App.selectedStudent = new App.Models.Student({id: 2, first_name: "Bernie", last_name: "Bivins", reading_stage: 4}),
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleClick();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("StageClearRequested");

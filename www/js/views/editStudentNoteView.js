@@ -12,7 +12,7 @@ App.Views.EditStudentNote = Backbone.View.extend({
     this.listen();
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(this.model, 'change', this.render);
   },
 
@@ -25,20 +25,19 @@ App.Views.EditStudentNote = Backbone.View.extend({
     return {
       updatedDate: this.model.updatedDate(),
       shortContent: this.model.shortContent()
-    }
+    };
   },
 
-  makeActive: function(){
+  makeActive: function() {
     this.$el.addClass("st-selected");
   },
 
-  makeInactive: function(){
+  makeInactive: function() {
     this.$el.removeClass("st-selected");
   },
 
-  handleClick: function(){
+  handleClick: function() {
     App.Dispatcher.trigger("editStudentNoteSelected", this);
-    console.log("EditStudentNote:click")
+    console.log("EditStudentNote:click");
   }
-
 });

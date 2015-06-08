@@ -31,5 +31,4 @@ App.Views.MenuAssessment = Backbone.View.extend({
       }
     });
   }
-
 });

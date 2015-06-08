@@ -32,5 +32,4 @@ App.Views.EditStudentNotes = Backbone.View.extend({
   handleEditStudentNoteSelected: function(noteView){
     this.article.render(noteView.model);
   }
-
 });

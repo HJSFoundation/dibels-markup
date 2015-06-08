@@ -20,17 +20,17 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
     return {
       date: this.model.updatedDate(),
       content: this.model.get("content")
-    }
+    };
   },
 
-  handleFocus: function(){
-    this.content = $(this.$el.selector+" textarea").val();
+  handleFocus: function() {
+    this.content = $(this.$el.selector + " textarea").val();
     console.log("EditStudentNotesArticle:handleFocus");
   },
 
-  handleBlur: function(){
-    var newContent = $(this.$el.selector+" textarea").val();
-    if(newContent != this.model.get("content")) {
+  handleBlur: function() {
+    var newContent = $(this.$el.selector + " textarea").val();
+    if (newContent !== this.model.get("content")) {
       this.model.set({content: newContent});
       this.model.set({"updated_at": new Date()});
       this.model.save()
@@ -41,11 +41,10 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
 
   logfailure: function() {
     console.log("EditStudentNotesArticle: model saved failed");
-  }, 
+  },
 
   addModel: function() {
     App.notes.add(this.model);
     console.log("EditStudentNotesArticle: model successfully saved");
   }
-
 });

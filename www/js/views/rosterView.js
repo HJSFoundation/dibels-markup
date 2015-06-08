@@ -2,7 +2,7 @@ App.Views.Roster = Backbone.View.extend({
   template: App.templates.roster,
 
   events: {
-    "click" : "removeView"
+    "click": "removeView"
   },
 
   initialize: function() {
@@ -16,7 +16,7 @@ App.Views.Roster = Backbone.View.extend({
 
   removeView: function() {
     this.$el.empty();
-    console.log("click:App.Views.Roster")
+    console.log("click:App.Views.Roster");
     return false;
   }
 });

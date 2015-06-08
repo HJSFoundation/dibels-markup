@@ -8,23 +8,19 @@ App.Views.StageStimulusOnsetRimesWords = Backbone.View.extend({
   render: function(stimulus_object) {
     var words;
     var readingStage = App.selectedStudent.get("reading_stage");
-    var firstStageWithSubSkill = 3;
 
-    if(readingStage < firstStageWithSubSkill){
+    if (readingStage < App.Config.firstStageWithSubSkill) {
       words = App.ActivityStimuli.wordsByStage[readingStage][stimulus_object.value];
-    }else{
+    } else {
       words = App.ActivityStimuli.wordsByStage[readingStage][stimulus_object.model.get("sub_skill")][stimulus_object.value];
     }
 
     this.$el.html(this.template({words: words}));
    $('.stage__stimulus__gallery').flickity({
-      // options
       cellAlign: 'left',
       contain: true,
       prevNextButtons: false,
       pageDots: false
     });
-
   }
-
 });

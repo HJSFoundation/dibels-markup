@@ -69,13 +69,13 @@ describe('App.Views.ConferenceStudentSingle', function() {
 
   describe("#handleAddStudent", function() {
     it("sets the selected student", function() {
-      subject.handleAddStudent()
+      subject.handleAddStudent();
       expect(App.selectedStudent).to.equal(subject.studentModel);
     });
 
     it("adds the student model to App.students", function() {
       App.students = new App.Collections.Students();
-      subject.handleAddStudent()
+      subject.handleAddStudent();
       expect(App.students.length).to.equal(1);
     });
 
@@ -85,6 +85,5 @@ describe('App.Views.ConferenceStudentSingle', function() {
       expect(App.Dispatcher.trigger).to.have.been.calledWith("addStudentRequested");
       App.Dispatcher.trigger.restore();
     });
-
   });
 });

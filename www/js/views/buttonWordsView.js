@@ -1,11 +1,12 @@
 App.Views.ButtonWords = Backbone.View.extend({
   template: App.templates.buttonWords,
 
-events: {
-    "click": "handleClick"
-  },
   status: "",
   activity: "words",
+
+  events: {
+    "click": "handleClick"
+  },
 
   initialize: function() {
     _.bindAll(this);
@@ -16,17 +17,16 @@ events: {
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       selectedClass: this.status
-    }
+    };
   },
 
   makeActive: function() {
     this.status = "st-active";
     this.render();
     App.selectedActivity = this.key;
-
   },
 
   makeInactive: function() {
