@@ -1,4 +1,4 @@
-describe('App.Collections.Conferences', function() {
+describe('App.Collections.Students', function() {
   var subject;
   var xhr;
   var requests;
@@ -10,11 +10,15 @@ describe('App.Collections.Conferences', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Collections.Conferences();
+    subject = new App.Collections.Students();
   });
 
-  it("has a conference model", function() {
-    expect(new subject.model()).to.be.an.instanceof(App.Models.Conference);
+  it("has a comparator", function() {
+    expect(subject.comparator).to.equal("first_name");
+  });
+
+  it("#url", function() {
+    expect(subject.url()).to.equal(App.url + "/classrooms/"+App.loggedInTeacher.classroom_id+"/students");
   });
 
   xit("#parse", function() {

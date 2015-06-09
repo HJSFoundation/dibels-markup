@@ -28,4 +28,8 @@ describe('App.Models.Stimulus', function() {
   it("has an assessment", function() {
     expect(subject.get("assessment")).to.equal("mastered");
   });
+
+  it("sets the urlRoot", function() {
+    expect(subject.urlRoot()).to.equal(App.url +"/stimuli");
+  });
 });

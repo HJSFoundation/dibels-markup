@@ -103,6 +103,7 @@ App.Views.Application = Backbone.View.extend({
 
   initializeConferenceManagement: function() {
     console.log("initializeConferenceManagement");
+    this.loginView.loadingScreen.removeView();
     this.loginView.remove();
     this.stopListening(App.Dispatcher, "loginSuccess");
     $(App.Config.el).empty();

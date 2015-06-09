@@ -1,5 +1,9 @@
 App.Models.Note = Backbone.Model.extend({
-  urlRoot: App.url + "/notes",
+
+  urlRoot: function(){
+    return App.url + "/notes"
+  },
+
   defaults: {
     "content": "",
     "program_type": "teacher_notepad"

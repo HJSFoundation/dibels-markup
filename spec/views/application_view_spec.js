@@ -45,6 +45,7 @@ describe('App.Views.Application', function() {
   });
 
   it("initializeConferenceManagement", function() {
+    subject.loginView.displayLoadingScreen();
     subject.initializeConferenceManagement();
     expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
     expect($(App.Config.el)).not.to.be.empty;

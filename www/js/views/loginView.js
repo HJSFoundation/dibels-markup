@@ -19,6 +19,7 @@ App.Views.Login = Backbone.View.extend({
     console.log("login submitted");
     var email = $("#email-field").val();
     var password = $("#password-field").val();
+    this.displayLoadingScreen();
     var that = this;
 
     $.ajax({
@@ -41,6 +42,10 @@ App.Views.Login = Backbone.View.extend({
       }
     });
     return false;
+  },
+
+  displayLoadingScreen: function(){
+    this.loadingScreen = new App.Views.Loading({el: App.Config.el});
   },
 
   handleLoginSuccess: function() {
