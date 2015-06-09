@@ -7,7 +7,6 @@ App.Views.MenuActivity = Backbone.View.extend({
       letter_sounds: ["letters", "words", "tiles"],
       sight_words: ["words","phrases"],
       onset_rimes: ["words","phrases","tiles"],
-      affixes: ["words","phrases","tiles"],
       stage_stories: [],
       leveled_texts:[]
     }

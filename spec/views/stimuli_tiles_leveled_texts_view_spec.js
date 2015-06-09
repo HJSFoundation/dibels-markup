@@ -66,12 +66,6 @@ describe('App.Views.StimuliTilesLeveledTexts', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.onsetRimes, subject.handleSkillReplaceRequest);
     });
 
-    it("listens for the SkillChangeRequested:Affixes event", function() {
-      sinon.spy(subject, "listenTo");
-      subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.affixes, subject.handleSkillReplaceRequest);
-    });
-
     it("listens for the SkillChangeRequested:LetterSounds event", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();

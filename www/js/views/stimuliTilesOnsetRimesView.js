@@ -17,7 +17,6 @@ App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.letterNames, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.letterSounds, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.sightWords, this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.affixes, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.stageStories, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.leveledTexts, this.handleSkillReplaceRequest);
   },
