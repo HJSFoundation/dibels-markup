@@ -17,7 +17,6 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.stageStories, this.handleSkillChangeRequest);
 
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.cvts, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.leveledTexts, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.sightWords, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.onsetRimes, this.handleSkillReplaceRequest);

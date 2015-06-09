@@ -1,5 +1,5 @@
 
-XCODE TeacsherNotepad2 Project settings
+XCODE TeacherNotepad2 Project settings
 
 Info
 

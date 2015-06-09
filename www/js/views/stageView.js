@@ -34,7 +34,6 @@ App.Views.Stage = Backbone.View.extend({
 
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleOnsetRimesChangeRequest);
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.cvts, this.handleOnsetRimesChangeRequest);
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSightWordsChangeRequest);
 

@@ -55,9 +55,9 @@ describe('App.Views.Matrix', function() {
       expect(subject.tiles.onset_rimes).to.be.an.instanceOf(App.Views.StimuliTilesOnsetRimes);
     });
 
-    it("creates a stimuli tiles view cvts", function() {
-      expect(subject.tiles.cvts).to.be.an.instanceOf(App.Views.StimuliTilesCVts);
-    });
+    // it("creates a stimuli tiles view cvts", function() {
+    //   expect(subject.tiles.cvts).to.be.an.instanceOf(App.Views.StimuliTilesCVts);
+    // });
 
     it("creates a stimuli tiles view stage stories", function() {
       expect(subject.tiles.stage_stories).to.be.an.instanceOf(App.Views.StimuliTilesStageStories);
@@ -90,7 +90,7 @@ describe('App.Views.Matrix', function() {
   });
 
   it("#handleStudentChangeRequest", function() {
-    App.selectedSkill = App.Config.skill.cvts;
+    App.selectedSkill = App.Config.skill.onsetRimes;
     sinon.spy(subject.tiles[App.selectedSkill], "handleSkillReplaceRequest");
     sinon.spy(subject.tiles[App.selectedSkill], "render");
     var previous = new App.Models.Student({id:1, first_name:"jobe", last_name: "C", reading_stage:1});
