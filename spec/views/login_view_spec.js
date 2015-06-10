@@ -25,6 +25,7 @@ describe('App.Views.Login', function() {
   describe("events", function() {
     it("has a login success event", function() {
       expect(subject.events["click #submit"]).to.equal("submit");
+      expect(subject.events['click #reset']).to.equal("handleForgotPassword");
     });
   });
 
@@ -46,6 +47,15 @@ describe('App.Views.Login', function() {
       subject.handleLoginSuccess();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("loginSuccess");
       App.Dispatcher.trigger.restore();
+    });
+
+    describe("#handleForgotPassword", function() {
+      it("opens an in-app-browser", function() {
+        sinon.stub(window, "open");
+        subject.handleForgotPassword();
+        expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
+        window.open.restore();
+      });
     });
   });
 });

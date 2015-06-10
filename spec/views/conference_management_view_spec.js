@@ -22,6 +22,10 @@ describe('App.Views.ConferenceManagement', function() {
     expect(subject.template()).to.exist;
   });
 
+  it("#events", function() {
+    expect(subject.events['click .js-manageButton']).to.equal('handleDisplayManage');
+  });
+
   describe("#initialize", function() {
     it("calls render on initialize", function() {
       sinon.spy(subject, "render");
@@ -91,6 +95,15 @@ describe('App.Views.ConferenceManagement', function() {
     it("removes itself", function() {
       subject.handleStartSessionRequested();
       expect($("container--management container").length).to.equal(0);
+    });
+  });
+
+  describe("#handleDisplayManage", function() {
+    it("opens an in-app-browser", function() {
+      sinon.stub(window, "open");
+      subject.handleDisplayManage();
+      expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/students/"+App.loggedInTeacher.classroom_id, "_blank", "location=yes");
+      window.open.restore();
     });
   });
 });

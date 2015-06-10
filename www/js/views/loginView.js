@@ -3,6 +3,7 @@ App.Views.Login = Backbone.View.extend({
 
   events: {
     "click #submit": "submit",
+    "click #reset": "handleForgotPassword"
   },
 
   initialize: function() {
@@ -54,5 +55,11 @@ App.Views.Login = Backbone.View.extend({
 
   handleLoginFailure: function() {
     $('.js-login-error').show();
+  },
+
+  handleForgotPassword: function(){
+    App.browser = window.open(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
+
   }
+
 });

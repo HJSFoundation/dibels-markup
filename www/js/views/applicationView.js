@@ -32,7 +32,7 @@ App.Views.Application = Backbone.View.extend({
   initializeStudentCollection: function() {
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
-    localStorage.clear();
+    // localStorage.clear();
     console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
 
     App.roster = new App.Collections.Students();
@@ -92,7 +92,7 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStimuliCollections");
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
-      success: this.initializeConferenceManagement,
+      success: this.initializeLocalStorage,
       error: this.initializeStimuliCollectionFail
      });
   },
@@ -101,7 +101,31 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
+  initializeLocalStorage: function(){
+
+    console.log("initializeLocalStorage");
+
+    // App.notes.local=true;
+    // _.each(App.notes.models, function(model){
+    //   model.save().done(function(model){
+    //     console.log("note id:"+model.get("id")+" loaded");
+    //   });
+    // });
+    // App.notes.local=false;
+
+    // App.stimuli.local=true;
+    // _.each(App.stimuli.models, function(model){
+    //   model.save().done(function(model){
+    //     console.log("stimuli id:"+model.get("id")+" loaded");
+    //   });
+    // });
+    // App.stimuli.local=false;
+
+    this.initializeConferenceManagement();
+  },
+
   initializeConferenceManagement: function() {
+
     console.log("initializeConferenceManagement");
     this.loginView.loadingScreen.removeView();
     this.loginView.remove();

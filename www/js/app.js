@@ -8,6 +8,7 @@ var App = {
     productionApiUrl: "",
     stagingApiUrl: "http://staging.tutormate.org/api/v1",
     developmentApiUrl: "http://localhost:3000/api/v1",
+    tutormateUrl: "https://www.tutormate.org",
     maxStudentCount: 6,
     maxStageCount: 9,
     minReadingStageForStrategies: 4,
@@ -33,6 +34,8 @@ var App = {
   selectedActivity: null,
   selectedStimulus: null,
   selectedSkill: null,
+
+  browser: null,
 
   ActivityStimuli : {
     wordsByStage: {
