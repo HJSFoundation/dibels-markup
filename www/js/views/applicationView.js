@@ -1,5 +1,4 @@
 App.Views.Application = Backbone.View.extend({
-
   initialize: function() {
     _.bindAll(this);
     // StatusBar.hide();
@@ -111,5 +110,6 @@ App.Views.Application = Backbone.View.extend({
     }
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
+    $("table").stickyTableHeaders({ "fixedOffset": 2});
   }
 });

@@ -23,5 +23,6 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
 
     this.phrase = App.ActivityStimuli.phrasesByStage[readingStage][subSkill][value];
     this.render();
+    $(".js-fittext").fitText(2);
   }
 });

@@ -128,10 +128,10 @@ this["App"]["templates"]["conferenceGroupDropdown"] = Handlebars.template({"1":f
     + "    </tr>\n  </table>\n  </td>\n";
 },"useData":true});
 this["App"]["templates"]["conferenceManagement"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container--overlay\">\n  <div class=\"container--management container\">\n    <table class=\"management__table\" cellspacing=\"0\">\n      <colspan>\n        <col class=\"table-column table-column-1\">\n        <col class=\"table-column table-column-4\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col width=\"10\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n      </colspan>\n\n      <thead>\n        <td colspan=\"2\" class=\"session-cell--name\">sessions</td>\n        <td >reading stage</td>\n        <td>growth</td>\n        <td>practice station score</td>\n        <td width=\"10\" class=\"session-cell--spacer\"></td>\n        <td>days on current reading stage</td>\n        <td>days since last session</td>\n        <td>days since last fluency assignment</td>\n        <td>desired sessions per week</td>\n        <td colspan=\"2\">manage</td>\n      </thead>\n\n      <tbody>\n\n      </tbody>\n    </table>\n  </div>\n</div>\n\n";
+    return "<div class=\"container--overlay\">\n  <div class=\"container--management container\">\n    <table class=\"management__table js-management-table\" cellspacing=\"0\">\n      <colspan>\n        <col class=\"table-column table-column-1\">\n        <col class=\"table-column table-column-4\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col width=\"10\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n      </colspan>\n\n      <thead>\n        <tr>\n          <th colspan=\"2\" class=\"session-cell--name\">sessions</th>\n          <th >reading stage</th>\n          <th>growth</th>\n          <th>practice station score</th>\n          <th width=\"10\" class=\"session-cell--spacer\"></th>\n          <th>days on current reading stage</th>\n          <th>days since last session</th>\n          <th>days since last fluency assignment</th>\n          <th>desired sessions per week</th>\n          <th colspan=\"2\">manage</th>\n        </tr>\n        \n      </thead>\n\n      <tbody>\n\n      </tbody>\n    </table>\n  </div>\n</div>\n\n";
 },"useData":true});
 this["App"]["templates"]["conferenceManagementSingle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container container--overlay\">\n  <div class=\"container--management container\">\n    <table class=\"management__table\" cellspacing=\"0\">\n      <colspan>\n       <col class=\"table-column table-column-1\">\n       <col class=\"table-column table-column-4\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col width=\"10\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column table-column-4\">\n      </colspan>\n\n      <thead>\n       <td colspan=\"2\" class=\"session-cell--name\">students</td>\n       <td >reading stage</td>\n       <td>growth</td>\n       <td>practice station score</td>\n       <td width=\"10\" class=\"session-cell--spacer\"></td>\n       <td>days on current reading stage</td>\n       <td>days since last session</td>\n       <td>days since last fluency assignment</td>\n       <td>desired sessions per week</td>\n       <td colspan=\"2\"></td>\n      </thead>\n\n      <tbody>\n      </tbody>\n    </table>\n  </div>\n</div>\n";
+    return "<div class=\"container container--overlay\">\n  <div class=\"container--management container\">\n    <table class=\"management__table\" cellspacing=\"0\">\n      <colspan>\n       <col class=\"table-column table-column-1\">\n       <col class=\"table-column table-column-4\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col width=\"10\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column\">\n       <col class=\"table-column table-column-4\">\n      </colspan>\n\n      <thead>\n       <th colspan=\"2\" class=\"session-cell--name\">students</th>\n       <th >reading stage</th>\n       <th>growth</th>\n       <th>practice station score</th>\n       <th width=\"10\" class=\"session-cell--spacer\"></th>\n       <th>days on current reading stage</th>\n       <th>days since last session</th>\n       <th>days since last fluency assignment</th>\n       <th>desired sessions per week</th>\n       <th colspan=\"2\"></th>\n      </thead>\n\n      <tbody>\n      </tbody>\n    </table>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["conferenceStudent"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -295,7 +295,7 @@ this["App"]["templates"]["roster"] = Handlebars.template({"compiler":[6,">= 2.0.
     return "<div class=\"container container--overlay\">\n  <div class=\"container--management container\">\n    <table class=\"management__table\" cellspacing=\"0\">\n      <colspan>\n        <col class=\"table-column table-column-1\">\n        <col class=\"table-column table-column-4\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col width=\"10\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column\">\n        <col class=\"table-column table-column-4\">\n      </colspan>\n\n      <thead>\n        <td colspan=\"2\" class=\"session-cell--name\">students</td>\n        <td >reading stage</td>\n        <td>growth</td>\n        <td>practice station score</td>\n        <td width=\"10\" class=\"session-cell--spacer\"></td>\n        <td>days on current reading stage</td>\n        <td>days since last session</td>\n        <td>days since last fluency assignment</td>\n        <td>desired sessions per week</td>\n        <td colspan=\"3\"></td>\n      </thead>\n\n      <tbody>\n        <tr class=\"student-row\">\n          <td class=\"js-studentGroup\"><svg class=\"icon-student\"><use xlink:href=\"#icon-student\"></use></svg></td>\n          <td class=\"session-cell--name\">Billy B.</td>\n          <td>n/a</td>\n          <td>n/a</td>\n          <td>n/a</td>\n          <td width=\"10\" class=\"session-cell--spacer\"></td>\n          <td>3</td>\n          <td>n/a</td>\n          <td>4</td>\n          <td class=\"session-cell--desired\">5</td>\n          <td class=\"session-cell--start session-cell--start--student\" colspan=\"3\">\n            <svg class=\"icon-add\"><use xlink:href=\"#icon-add\"></use></svg>\n            add student</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-timer\"></div>\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n\n  <div class=\"js-stageButtonManage\"></div>\n\n";
+    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus grid-cell js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-timer\"></div>\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n\n  <div class=\"js-stageButtonManage\"></div>\n\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -309,29 +309,29 @@ this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compile
     + "\">\n  </div>\n</div>\n\n\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "    <div class=\"stimulus-cell\">\n      <span>"
+    return "    <div class=\"stimulus-cell grid grid--center\">\n      <span>"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "</span>\n    </div>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "<div class=\"stimulus stimulus--words stage__stimulus__gallery animated slideInRight\">\n"
+  return "<div class=\"stimulus stimulus--words stimulus__gallery js-flickity-gallery animated slideInRight\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "\n<div class=\"stimulus stimulus--phrases stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
+  return "\n<div class=\"stimulus stimulus--phrases stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span class=\"js-fittext\">"
     + this.escapeExpression(((helper = (helper = helpers.phrase || (depth0 != null ? depth0.phrase : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"phrase","hash":{},"data":data}) : helper)))
     + "</span>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusSightWordsWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"stimulus stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
+  return "<div class=\"stimulus stimulus--words stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
     + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
-    + "</span>\n  </div>\n  \n</div>";
+    + "</span>\n  </div>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "        <li class=\"tile-choice\">"
@@ -356,7 +356,7 @@ this["App"]["templates"]["stageStimulusWhiteboard"] = Handlebars.template({"comp
 this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"stimulus stimulus--words stage__stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
+  return "<div class=\"stimulus stimulus--words stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span>"
     + this.escapeExpression(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n  </div>\n  \n</div>";
 },"useData":true});
@@ -450,7 +450,7 @@ this["App"]["templates"]["tab"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
     + "</span>\n";
 },"useData":true});
 this["App"]["templates"]["teacherWorkspace"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"workspace\">\n  <div class=\"stage stage--workspace js-stage\"></div>\n  <div class=\"js-matrix\"></div>\n  <div class=\"js-overlay\"></div>\n</div>\n";
+    return "<div class=\"workspace\">\n  <div class=\"stage grid grid--center stage--workspace js-stage\"></div>\n  <div class=\"js-matrix\"></div>\n  <div class=\"js-overlay\"></div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["tile"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;

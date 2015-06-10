@@ -34,8 +34,6 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
       var dropDownView = new App.Views.ConferenceGroupDropdown({students: this.students, conferenceId: groupConference.get("id")});
       this.$tbody.append(dropDownView.render().el);
-
-
     }, this);
 
     var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.loggedInTeacher.classroom_id});
@@ -43,6 +41,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudent({ model: studentConference});
       this.$tbody.append(view.render().el);
     }, this);
+    
     return this;
   },
 

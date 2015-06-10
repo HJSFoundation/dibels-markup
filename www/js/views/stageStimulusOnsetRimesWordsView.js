@@ -16,7 +16,7 @@ App.Views.StageStimulusOnsetRimesWords = Backbone.View.extend({
     }
 
     this.$el.html(this.template({words: words}));
-   $('.stage__stimulus__gallery').flickity({
+   $('.js-flickity-gallery').flickity({
       cellAlign: 'left',
       contain: true,
       prevNextButtons: false,

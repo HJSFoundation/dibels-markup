@@ -25,12 +25,12 @@
       width: 10px!important;
       background: url(../img/spacer.png);
     }
-    thead {
-      font-size: 8px;
-      background-color: $black;
-      color: $text-medium;
+  thead {
+    font-size: 8px;
+    background-color: $black;
+    color: $text-medium;
 
-    td {
+    th {
       border-right: 1px solid $gray-dark;
 
       &:last-child {
@@ -48,7 +48,8 @@
     font-weight: 600;
   }
 
-  td {
+  td,
+  th {
     border: 1px solid $gray-light;
     height: 50px;
     text-align: center;
@@ -84,7 +85,8 @@
   }
 
   .session-cell--data,
-  .session-cell--start {
+  .session-cell--start,
+  th {
     font-size: 8px;
     font-weight: 300;
   }

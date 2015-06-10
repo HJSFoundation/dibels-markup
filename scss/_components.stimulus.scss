@@ -1,43 +1,30 @@
+
+
 .stage__stimulus {
-  &.st-flipped,
-  &.st-unflipped {
-    height: 100%;
-  }
 
   &.st-flipped {
     .stimulus {
-      bottom: 0;
-      top: 75px;
+      margin-top: 75px;
+      margin-bottom: 0;
     }
   }
 
   &.st-unflipped {
     .stimulus {
-      bottom: 75px;
-      top: 0;
+      margin-bottom: 75px;
+      margin-top: 0;
     }
   }
 }
 
 .stimulus {
   font-family: $font-serif;
-  position: absolute;
-  top: 0;
-  bottom: 75px;
-  left: 0;
-  right: 0;
   text-align: center;
-  @extend .grid;
-  @extend .grid--center;
-  @extend .grid--flex-cells;
+  margin-bottom: 75px;
 
 
   .stimulus-cell {
-
-    span {
-      display: inline-block;
-      vertical-align: middle;
-    }
+    max-height: 300px;
 
     img {
       display: inline-block;
@@ -84,6 +71,14 @@
   &.stimulus--phrases {
     color: $phrases-color;
     font-size: 100px;
+
+    .stimulus-cell {
+
+      span {
+        width: 100%;
+        word-wrap: break-word;
+      }
+    }
   }
 
   &.stimulus--tiles {
