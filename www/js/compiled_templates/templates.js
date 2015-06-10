@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 this["App"] = this["App"] || {};
 this["App"]["templates"] = this["App"]["templates"] || {};
 this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -490,3 +491,5 @@ this["App"]["templates"]["timer"] = Handlebars.template({"1":function(depth0,hel
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<p>Whiteboard</p>";
 },"useData":true});
+=======
+>>>>>>> f0383070153b69a7095d683a58afc41cda8f57b5
