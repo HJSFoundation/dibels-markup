@@ -11,5 +11,7 @@ App.Models.Stimulus = Backbone.Model.extend({
   skill: "",
   assessment: "",
 
-  local: App.Config.storageLocalState
+  local: function(){
+    return App.Config.storageLocalState;
+  }
 });

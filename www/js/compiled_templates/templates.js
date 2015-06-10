@@ -10,6 +10,13 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
 this["App"]["templates"]["buttonCloseStory"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<svg class=\"icon-close--story icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n<svg class=\"icon-close--story icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n";
 },"useData":true});
+this["App"]["templates"]["buttonEndSession"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<button class=\"icon-text--vertical button--manage "
+    + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
+    + "\">\n  <svg class=\"icon-manage\"><use xlink:href=\"#icon-manage\"></use></svg>\n  <svg class=\"icon-manage-filled st-hidden\"><use xlink:href=\"#icon-manage-filled\"></use></svg>\n  <span class=\"icon-text__title\">End Session</span>\n</button>\n";
+},"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -291,7 +298,7 @@ this["App"]["templates"]["roster"] = Handlebars.template({"compiler":[6,">= 2.0.
     return "<div class=\"container container--overlay\">\n\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-stageButtonManage\"></div>\n    <div class=\"js-timer\"></div>\n\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n";
+    return "  <div class=\"js-buttonDrawerToggle\"></div>\n  <div class=\"js-stageDrawer\"></div>\n  <div class=\"stage__stimulus js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-stageButtonEndSession\"></div>\n    <div class=\"js-timer\"></div>\n\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;

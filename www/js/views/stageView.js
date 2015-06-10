@@ -16,6 +16,9 @@ App.Views.Stage = Backbone.View.extend({
     this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
     this.leveledTextPageView = new App.Views.LeveledTextPage({ el: ".js-overlay"});
 
+
+    this.buttonEndSessionView = new App.Views.ButtonEndSession({el: ".js-stageButtonEndSession"});
+
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", eventName: "flipStageButtonTapped"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});
     this.timerView = new App.Views.Timer({ el: ".js-timer"});

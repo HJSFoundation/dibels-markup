@@ -7,7 +7,9 @@ App.Collections.Stimuli = Backbone.Collection.extend({
 
   comparator: "value",
 
-  local: App.Config.storageLocalState,
+  local: function(){
+    return App.Config.storageLocalState;
+  },
 
   parse: function(resp, xhr) {
     return resp.stimuli;
