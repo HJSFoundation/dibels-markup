@@ -2,7 +2,7 @@ App.Views.ConferenceGroupDropdown = Backbone.View.extend({
   template: App.templates.conferenceGroupDropdown,
 
   tagName: "tr",
-  className: "session-row--dropdown js-groupDropdown st-hidden",
+  className: "session-row--dropdown js-groupDropdown animated fadeIn st-hidden",
 
   initialize: function(options) {
     this.students = options.students;

@@ -17,8 +17,10 @@
       text-align: left;
       width: 420px;
     }
+  }
 
-
+  .session-cell--group {
+    cursor: pointer;
   }
 
   .session-cell--spacer {
@@ -113,6 +115,7 @@
   background-color: $black;
   height: 25px;
   position: relative;
+  transition: all 2s ease;
 
   td {
     height: 25px;
