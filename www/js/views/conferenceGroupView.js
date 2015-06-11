@@ -6,7 +6,9 @@ App.Views.ConferenceGroup = Backbone.View.extend({
 
   events: {
     "click .js-startSession": "handleStartSession",
-    "click .js-studentGroup": "handleGroupDropdown"
+    "click .js-studentGroup": "handleGroupDropdown",
+    "change .js-editNumberPerWeek": "handleEditNumberPerWeek"
+
   },
 
   initialize: function(options) {
@@ -16,14 +18,15 @@ App.Views.ConferenceGroup = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
+    this.$el.find("#numberPerWeekSelect").val(this.model.get("number_per_week").toString());
+
     return this;
   },
 
   templateJSON: function() {
     return {
       name: this.model.get("name"),
-      daysSinceLastSession: this.daysSinceLastSession(),
-      number_per_week: this.model.get("number_per_week")
+      daysSinceLastSession: this.daysSinceLastSession()
     };
   },
 
@@ -40,5 +43,12 @@ App.Views.ConferenceGroup = Backbone.View.extend({
     App.selectedStudent = App.students.at(0);
     App.Dispatcher.trigger("startSessionRequested");
     return false;
+  },
+
+  handleEditNumberPerWeek: function(){
+    this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
+    this.model.save();
+    return false;
   }
+
 });

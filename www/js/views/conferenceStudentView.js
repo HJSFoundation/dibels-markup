@@ -5,7 +5,8 @@ App.Views.ConferenceStudent = Backbone.View.extend({
   className: "student-row--group",
 
   events: {
-    "click .js-startSession": "handleStartSession"
+    "click .js-startSession": "handleStartSession",
+    "change .js-editNumberPerWeek": "handleEditNumberPerWeek"
   },
 
   initialize: function() {
@@ -15,6 +16,7 @@ App.Views.ConferenceStudent = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
+    this.$el.find("#numberPerWeekSelect").val(this.model.get("number_per_week").toString());
     return this;
   },
 
@@ -23,8 +25,7 @@ App.Views.ConferenceStudent = Backbone.View.extend({
       shortName: this.studentModel.shortName(),
       reading_stage: this.studentModel.get("reading_stage"),
       daysOnCurrentReadingStage: this.daysOnCurrentReadingStage(),
-      daysSinceLastSession: this.daysSinceLastSession(),
-      number_per_week: this.model.get("number_per_week")
+      daysSinceLastSession: this.daysSinceLastSession()
     };
   },
 
@@ -40,6 +41,12 @@ App.Views.ConferenceStudent = Backbone.View.extend({
     App.selectedStudent = this.studentModel;
     App.students.add(this.studentModel);
     App.Dispatcher.trigger("startSessionRequested");
+    return false;
+  },
+
+  handleEditNumberPerWeek: function(){
+    this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
+    this.model.save();
     return false;
   }
 });

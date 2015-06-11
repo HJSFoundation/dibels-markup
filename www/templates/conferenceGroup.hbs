@@ -7,7 +7,16 @@
   <td>n/a</td>
   <td>{{ daysSinceLastSession }}</td>
   <td>n/a</td>
-  <td class="session-cell--desired">{{ number_per_week }}</td>
+  <td class="session-cell--desired js-editNumberPerWeek">
+    <select type="number" id="numberPerWeekSelect">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </td>
   <td class="session-cell--data">see student data</td>
   <td class="session-cell--start js-startSession">start session</td>
 
