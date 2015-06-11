@@ -1,34 +1,35 @@
 .management__table {
-  table-layout: fixed;
+  background: $white;
   border-collapse: collapse;
   border-spacing: 0;
+  table-layout: fixed;
   text-transform: uppercase;
-  background: $white;
 
   .table-column {
-    width: 60px;
     text-align: center;
+    width: 60px;
 
     &.table-column-1 {
       width: 50px;
     }
 
     &.table-column-4 {
-      width: 420px;
       text-align: left;
+      width: 420px;
     }
 
 
   }
 
   .session-cell--spacer {
-      width: 10px!important;
-      background: url(../img/spacer.png);
-    }
+    background: url(../img/spacer.png);
+    width: 10px!important;
+  }
+
   thead {
-    font-size: 8px;
     background-color: $black;
     color: $text-medium;
+    font-size: 8px;
 
     th {
       border-right: 1px solid $gray-dark;
@@ -56,11 +57,11 @@
 
     .icon-student,
     .icon-student-group {
+      display: block;
       fill: $orange;
       height: auto;
-      text-align: center;
       margin: 0 auto;
-      display: block;
+      text-align: center;
     }
 
     .icon-student {
@@ -72,9 +73,9 @@
     }
 
     &.session-cell--name {
-      text-align: left;
-      padding-left: 10px;
       font-size: 14px;
+      padding-left: 10px;
+      text-align: left;
     }
   }
 
@@ -93,24 +94,25 @@
   .session-cell--start {
     background: $orange;
     color: white;
+    cursor: pointer;
 
     &.session-cell--start--student {
       font-size: 11px;
     }
 
     .icon-add {
-      width: 20px;
       fill: white;
-      vertical-align: middle;
       margin-right: 3px;
+      vertical-align: middle;
+      width: 20px;
     }
   }
 }
 
 .session-row--dropdown {
-  position: relative;
-  height: 25px;
   background-color: $black;
+  height: 25px;
+  position: relative;
 
   td {
     height: 25px;
@@ -118,10 +120,10 @@
 }
 
 .student-choice {
-  width: 100%;
   background: $black;
-  color: $white;
   cellspacing: 0;
+  color: $white;
+  width: 100%;
 
   tbody {
     font-size: 14px;
@@ -129,14 +131,14 @@
   }
 
   td {
+    border-bottom: 0;
+    border-left: 0;
     border-right: 1px solid $gray-dark;
+    border-top: 0;
     height: 25px;
     line-height: 25px;
-    border-left: 0;
-    border-top: 0;
-    border-bottom: 0;
-    text-align: left;
     padding-left: 10px;
+    text-align: left;
     width: 16.66%;
 
     &:last-child {
