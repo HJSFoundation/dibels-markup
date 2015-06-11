@@ -28,11 +28,19 @@ describe('App.Views.ConferenceStudent', function() {
 
   it("#events", function() {
     expect(subject.events["click .js-startSession"]).to.equal("handleStartSession");
+    expect(subject.events["change .js-editNumberPerWeek"]).to.equal("handleEditNumberPerWeek");
   });
 
-  it("#renders", function() {
-    subject.render();
-    expect(subject.$el).not.to.be.empty;
+  describe("#render", function() {
+    it("renders", function() {
+      subject.render();
+      expect(subject.$el).not.to.be.empty;
+    });
+
+    it("sets the select value to the number of confereces per week", function() {
+      subject.render();
+      expect(subject.$el.find("#numberPerWeekSelect").val()).to.equal(subject.model.get("number_per_week").toString());
+    });
   });
 
   describe("#templateJSON", function() {
@@ -50,10 +58,6 @@ describe('App.Views.ConferenceStudent', function() {
 
     it("sets the daysSinceLastSession", function() {
       expect(subject.templateJSON().daysSinceLastSession).to.equal(1);
-    });
-
-    it("sets the number_per_week", function() {
-      expect(subject.templateJSON().number_per_week).to.equal(3);
     });
   });
 
@@ -84,6 +88,21 @@ describe('App.Views.ConferenceStudent', function() {
       subject.handleStartSession();
       expect(App.Dispatcher.trigger).to.have.been.calledWith("startSessionRequested");
       App.Dispatcher.trigger.restore();
+    });
+  });
+
+  describe("#handleEditNumberPerWeek", function() {
+    it("sets the select value to the number of conferences per week", function() {
+      subject.render();
+      subject.$el.find("#numberPerWeekSelect").val(subject.model.get("number_per_week") + 1);
+      subject.handleEditNumberPerWeek();
+      expect(subject.$el.find("#numberPerWeekSelect").val()).to.equal(subject.model.get("number_per_week").toString());
+    });
+
+    it("calls save on the model", function() {
+      sinon.spy(subject.model, "save");
+      subject.handleEditNumberPerWeek();
+      expect(subject.model.save).to.have.been.called;
     });
   });
 });

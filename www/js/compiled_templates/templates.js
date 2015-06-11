@@ -108,9 +108,7 @@ this["App"]["templates"]["conferenceGroup"] = Handlebars.template({"compiler":[6
     + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
     + "</td>\n  <td>n/a</td>\n  <td>n/a</td>\n  <td>n/a</td>\n  <td width=\"10\" class=\"session-cell--spacer\"></td>\n  <td>n/a</td>\n  <td>"
     + alias3(((helper = (helper = helpers.daysSinceLastSession || (depth0 != null ? depth0.daysSinceLastSession : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysSinceLastSession","hash":{},"data":data}) : helper)))
-    + "</td>\n  <td>n/a</td>\n  <td class=\"session-cell--desired\">"
-    + alias3(((helper = (helper = helpers.number_per_week || (depth0 != null ? depth0.number_per_week : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"number_per_week","hash":{},"data":data}) : helper)))
-    + "</td>\n  <td class=\"session-cell--start js-startSession\" colspan=\"2\">start session</td>\n\n";
+    + "</td>\n  <td>n/a</td>\n\n  <td class=\"session-cell--desired js-editNumberPerWeek\">\n    <select type=\"number\" id=\"numberPerWeekSelect\">\n      <option value=\"0\">0</option>\n      <option value=\"1\">1</option>\n      <option value=\"2\">2</option>\n      <option value=\"3\">3</option>\n      <option value=\"4\">4</option>\n      <option value=\"5\">5</option>\n    </select>\n  </td>\n\n  <td class=\"session-cell--start js-startSession\" colspan=\"2\">start session</td>\n\n\n";
 },"useData":true});
 this["App"]["templates"]["conferenceGroupDropdown"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
@@ -144,9 +142,7 @@ this["App"]["templates"]["conferenceStudent"] = Handlebars.template({"compiler":
     + alias3(((helper = (helper = helpers.daysOnCurrentReadingStage || (depth0 != null ? depth0.daysOnCurrentReadingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysOnCurrentReadingStage","hash":{},"data":data}) : helper)))
     + "</td>\n  <td>"
     + alias3(((helper = (helper = helpers.daysSinceLastSession || (depth0 != null ? depth0.daysSinceLastSession : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysSinceLastSession","hash":{},"data":data}) : helper)))
-    + "</td>\n  <td>n/a</td>\n  <td class=\"session-cell--desired\">"
-    + alias3(((helper = (helper = helpers.number_per_week || (depth0 != null ? depth0.number_per_week : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"number_per_week","hash":{},"data":data}) : helper)))
-    + "</td>\n  <td class=\"session-cell--start js-startSession\" colspan=\"2\">start session</td>\n";
+    + "</td>\n  <td>n/a</td>\n  <td class=\"session-cell--desired js-editNumberPerWeek\">\n    <select type=\"number\" id=\"numberPerWeekSelect\">\n      <option value=\"0\">0</option>\n      <option value=\"1\">1</option>\n      <option value=\"2\">2</option>\n      <option value=\"3\">3</option>\n      <option value=\"4\">4</option>\n      <option value=\"5\">5</option>\n    </select>\n  </td>\n\n  <td class=\"session-cell--start js-startSession\" colspan=\"2\">start session</td>\n";
 },"useData":true});
 this["App"]["templates"]["conferenceStudentSingle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
