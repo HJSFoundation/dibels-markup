@@ -82,7 +82,8 @@
   }
 
   &.stimulus--tiles {
-    max-width: 850px;
+    // max-width: 850px;
+    max-height: 340px;
 
     &.stimulus--tiles--reverse {
       flex-direction: row-reverse;
@@ -98,23 +99,33 @@
       .stimulus__tile-column--rime li {
         background-color: $tiles-color;
       }
+
+      .stimulus--onsets-rimes {
+        margin-right: 75px;
+        margin-left: 0;
+      }
+
+      .stimulus--tile-choices {
+        margin-left: 75px;
+        margin-right: 0;
+      }
     }
   }
 
   .stimulus--onsets-rimes {
-    max-width: 46%;
+    // max-width: 46%;
     height: 100%;
-    margin: 0 auto;
+    margin-left: 75px;
     bottom: 0;
 
     .stimulus__tile-column {
-      max-width: 250px;
+      
       overflow: auto;
 
       li {
         color: $text-light;
         background-color: $tiles-color;
-        height: 100px;
+        height: 120px;
         margin-bottom: 2px;
         font-size: 100px;
         font-weight: 500;
@@ -126,6 +137,7 @@
 
     .stimulus__tile-column--onset {
       text-align: right;
+      max-width: 150px;
     }
 
     .stimulus__tile-column--rime {
@@ -137,12 +149,15 @@
     }
   }
 
-  .stage__stimulus--tile-choices {
+  .stimulus--tile-choices {
     font-size: 32px;
     overflow: auto;
     color: $white;
-    .stage__stimulus--tile-choices__wrapper {
-      width: 40%;
+    max-height: 340px;
+    margin-right: 75px;
+
+    .stimulus--tile-choices__wrapper {
+      width: 45%;
       overflow: auto;
       align-self: flex-end;
     }

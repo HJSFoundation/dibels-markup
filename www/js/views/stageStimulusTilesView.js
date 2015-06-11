@@ -44,7 +44,7 @@ App.Views.StageStimulusTiles = Backbone.View.extend({
   },
 
   initializeRimes: function(model) {
-    this.subSkillClass = "stage__stimulus--tiles--reverse";
+    this.subSkillClass = "stimulus--tiles--reverse";
     this.rime = model.get("value");
     this.choices = [];
     var words = App.ActivityStimuli.wordsByStage[model.get("reading_stage")].rimes[model.get("value")];
