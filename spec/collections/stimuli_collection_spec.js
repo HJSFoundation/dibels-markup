@@ -20,4 +20,8 @@ describe('App.Collections.Stimuli', function() {
   it("has a stimulus model", function() {
     expect(new subject.model()).to.be.an.instanceof(App.Models.Stimulus);
   });
+
+  it("#url", function() {
+    expect(subject.url()).to.equal(App.url + "/classrooms/"+App.loggedInTeacher.classroom_id+"/stimuli");
+  });
 });

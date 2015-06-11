@@ -9,15 +9,17 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
-                        },
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "CoreGraphics.framework": [
                         {
-                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+                            "xml": false,
                             "count": 1
                         }
                     ]
@@ -26,7 +28,7 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.statusbar": {
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ifl.teachernotepad2"
         }
     },

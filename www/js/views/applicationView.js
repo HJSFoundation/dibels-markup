@@ -16,6 +16,8 @@ App.Views.Application = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
+    this.listenTo(App.Dispatcher, "initializeConferenceManagementRequested", this.initializeConferenceManagement);
+
   },
 
   // handleLoggedIn: function() {
@@ -31,7 +33,7 @@ App.Views.Application = Backbone.View.extend({
   initializeStudentCollection: function() {
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
-    localStorage.clear();
+    // localStorage.clear();
     console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
 
     App.roster = new App.Collections.Students();
@@ -89,9 +91,11 @@ App.Views.Application = Backbone.View.extend({
 
   initializeStimuliCollections: function() {
     console.log("initializeStimuliCollections");
+    // App.initializeStimuliData();
+    // this.initializeLocalStorage();
     App.stimuli = new App.Collections.Stimuli();
     App.stimuli.fetch({
-      success: this.initializeConferenceManagement,
+      success: this.initializeLocalStorage,
       error: this.initializeStimuliCollectionFail
      });
   },
@@ -100,14 +104,47 @@ App.Views.Application = Backbone.View.extend({
     console.log("initializeStudentCollectionFail");
   },
 
-  initializeConferenceManagement: function() {
-    console.log("initializeConferenceManagement");
+  initializeLocalStorage: function(){
+
+    console.log("initializeLocalStorage");
+
+    App.notes.local=true;
+    _.each(App.notes.models, function(model){
+      model.save();
+    });
+    App.notes.local=false;
+
+    App.roster.local=true;
+    _.each(App.roster.models, function(model){
+      model.save();
+    });
+    App.roster.local=false;
+
+    App.conferences.local=true;
+    _.each(App.conferences.models, function(model){
+      model.save();
+    });
+    App.conferences.local=false;
+
+    App.stimuli.local=true;
+    _.each(App.stimuli.models, function(model){
+      model.save();
+    });
+    App.stimuli.local=false;
+
+    this.removeLogin();
+  },
+
+  removeLogin: function() {
+    console.log("removeLogin");
+    this.loginView.loadingScreen.removeView();
     this.loginView.remove();
     this.stopListening(App.Dispatcher, "loginSuccess");
+    this.initializeConferenceManagement();
+  },
+
+  initializeConferenceManagement: function() {
     $(App.Config.el).empty();
-    if (this.conferenceManagement) {
-      this.conferenceManagement.remove();
-    }
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
     $("table").stickyTableHeaders({ "fixedOffset": 2});

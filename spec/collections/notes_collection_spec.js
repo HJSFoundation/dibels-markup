@@ -20,4 +20,8 @@ describe('App.Collections.Notes', function() {
   xit("#parse", function() {
 
   });
+
+  it("sets the url", function() {
+    expect(subject.url()).to.equal(App.url + "/classrooms/" + App.loggedInTeacher.classroom_id + "/notes");
+  });
 });

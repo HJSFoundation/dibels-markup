@@ -44,13 +44,6 @@ describe('App.Views.Application', function() {
 
   });
 
-  it("initializeConferenceManagement", function() {
-    subject.initializeConferenceManagement();
-    expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
-    expect($(App.Config.el)).not.to.be.empty;
-    expect($("#loginContainer")).not.to.exist;
-  });
-
   it("has a reference to the application container", function() {
     expect(subject.$el).to.exist;
     expect(subject.$el).to.have.id('applicationContainer');
@@ -74,9 +67,38 @@ describe('App.Views.Application', function() {
     });
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "loginSuccess", subject.handleLoggedIn);
+  describe("#listen", function() {
+    it("listens for loginSuccess", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "loginSuccess", subject.handleLoggedIn);
+    });
+
+    it("listens for initializeConferenceManagement", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "initializeConferenceManagementRequested", subject.initializeConferenceManagement);
+    });
+  });
+
+  describe("#removeLogin", function() {
+    it("removes the Login View", function() {
+      subject.loginView.displayLoadingScreen();
+      subject.removeLogin();
+      expect($("#loginContainer")).not.to.exist;
+    });
+
+    it("calls initializeConferenceManagement", function() {
+      sinon.spy(subject, "initializeConferenceManagement");
+      subject.loginView.displayLoadingScreen();
+      subject.removeLogin();
+      expect(subject.initializeConferenceManagement).to.have.been.called;
+    });
+  });
+
+  it("#initializeConferenceManagement", function() {
+    subject.initializeConferenceManagement();
+    expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
+    expect($(App.Config.el)).not.to.be.empty;
   });
 });

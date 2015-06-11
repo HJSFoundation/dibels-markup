@@ -3,6 +3,7 @@ App.Views.Login = Backbone.View.extend({
 
   events: {
     "click #submit": "submit",
+    "click #reset": "handleForgotPassword"
   },
 
   initialize: function() {
@@ -19,6 +20,7 @@ App.Views.Login = Backbone.View.extend({
     console.log("login submitted");
     var email = $("#email-field").val();
     var password = $("#password-field").val();
+    this.displayLoadingScreen();
     var that = this;
 
     $.ajax({
@@ -43,11 +45,21 @@ App.Views.Login = Backbone.View.extend({
     return false;
   },
 
+  displayLoadingScreen: function(){
+    this.loadingScreen = new App.Views.Loading({el: App.Config.el});
+  },
+
   handleLoginSuccess: function() {
     App.Dispatcher.trigger("loginSuccess");
   },
 
   handleLoginFailure: function() {
     $('.js-login-error').show();
+  },
+
+  handleForgotPassword: function(){
+    App.browser = window.open(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
+
   }
+
 });

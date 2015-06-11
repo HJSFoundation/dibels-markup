@@ -66,12 +66,6 @@ describe('App.Views.Tile', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.onsetRimes, subject.handleStimulusChangeRequested);
     });
 
-    it("listens to stimulus change requested affixes", function() {
-      sinon.spy(subject, "listenTo");
-      subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.affixes, subject.handleStimulusChangeRequested);
-    });
-
     it("listens to stimulus change requested stageStories", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();

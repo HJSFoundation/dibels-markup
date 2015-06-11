@@ -11,7 +11,6 @@ App.Views.Matrix = Backbone.View.extend({
     this.tiles.letter_sounds = new App.Views.StimuliTilesLetterSounds({ el: ".js-stimuliTiles"});
     this.tiles.sight_words = new App.Views.StimuliTilesSightWords({ el: ".js-stimuliTiles"});
     this.tiles.onset_rimes = new App.Views.StimuliTilesOnsetRimes({ el: ".js-stimuliTiles"});
-    this.tiles.cvts = new App.Views.StimuliTilesCVts({ el: ".js-stimuliTiles"});
     this.tiles.stage_stories = new App.Views.StimuliTilesStageStories({ el: ".js-stimuliTiles"});
     this.tiles.leveled_texts = new App.Views.StimuliTilesLeveledTexts({ el: ".js-stimuliTiles"});
     this.matrixStudentSelectorView = new App.Views.MatrixStudentSelector({ el: ".js-matrixStudentSelector"});

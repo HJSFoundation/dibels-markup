@@ -10,7 +10,7 @@ describe('App.Models.Note', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Note({ 
+    subject = new App.Models.Note({
       "id": 80,
       "classroom_id": 91,
       "author_id": 313,
@@ -46,5 +46,9 @@ describe('App.Models.Note', function() {
 
   it("#updatedDate", function() {
     expect(subject.updatedDate()).to.equal("May 27, 2015");
+  });
+
+  it("sets the urlRoot", function() {
+    expect(subject.urlRoot()).to.equal(App.url + "/notes");
   });
 });

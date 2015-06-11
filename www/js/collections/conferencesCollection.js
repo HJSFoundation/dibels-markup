@@ -1,6 +1,9 @@
 App.Collections.Conferences = Backbone.Collection.extend({
   model: App.Models.Conference,
-  url: App.url + "/classrooms/91/conferences",
+  url: function(){
+    return App.url + "/classrooms/" + App.loggedInTeacher.classroom_id + "/conferences";
+  },
+
   comparator: "name",
 
   local: App.Config.storageLocalState,
@@ -8,4 +11,5 @@ App.Collections.Conferences = Backbone.Collection.extend({
   parse: function(resp, xhr) {
     return resp.conferences;
   }
+
 });

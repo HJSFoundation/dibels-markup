@@ -1,6 +1,10 @@
 App.Collections.Notes = Backbone.Collection.extend({
   model: App.Models.Note,
-  url: App.url + "/classrooms/91/notes",
+
+  url: function(){
+    return App.url + "/classrooms/" + App.loggedInTeacher.classroom_id + "/notes";
+  },
+
   comparator: "updated_at",
 
   local: App.Config.storageLocalState,

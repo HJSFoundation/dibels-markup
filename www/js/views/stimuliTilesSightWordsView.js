@@ -13,11 +13,9 @@ App.Views.StimuliTilesSightWords = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.sightWords, this.handleSkillChangeRequest);
 
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.cvts, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.letterNames, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.letterSounds, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.onsetRimes, this.handleSkillReplaceRequest);
-    this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.affixes, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.stageStories, this.handleSkillReplaceRequest);
     this.listenTo(App.Dispatcher, "SkillChangeRequested:" + App.Config.skill.leveledTexts, this.handleSkillReplaceRequest);
   },

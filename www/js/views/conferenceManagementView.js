@@ -3,6 +3,11 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   conferenceGroups: {},
 
+  events: {
+    'click .js-manageButton': 'handleDisplayManage'
+  },
+
+
   initialize: function() {
     _.bindAll(this);
 
@@ -48,6 +53,13 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   handleStartSessionRequested: function() {
     this.teacherWorkspace = new App.Views.TeacherWorkspace({el: App.Config.el});
     this.remove();
+    return false;
+  },
+
+  handleDisplayManage: function() {
+    App.browser = window.open(App.Config.tutormateUrl + "/students/"+App.loggedInTeacher.classroom_id, "_blank", "location=yes");
+
+    console.log("handleDisplayManage");
     return false;
   }
 });

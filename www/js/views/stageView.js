@@ -16,9 +16,11 @@ App.Views.Stage = Backbone.View.extend({
     this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
     this.leveledTextPageView = new App.Views.LeveledTextPage({ el: ".js-overlay"});
 
+
+    this.buttonEndSessionView = new App.Views.ButtonEndSession({el: ".js-stageButtonEndSession"});
+
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", eventName: "flipStageButtonTapped"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});
-    this.buttonManageView = new App.Views.ButtonManage({el: ".js-stageButtonManage"});
     this.timerView = new App.Views.Timer({ el: ".js-timer"});
 
     this.menuAssessmentView = new App.Views.MenuAssessment({ el: ".js-menuAssessment"});
@@ -34,7 +36,6 @@ App.Views.Stage = Backbone.View.extend({
 
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.onsetRimes, this.handleOnsetRimesChangeRequest);
-    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.cvts, this.handleOnsetRimesChangeRequest);
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSightWordsChangeRequest);
 
