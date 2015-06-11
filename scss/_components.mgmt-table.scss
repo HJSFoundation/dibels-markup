@@ -87,6 +87,19 @@
     color: $white;
   }
 
+  .session-cell--desired {
+
+    select {
+      -webkit-appearance: none;
+      -webkit-border-radius: 0px;
+      font-size: inherit;
+      font-family: inherit;
+      background-color: inherit;
+      color: inherit;
+      border: 0;
+    }
+  }
+
   .session-cell--data,
   .session-cell--start,
   th {
@@ -97,6 +110,7 @@
     background: $orange;
     color: white;
     cursor: pointer;
+    font-size: 12px;
 
     &.session-cell--start--student {
       font-size: 11px;
