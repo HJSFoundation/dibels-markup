@@ -168,38 +168,43 @@ button,
   color: $white;
 }
 
-.button--story-close {
+.button--close {
+  fill: $white;
+  height: 45px;
+  left: 5px;
   position: absolute;
   top: 5px;
-  left: 5px;
   width: 45px;
-  height: 45px;
   z-index: 200;
-  fill: $white;
+
   &:before {
-    content: "";
-    position: absolute;
     background: $black;
     border-radius: 50%;
-    width: 40px;
+    bottom: 0;
+    content: "";
     height: 40px;
-    top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     margin: auto;
-    }
-
-  .icon-close--story {
-    width: 45px;
-    height: 45px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
     right: 0;
+    top: 0;
+    width: 40px;
+  }
+
+  &.button--close--edit-student {
+    right: 5px;
+    left: auto;
+  }
+
+  .icon-close--overlay {
+    bottom: 0;
+    height: 45px;
+    left: 0;
     margin: auto;
-    
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
   }
   .icon-close {
     display: inline-block;

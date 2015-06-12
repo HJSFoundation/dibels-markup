@@ -10,7 +10,7 @@ App.Views.EditStudent = Backbone.View.extend({
   views: {},
 
   events: {
-    "click .js-editStudentButtonClose": "handleCloseRequest",
+    "click .js-closeOverlayButton": "handleCloseRequest",
     "click #js-editReadingStage": "handleTabRequest",
     "click #js-editNotes": "handleTabRequest",
   },

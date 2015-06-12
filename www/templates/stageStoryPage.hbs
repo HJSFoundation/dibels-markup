@@ -9,7 +9,6 @@
               {{#each this.linesArray}}
 
                 <span class="story__text__number">{{ math @index "+" 1 }}.</span>{{ this }}</br>
-                
               {{/each}}
             </figcaption>
           </figure>
@@ -23,7 +22,7 @@
     </div>
     <footer class="story__footer">
       <button class="story__flip js-storyButtonFlip"></button>
-      <button class="button button--story-close js-storyButtonCloseStory"></button>      
+      <button class="button button--close js-closeOverlayButton"></button>
     </footer>
     <div class="js-readingStrategies"></div>
   </div>

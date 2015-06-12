@@ -8,7 +8,7 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
     + "\"><use xlink:href=\"#icon-clear\"></use></svg>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonCloseStory"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<svg class=\"icon-close--story icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n<svg class=\"icon-close--story icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n";
+    return "<svg class=\"icon-close--overlay icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n<svg class=\"icon-close--overlay icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n";
 },"useData":true});
 this["App"]["templates"]["buttonEndSession"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -165,7 +165,7 @@ this["App"]["templates"]["deviceSelect"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["editStudent"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"edit-student container container--overlay\">\n  <button class=\"button button--story-close js-editStudentButtonClose\">\n\n    <svg class=\"icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n    <svg class=\"icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n\n\n </button>\n\n  <a href=\"#\" class=\"menu--tab menu--tab--edit-student\">\n    <span class=\"menu--number\">"
+  return "<div class=\"edit-student container container--overlay\">\n  <button class=\"button button--close button--close--edit-student js-closeOverlayButton\">\n\n    <svg class=\"icon-close--overlay icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n    <svg class=\"icon-close--overlay icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n\n\n </button>\n\n  <a href=\"#\" class=\"menu--tab menu--tab--edit-student\">\n    <span class=\"menu--number\">"
     + alias3(((helper = (helper = helpers.reading_stage || (depth0 != null ? depth0.reading_stage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"reading_stage","hash":{},"data":data}) : helper)))
     + "</span>\n    <span class=\"menu--title\">"
     + alias3(((helper = (helper = helpers.student_shortname || (depth0 != null ? depth0.student_shortname : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"student_shortname","hash":{},"data":data}) : helper)))
@@ -224,7 +224,7 @@ this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(
     + alias1((helpers.math || (depth0 && depth0.math) || helpers.helperMissing).call(depth0,(data && data.index),"+",1,{"name":"math","hash":{},"data":data}))
     + ".</span>"
     + alias1(this.lambda(depth0, depth0))
-    + "</br>\n                \n";
+    + "</br>\n";
 },"4":function(depth0,helpers,partials,data) {
     var alias1=this.escapeExpression;
 
@@ -238,10 +238,10 @@ this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--story-close js-storyButtonCloseStory\"></button>      \n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
+    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--close js-closeOverlayButton\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
 },"useData":true,"useDepths":true});
 this["App"]["templates"]["loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Loading</p>\n</div>\n";
+    return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow; text-align: center;\">Loading</p>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div id=\"loginContainer\" class=\"login container\">\n  <div class=\"login__container grid grid--center grid--column\">\n    <header class=\"login__header\">\n      <div class=\"login__logo\">\n      <img src=\"/img/logo-tn.svg\" alt=\"\">\n    </header>\n    <fieldset>\n      <h2 class=\"login__error js-login-error\">Incorrect username/password</h2>\n      <input class=\"login__field login__field--email\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n      <input class=\"login__field login__field--password\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n      <input class=\"button button--primary login__button\" type=\"button\" value=\"Log In\" id=\"submit\">\n    </fieldset>\n    <input type=\"button\" class=\"button\" value=\"Forgot Password\" id=\"reset\">\n    \n  </div>\n  <div class=\"teachermate-logo\">\n    <img src=\"/img/logo-teachermate.svg\" alt=\"\">\n  </div>\n  <footer class=\"footer--login\">\n  </footer>\n</div>\n\n\n\n\n<script>  //auto form field for development\n        $(\"#email-field\").val(\"randy-teacher@test.org\");\n        $(\"#password-field\").val(\"12345678\");\n    </script>";
@@ -380,7 +380,7 @@ this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(d
     + alias1((helpers.math || (depth0 && depth0.math) || helpers.helperMissing).call(depth0,(data && data.index),"+",1,{"name":"math","hash":{},"data":data}))
     + ".</span>"
     + alias1(this.lambda(depth0, depth0))
-    + "</br>\n                \n";
+    + "</br>\n";
 },"4":function(depth0,helpers,partials,data) {
     var alias1=this.escapeExpression;
 
@@ -394,7 +394,7 @@ this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(d
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--story-close js-storyButtonCloseStory\"></button>      \n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
+    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--close js-closeOverlayButton\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
 },"useData":true,"useDepths":true});
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
