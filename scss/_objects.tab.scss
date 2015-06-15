@@ -40,6 +40,7 @@
    transition-property: background-color;
    transition-duration: 0.3s;
    transition-timing-function: linear;
+   cursor: pointer;
 
    span.icon-edit {
      opacity: 0;
@@ -103,19 +104,28 @@
 
   .menu__icon {
     font-size: 25px;
-    margin-left: 30px;
-    vertical-align: middle;
+    width: 10%;
+    line-height: 25px;
+
+    &.icon-close::before {
+      vertical-align: middle;
+    }
   }
 
   &.menu--tab--edit-student {
     background: $primary;
     color: $text-light;
     width: 200px;
-    padding: 20px;
+    padding: 0 20px;
     border: 0;
     position: absolute;
-    top: 0;
+    top: 20px;
     height: 40px;
     line-height: 40px;
+
+    .menu--title {
+      vertical-align: middle;
+      width: 90%;
+    }
   }
 }
