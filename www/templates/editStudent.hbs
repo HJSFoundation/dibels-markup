@@ -3,15 +3,14 @@
     <svg class="icon-close--overlay icon-close"><use xlink:href="#icon-close"></use></svg>
     <svg class="icon-close--overlay icon-close-filled st-hidden"><use xlink:href="#icon-close-filled"></use></svg>
  </button>
+
   <div class="overlay__menu">
-    <a href="#" class="menu--tab menu--tab--edit-student">
+    <a href="#" class="menu--tab menu--tab--edit-student js-exitEditStudent" style="left: {{ math 170.5 "*" tab_position}}px">
       <span class="menu--number">{{ reading_stage }}</span>
       <span class="menu--title">{{ student_shortname }}</span>
-      <span class="menu__icon icon icon-edit"></span>
+      <span class="menu__icon icon icon-close"></span>
     </a>
   </div>
-
-
 
   <div class="stage stage--edit">
     <menu class="stage--edit__menu">
