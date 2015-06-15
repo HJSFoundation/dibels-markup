@@ -3,6 +3,10 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
 
   conferenceGroups: {},
 
+  events: {
+    "click .js-cancelAddStudent": "handleCancelAddStudent"
+  },
+
   initialize: function() {
     _.bindAll(this);
     App.selectedSkill = "";
@@ -15,7 +19,7 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template(this.templateJSON()));
     this.$tbody = this.$el.find("tbody");
 
     var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.loggedInTeacher.classroom_id});
@@ -29,7 +33,18 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
     return this;
   },
 
+  templateJSON: function() {
+    return {
+      tab_position: App.students.length
+    };
+  },
+
   handleAddStudentRequested: function() {
+    this.$el.empty();
+    return false;
+  },
+
+  handleCancelAddStudent: function() {
     this.$el.empty();
     return false;
   }

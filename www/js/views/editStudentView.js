@@ -10,7 +10,7 @@ App.Views.EditStudent = Backbone.View.extend({
   views: {},
 
   events: {
-    "click .js-closeOverlayButton": "handleCloseRequest",
+    "click .js-exitEditStudent": "handleCloseRequest",
     "click #js-editReadingStage": "handleTabRequest",
     "click #js-editNotes": "handleTabRequest",
   },
@@ -32,7 +32,8 @@ App.Views.EditStudent = Backbone.View.extend({
   templateJSON: function() {
     return {
       reading_stage: App.selectedStudent.get("reading_stage"),
-      student_shortname: App.selectedStudent.shortName()
+      student_shortname: App.selectedStudent.shortName(),
+      tab_position: App.students.indexOf(App.selectedStudent)
     };
   },
 
