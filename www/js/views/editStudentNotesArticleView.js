@@ -32,7 +32,7 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
     var newContent = $(this.$el.selector + " textarea").val();
     if (newContent !== this.model.get("content")) {
       this.model.set({content: newContent});
-      this.model.set({"updated_at": new Date()});
+      this.model.set({"local_updated_at": new Date()});
       this.model.save()
         .done(this.addModel)
         .fail(this.logfailure);

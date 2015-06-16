@@ -16,7 +16,7 @@ App.Views.ButtonEndSession = Backbone.View.extend({
 
   handleDisplayEndSession: function() {
     console.log("handleDisplayEndSession");
-    App.Dispatcher.trigger("initializeConferenceManagementRequested");
+    App.Dispatcher.trigger("endSessionRequested");
     return false;
   }
 });

@@ -100,7 +100,7 @@ var App = {
       5: {
         rimes: {
           ape: ["cape","drape","grape","tape"],
-          ate: ["ate","date","fate","gate","hate","late","plate","skate","state","nate"],
+          ate: ["date","fate","gate","hate","late","plate","skate","state","nate"],
           ide: ["bride","glide","hide","pride","ride","side","slide","tide","wide"],
           ime: ["crime","dime","grime","lime","slime","time"],
           ine: ["dine","fine","line","mine","nine","pine","spine","vine","wine"],

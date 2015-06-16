@@ -152,7 +152,7 @@ describe('App.Views.StageStimulusTiles', function() {
       });
 
       it("sets the subSkillClass", function() {
-        expect(subject.subSkillClass).to.equal("stage__stimulus--tiles--reverse");
+        expect(subject.subSkillClass).to.equal("stimulus--tiles--reverse");
       });
 
       it("sets the rime", function() {

@@ -18,7 +18,12 @@
     <title>Login</title>
   </head>
     <body>
-      <div id="applicationContainer"></div>
+      <div id="applicationContainer">
+      <div style="position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black">
+        <p style="font-size:180px;color:yellow">Loading</p>
+      </div>
+
+      </div>
 
       <script type="text/javascript" src="cordova.js"></script>
 
@@ -46,6 +51,7 @@
       <script type="text/javascript" src="js/models/stimulusModel.js"></script>
       <script type="text/javascript" src="js/models/noteModel.js"></script>
       <script type="text/javascript" src="js/models/conferenceModel.js"></script>
+      <script type="text/javascript" src="js/models/conferenceSessionModel.js"></script>
       <script type="text/javascript" src="js/models/userReadingStagesModel.js"></script>
 
       <script type="text/javascript" src="js/collections/studentsCollection.js"></script>

@@ -56,14 +56,37 @@ describe('App.Views.Application', function() {
   });
 
   describe("initialize", function() {
-    it("creates a login view", function() {
-      expect(subject.loginView.$el.find('#loginContainer')).to.exist;
-    });
-
     it("calls listen", function() {
       sinon.spy(subject, "listen");
       subject.initialize();
       expect(subject.listen).to.have.been.called;
+    });
+
+    describe("the teacher is logged in", function() {
+      // beforeEach(function() {
+      //   localStorage.loggedInTeacher = {name: "teacher", class: "the cool one"};
+      // });
+
+      // afterEach(function() {
+      //   localStorage.removeItem("loggedInTeacher");
+      // });
+      // it("sets the App.loggedInTeacher from the teacher in local storage", function() {
+      //   subject.initialize();
+      //   expect(App.loggedInTeacher).to.eql({name: "teacher", class: "the cool one"});
+      // });
+
+      it("triggers loginSuccess", function() {
+        sinon.spy(App.Dispatcher, "trigger");
+        subject.initialize();
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("loginSuccess");
+        App.Dispatcher.trigger.restore();
+      });
+    });
+
+    // describe("the teacher is not logged in", function() {
+    //   it("creates a login view", function() {
+    //     expect(subject.loginView.$el.find('#loginContainer')).to.exist;
+    //   });
     });
   });
 
@@ -83,14 +106,14 @@ describe('App.Views.Application', function() {
 
   describe("#removeLogin", function() {
     it("removes the Login View", function() {
-      subject.loginView.displayLoadingScreen();
+      subject.displayLoadingScreen();
       subject.removeLogin();
       expect($("#loginContainer")).not.to.exist;
     });
 
     it("calls initializeConferenceManagement", function() {
       sinon.spy(subject, "initializeConferenceManagement");
-      subject.loginView.displayLoadingScreen();
+      subject.displayLoadingScreen();
       subject.removeLogin();
       expect(subject.initializeConferenceManagement).to.have.been.called;
     });

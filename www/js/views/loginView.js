@@ -20,8 +20,8 @@ App.Views.Login = Backbone.View.extend({
     console.log("login submitted");
     var email = $("#email-field").val();
     var password = $("#password-field").val();
-    this.displayLoadingScreen();
     var that = this;
+    $("#submit").prop("disabled",true);
 
     $.ajax({
       type: 'POST',
@@ -35,6 +35,7 @@ App.Views.Login = Backbone.View.extend({
       success: function(responseData) {
         console.log(responseData);
         App.loggedInTeacher = responseData;
+        localStorage.loggedInTeacher = JSON.stringify(App.loggedInTeacher);
         that.handleLoginSuccess();
       },
       error: function(responseData) {
@@ -45,16 +46,14 @@ App.Views.Login = Backbone.View.extend({
     return false;
   },
 
-  displayLoadingScreen: function(){
-    this.loadingScreen = new App.Views.Loading({el: App.Config.el});
-  },
-
   handleLoginSuccess: function() {
     App.Dispatcher.trigger("loginSuccess");
   },
 
   handleLoginFailure: function() {
     $('.js-login-error').show();
+    $("#submit").prop("disabled",false);
+
   },
 
   handleForgotPassword: function(){
