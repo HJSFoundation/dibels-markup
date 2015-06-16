@@ -51,4 +51,6 @@ describe('App.Models.Note', function() {
   it("sets the urlRoot", function() {
     expect(subject.urlRoot()).to.equal(App.url + "/notes");
   });
+
+
 });

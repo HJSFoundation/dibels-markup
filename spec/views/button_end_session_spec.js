@@ -41,7 +41,7 @@ describe('App.Views.ButtonEndSession', function() {
   it("#handleDisplayEndSession", function() {
     sinon.spy(App.Dispatcher, "trigger");
     subject.handleDisplayEndSession();
-    expect(App.Dispatcher.trigger).to.have.been.calledWith("initializeConferenceManagementRequested");
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("endSessionRequested");
     App.Dispatcher.trigger.restore();
   });
 });

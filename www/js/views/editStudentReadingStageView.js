@@ -34,7 +34,8 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       student_id: App.selectedStudent.get("id"),
       assessor_id: App.loggedInTeacher.id,
       reading_stage: readingStage.toString(),
-      context: "teacher_notepad"
+      context: "teacher_notepad",
+      client_updated_at: new Date()
     });
     model.save()
       .done(this.updateUser)

@@ -20,6 +20,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   listen: function(){
     this.listenTo(App.Dispatcher, "startSessionRequested", this.handleStartSessionRequested);
+    this.listenTo(App.Dispatcher, "endSessionRequested", this.handleEndSessionRequested);
   },
 
   render: function() {
@@ -46,14 +47,47 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudent({ model: studentConference});
       this.$tbody.append(view.render().el);
     }, this);
-    
+
     return this;
   },
 
+  setStartSessionTime: function(){
+    this.model = new App.Models.ConferenceSession({
+      "conference_id":App.selectedConference.id,
+      "user_id":App.loggedInTeacher.id,
+      "classroom_id":App.loggedInTeacher.classroom_id,
+      "context": "teacher_notepad",
+      "started_at":new Date(),
+      "ended_at":"",
+    });
+    this.model.save();
+  },
+
+  setEndSessionTime: function(){
+    this.model.set({ended_at: new Date()});
+    this.model.save();
+    document.removeEventListener("pause");
+
+  },
+
   handleStartSessionRequested: function() {
+    console.log("handleStartSessionRequested");
+    this.setStartSessionTime();
+    $(App.Config.el).empty();
     this.teacherWorkspace = new App.Views.TeacherWorkspace({el: App.Config.el});
-    this.remove();
+    document.addEventListener("pause", this.handlePauseEvent, false);
+
     return false;
+  },
+
+  handlePauseEvent: function(){
+    this.setEndSessionTime();
+
+  },
+
+  handleEndSessionRequested: function() {
+    this.setEndSessionTime();
+    App.Dispatcher.trigger("initializeConferenceManagementRequested");
   },
 
   handleDisplayManage: function() {
