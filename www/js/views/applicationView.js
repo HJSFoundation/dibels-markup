@@ -1,10 +1,17 @@
 App.Views.Application = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
-    // StatusBar.hide();
-    this.loginView = new App.Views.Login();
-    $(App.Config.el).append(this.loginView.render().el);
+
+
     this.listen();
+    $(App.Config.el).empty();
+    if(localStorage.loggedInTeacher){
+      App.loggedInTeacher = JSON.parse(localStorage.loggedInTeacher);
+      App.Dispatcher.trigger("loginSuccess");
+    }else{
+      this.loginView = new App.Views.Login();
+      $(App.Config.el).append(this.loginView.render().el);
+    }
   },
 
   sendAuthentication: function(xhr) {
@@ -17,6 +24,8 @@ App.Views.Application = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
     this.listenTo(App.Dispatcher, "initializeConferenceManagementRequested", this.initializeConferenceManagement);
+    document.addEventListener("resume", this.handleResumeEvent, false);
+
 
   },
 
@@ -27,10 +36,13 @@ App.Views.Application = Backbone.View.extend({
   // },
 
   handleLoggedIn: function() {
+
+    this.displayLoadingScreen();
     this.initializeStudentCollection();
   },
 
   initializeStudentCollection: function() {
+
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
     // localStorage.clear();
@@ -135,18 +147,30 @@ App.Views.Application = Backbone.View.extend({
     this.removeLogin();
   },
 
+  displayLoadingScreen: function(){
+    this.loadingScreen = new App.Views.Loading({el: App.Config.el});
+  },
+
   removeLogin: function() {
     console.log("removeLogin");
-    this.loginView.loadingScreen.removeView();
-    this.loginView.remove();
+    this.loadingScreen.removeView();
+    if(this.loginView){
+      this.loginView.remove();
+    }
     this.stopListening(App.Dispatcher, "loginSuccess");
     this.initializeConferenceManagement();
   },
 
   initializeConferenceManagement: function() {
+
     $(App.Config.el).empty();
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
     $("table").stickyTableHeaders({ "fixedOffset": 2});
+  },
+
+  handleResumeEvent: function(){
+    this.displayLoadingScreen();
+    location.reload();
   }
 });

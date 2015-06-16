@@ -41,12 +41,14 @@ App.Views.ConferenceGroup = Backbone.View.extend({
   handleStartSession: function() {
     App.students.add(this.students);
     App.selectedStudent = App.students.at(0);
+    App.selectedConference = this.model;
     App.Dispatcher.trigger("startSessionRequested");
     return false;
   },
 
   handleEditNumberPerWeek: function(){
     this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
+    this.model.set("local_updated_at", new Date());
     this.model.save();
     return false;
   }
