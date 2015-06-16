@@ -117,7 +117,6 @@
       li {
         background-color: $tiles-color;
         color: $text-light;
-        cursor: pointer;
         font-size: 100px;
         font-weight: 500;
         height: 120px;
@@ -158,6 +157,7 @@
       background-color: darken($tiles-color, 20%);
       border-bottom: 1px solid lighten($tiles-color, 20%);
       height: 50px;
+      cursor: pointer;
     }
   }
 }

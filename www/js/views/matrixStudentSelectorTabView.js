@@ -2,7 +2,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   template: App.templates.matrixStudentSelectorTab,
 
   tagName: "a",
-  className: "menu--tab grid-cell",
+  className: "menu--tab grid grid-cell",
 
   events: {
     "click .icon": "handleIconClick",
