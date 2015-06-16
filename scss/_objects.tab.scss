@@ -8,7 +8,7 @@
 
 .menu--tab {
   background-color: #3d3e40;
-  border-right: 1px solid lighten($matrix-tab, 10%);
+  border-right: 1px solid lighten($matrix-tab, 20%);
   border-bottom: 1px solid lighten($matrix-tab, 10%);
   color: lighten(#000, 50%);
   font-size: 13px;
@@ -42,7 +42,7 @@
    transition-timing-function: linear;
    cursor: pointer;
 
-   span.icon-edit {
+   .icon-edit {
      opacity: 0;
      position: absolute;
      right: 10px;
@@ -58,9 +58,14 @@
      background-color: $orange;
      color: $white;
 
-     span.icon-edit {
+     .icon-edit {
        opacity: 1;
      }
+
+    .menu__number {
+      border-right: 1px solid $white;
+    }
+
    }
  }
 
@@ -93,18 +98,19 @@
    }
  }
 
-  .menu--number {
+  .menu__number {
     display: inline-block;
     vertical-align: middle;
     font-size: 32px;
     line-height: 40px;
-    margin-right: 20px;
+    margin-right: 10px;
     font-weight: 400;
+    border-right: 1px solid gray;
+    padding-right: 10px;
   }
 
   .menu__icon {
     font-size: 25px;
-    width: 10%;
     line-height: 25px;
 
     &.icon-close::before {
@@ -115,17 +121,32 @@
   &.menu--tab--edit-student {
     background: $primary;
     color: $text-light;
-    width: 200px;
-    padding: 0 20px;
+    width: 170.5px;
     border: 0;
     position: absolute;
     top: 20px;
     height: 40px;
     line-height: 40px;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
 
-    .menu--title {
+    .menu__title {
       vertical-align: middle;
-      width: 90%;
+      width: 60%;
+      margin-left: 10px;
+    }
+
+    .menu__number {
+      border-right: 1px solid $white;
+      width: 20%;
+      padding: 0;
+      text-align: center;
+      margin-right: 0;
+    }
+
+    .menu__icon {
+      width: 20%;
     }
   }
 }
