@@ -17,7 +17,8 @@
 }
 
 .edit-notes__header {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 500;
   padding: 15px 0 0 40px;
   text-transform: uppercase;
 }
@@ -26,8 +27,11 @@
   padding: 15px 15px 0 40px;
 
   textarea {
-    min-width: 100%;
+    border: 1px solid rgba($gray-chateau, 0.6);
+    font-family: $font-primary;
+    font-size: 14px;
     min-height: 600px;
+    min-width: 100%;
     resize: none;
   }
 }
