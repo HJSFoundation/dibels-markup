@@ -24,8 +24,16 @@
   }
 
   .session-cell--spacer {
-    background: url(../img/spacer.png);
+    // background: url(../img/spacer.png);
+    background-color: $gray-light;
     width: 10px!important;
+    border-bottom: 1px solid transparent;
+  }
+
+  .session-cell--manage {
+    font-size: 14px;
+    cursor: pointer;
+    color: $orange;
   }
 
   thead {
@@ -33,7 +41,16 @@
     color: $text-medium;
     font-size: 8px;
 
-    th {
+    .session-cell--spacer {
+      background-color: $black;
+    }
+
+    tr {
+      border-bottom: 1px solid transparent;
+    }
+
+    th,
+    td {
       border-right: 1px solid $gray-dark;
 
       &:last-child {
@@ -49,11 +66,16 @@
   tbody {
     font-size: 20px;
     font-weight: 600;
+
+    tr {
+      border-top: 1px solid lighten($gray-light, 20%);
+      border-bottom: 1px solid lighten($gray-light, 20%);
+    }
   }
 
   td,
   th {
-    border: 1px solid $gray-light;
+    border-right: 1px solid lighten($gray-light, 20%);
     height: 50px;
     text-align: center;
 
@@ -88,6 +110,8 @@
   }
 
   .session-cell--desired {
+    border-bottom: 1px solid lighten($gray-dark, 10%);
+    border-right: 1px solid lighten($gray-dark, 10%);
 
     select {
       -webkit-appearance: none;
