@@ -480,15 +480,13 @@ this["App"]["templates"]["timer"] = Handlebars.template({"1":function(depth0,hel
 
   return "<div class=\"timer animated fadeIn\" style="
     + alias3(((helper = (helper = helpers.visible || (depth0 != null ? depth0.visible : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"visible","hash":{},"data":data}) : helper)))
-    + ">\n  <div class=\"timer__controls grid grid--wrap\">\n      <div class=\"timer__progress grid-cell u-1of3\">\n        <span>\n          <select type=\"number\" id=\"minutes\">\n"
+    + ">\n  <div class=\"timer__controls grid grid--center\">\n      <div class=\"timer__progress grid-cell u-1of2\">\n        <span>\n          <select type=\"number\" id=\"minutes\" class=\"timer__time timer__time--seconds\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.minutes : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "          </select>:\n          <select type=\"number\" id=\"seconds\">\n"
+    + "          </select>\n          <span class=\"timer__colon\">:</span>\n          <select type=\"number\" id=\"seconds\" class=\"timer__time timer__time--seconds\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.seconds : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "          </select>:\n        </span>\n      </div>\n      <button class=\"button button--warning grid-cell u-1of3 js-timerButton\">"
+    + "          </select>\n        </span>\n      </div>\n      <button class=\"button button--warning grid-cell u-1of2 js-timerButton\">"
     + alias3(((helper = (helper = helpers.action || (depth0 != null ? depth0.action : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"action","hash":{},"data":data}) : helper)))
-    + "</button>\n      <a href=\"#\" class=\"icon "
-    + alias3(((helper = (helper = helpers.modifier || (depth0 != null ? depth0.modifier : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"modifier","hash":{},"data":data}) : helper)))
-    + " grid-cell u-1of3\"></a>\n  </div>\n</div>\n";
+    + "</button>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<p>Whiteboard</p>";

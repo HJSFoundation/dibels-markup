@@ -3,15 +3,37 @@
   transition: opacity .55s ease-in-out;
 }
 .timer__controls {
-  width: 200px;
+  width: 215px;
   position: absolute;
-  bottom: 10px;
+  bottom: 7px;
   left: 80px;
 
+
+
+  .button--warning {
+    height: 40px;
+  }
+
   .timer__progress {
-    font-family: $font-condensed;
     color: $warning;
     font-size: 24px;
+
+    .timer__time {
+      -webkit-appearance: none;
+      font-family: $font-condensed;
+      font-size: 36px;
+      background: none;
+      border: none;
+      color: $warning;
+      display: inline-block;
+    }
+
+  .timer__colon {
+    text-align: center;
+    font-family: $font-condensed;
+    font-size: 36px;
+  }
+
   }
 
   .icon-minus,

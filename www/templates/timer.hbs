@@ -1,20 +1,21 @@
 <div class="timer animated fadeIn" style={{visible}}>
-  <div class="timer__controls grid grid--wrap">
-      <div class="timer__progress grid-cell u-1of3">
+  <div class="timer__controls grid grid--center">
+      <div class="timer__progress grid-cell u-1of2">
         <span>
-          <select type="number" id="minutes">
+          <select type="number" id="minutes" class="timer__time timer__time--seconds">
             {{#each minutes}}
               <option value="{{this.value}}">{{this.display}}</option>
             {{/each}}
-          </select>:
-          <select type="number" id="seconds">
+          </select>
+          <span class="timer__colon">:</span>
+          <select type="number" id="seconds" class="timer__time timer__time--seconds">
             {{#each seconds}}
               <option value="{{this.value}}">{{this.display}}</option>
             {{/each}}
-          </select>:
+          </select>
         </span>
       </div>
-      <button class="button button--warning grid-cell u-1of3 js-timerButton">{{action}}</button>
-      <a href="#" class="icon {{modifier}} grid-cell u-1of3"></a>
+      <button class="button button--warning grid-cell u-1of2 js-timerButton">{{action}}</button>
+{{!--       <a href="#" class="icon {{modifier}} grid-cell u-1of3"></a> --}}
   </div>
 </div>
