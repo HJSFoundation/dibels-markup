@@ -65,9 +65,9 @@ describe('App.Views.Login', function() {
     it("#handleLoginFailure", function() {
       subject.render();
       subject.submit();
-      expect(($"#submit").prop()).to.equal(true);
+      expect($("#submit").prop("disabled")).to.equal(true);
       subject.handleLoginFailure();
-      expect(($"#submit").prop()).to.equal(false);
+      expect($("#submit").prop("disabled")).to.equal(false);
     });
   });
 });

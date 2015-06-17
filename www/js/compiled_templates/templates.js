@@ -167,7 +167,7 @@ this["App"]["templates"]["deviceSelect"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["editStudent"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
-  return "<div class=\"edit-student container container--overlay animated slideInUp\">\n\n  <div class=\"overlay__menu\">\n    <a href=\"#\" class=\"menu--tab menu--tab--edit-student grid grid--center js-exitEditStudent\" style=\"left: "
+  return "<div class=\"edit-student container container--overlay animated slideInUp\">\n  <div class=\"overlay__menu\">\n    <a href=\"#\" class=\"menu--tab menu--tab--edit-student grid grid--center js-exitEditStudent\" style=\"left: "
     + alias2((helpers.math || (depth0 && depth0.math) || alias1).call(depth0,170.5,"*",(depth0 != null ? depth0.tab_position : depth0),{"name":"math","hash":{},"data":data}))
     + "px\">\n      <span class=\"menu__number\">"
     + alias2(((helper = (helper = helpers.reading_stage || (depth0 != null ? depth0.reading_stage : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"reading_stage","hash":{},"data":data}) : helper)))

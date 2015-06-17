@@ -30,7 +30,7 @@ describe('App.Views.EditStudent', function() {
   });
 
   describe("events", function() {
-    it("calls handleCloseRequest on click js-editStudentButtonClose event", function() {
+    it("calls handleCloseRequest on click js-exitEditStudent event", function() {
       expect(subject.events["click .js-exitEditStudent"]).to.equal("handleCloseRequest");
     });
 
