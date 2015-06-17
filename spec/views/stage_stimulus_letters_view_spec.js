@@ -38,13 +38,13 @@ describe('App.Views.StageStimulusLetters', function() {
   });
 
   it("#render", function() {
-    subject.render();
+    subject.render({value: "B"});
     expect(subject.$el).not.to.be.empty;
   });
 
   it("#handleSkillChangeRequest", function() {
     sinon.spy(subject, "render");
-    var value = "a";
+    var value = {value: "B"};
     subject.handleSkillChangeRequest(value);
     expect(subject.render).to.have.been.calledWith(value);
   });

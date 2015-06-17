@@ -2,7 +2,6 @@ App.Views.Application = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
 
-
     this.listen();
     $(App.Config.el).empty();
     if(localStorage.loggedInTeacher){
@@ -25,8 +24,6 @@ App.Views.Application = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
     this.listenTo(App.Dispatcher, "initializeConferenceManagementRequested", this.initializeConferenceManagement);
     document.addEventListener("resume", this.handleResumeEvent, false);
-
-
   },
 
   // handleLoggedIn: function() {
@@ -46,7 +43,7 @@ App.Views.Application = Backbone.View.extend({
     $.ajaxSetup({beforeSend:this.sendAuthentication});
 
     // localStorage.clear();
-    console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
+    // console.log("App.Views.Application.initializeStudentCollection: localStorage being cleared");
 
     App.roster = new App.Collections.Students();
     App.roster.fetch({
@@ -120,29 +117,29 @@ App.Views.Application = Backbone.View.extend({
 
     console.log("initializeLocalStorage");
 
-    // App.notes.local=true;
-    // _.each(App.notes.models, function(model){
-    //   model.save();
-    // });
-    // App.notes.local=false;
+    App.notes.local=true;
+    _.each(App.notes.models, function(model){
+      model.save();
+    });
+    App.notes.local=false;
 
-    // App.roster.local=true;
-    // _.each(App.roster.models, function(model){
-    //   model.save();
-    // });
-    // App.roster.local=false;
+    App.roster.local=true;
+    _.each(App.roster.models, function(model){
+      model.save();
+    });
+    App.roster.local=false;
 
-    // App.conferences.local=true;
-    // _.each(App.conferences.models, function(model){
-    //   model.save();
-    // });
-    // App.conferences.local=false;
+    App.conferences.local=true;
+    _.each(App.conferences.models, function(model){
+      model.save();
+    });
+    App.conferences.local=false;
 
-    // App.stimuli.local=true;
-    // _.each(App.stimuli.models, function(model){
-    //   model.save();
-    // });
-    // App.stimuli.local=false;
+    App.stimuli.local=true;
+    _.each(App.stimuli.models, function(model){
+      model.save();
+    });
+    App.stimuli.local=false;
 
     this.removeLogin();
   },
@@ -162,8 +159,10 @@ App.Views.Application = Backbone.View.extend({
   },
 
   initializeConferenceManagement: function() {
-
     $(App.Config.el).empty();
+    if(this.conferenceManagement){
+      this.conferenceManagement.remove();
+    }
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
     $("table").stickyTableHeaders({ "fixedOffset": 2});

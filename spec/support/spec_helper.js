@@ -25,7 +25,7 @@ before(function() {
   xhr.onCreate = function(xhr) {
     requests.push(xhr);
   };
-      // this.timeout(10000);
+  this.timeout(3000);
   initializeTestData();
 });
 

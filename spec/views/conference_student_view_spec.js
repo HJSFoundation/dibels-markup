@@ -83,6 +83,11 @@ describe('App.Views.ConferenceStudent', function() {
       expect(App.students.length).to.equal(1);
     });
 
+    it("sets the selectedConference", function() {
+      subject.handleStartSession();
+      expect(App.selectedConference).to.equal(subject.model)
+    });
+
     it("triggers startSessionRequested", function() {
       sinon.spy(App.Dispatcher, "trigger");
       subject.handleStartSession();
@@ -103,6 +108,10 @@ describe('App.Views.ConferenceStudent', function() {
       sinon.spy(subject.model, "save");
       subject.handleEditNumberPerWeek();
       expect(subject.model.save).to.have.been.called;
+    });
+
+    xit("sets the local_updated_at date", function() {
+
     });
   });
 });

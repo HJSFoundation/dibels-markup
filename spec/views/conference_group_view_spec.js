@@ -82,6 +82,11 @@ describe('App.Views.ConferenceGroup', function() {
         expect(App.students.length).to.equal(6);
       });
 
+      it("sets the selected conference", function() {
+        subject.handleStartSession();
+        expect(App.selectedConference).to.equal(subject.model);
+      });
+
       it("triggers startSessionRequested", function() {
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleStartSession();
@@ -95,6 +100,10 @@ describe('App.Views.ConferenceGroup', function() {
         subject.$el.find("#numberPerWeekSelect").val(subject.model.get("number_per_week") + 1);
         subject.handleEditNumberPerWeek();
         expect(subject.$el.find("#numberPerWeekSelect").val()).to.equal(subject.model.get("number_per_week").toString());
+      });
+
+      xit("sets the local_updated_at", function() {
+
       });
 
       it("calls save on the model", function() {
