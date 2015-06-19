@@ -29,13 +29,24 @@ var App = {
     },
   },
   url: "http://staging.tutormate.org/api/v1",
+  clientLastFetchedAt: "",
+  online: true,
   loggedInTeacher: null,
   selectedStudent: null,
   selectedActivity: null,
   selectedStimulus: null,
   selectedSkill: null,
 
+
   browser: null,
+
+  isOnline: function(){
+    if(is_browser){
+      return window.navigator.onLine;
+    }else{
+      return App.online;
+    }
+  },
 
   ActivityStimuli : {
     wordsByStage: {

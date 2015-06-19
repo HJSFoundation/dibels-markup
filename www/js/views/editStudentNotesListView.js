@@ -16,7 +16,7 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
   render: function() {
     var filteredNotes = App.notes.where({user_id: App.selectedStudent.get("id")});
     var notes = _.sortBy(filteredNotes, function(note){
-      return -(new Date(note.get("updated_at")).valueOf());
+      return -(new Date(note.get("taken_at")).valueOf());
     });
     this.$el.html(this.template());
     var that = this;

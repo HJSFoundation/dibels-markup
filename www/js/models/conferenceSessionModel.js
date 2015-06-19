@@ -12,6 +12,11 @@ App.Models.ConferenceSession = Backbone.Model.extend({
     return App.url +"/conference_sessions";
   },
 
+  local: function(){
+    return App.Config.storageLocalState;
+  },
+
+
   parse: function(resp, xhr) {
     this.set({id:  resp.conference_session.id});
   },

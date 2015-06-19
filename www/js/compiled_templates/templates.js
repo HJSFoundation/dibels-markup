@@ -322,12 +322,18 @@ this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true});
-this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "    <div class=\"stimulus-cell grid grid--center\">\n      <span>"
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + "</span>\n    </div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
 
   return "<div class=\"stimulus stimulus--phrases stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span class=\"js-fittext\">"
     + this.escapeExpression(((helper = (helper = helpers.phrase || (depth0 != null ? depth0.phrase : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"phrase","hash":{},"data":data}) : helper)))
-    + "</span>\n\n  </div>\n</div>\n";
+    + "</span>\n\n  </div>\n</div>\n\n<div class=\"stimulus stimulus--words stimulus__gallery js-flickity-gallery animated slideInRight\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "</div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusSightWordsWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

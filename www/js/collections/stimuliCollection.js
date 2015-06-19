@@ -2,8 +2,15 @@ App.Collections.Stimuli = Backbone.Collection.extend({
   model: App.Models.Stimulus,
 
   url: function(){
-    return App.url + "/classrooms/"+App.loggedInTeacher.classroom_id+"/stimuli"
+    var url = App.url + "/classrooms/"+App.loggedInTeacher.classroom_id+"/stimuli";
+
+    if(App.clientLastFetchedAt){
+      url = url + "?client_last_fetched_at="+App.clientLastFetchedAt;
+    }
+    return url;
   },
+
+  storeName: "App.stimuli",
 
   comparator: "value",
 
@@ -12,6 +19,10 @@ App.Collections.Stimuli = Backbone.Collection.extend({
   },
 
   parse: function(resp, xhr) {
-    return resp.stimuli;
+    if(this.local()){
+      return resp;
+    }else{
+      return resp.stimuli;
+    }
   }
 });

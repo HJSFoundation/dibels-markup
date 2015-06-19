@@ -6,10 +6,16 @@ App.Collections.Conferences = Backbone.Collection.extend({
 
   comparator: "name",
 
-  local: App.Config.storageLocalState,
+  local: function(){
+    return App.Config.storageLocalState;
+  },
 
   parse: function(resp, xhr) {
-    return resp.conferences;
+    if(this.local()){
+      return resp;
+    }else{
+      return resp.conferences;
+    }
   }
 
 });

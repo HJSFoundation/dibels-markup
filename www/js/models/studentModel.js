@@ -4,7 +4,9 @@ App.Models.Student = Backbone.Model.extend({
   last_name: "",
   reading_stage: "",
 
-  local: App.Config.storageLocalState,
+  local: function(){
+    return App.Config.storageLocalState;
+  },
 
   readingStage: function() {
     return this.get("reading_stage");

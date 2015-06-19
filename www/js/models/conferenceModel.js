@@ -4,5 +4,8 @@ App.Models.Conference = Backbone.Model.extend({
     return App.url +"/conferences";
   },
 
-  local: App.Config.storageLocalState
+  local: function(){
+    return App.Config.storageLocalState;
+  }
+
 });
