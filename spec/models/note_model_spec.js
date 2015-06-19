@@ -19,6 +19,7 @@ describe('App.Models.Note', function() {
       "program_type": "teacher_notepad",
       "test": false,
       "archived": false,
+      "taken_at": "2015-05-27T14:34:28.712Z",
       "updated_at": "2015-05-27T14:34:28.712Z",
       "created_at": "2015-05-27T14:34:28.712Z"
     });
