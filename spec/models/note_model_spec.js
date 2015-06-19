@@ -53,5 +53,23 @@ describe('App.Models.Note', function() {
     expect(subject.urlRoot()).to.equal(App.url + "/notes");
   });
 
+  it("#local", function(){
+    App.Config.storageLocalState = false;
+    expect(subject.local()).to.equal(false);
+    App.Config.storageLocalState = true;
+    expect(subject.local()).to.equal(true);
+  });
+
+  describe("#parse", function(){
+    it("sets id to resp id if note is not in the response", function() {
+      var resp = {id: 1};
+      expect(subject.parse(resp)).to.equal(resp);
+    });
+
+    it("sets id to resp id if note is not in the response", function() {
+      var resp = {note: {id: 1}};
+      expect(subject.parse(resp)).to.equal(resp.note);
+    });
+  });
 
 });

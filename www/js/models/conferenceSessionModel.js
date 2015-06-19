@@ -17,9 +17,12 @@ App.Models.ConferenceSession = Backbone.Model.extend({
   },
 
 
-  parse: function(resp, xhr) {
-    this.set({id:  resp.conference_session.id});
+  parse: function(resp, xhr) { //TODO examine converting parse function to new parse function syntax
+    if(!resp.conference_session){
+      this.set({id:  resp.id});
+    }else{
+      this.set({id:  resp.conference_session.id});
+    }
   },
 
-  local: App.Config.storageLocalState
 });

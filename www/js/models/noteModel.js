@@ -31,5 +31,14 @@ App.Models.Note = Backbone.Model.extend({
     var year = update.getFullYear();
 
     return month + " " + day + ", " + year;
+  },
+
+  parse: function(resp, xhr) {
+    if(!resp.note){
+      return resp;
+    }else{
+      return resp.note;
+    }
   }
+
 });

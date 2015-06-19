@@ -161,7 +161,7 @@ describe('App.Views.ConferenceManagement', function() {
       subject.setStartSessionTime();
       sinon.spy(document, "removeEventListener");
       subject.setEndSessionTime();
-      expect(document.removeEventListener).to.have.been.calledWith("pause");
+      expect(document.removeEventListener).to.have.been.calledWith("pause", subject.handlePauseEvent);
       document.removeEventListener.restore();
     });
   });

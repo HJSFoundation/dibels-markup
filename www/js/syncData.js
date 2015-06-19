@@ -19,7 +19,8 @@ App.syncData = {
     App.roster.fetch({remove: false, add: true});
     App.Config.storageLocalState = false;
 
-    if(App.isOnline){
+    if(App.isOnline()){
+
       App.roster.fetch({
         success: this.initializeNotesCollection,
         error: this.initializeStudentCollectionFail,
@@ -56,7 +57,10 @@ App.syncData = {
     App.notes.fetch({remove: false, add: true});
     App.Config.storageLocalState = false;
 
-    if(App.isOnline){
+    if(App.isOnline()){
+
+      App.notes.syncDirtyAndDestroyed();
+
       App.notes.fetch({
         success: this.initializeConferencesCollection,
         error: this.initializeNotesCollectionFail,
@@ -83,7 +87,10 @@ App.syncData = {
     App.conferences.fetch({remove: false, add: true});
     App.Config.storageLocalState = false;
 
-    if(App.isOnline){
+    if(App.isOnline()){
+
+      App.conferences.syncDirtyAndDestroyed();
+
       App.conferences.fetch({
         success: this.initializeStimuliCollections,
         error: this.initializeConferencesCollectionFail,
@@ -103,17 +110,20 @@ App.syncData = {
 
   initializeStimuliCollections: function(result) {
     console.log("initializeStimuliCollections");
-    // App.initializeStimuliData();
-    // this.initializeLocalStorage();
+
     App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
+
     App.stimuli = new App.Collections.Stimuli();
     App.Config.storageLocalState = true;
     App.stimuli.fetch({remove: false, add: true});
-    console.log("local fetch complete");
     App.Config.storageLocalState=false;
-    if(App.isOnline){
+
+    console.log("local fetch complete");
+
+    if(App.isOnline()){
       App.stimuli.syncDirtyAndDestroyed();
       console.log("syncDirtyAndDestroyed complete");
+
       App.stimuli.fetch({
         success: this.initializeStimuliCollectionSuccess,
         error: this.initializeStimuliCollectionFail,
@@ -144,30 +154,31 @@ App.syncData = {
 
     console.log("initializeLocalStorage");
 
-    App.notes.local=true;
+
+    App.Config.storageLocalState=true;
     _.each(App.notes.models, function(model){
       model.save();
     });
-    App.notes.local=false;
+    App.Config.storageLocalState=false;
 
-    App.roster.local=true;
+    App.Config.storageLocalState=true;
     _.each(App.roster.models, function(model){
       model.save();
     });
-    App.roster.local=false;
+    App.Config.storageLocalState=false;
 
-    App.conferences.local=true;
+    App.Config.storageLocalState=true;
     _.each(App.conferences.models, function(model){
       model.save();
     });
-    App.conferences.local=false;
+    App.Config.storageLocalState=false;
 
     if(!localStorage["App.stimuli"]){
-      App.stimuli.local=true;
+      App.Config.storageLocalState=true;
       _.each(App.stimuli.models, function(model){
         model.save();
       });
-      App.stimuli.local=false;
+      App.Config.storageLocalState=false;
     }
 
     this.success();

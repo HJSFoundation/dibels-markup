@@ -78,10 +78,12 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleOfflineEvent: function(){
+    console.log("handleOfflineEvent");
     App.online = false;
   },
 
   handleOnlineEvent: function(){
+    console.log("handleOnlineEvent");
     App.online = true;
   }
 

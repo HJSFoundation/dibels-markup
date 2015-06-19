@@ -16,4 +16,11 @@ describe('App.Models.Conference', function() {
   it("sets the urlRoot", function() {
     expect(subject.urlRoot()).to.equal(App.url +"/conferences");
   });
+
+  it("#local", function(){
+    App.Config.storageLocalState = false;
+    expect(subject.local()).to.equal(false);
+    App.Config.storageLocalState = true;
+    expect(subject.local()).to.equal(true);
+  });
 });
