@@ -26,7 +26,7 @@ before(function() {
   xhr.onCreate = function(xhr) {
     requests.push(xhr);
   };
-  this.timeout(3000);
+  this.timeout(20000);
   initializeTestData();
 
   is_browser =
@@ -74,6 +74,9 @@ function initializeTestData (){
 
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
+
+  App.userReadingStages = new App.Collections.UserReadingStages();
+  App.conferenceSessions = new App.Collections.ConferenceSessions();
 
   App.roster.create({id: 18, first_name: "Some", last_name: "Guy", reading_stage: 5});
 

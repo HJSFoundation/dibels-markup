@@ -8,5 +8,16 @@ App.Models.UserReadingStages = Backbone.Model.extend({
   reading_stage:"",
   context:"teacher_notepad",
 
-  local: App.Config.storageLocalState //TODO convert to function and add spec
+  local: function(){
+    return App.Config.storageLocalState;
+  },
+
+
+  parse: function(resp, xhr) {
+    if(!resp.user_reading_stages){
+      return resp;
+    }else{
+      return resp.user_reading_stages;
+    }
+  }
 });
