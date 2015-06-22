@@ -1,11 +1,50 @@
-.login__container {
-  background-image: url(../img/login-bg.svg);
-  background-repeat: no-repeat;
-  width: 447.5px;
-  height: 580px;
+.loading-login__container {
+  // background-image: url(../img/login-bg.svg);
+  // background-repeat: no-repeat;
+  // width: 447.5px;
+  // height: 580px;
+  // margin: 5% auto 0;
+  // position: relative;
+  // text-align: center;
+}
+
+.loading-login__logo {
   margin: 5% auto 0;
-  position: relative;
+  width: 468px;
+  height: auto;
+}
+
+.loading-login__header {
+  margin: 0 auto;
+  width: 468px;
+  margin-top: 40px;
+
+  progress {
+    border: 0;
+    height: 3px;
+    width: 468px;
+    border-radius: 9px;
+
+    &::-webkit-progress-bar {
+      background-color: $white;
+    }
+
+    &::-webkit-progress-value {
+      background-color: $orange;
+    }
+  }
+
+
+}
+
+.loading-login__footer {
+  color: $orange;
   text-align: center;
+  margin-top: 20px;
+
+  .loading-login__title {
+    font-size: 24px;
+  }
 }
 
 .login__header {
