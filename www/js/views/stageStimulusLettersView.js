@@ -11,6 +11,7 @@ App.Views.StageStimulusLetters = Backbone.View.extend({
   },
 
   render: function(stimulus_object) {
+    stimulus_object.img = stimulus_object.value.toLowerCase();
     this.$el.html(this.template(stimulus_object));
   },
 

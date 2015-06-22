@@ -29,6 +29,10 @@ describe('App.Views.Login', function() {
     });
   });
 
+  xdescribe("#submit", function() {
+
+  });
+
   it("calls render on initialize", function() {
     sinon.spy(subject, "render");
     subject.initialize();
@@ -56,6 +60,14 @@ describe('App.Views.Login', function() {
         expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
         window.open.restore();
       });
+    });
+
+    it("#handleLoginFailure", function() {
+      subject.render();
+      subject.submit();
+      expect($("#submit").prop("disabled")).to.equal(true);
+      subject.handleLoginFailure();
+      expect($("#submit").prop("disabled")).to.equal(false);
     });
   });
 });

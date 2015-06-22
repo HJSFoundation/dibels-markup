@@ -48,10 +48,18 @@ describe('App.Views.ConferenceManagement', function() {
     });
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "startSessionRequested", subject.handleStartSessionRequested);
+  describe("#listen", function() {
+    it("listens for the startSessionRequested", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "startSessionRequested", subject.handleStartSessionRequested);
+    });
+
+    it("listens for the endSessionRequested", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "endSessionRequested", subject.handleEndSessionRequested);
+    });
   });
 
   describe("#render", function() {
@@ -96,6 +104,19 @@ describe('App.Views.ConferenceManagement', function() {
       subject.handleStartSessionRequested();
       expect($("container--management container").length).to.equal(0);
     });
+
+    it("calls #setStartSessionTime", function() {
+      sinon.spy(subject, "setStartSessionTime");
+      subject.handleStartSessionRequested();
+      expect(subject.setStartSessionTime).to.have.been.called;
+    });
+
+    it("adds an event listener for pause on the document", function() {
+      sinon.spy(document, "addEventListener");
+      subject.handleStartSessionRequested();
+      expect(document.addEventListener).to.have.been.calledWith("pause", subject.handlePauseEvent, false);
+      document.addEventListener.restore();
+    });
   });
 
   describe("#handleDisplayManage", function() {
@@ -104,6 +125,71 @@ describe('App.Views.ConferenceManagement', function() {
       subject.handleDisplayManage();
       expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/students/"+App.loggedInTeacher.classroom_id, "_blank", "location=yes");
       window.open.restore();
+    });
+  });
+
+  describe("#setStartSessionTime", function() {
+    it("creates a ConferenceSession model", function() {
+      subject.setStartSessionTime();
+      expect(subject.model).to.be.an.instanceOf(App.Models.ConferenceSession);
+    });
+
+    xit("calls save on the model", function() {
+      sinon.spy(App.Models.ConferenceSession, "save");
+      subject.setStartSessionTime();
+      expect(subject.model.save).to.have.been.called;
+    });
+  });
+
+  describe("#setEndSessionTime", function() {
+    it("sets a new date on the model", function() {
+      subject.setStartSessionTime();
+      sinon.spy(subject.model, "set");
+      subject.setEndSessionTime();
+      expect(subject.model.set).to.have.been.called;
+      // expect(subject.model.set).to.have.been.calledWith({ended_at: new Date()}); #TODO figure out Date stubs
+    });
+
+    it("calls save on the model", function() {
+      subject.setStartSessionTime();
+      sinon.spy(subject.model, "save");
+      subject.setEndSessionTime();
+      expect(subject.model.save).to.have.been.called;
+    });
+
+    it("stops listening to the pause event", function() {
+      subject.setStartSessionTime();
+      sinon.spy(document, "removeEventListener");
+      subject.setEndSessionTime();
+      expect(document.removeEventListener).to.have.been.calledWith("pause", subject.handlePauseEvent);
+      document.removeEventListener.restore();
+    });
+  });
+
+  it("#handlePauseEvent", function() {
+    subject.setStartSessionTime();
+    sinon.spy(subject, "setEndSessionTime");
+    subject.handlePauseEvent();
+    expect(subject.setEndSessionTime).to.have.been.called;
+  });
+
+  describe("#handleEndSessionRequested", function() {
+    beforeEach(function(){
+      App.applicationView = {handleResumeEvent: function(){}};
+    });
+
+    it("calls setEndSessionTime", function() {
+      subject.setStartSessionTime();
+      sinon.spy(subject, "setEndSessionTime");
+      subject.handleEndSessionRequested();
+      expect(subject.setEndSessionTime).to.have.been.called;
+    });
+
+    it("calls the handleResumeEvent", function() {
+      sinon.spy(App.applicationView, "handleResumeEvent");
+      subject.setStartSessionTime();
+      subject.handleEndSessionRequested();
+      expect(App.applicationView.handleResumeEvent).to.have.been.called;
     });
   });
 });

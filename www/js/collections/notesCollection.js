@@ -5,11 +5,17 @@ App.Collections.Notes = Backbone.Collection.extend({
     return App.url + "/classrooms/" + App.loggedInTeacher.classroom_id + "/notes";
   },
 
-  comparator: "updated_at",
+  comparator: "taken_at",
 
-  local: App.Config.storageLocalState,
+  local: function(){
+    return App.Config.storageLocalState;
+  },
 
   parse: function(resp, xhr) {
-    return resp.notes;
+    if(this.local()){
+      return resp;
+    }else{
+      return resp.notes;
+    }
   }
 });

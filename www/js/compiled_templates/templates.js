@@ -167,7 +167,7 @@ this["App"]["templates"]["deviceSelect"] = Handlebars.template({"compiler":[6,">
 this["App"]["templates"]["editStudent"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
-  return "<div class=\"edit-student container container--overlay animated slideInUp\">\n\n  <div class=\"overlay__menu\">\n    <a href=\"#\" class=\"menu--tab menu--tab--edit-student grid grid--center js-exitEditStudent\" style=\"left: "
+  return "<div class=\"edit-student container container--overlay animated slideInUp\">\n  <div class=\"overlay__menu\">\n    <a href=\"#\" class=\"menu--tab menu--tab--edit-student grid grid--center js-exitEditStudent\" style=\"left: "
     + alias2((helpers.math || (depth0 && depth0.math) || alias1).call(depth0,170.5,"*",(depth0 != null ? depth0.tab_position : depth0),{"name":"math","hash":{},"data":data}))
     + "px\">\n      <span class=\"menu__number\">"
     + alias2(((helper = (helper = helpers.reading_stage || (depth0 != null ? depth0.reading_stage : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"reading_stage","hash":{},"data":data}) : helper)))
@@ -306,7 +306,7 @@ this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compile
   return "<div class=\"stimulus stimulus--letters animated slideInRight\">\n  <div class=\"stimulus-cell grid grid--center\">\n    <span>"
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "</span>\n    <img src=\"img/letterWords/"
-    + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.img || (depth0 != null ? depth0.img : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"img","hash":{},"data":data}) : helper)))
     + ".png\" alt=\""
     + alias3(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"value","hash":{},"data":data}) : helper)))
     + "\">\n  </div>\n</div>\n\n\n";
@@ -322,12 +322,18 @@ this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true});
-this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "    <div class=\"stimulus-cell grid grid--center\">\n      <span>"
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + "</span>\n    </div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper;
 
   return "<div class=\"stimulus stimulus--phrases stimulus__gallery animated slideInRight\">\n  <div class=\"stimulus-cell\">\n    <span class=\"js-fittext\">"
     + this.escapeExpression(((helper = (helper = helpers.phrase || (depth0 != null ? depth0.phrase : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"phrase","hash":{},"data":data}) : helper)))
-    + "</span>\n\n  </div>\n</div>\n";
+    + "</span>\n\n  </div>\n</div>\n\n<div class=\"stimulus stimulus--words stimulus__gallery js-flickity-gallery animated slideInRight\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.words : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "</div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusSightWordsWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

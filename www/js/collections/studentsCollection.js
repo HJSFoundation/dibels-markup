@@ -7,9 +7,15 @@ App.Collections.Students = Backbone.Collection.extend({
 
   comparator: "first_name",
 
-  local: App.Config.storageLocalState,
+  local: function(){
+    return App.Config.storageLocalState;
+  },
 
   parse: function(resp, xhr) {
-    return resp.students;
+    if(this.local()){
+      return resp;
+    }else{
+      return resp.students;
+    }
   }
 });

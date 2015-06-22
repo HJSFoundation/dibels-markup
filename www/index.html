@@ -64,6 +64,9 @@
       <script type="text/javascript" src="js/views/loadingView.js"></script>
       <script type="text/javascript" src="js/views/stageView.js"></script>
 
+      <script type="text/javascript" src="js/syncData.js"></script>
+
+
       <script type="text/javascript" src="js/views/conferenceManagementView.js"></script>
       <script type="text/javascript" src="js/views/conferenceStudentView.js"></script>
       <script type="text/javascript" src="js/views/conferenceGroupView.js"></script>
@@ -132,7 +135,10 @@
 
 
       <script>
-      var is_browser = window.location.href.indexOf("3333") > -1;
+      var is_browser =
+        (window.location.href.indexOf("localhost:9876") > -1) ||
+        (window.location.href.indexOf("localhost:3333") > -1) ||
+        (window.location.href.indexOf("amazonaws") > -1);
       if(is_browser){
         FastClick.attach(document.body);
         App.applicationView = new App.Views.Application();

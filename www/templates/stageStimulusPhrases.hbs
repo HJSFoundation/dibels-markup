@@ -4,3 +4,11 @@
 
   </div>
 </div>
+
+<div class="stimulus stimulus--words stimulus__gallery js-flickity-gallery animated slideInRight">
+  {{#each words}}
+    <div class="stimulus-cell grid grid--center">
+      <span>{{this}}</span>
+    </div>
+  {{/each}}
+</div>

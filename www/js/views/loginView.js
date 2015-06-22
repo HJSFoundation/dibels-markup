@@ -53,12 +53,10 @@ App.Views.Login = Backbone.View.extend({
   handleLoginFailure: function() {
     $('.js-login-error').show();
     $("#submit").prop("disabled",false);
-
   },
 
   handleForgotPassword: function(){
     App.browser = window.open(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
-
   }
 
 });

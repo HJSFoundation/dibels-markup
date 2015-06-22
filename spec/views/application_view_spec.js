@@ -13,6 +13,7 @@ describe('App.Views.Application', function() {
 
     sinon.stub(_, "bindAll");
     subject = new App.Views.Application({el: '#applicationContainer'});
+    initializeTestData();
   });
 
   afterEach(function() {
@@ -63,17 +64,14 @@ describe('App.Views.Application', function() {
     });
 
     describe("the teacher is logged in", function() {
-      // beforeEach(function() {
-      //   localStorage.loggedInTeacher = {name: "teacher", class: "the cool one"};
-      // });
+      beforeEach(function() {
+        localStorage.setItem("loggedInTeacher", JSON.stringify({id: 313, classroom_id: 91}));
+      });
 
-      // afterEach(function() {
-      //   localStorage.removeItem("loggedInTeacher");
-      // });
-      // it("sets the App.loggedInTeacher from the teacher in local storage", function() {
-      //   subject.initialize();
-      //   expect(App.loggedInTeacher).to.eql({name: "teacher", class: "the cool one"});
-      // });
+      it("sets the App.loggedInTeacher from the teacher in local storage", function() {
+        subject.initialize();
+        expect(App.loggedInTeacher).to.eql({id: 313, classroom_id: 91});
+      });
 
       it("triggers loginSuccess", function() {
         sinon.spy(App.Dispatcher, "trigger");
@@ -83,10 +81,12 @@ describe('App.Views.Application', function() {
       });
     });
 
-    // describe("the teacher is not logged in", function() {
-    //   it("creates a login view", function() {
-    //     expect(subject.loginView.$el.find('#loginContainer')).to.exist;
-    //   });
+    describe("the teacher is not logged in", function() {
+      it("creates a login view", function() {
+        localStorage.removeItem("loggedInTeacher");
+        subject.initialize();
+        expect(subject.loginView.$el.find('#loginContainer')).to.exist;
+      });
     });
   });
 
@@ -102,6 +102,18 @@ describe('App.Views.Application', function() {
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "initializeConferenceManagementRequested", subject.initializeConferenceManagement);
     });
+
+    it("listens for the resume", function() {
+      sinon.spy(document, "addEventListener");
+      subject.listen();
+      expect(document.addEventListener).to.have.been.calledWith("resume", subject.handleResumeEvent, false);
+      document.addEventListener.restore();
+    });
+  });
+
+  it("#displayLoadingScreen", function() {
+    subject.displayLoadingScreen();
+    expect(subject.loadingScreen).to.be.an.instanceOf(App.Views.Loading);
   });
 
   describe("#removeLogin", function() {
@@ -117,11 +129,35 @@ describe('App.Views.Application', function() {
       subject.removeLogin();
       expect(subject.initializeConferenceManagement).to.have.been.called;
     });
+
+    it("stops listening to loginSuccess", function() {
+      sinon.spy(subject, "stopListening");
+      subject.displayLoadingScreen();
+      subject.removeLogin();
+      expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "loginSuccess")
+    });
   });
 
   it("#initializeConferenceManagement", function() {
     subject.initializeConferenceManagement();
     expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
     expect($(App.Config.el)).not.to.be.empty;
+  });
+
+  describe("#handleResumeEvent", function() {
+    xit("calls #displayLoadingScreen", function() {
+      var location = { reload: function(){}};
+      sinon.spy(subject, "displayLoadingScreen");
+      sinon.stub(location, "reload");
+      subject.handleResumeEvent();
+      expect(subject.displayLoadingScreen).to.have.been.called;
+    });
+
+    xit("calls location #reload", function() {
+      var location = { reload: function(){}};
+      sinon.stub(location, "reload");
+      subject.handleResumeEvent();
+      expect(location.reload).to.have.been.called;
+    });
   });
 });

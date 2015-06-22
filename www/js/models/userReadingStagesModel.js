@@ -8,5 +8,5 @@ App.Models.UserReadingStages = Backbone.Model.extend({
   reading_stage:"",
   context:"teacher_notepad",
 
-  local: App.Config.storageLocalState
+  local: App.Config.storageLocalState //TODO convert to function and add spec
 });

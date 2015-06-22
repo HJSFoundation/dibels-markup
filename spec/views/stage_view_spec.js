@@ -196,8 +196,8 @@ describe('App.Views.Stage', function() {
       it("handles selectedActivity === letters", function() {
         App.selectedActivity = "letters";
         sinon.spy(subject.stageViews.letters, "render");
-        subject.handleLetterSoundsChangeRequest({value: "b"});
-        expect(subject.stageViews.letters.render).to.have.been.calledWith({value: "b"});
+        subject.handleLetterSoundsChangeRequest({value: "b", img: "b"});
+        expect(subject.stageViews.letters.render).to.have.been.calledWith({value: "b", img: "b"});
       });
     });
 

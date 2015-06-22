@@ -9,7 +9,9 @@ App.Models.Note = Backbone.Model.extend({
     "program_type": "teacher_notepad"
   },
 
-  local: App.Config.storageLocalState,
+  local: function(){
+    return App.Config.storageLocalState;
+  },
 
   shortContent: function() {
     var maxChars = 40;
@@ -22,12 +24,21 @@ App.Models.Note = Backbone.Model.extend({
   },
 
   updatedDate: function() {
-    var update = new Date(this.get("updated_at"));
+    var update = new Date(this.get("taken_at"));
     var months = ["January", "February", "March", "April", "May", "June", "July", "August","September","October","November","December"];
     var month = months[update.getMonth()];
     var day = update.getDate();
     var year = update.getFullYear();
 
     return month + " " + day + ", " + year;
+  },
+
+  parse: function(resp, xhr) {
+    if(!resp.note){
+      return resp;
+    }else{
+      return resp.note;
+    }
   }
+
 });

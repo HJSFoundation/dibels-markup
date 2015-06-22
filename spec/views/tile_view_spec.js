@@ -85,11 +85,26 @@ describe('App.Views.Tile', function() {
     expect(subject.templateJSON().selected).to.equal(subject.selected);
   });
 
-  it("#setAssessment", function() {
-    sinon.spy(subject, "render");
-    subject.setAssessment("mastered");
-    expect(subject.render).to.have.been.called;
-    expect(subject.model.get("assessment")).to.equal("mastered");
+  describe("#setAssessment", function() {
+    it("calls render", function() {
+      sinon.spy(subject, "render");
+      subject.setAssessment("mastered");
+      expect(subject.render).to.have.been.called;
+    });
+
+    it("calls set on the model", function() {
+      sinon.spy(subject.model, "set");
+      subject.setAssessment("mastered");
+      expect(subject.model.set).to.have.been.called;
+      expect(subject.model.get("assessment")).to.equal("mastered");
+    });
+
+    it("calls save on the model", function() {
+      sinon.spy(subject.model, "save");
+      subject.setAssessment();
+      expect(subject.model.save).to.have.been.called;
+    });
+
   });
 
   describe("handlers", function() {

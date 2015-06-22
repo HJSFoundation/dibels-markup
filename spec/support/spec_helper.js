@@ -1,3 +1,4 @@
+var is_browser;
 function renderFixture(nodeType, attrs, content) {
 
   var attributes = _.reduce(attrs, function(memo, value, attr) {
@@ -25,8 +26,14 @@ before(function() {
   xhr.onCreate = function(xhr) {
     requests.push(xhr);
   };
-      // this.timeout(10000);
+  this.timeout(3000);
   initializeTestData();
+
+  is_browser =
+    (window.location.href.indexOf("localhost:9876") > -1) ||
+    (window.location.href.indexOf("localhost:3333") > -1) ||
+    (window.location.href.indexOf("amazonaws") > -1);
+
 });
 
 beforeEach(function() {

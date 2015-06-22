@@ -66,8 +66,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   setEndSessionTime: function(){
     this.model.set({ended_at: new Date()});
     this.model.save();
-    document.removeEventListener("pause");
-
+    document.removeEventListener("pause", this.handlePauseEvent);
   },
 
   handleStartSessionRequested: function() {
@@ -82,12 +81,12 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   handlePauseEvent: function(){
     this.setEndSessionTime();
-
   },
 
   handleEndSessionRequested: function() {
     this.setEndSessionTime();
-    App.Dispatcher.trigger("initializeConferenceManagementRequested");
+    // App.Dispatcher.trigger("initializeConferenceManagementRequested");
+    App.applicationView.handleResumeEvent();
   },
 
   handleDisplayManage: function() {
