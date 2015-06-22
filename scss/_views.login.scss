@@ -21,12 +21,17 @@
 
   progress {
     border: 0;
-    height: 3px;
+    height: 22px;
     width: 468px;
     border-radius: 9px;
+    position: relative;
 
     &::-webkit-progress-bar {
       background-color: $white;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
 
     &::-webkit-progress-value {
@@ -40,7 +45,7 @@
 .loading-login__footer {
   color: $orange;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 
   .loading-login__title {
     font-size: 24px;
@@ -58,11 +63,21 @@
 
 .login__field {
   width: 240px;
-  margin-bottom: 20px;
-  height: 34px;
-  padding-left: 10px;
+  margin-right: 10px;
+  height: 22px;
   font-family: $font-primary;
-  border: 1px solid lightgrey;
+  font-size: 18px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 2px solid $white;
+  background: transparent;
+  color: $orange;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
 }
 
 // login error css
@@ -83,10 +98,13 @@
   }
 }
 
-.login__button {
-  @extend .login__field;
-  font-weight: 100;
-  border: 0;
+.button--login {
+  @extend .button;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 300;
+  padding: 0;
+  text-transform: uppercase;
 }
 
 .teachermate-logo {
