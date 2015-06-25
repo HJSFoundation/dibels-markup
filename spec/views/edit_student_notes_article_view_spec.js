@@ -56,8 +56,17 @@ describe('App.Views.EditStudentNotesArticle', function() {
 
     it("#handleBlur", function() {
       subject.render(model);
-      sinon.spy(subject.model, "save");
+      // sinon.spy(subject.model, "save");
       $(subject.$el.selector+" textarea").val("hello");
+
+
+      sinon.stub(subject.model, 'save').returns({
+        done: function(){
+          return {fail: function(){}}
+        }
+      });
+
+
       subject.handleBlur();
       expect(subject.model.save).to.have.been.called;
     });
