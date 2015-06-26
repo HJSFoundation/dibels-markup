@@ -288,166 +288,166 @@ var App = {
     phrasesByStage: {
       3: {
         rimes: {
-          at: 'phrase"bat","cat","fat","hat","mat","rat","sat","vat"]',
-          et: 'phrase"bet","get","jet","let","met","net","pet","set","wet"]',
-          it: 'phrase"bit","fit","kit","pit","sit"]',
-          ot: 'phrase"dot","hot","lot","not","tot"]',
-          ut: 'phrase"but","cut","nut","hut"]'
+          at: 'the cat ate a rat',
+          et: 'can I get that',
+          it: 'I bit into the pit',
+          ot: 'I got a lot of toys',
+          ut: 'shut the book and put it down'
         }
       },
       4: {
         rimes: {
-          ad: 'phrase"bad","dad","mad","pad","sad"]',
-          am: 'phrase"dam","ham","jam"]',
-          an: 'phrase"ban","can","fan","man","pan","ran","tan","van"]',
-          ap: 'phrase"cap","lap","map","nap","rap","tap","zap"]',
-          at: 'phrase"cat","mat","hat","bat","nat","fat","rat","sat","vat","pat"]',
-          ed: 'phrase"bed","fed","led","red"]',
-          em: 'phrase"gem","hem"]',
-          en: 'phrase"den","hen","men","pen","ten"]',
-          ep: 'phrase"pep"]',
-          et: 'phrase"bet","get","jet","let","met","net","pet","set","vet","wet"]',
-          id: 'phrase"kid","bid","hid","did"]',
-          im: 'phrase"dim","him","rim"]',
-          in: 'phrase"bin","fin","pin","tin","win"]',
-          ip: 'phrase"dip","hip","lip","rip","tip","zip"]',
-          it: 'phrase"bit","fit","kit","lit","pit","sit"]',
-          od: 'phrase"nod","rod","cod"]',
-          om: 'phrase"mom","pom"]',
-          on: 'phrase"won","ton","son"]',
-          op: 'phrase"hop","mop","pop","top"]',
-          ot: 'phrase"cot","dot","got","hot","lot","not","pot","rot","tot"]',
-          ud: 'phrase"mud","bud","cud"]',
-          um: 'phrase"bum","gum","hum"]',
-          un: 'phrase"bun","fun","run","sun"]',
-          up: 'phrase"cup","pup"]',
-          ut: 'phrase"but","cut","gut","hut","nut","rut"]'
+          ad: 'dad is mad',
+          am: 'I like to eat ham',
+          an: 'mom has a tan van',
+          ap: 'the boy wears a red cap',
+          at: 'the cat ate a rat',
+          ed: 'go to bed',
+          em: 'how low is your hem',
+          en: 'my pen is blue',
+          ep: 'he has a lot of pep',
+          et: 'can I get that',
+          id: 'The kid hid under there',
+          im: 'I thank him',
+          in: 'the bin is brown',
+          ip: 'the tip is going to rip',
+          it: 'I bit into the pit',
+          od: 'I will nod yes',
+          om: 'I love my mom',
+          on: 'who won',
+          op: 'I hop to the top',
+          ot: 'I got a lot of toys',
+          ud: 'don’t go in the mud',
+          um: 'you may not have gum',
+          un: 'it is fun to play',
+          up: 'my pup is brown',
+          ut: 'shut the book and put it down'
         }
       },
       5: {
         rimes: {
-          ape: 'phrase"cape","drape","grape","tape"]',
-          ate: 'phrase"ate","date","fate","gate","hate","late","plate","skate","state","nate"]',
-          ide: 'phrase"bride","glide","hide","pride","ride","side","slide","tide","wide"]',
-          ime: 'phrase"crime","dime","grime","lime","slime","time"]',
-          ine: 'phrase"dine","fine","line","mine","nine","pine","spine","vine","wine"]',
-          ipe: 'phrase"wipe","pipe","ripe"]',
-          ite: 'phrase"bite","kite","site","spite","white "]',
-          ode: 'phrase"code","mode","rode"]',
-          ome: 'phrase"dome","home"]',
-          one: 'phrase"bone","cone","lone","stone","tone","zone"]',
-          ope: 'phrase"hope","mope","rope","slope"]',
-          ote: 'phrase"note","vote","wrote"]',
-          ude: 'phrase"dude","rude","crude"]',
-          une: 'phrase"prune","tune"]',
-          ute: 'phrase"cute","flute","mute","lute"]'
+          ape:I ate a grape
+          ate:I ate a date
+          ide:do you want to hide
+          ime:do you have a dime
+          ine:I am fine
+          ipe:does it look ripe
+          ite:I took a bite
+          ode:we rode to the house
+          ome:can we go home
+          one:that stone is very big
+          ope:I hope we can go
+          ote:I wrote a note to him
+          ude:it is rude to yell
+          une:can you sing a tune
+          ute:that dog is so cute
         },
         onsets: {
-          bl: 'phrase"blade","blame","bled","blot"]',
-          br: 'phrase"brat","brim","bride"]',
-          cl: 'phrase"clam","clap","clip"]',
-          cr: 'phrase"crime","crop"]',
-          dr: 'phrase"drape","drip","drop"]',
-          fl: 'phrase"flame","flap","flat","fled","flip","flop","flute"]',
-          gl: 'phrase"glad","glide"]',
-          gr: 'phrase"grade","grape","grim","grime","grip","grin"]',
-          pl: 'phrase"plan","plop","plot","plum","plate"]',
-          pr: 'phrase"prop","pride","prune"]',
-          sl: 'phrase"slam","slap","sled","slide","slim","slime","slip","slit","slot"]',
-          tr: 'phrase"trade","trap","trim","trip"]',
-          sk: 'phrase"skin","skip","skit"]',
-          sp: 'phrase"spade","sped","spin","spine","spit","spot","spun"]',
-          st: 'phrase"state","stone","stop","stun"]'
+          bl: '',
+          br: '',
+          cl: '',
+          cr: '',
+          dr: '',
+          fl: "",
+          gl: "",
+          gr: "",
+          pl: "",
+          pr: "",
+          sl: "",
+          tr: "",
+          sk: "",
+          sp: "",
+          st: ""
         }
       },
       6: {
         onsets: {
-          ch: 'phrase"chain","chair","champ","charm","chart","chat","cheat","chill","chin","chip","choke","chop","chore"]',
-          sh: 'phrase"shack","shade","shake","shame","shape","share","shark","shave","sheep","sheet","shine","ship","shook","shoot","shop","shore","shot","show","shut","shy","shall","shin","shout"]',
-          th: 'phrase"thank","thaw","then","thick","thin","thing","think"]',
-          wh: 'phrase"whale","wheat","wheel","when","while","what","white","why"]'
+          ch: "",
+          sh: "",
+          th: "",
+          wh: ""
         },
         rimes: {
-          ack: 'phrase"back","black","crack","jack","lack","pack","rack","sack","shack","snack","track"]',
-          aid: 'phrase"braid","laid","paid","raid"]',
-          ail: 'phrase"fail","hail","jail","mail","nail","pail","rail","sail","snail","tail"]',
-          ain: 'phrase"brain","chain","drain","gain","grain","main","pain","plain","rain","stain","train"]',
-          air: 'phrase"chair","fair","flair","hair","pair","stair"]',
-          all: 'phrase"ball","call","fall","hall","mall","small","tall","wall"]',
-          amp: 'phrase"camp","champ","clamp","cramp","damp","lamp","ramp","stamp"]',
-          and: 'phrase"band","brand","grand","hand","land","sand","stand"]',
-          ang: 'phrase"bang","hang","gang","rang","sang"]',
-          ank: 'phrase"bank","crank","drank","sank","tank","thank","yank"]',
-          ant: 'phrase"ant","grant","pant","rant","slant","cant","want"]',
-          ar:  'phrase"bar","car","far","jar","star","tar","war"]',
-          ay:  'phrase"bay","clay","day","hay","lay","may","pay","play","ray","say","stay","tray","way"]',
-          ead: 'phrase"bead","lead","read"]',
-          eak: 'phrase"beak","bleak","freak","peak","sneak","speak","weak"]',
-          eam: 'phrase"beam","cream","dream","steam","team","gleam"]',
-          ear: 'phrase"clear","dear","fear","gear","hear","near","rear","spear","year"]',
-          eat: 'phrase"beat","cheat","heat","meat","neat","seat","treat","wheat"]',
-          eck: 'phrase"deck","neck","peck"]',
-          eed: 'phrase"bleed","deed","feed","freed","greed","need","seed","speed","weed"]',
-          eel: 'phrase"feel","heel","kneel","peel","reel","steel","wheel"]',
-          een: 'phrase"green","seen","teen","been"]',
-          eep: 'phrase"beep","creep","deep","jeep","keep","peep","sheep","sleep","steep","sweep","weep"]',
-          eet: 'phrase"beet","feet","fleet","greet","meet","sheet","street"]',
-          ell: 'phrase"bell","fell","sell","smell","spell","tell","well","yell"]',
-          end: 'phrase"bend","blend","lend","mend","send","spend"]',
-          ent: 'phrase"bent","cent","dent","lent","rent","sent","spent","tent","vent","went"]',
-          ick: 'phrase"brick","click","kick","lick","nick","sick","stick","thick","tick","trick"]',
-          ill: 'phrase"bill","chill","drill","fill","hill","kill","pill","skill","spill","still","will"]',
-          ing: 'phrase"bring","fling","king","ring","sing","sting","thing","wing"]',
-          ink: 'phrase"drink","link","mink","pink","rink","sink","stink","think","wink","blink"]',
-          int: 'phrase"flint","hint","lint","mint","print","tint"]',
-          oad: 'phrase"load","road","toad"]',
-          oan: 'phrase"groan","loan","moan"]',
-          oat: 'phrase"boat","coat","float","goat","moat","oat"]',
-          ock: 'phrase"block","clock","dock","flock","lock","rock","sock","stock"]',
-          oil: 'phrase"boil","broil","coil","soil","spoil","toil"]',
-          ong: 'phrase"long","song"]',
-          ood: 'phrase"good","hood","stood","wood"]',
-          ook: 'phrase"book","cook","crook","hook","look","shook","took"]',
-          ool: 'phrase"fool","pool","stool","tool","cool"]',
-          oom: 'phrase"boom","broom","groom","room","zoom"]',
-          oon: 'phrase"moon","noon","soon","spoon"]',
-          oop: 'phrase"goop","hoop","loop"]',
-          oot: 'phrase"boot","hoot","root","scoot","shoot","toot"]',
-          out: 'phrase"out","pout","shout","spout","trout"]',
-          oy:  'phrase"boy","coy","joy","toy"]',
-          uck: 'phrase"buck","duck","luck","stuck","truck","tuck"]',
-          ump: 'phrase"bump","dump","grump","jump","lump","plump","pump","slump"]',
-          ung: 'phrase"hung","lung","stung","sung"]',
-          unk: 'phrase"bunk","dunk","junk","punk","skunk","spunk","sunk","trunk"]',
-          unt: 'phrase"bunt","grunt","hunt","punt","runt","shunt","stunt"]',
-          y:   'phrase"by","cry","dry","fly","my","shy","sky","spy","try","why"]'
+          ack: "back to school",
+          aid: "she laid the doll down",
+          ail: "the mail is here",
+          ain: "the man is in pain",
+          air: "sit in your chair",
+          all: "catch the small ball",
+          amp: "I want to go to camp",
+          and: "the sand is brown",
+          ang: "please hang up your coat",
+          ank: "he drank a big cup of tea",
+          ant: "I can’t do it",
+          ar: "is the car far away",
+          ay: "you may play with her",
+          ead: "read a book",
+          eak: "speak up please",
+          eam: "my team won",
+          ear: "do you hear that",
+          eat: "this meat is good",
+          eck: "we sit on the deck",
+          eed: "I feed the cat",
+          eel: "I feel sad",
+          een: "my house is green",
+          eep: "the jeep went beep",
+          eet: "go down the street",
+          ell: "I hear the bell",
+          end: "send it there",
+          ent: "we went to school",
+          ick: "I think I am sick",
+          ill: "I will still play",
+          ing: "bring the ring here",
+          ink: "what is the pink drink",
+          int: "can I have a hint",
+          oad: "this road is long",
+          oan: "can you loan me a book",
+          oat: "put on your coat",
+          ock: "put on your sock",
+          oil: "play in the soil",
+          ong: "this song is very long",
+          ood: "this is a good book",
+          ook: "she took my book",
+          ool: "I jump into the pool",
+          oom: "I zoom around the room",
+          oon: "I wish I could go to the moon",
+          oop: "look at this goop",
+          oot: "where is my other boot",
+          out: "do not shout out",
+          oy: "the boy has a toy",
+          uck: "it is bad luck to get stuck",
+          ump: "I have a bump on my leg",
+          ung: "I hung up my coat",
+          unk: "that trunk has junk in it",
+          unt: "the pig let out a grunt",
+          y: "sit by my mother"
         }
       },
       7: {
         onsets: {
-          spr: 'phrase"spring","sprint","sprang"]',
-          str: 'phrase"string","stray","stripe"]'
+          spr: "",
+          str: ""
         },
         rimes: {
-          ab:
-          ace:
-          ag:
-          age:
-          ake:
-          ale:
-          ard:
-          are:
-          ark:
-          arm:
-          art:
-          ase:
-          ave:
-          aze:
-          eg:
-          elt:
-          ib:
-          ibe:
-          ice:
+          ab:  'grab the cab',
+          ace: 'wash my face',
+          ag: 'my bag is at school',
+          age: 'we read that page',
+          ake: 'mom will bake a cake',
+          ale: 'my dad is a male',
+          ard: 'go play in the yard',
+          are: 'share your toys',
+          ark: 'I hear my dog bark',
+          arm: 'the farm has pigs',
+          art: 'I sit in the cart',
+          ase: 'I ran to the base',
+          ave: 'I gave a wave to Mom',
+          aze: 'this is a hard maze',
+          eg: 'don’t beg me',
+          elt: 'dad has a brown belt',
+          ib: 'I don’t sleep in a crib',
+          ibe: 'this is my tribe',
+          ice: 'did you see the mice',
           ig: 'dig here for the tree',
           ike: 'I got a red bike',
           ile: 'his house is one mile away',
