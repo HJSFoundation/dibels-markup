@@ -26,7 +26,8 @@ before(function() {
   xhr.onCreate = function(xhr) {
     requests.push(xhr);
   };
-  this.timeout(50000);
+  this.timeout(5000);
+
   initializeTestData();
 
   is_browser =
@@ -211,7 +212,6 @@ function initializeTestData (){
       }
     });
   });
-  App.testDataInitialized = true;
 }
 
 function  initializeStimuliFullTestData(){

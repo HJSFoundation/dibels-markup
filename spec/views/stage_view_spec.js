@@ -176,13 +176,6 @@ describe('App.Views.Stage', function() {
         subject.handleSightWordsChangeRequest({value: "b"});
         expect(subject.stageViews.sightWordsWords.render).to.have.been.calledWith({value: "b"});
       });
-
-      it("handles selectedActivity === phrases", function() {
-        App.selectedActivity = "phrases";
-        sinon.spy(subject.stageViews.phrases, "render");
-        subject.handleSightWordsChangeRequest({value: "b"});
-        expect(subject.stageViews.phrases.render).to.have.been.calledWith({value: "b"});
-      });
     });
 
     describe("#handleLetterSoundsChangeRequest", function() {
