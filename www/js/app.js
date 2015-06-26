@@ -429,47 +429,47 @@ var App = {
           str: 'phrase"string","stray","stripe"]'
         },
         rimes: {
-          ab:  'phrase"cab","tab","dab","jab","grab","crab","slab"]',
-          ace: 'phrase"brace","face","grace","lace","pace","place","race","space","trace"]',
-          ag:  'phrase"bag","brag","drag","flag","nag","rag","sag","snag","tag","wag","zag"]',
-          age: 'phrase"page","rage","stage","wage"]',
-          ake: 'phrase"bake","brake","cake","fake","flake","lake","make","rake","shake","snake","stake","take","wake"]',
-          ale: 'phrase"male","pale","stale","tale","whale"]',
-          ard: 'phrase"card","hard","lard","shard","yard"]',
-          are: 'phrase"bare","care","dare","rare","share","spare","stare","glare"]',
-          ark: 'phrase"bark","dark","mark","park","shark","spark"]',
-          arm: 'phrase"charm","farm","harm","warm"]',
-          art: 'phrase"cart","chart","dart","part","smart","start","mart"]',
-          ase: 'phrase"base","case","vase","chase"]',
-          ave: 'phrase"cave","gave","grave","pave","save","shave","slave","wave"]',
-          aze: 'phrase"daze","maze","gaze","haze","blaze","glaze","graze","craze"]',
-          eg:  'phrase"beg","leg","peg"]',
-          elt: 'phrase"belt","felt","melt"]',
-          ib:  'phrase"rib","bib","fib","crib"]',
-          ibe: 'phrase"bribe","tribe"]',
-          ice: 'phrase"mice","nice","price","rice","slice","spice"]',
-          ig:  'phrase"big","dig","fig","pig","wig"]',
-          ike: 'phrase"bike","dike","hike","like","pike"]',
-          ile: 'phrase"file","mile","pile","smile","tile","while"]',
-          ilk: 'phrase"milk","silk"]',
-          ire: 'phrase"tire","wire","hire",""]',
-          ive: 'phrase"dive","drive","five","hive","live"]',
-          ix:  'phrase"fix","mix","six"]',
-          ob:  'phrase"mob","cob","job","slob","blob","snob"]',
-          obe: 'phrase"lobe","robe","globe","probe"]',
-          og:  'phrase"fog","frog","hog","jog","log"]',
-          oke: 'phrase"choke","joke","poke","smoke","spoke","woke"]',
-          old: 'phrase"bold","cold","fold","gold","hold","mold","sold","told"]',
-          ole: 'phrase"hole","mole","pole","role","sole","stole","whole"]',
-          ore: 'phrase"bore","chore","core","more","shore","sore","store","tore","wore"]',
-          orn: 'phrase"born","corn","horn","torn","worn"]',
-          ose: 'phrase"close","hose","nose","pose","rose","those"]',
-          ox:  'phrase"box","fox"]',
-          ub:  'phrase"cub","hub","pub","rub","snub","sub","tub"]',
-          ube: 'phrase"cube","tube"]',
-          ug:  'phrase"bug","dug","hug","jug","plug","rug","slug","snug","tug"]',
-          ule: 'phrase"mule","rule"]',
-          urn: 'phrase"burn","churn","spurn","turn"]'
+          ab:
+          ace:
+          ag:
+          age:
+          ake:
+          ale:
+          ard:
+          are:
+          ark:
+          arm:
+          art:
+          ase:
+          ave:
+          aze:
+          eg:
+          elt:
+          ib:
+          ibe:
+          ice:
+          ig: 'dig here for the tree',
+          ike: 'I got a red bike',
+          ile: 'his house is one mile away',
+          ilk: 'I like milk',
+          ire: 'the wire is black',
+          ive: 'I am five',
+          ix: 'dad will fix it',
+          ob: 'the job began',
+          obe: 'mom has a blue robe',
+          og: 'I can’t see in the fog',
+          oke: 'it was a funny joke',
+          old: 'are you cold',
+          ole: 'look out for the hole',
+          ore: 'I have one more chore to do',
+          orn: 'a new dog was born',
+          ose: 'I see a red rose',
+          ox: 'that is a big box',
+          ub: 'get in the tub',
+          ube: 'I put the red cube here',
+          ug: 'I dug in the mud to find a bug',
+          ule: 'the mule is brown',
+          urn: 'it is my turn'
         }
       },
       8: {
@@ -477,18 +477,18 @@ var App = {
 
         },
         rimes: {
-          ash: 'phrase"bash","cash","dash","flash","mash","rash","slash","smash","trash","wash"]',
-          aw : 'phrase"claw","draw","jaw","paw","raw","saw","thaw"]',
-          est: 'phrase"best","chest","nest","pest","rest","test","vest","west"]',
-          ew : 'phrase"blew","crew","flew","grew","knew","stew","dew","new","drew","few"]',
-          ight:'phrase"fight","light","might","night","right","sight","tight"]',
-          ish: 'phrase"dish","fish","wish"]',
-          ost: 'phrase"cost","frost","lost","most"]',
-          ould:'phrase"should","could","would"]',
-          ound:'phrase"bound","round","pound","found","mound"]',
-          ow : 'phrase"blow","bow","crow","know","low","mow","row","show","slow","snow","tow","grow","how","now","wow","cow"]',
-          ush: 'phrase"blush","brush","crush","flush","hush","mush","rush","slush","push"]',
-          ust: 'phrase"bust","crust","dust","gust","just","must","rust","trust"]'
+          ash: 'we need cash to pay',
+          aw: 'the dog’s paw is small',
+          est: 'do your best',
+          ew: 'I knew it',
+          ight: 'do not fight',
+          ish: 'do you eat fish',
+          ost: 'how much does it cost',
+          ould: 'should we go to school',
+          ound: 'the ball is round',
+          ow: 'I will tow the car',
+          ush: 'brush your hair',
+          ust: 'I don’t like the crust'
         }
       }
     }
