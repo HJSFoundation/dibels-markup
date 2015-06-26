@@ -1,5 +1,36 @@
-<div class="container--overlay">
-  <div class="container--management container">
+<div class="container">
+  <div class="table__wrapper--header">
+    <table class="management__table management__table__header">
+      <colspan>
+        <col class="table-column table-column-1">
+        <col class="table-column table-column-4">
+        <col class="table-column">
+        <col class="table-column">
+        <col class="table-column">
+        <col width="10">
+        <col class="table-column">
+        <col class="table-column">
+        <col class="table-column">
+        <col class="table-column">
+        <col class="table-column table-column-4">
+      </colspan>
+
+      <thead>
+        <th colspan="2" class="session-cell--name">sessions</th>
+        <th >reading stage</th>
+        <th>growth</th>
+        <th>practice station score</th>
+        <th width="10" class="session-cell--spacer"></th>
+        <th>days on current reading stage</th>
+        <th>days since last session</th>
+        <th>days since last fluency assignment</th>
+        <th>desired sessions per week</th>
+        <th class="js-manageButton session-cell--manage" colspan="2">manage sessions</th>
+      </thead>
+    </table>
+  </div>
+
+  <div class="table__wrapper">
     <table class="management__table js-management-table" cellspacing="0">
       <colspan>
         <col class="table-column table-column-1">
@@ -12,27 +43,16 @@
         <col class="table-column">
         <col class="table-column">
         <col class="table-column">
-      {{!--   <col class="table-column"> --}}
+
         <col class="table-column table-column-4">
       </colspan>
-
-      <thead>
-        <td colspan="2" class="session-cell--name">sessions</td>
-        <td >reading stage</td>
-        <td>growth</td>
-        <td>practice station score</td>
-        <td width="10" class="session-cell--spacer"></td>
-        <td>days on current reading stage</td>
-        <td>days since last session</td>
-        <td>days since last fluency assignment</td>
-        <td>desired sessions per week</td>
-        <td class="js-manageButton session-cell--manage" colspan="2">manage sessions</td>
-      </thead>
-
       <tbody>
 
       </tbody>
     </table>
   </div>
+
+  
 </div>
+
 

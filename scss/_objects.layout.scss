@@ -65,10 +65,12 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 200;
   }
+}
 
-  &.container--management {
-    overflow: auto;
-  }
+.container--management {
+  height: 708px;
+  width: 1024px;
+
 }

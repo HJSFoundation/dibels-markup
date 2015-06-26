@@ -69,7 +69,9 @@ App.Views.Application = Backbone.View.extend({
     }
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
-    $("table").stickyTableHeaders({ "fixedOffset": 2});
+
+    // $("table").stickyTableHeaders({ "fixedOffset": 2});
+
   },
 
   handleResumeEvent: function(){

@@ -30,6 +30,9 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudentSingle({ model: studentConference});
       this.$tbody.append(view.render().el);
     }, this);
+
+    // $("table").stickyTableHeaders({ scrollableArea: $(".container--management")[0],"fixedOffset": 2});
+    
     return this;
   },
 

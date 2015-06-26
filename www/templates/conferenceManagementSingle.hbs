@@ -1,45 +1,67 @@
-<div class="container container--overlay animated slideInUp">
-{{!--   <button class="button button--close button--close--edit-student js-closeOverlayButton">
-    <svg class="icon-close--overlay icon-close"><use xlink:href="#icon-close"></use></svg>
-    <svg class="icon-close--overlay icon-close-filled st-hidden"><use xlink:href="#icon-close-filled"></use></svg>
- </button> --}}
-  <div class="overlay__menu">
-    <a href="#" class="menu--tab menu--tab--edit-student grid grid--center js-cancelAddStudent" style="left: {{ math 170.5 "*" tab_position}}px">
-      <span class="menu__title">cancel</span>
-      <span class="menu__icon icon icon-close"></span>
-    </a>
-  </div>
-  <div class="container--management container">
-    <table class="management__table" cellspacing="0">
-      <colspan>
-       <col class="table-column table-column-1">
-       <col class="table-column table-column-4">
-       <col class="table-column">
-       <col class="table-column">
-       <col class="table-column">
-       <col width="10">
-       <col class="table-column">
-       <col class="table-column">
-       <col class="table-column">
-       <col class="table-column">
-       <col class="table-column table-column-4">
-      </colspan>
+<div class="container container--overlay ">
+<div class="container--management">
+    <div class="overlay__menu">
+      <a href="#" class="menu--tab menu--tab--edit-student grid grid--center js-cancelAddStudent" style="left: {{ math 170.5 "*" tab_position}}px">
+        <span class="menu__title">cancel</span>
+        <span class="menu__icon icon icon-close"></span>
+      </a>
+    </div>
 
-      <thead>
-       <th colspan="2" class="session-cell--name">students</th>
-       <th >reading stage</th>
-       <th>growth</th>
-       <th>practice station score</th>
-       <th width="10" class="session-cell--spacer"></th>
-       <th>days on current reading stage</th>
-       <th>days since last session</th>
-       <th>days since last fluency assignment</th>
-       <th>desired sessions per week</th>
-       <th colspan="2"></th>
-      </thead>
+    
 
-      <tbody>
-      </tbody>
-    </table>
+      <div class="table__wrapper__header table__wrapper__header--student">
+        <table class="management__table management__table__header">
+          <colspan>
+           <col class="table-column table-column-1">
+           <col class="table-column table-column-4">
+           <col class="table-column">
+           <col class="table-column">
+           <col class="table-column">
+           <col width="10">
+           <col class="table-column">
+           <col class="table-column">
+           <col class="table-column">
+           <col class="table-column">
+           <col class="table-column table-column-4">
+          </colspan>
+
+          <thead>
+           <td colspan="2" class="session-cell--name">students</td>
+           <td >reading stage</td>
+           <td>growth</td>
+           <td>practice station score</td>
+           <td width="10" class="session-cell--spacer"></td>
+           <td>days on current reading stage</td>
+           <td>days since last session</td>
+           <td>days since last fluency assignment</td>
+           <td>desired sessions per week</td>
+           <td colspan="2"></td>
+          </thead>
+        </table>
+      </div>
+
+      <div class="table__wrapper table__wrapper--student">
+      <table class="management__table" cellspacing="0">
+        <colspan>
+         <col class="table-column table-column-1">
+         <col class="table-column table-column-4">
+         <col class="table-column">
+         <col class="table-column">
+         <col class="table-column">
+         <col width="10">
+         <col class="table-column">
+         <col class="table-column">
+         <col class="table-column">
+         <col class="table-column">
+         <col class="table-column table-column-4">
+        </colspan>
+
+        <tbody>
+        </tbody>
+      </table>
+      </div>
   </div>
+
+
 </div>
+
