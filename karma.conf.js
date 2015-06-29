@@ -18,7 +18,7 @@ module.exports = function(config) {
       'www/js/vendor/jquery-2.1.3.min.js',
       'www/js/vendor/lodash.min.js',
       'www/js/vendor/backbone-1.1.2.js',
-      'www/js/vendor/backbone-localStorage.js',
+      'www/js/vendor/backbone.dualstorage.js',
       'www/js/vendor/handlebars-v3.0.0.js',
       'www/js/vendor/flickity.pkgd.min.js',
       'www/js/vendor/stickytableheaders.js',

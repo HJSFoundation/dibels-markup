@@ -24,15 +24,15 @@ describe('App.Models.ConferenceSession', function() {
     expect(subject.local()).to.equal(true);
   });
 
-  describe("#parse", function(){ //TODO examine converting parse function to new parse function syntax
-    xit("sets id to resp id if conference_sessions is not in the response", function() {
+  describe("#parse", function(){
+    it("returns resp if conference_session is not in the response", function() {
       var resp = {id: 1};
       expect(subject.parse(resp)).to.equal(resp);
     });
 
-    xit("sets id to resp id if conference_sessions is not in the response", function() {
-      var resp = {conference_sessions: {id: 1}};
-      expect(subject.parse(resp)).to.equal(resp.conference_sessions);
+    it("sets resp.conference_sessions if conference_session is in the response", function() {
+      var resp = {conference_session: {id: 1}};
+      expect(subject.parse(resp)).to.equal(resp.conference_session);
     });
   });
 });

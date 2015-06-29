@@ -54,21 +54,35 @@ describe('App.Views.EditStudentNotesArticle', function() {
       expect(subject.content).to.equal("new01234567890123456789012345678901234567890123456789");
     });
 
-    it("#handleBlur", function() {
-      subject.render(model);
-      sinon.spy(subject.model, "save");
-      $(subject.$el.selector+" textarea").val("hello");
-      subject.handleBlur();
-      expect(subject.model.save).to.have.been.called;
-    });
-  });
+    describe("#handleBlur", function() {
+      it("saves the model", function() {
+        subject.render(model);
+        $(subject.$el.selector+" textarea").val("hello");
 
-  describe("helper functions", function() {
-    it("#addModel", function() {
-      subject.render(model);
-      var notesLength = App.notes.length;
-      subject.addModel();
-      expect(App.notes.length).to.equal(notesLength + 1);
+        sinon.stub(subject.model, 'save').returns({
+          done: function(){
+            return {fail: function(){}}
+          }
+        });
+
+        subject.handleBlur();
+        expect(subject.model.save).to.have.been.called;
+      });
+
+      it("adds the model to the notes collection", function() {
+        subject.render(model);
+        $(subject.$el.selector+" textarea").val("hello");
+
+        sinon.stub(subject.model, 'save').returns({
+          done: function(){
+            return {fail: function(){}}
+          }
+        });
+        App.notes = new App.Collections.Notes();
+        var lengthOfCollection = App.notes.length;
+        subject.handleBlur();
+        expect(App.notes.length).to.equal(lengthOfCollection+1);
+      });
     });
   });
 });

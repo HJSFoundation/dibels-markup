@@ -12,8 +12,9 @@ describe('App.Views.Application', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.Application({el: '#applicationContainer'});
     initializeTestData();
+
+    subject = new App.Views.Application({el: '#applicationContainer'});
   });
 
   afterEach(function() {

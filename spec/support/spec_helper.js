@@ -26,7 +26,8 @@ before(function() {
   xhr.onCreate = function(xhr) {
     requests.push(xhr);
   };
-  this.timeout(3000);
+  this.timeout(5000);
+
   initializeTestData();
 
   is_browser =
@@ -74,6 +75,9 @@ function initializeTestData (){
 
   App.selectedStudent = App.students.at(0);
   App.selectedSkill = "";
+
+  App.userReadingStages = new App.Collections.UserReadingStages();
+  App.conferenceSessions = new App.Collections.ConferenceSessions();
 
   App.roster.create({id: 18, first_name: "Some", last_name: "Guy", reading_stage: 5});
 
@@ -132,14 +136,14 @@ function initializeTestData (){
 
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
 
-  // App.stimuli = new App.Collections.Stimuli({localStorageName: "stimuli"});
   App.stimuli = new App.Collections.Stimuli();
-  // App.stimuli.fetch();
   App.roster.each(function(student) {
     var a, z, c, A, Z;
     var user_id= student.get("id");
 
-    for(var stageIndex=1; stageIndex<10; stageIndex = stageIndex + 1){
+    _.each([1,2,3,4,5,6,7,8,9], function(stageIndex){
+
+
 
       if(stageIndex===1){
         a="a".charCodeAt(0);
@@ -206,7 +210,7 @@ function initializeTestData (){
           });
         }
       }
-    }
+    });
   });
 }
 

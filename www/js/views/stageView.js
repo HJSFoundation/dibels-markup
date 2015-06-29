@@ -82,14 +82,7 @@ App.Views.Stage = Backbone.View.extend({
   },
 
   handleSightWordsChangeRequest: function(stimulus_object) {
-    switch (App.selectedActivity) {
-      case "words":
-        this.stageViews.sightWordsWords.render(stimulus_object);
-        break;
-      case "phrases":
-        this.stageViews.phrases.render(stimulus_object);
-        break;
-    }
+    this.stageViews.sightWordsWords.render(stimulus_object);
   },
 
   handleLetterSoundsChangeRequest: function(stimulus_object) {
@@ -103,7 +96,6 @@ App.Views.Stage = Backbone.View.extend({
       case "tiles":
         this.stageViews.tiles.handleSkillChangeRequest(stimulus_object);
         break;
-
     }
   },
 
