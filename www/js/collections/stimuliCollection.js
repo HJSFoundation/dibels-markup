@@ -20,8 +20,10 @@ App.Collections.Stimuli = Backbone.Collection.extend({
 
   parse: function(resp, xhr) {
     if(this.local()){
+      App.resp.stimuli = [];
       return resp;
     }else{
+      App.resp.stimuli = resp.stimuli;
       return resp.stimuli;
     }
   }

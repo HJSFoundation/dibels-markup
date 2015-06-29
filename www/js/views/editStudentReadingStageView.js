@@ -26,7 +26,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   },
 
   handleReadingStageChoice: function(readingStageChoiceClickEvent) {
-    var readingStage = parseInt(readingStageChoiceClickEvent.currentTarget.innerText);
+    var readingStage = parseInt(readingStageChoiceClickEvent.currentTarget.innerHTML);
     this.makeInactive();
     this.makeActive(readingStage);
     App.selectedStudent.set({reading_stage: readingStage});
@@ -35,19 +35,22 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       assessor_id: App.loggedInTeacher.id,
       reading_stage: readingStage.toString(),
       context: "teacher_notepad",
-      client_updated_at: new Date()
+      changed_at: new Date()
     });
+    App.userReadingStages.add(model);
+
     model.save()
       .done(this.updateUser)
-      .fail(this.logFailure);
+      .fail(this.updateLocalUser);
   },
 
   updateUser: function(model, response, options) {
-    console.log("EditStudentReadingStage.updateUser: handle fetch failure");
+    console.log("EditStudentReadingStage.updateUser");
     App.roster.fetch();
   },
 
-  logFailure: function(model, response, options) {
-    console.log("failed updating user reading stage\n" + response);
+  updateLocalUser: function(model, response, options) {
+    console.log("EditStudentReadingStage.updateLocalUser");
+    App.selectedStudent.save();
   }
 });

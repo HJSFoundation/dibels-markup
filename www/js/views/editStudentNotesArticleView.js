@@ -36,8 +36,9 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
         client_updated_at: new Date(),
         taken_at: new Date()
       });
+      App.notes.add(this.model);
       this.model.save()
-        .done(this.addModel)
+        .done(this.logSuccess)
         .fail(this.logfailure);
     }
   },
@@ -46,8 +47,7 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
     console.log("EditStudentNotesArticle: model saved failed");
   },
 
-  addModel: function() {
-    App.notes.add(this.model);
+  logSuccess: function() {
     console.log("EditStudentNotesArticle: model successfully saved");
   }
 });

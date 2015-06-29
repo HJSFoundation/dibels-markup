@@ -8,8 +8,36 @@ App.syncData = {
 
     this.success = success;
     this.error = error;
+    this.initializeUserReadingStagesCollection();
+  },
+
+  initializeUserReadingStagesCollection: function(result) {
+    console.log("initializeUserReadingStagesCollection");
+    App.userReadingStages = new App.Collections.UserReadingStages();
+
+    App.Config.storageLocalState = true;
+    App.userReadingStages.fetch({remove: false, add: true});
+    App.Config.storageLocalState = false;
+
+    if(App.isOnline()){
+      App.userReadingStages.syncDirtyAndDestroyed({success: this.removeCleanUserReadingStageModelsFromCollection});
+    }
+
     this.initializeStudentCollection();
   },
+
+  removeCleanUserReadingStageModelsFromCollection: function(model, response, options){
+    if(!options.dirty){
+      App.userReadingStages.reset();
+    }
+  },
+
+  initializeUserReadingStagesCollectionFail: function() {
+    console.log("initializeUserReadingStagesCollectionFail");
+    this.error();
+  },
+
+
 
   initializeStudentCollection: function() {
     console.log("initializing StudentsCollection");
@@ -92,13 +120,13 @@ App.syncData = {
       App.conferences.syncDirtyAndDestroyed();
 
       App.conferences.fetch({
-        success: this.initializeStimuliCollections,
+        success: this.initializeConferenceSessionsCollection,
         error: this.initializeConferencesCollectionFail,
         remove: false,
         add: true
       });
     }else{
-      this.initializeStimuliCollections();
+      this.initializeConferenceSessionsCollection();
     }
   },
 
@@ -106,6 +134,32 @@ App.syncData = {
     console.log("initializeConferencesCollectionFail");
     this.error();
 
+  },
+
+  initializeConferenceSessionsCollection: function(result) {
+    console.log("initializeConferenceSessionsCollection");
+    App.conferenceSessions = new App.Collections.ConferenceSessions();
+
+    App.Config.storageLocalState = true;
+    App.conferenceSessions.fetch({remove: false, add: true});
+    App.Config.storageLocalState = false;
+
+    if(App.isOnline()){
+      App.conferenceSessions.syncDirtyAndDestroyed({success: this.removeCleanModels});
+    }
+
+    this.initializeStimuliCollections();
+  },
+
+  removeCleanModels: function(model, response, options){
+    if(!options.dirty){
+      App.conferenceSessions.reset();
+    }
+  },
+
+  initializeConferenceSessionsCollectionFail: function() {
+    console.log("initializeConferenceSessionsCollectionFail");
+    this.error();
   },
 
   initializeStimuliCollections: function(result) {
@@ -179,6 +233,15 @@ App.syncData = {
         model.save();
       });
       App.Config.storageLocalState=false;
+    }else{
+      if(App.resp.stimuli.length>0){
+        App.Config.storageLocalState=true;
+        _.each(App.resp.stimuli, function(stimulus){
+          App.stimuli.get(stimulus.id).save();
+        })
+        App.Config.storageLocalState=false;
+      }
+
     }
 
     this.success();

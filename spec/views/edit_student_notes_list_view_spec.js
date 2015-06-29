@@ -40,6 +40,12 @@ describe('App.Views.EditStudentNotesList', function() {
       subject.listen();
       expect(subject.listenTo).to.have.been.calledWith(App.notes, "change", subject.render);
     });
+
+    it("listens for add on App.notes", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.notes, "add", subject.render);
+    });
   });
 
   describe("#render", function() {

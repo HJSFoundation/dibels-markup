@@ -11,6 +11,7 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "editStudentNoteSelected", this.handleEditStudentNoteSelected);
     this.listenTo(App.notes, "change", this.render);
+    this.listenTo(App.notes, "add", this.render);
   },
 
   render: function() {
@@ -20,6 +21,7 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
     });
     this.$el.html(this.template());
     var that = this;
+    this.noteViews = [];
     _.each(notes, function(note){
       var noteView = new App.Views.EditStudentNote({model: note});
       that.noteViews.push(noteView);
