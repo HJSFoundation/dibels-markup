@@ -326,21 +326,21 @@ var App = {
       },
       5: {
         rimes: {
-          ape:I ate a grape
-          ate:I ate a date
-          ide:do you want to hide
-          ime:do you have a dime
-          ine:I am fine
-          ipe:does it look ripe
-          ite:I took a bite
-          ode:we rode to the house
-          ome:can we go home
-          one:that stone is very big
-          ope:I hope we can go
-          ote:I wrote a note to him
-          ude:it is rude to yell
-          une:can you sing a tune
-          ute:that dog is so cute
+          ape: "I ate a grape",
+          ate: "I ate a date",
+          ide: "do you want to hide",
+          ime: "do you have a dime",
+          ine: "I am fine",
+          ipe: "does it look ripe",
+          ite: "I took a bite",
+          ode: "we rode to the house",
+          ome: "can we go home",
+          one: "that stone is very big",
+          ope: "I hope we can go",
+          ote: "I wrote a note to him",
+          ude: "it is rude to yell",
+          une: "can you sing a tune",
+          ute: "that dog is so cute"
         },
         onsets: {
           bl: '',
