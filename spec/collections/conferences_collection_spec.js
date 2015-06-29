@@ -18,7 +18,17 @@ describe('App.Collections.Conferences', function() {
   });
 
   it("has a comparator", function() {
-    expect(subject.comparator).to.equal("name");
+    var clock = sinon.useFakeTimers(new Date(2015,6,30).getTime());
+
+    var model = new App.Models.Conference({
+      last_conference_date: "2015-06-30",
+      number_per_week: 5
+    });
+    sinon.stub(model,"convertDate").returns(new Date(2015,6,30));
+
+    expect(subject.comparator(model)).to.equal(120960000);
+
+    clock.restore();
   });
 
   it("#parse", function() {

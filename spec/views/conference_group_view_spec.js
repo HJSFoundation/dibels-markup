@@ -11,7 +11,7 @@ describe('App.Views.ConferenceGroup', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceGroup({el: '#applicationContainer', model: App.conferences.at(1), students: App.roster.slice(0, 6)});
+    subject = new App.Views.ConferenceGroup({el: '#applicationContainer', model: App.conferences.get(97), students: App.roster.slice(0, 6)});
   });
 
   afterEach(function() {
@@ -50,13 +50,17 @@ describe('App.Views.ConferenceGroup', function() {
     });
 
     it("sets the daysSinceLastSession", function() {
+      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
       expect(subject.templateJSON().daysSinceLastSession).to.equal(1);
+      clock.restore();
     });
   });
 
   describe("helper functions", function() {
     it("#daysSinceLastSession", function() {
+      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
       expect(subject.daysSinceLastSession()).to.to.equal(1);
+      clock.restore();
     });
   });
 
