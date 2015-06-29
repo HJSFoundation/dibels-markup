@@ -12,9 +12,9 @@ describe('App.Views.Application', function() {
     };
 
     sinon.stub(_, "bindAll");
-    initializeTestData();
 
     subject = new App.Views.Application({el: '#applicationContainer'});
+
   });
 
   afterEach(function() {
@@ -119,9 +119,13 @@ describe('App.Views.Application', function() {
 
   describe("#removeLogin", function() {
     it("removes the Login View", function() {
+
+      initializeTestData();
+
       subject.displayLoadingScreen();
       subject.removeLogin();
       expect($("#loginContainer")).not.to.exist;
+
     });
 
     it("calls initializeConferenceManagement", function() {
