@@ -33,7 +33,7 @@ App.Views.ConferenceStudentSingle = Backbone.View.extend({
   },
 
   daysSinceLastSession: function() {
-    return Math.ceil((new Date().valueOf() - new Date(this.model.get("last_conference_date").valueOf())) / (1000 * 3600 * 24));
+    return Math.ceil((new Date().valueOf() - new Date(this.model.lastConferenceSessionAt().valueOf())) / (1000 * 3600 * 24));
   },
 
   handleAddStudent: function() {

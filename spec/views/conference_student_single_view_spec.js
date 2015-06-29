@@ -49,7 +49,9 @@ describe('App.Views.ConferenceStudentSingle', function() {
     });
 
     it("sets the daysSinceLastSession", function() {
+      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
       expect(subject.templateJSON().daysSinceLastSession).to.equal(1);
+      clock.restore();
     });
 
     it("sets the number_per_week", function() {
@@ -63,7 +65,9 @@ describe('App.Views.ConferenceStudentSingle', function() {
     });
 
     it("#daysSinceLastSession", function() {
+      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
       expect(subject.daysSinceLastSession()).to.to.equal(1);
+      clock.restore();
     });
   });
 

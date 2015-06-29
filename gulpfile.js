@@ -41,7 +41,7 @@ gulp.task('serve', function () {
       src + '/scss/**/*.scss',
       src + '/js/**/*.js',
       src + '/**/*.html',
-      src + '/templates/**.hbs'
+      root + '/templates/**.hbs'
     ]
   });
 });
@@ -58,7 +58,7 @@ gulp.task('styles', function () {
 });
 
 gulp.task('templates', function(){
-  gulp.src(src + '/templates/**/*.hbs')
+  gulp.src(root + '/templates/**/*.hbs')
     .pipe(handlebars())
     .pipe(wrap('Handlebars.template(<%= contents %>)'))
     .pipe(declare({
@@ -71,7 +71,7 @@ gulp.task('templates', function(){
 
 gulp.task('partials', function() {
   // Assume all partials start with an underscore
-  gulp.src([src + '/templates/**/_*.hbs'])
+  gulp.src([root + '/templates/**/_*.hbs'])
     .pipe(handlebars())
     .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
       imports: {
@@ -86,7 +86,7 @@ gulp.task('partials', function() {
 
 gulp.task('watch', ['serve'], function() {
   gulp.watch(root + '/scss/**', ['styles']);
-  gulp.watch(src + '/templates/**', ['partials', 'templates']);
+  gulp.watch(root + '/templates/**', ['partials', 'templates']);
   gulp.watch([src + '/js/**/*.js', test + '/*_spec.js'], ['lint']);
 });
 

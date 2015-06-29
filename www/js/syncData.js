@@ -238,7 +238,7 @@ App.syncData = {
         App.Config.storageLocalState=true;
         _.each(App.resp.stimuli, function(stimulus){
           App.stimuli.get(stimulus.id).save();
-        })
+        });
         App.Config.storageLocalState=false;
       }
 

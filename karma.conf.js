@@ -21,7 +21,6 @@ module.exports = function(config) {
       'www/js/vendor/backbone.dualstorage.js',
       'www/js/vendor/handlebars-v3.0.0.js',
       'www/js/vendor/flickity.pkgd.min.js',
-      'www/js/vendor/stickytableheaders.js',
       'www/js/vendor/fittext.js',
       'node_modules/chai-jquery/chai-jquery.js',
       'www/js/handlebarsHelpers.js',
