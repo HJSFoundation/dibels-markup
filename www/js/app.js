@@ -30,6 +30,7 @@ var App = {
   },
   url: "http://staging.tutormate.org/api/v1",
   clientLastFetchedAt: "",
+  resp:{},
   online: true,
   loggedInTeacher: null,
   selectedStudent: null,

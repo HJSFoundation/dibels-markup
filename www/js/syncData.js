@@ -233,6 +233,15 @@ App.syncData = {
         model.save();
       });
       App.Config.storageLocalState=false;
+    }else{
+      if(App.resp.stimuli.length>0){
+        App.Config.storageLocalState=true;
+        _.each(App.resp.stimuli, function(stimulus){
+          App.stimuli.get(stimulus.id).save();
+        })
+        App.Config.storageLocalState=false;
+      }
+
     }
 
     this.success();
