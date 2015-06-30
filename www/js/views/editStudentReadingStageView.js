@@ -35,7 +35,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       assessor_id: App.loggedInTeacher.id,
       reading_stage: readingStage.toString(),
       context: "teacher_notepad",
-      changed_at: new Date()
+      changed_at: App.newISODate()
     });
     App.userReadingStages.add(model);
 

@@ -52,20 +52,21 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   setStartSessionTime: function(){
+    var startAndUpdatedAtDate = App.newISODate();
     this.model = new App.Models.ConferenceSession({
       "conference_id":App.selectedConference.id,
       "user_id":App.loggedInTeacher.id,
-      "classroom_id":App.loggedInTeacher.classroom_id,
       "context": "teacher_notepad",
-      "started_at":new Date(),
+      "started_at": startAndUpdatedAtDate,
       "ended_at":"",
+      "client_updated_at": startAndUpdatedAtDate
     });
     App.conferenceSessions.add(this.model);
     this.model.save();
   },
 
   setEndSessionTime: function(){
-    this.model.set({ended_at: new Date()});
+    this.model.set({ended_at: App.newISODate()});
     document.removeEventListener("pause", this.handlePauseEvent);
   },
 

@@ -21,7 +21,7 @@ describe('App.Collections.Conferences', function() {
     var clock = sinon.useFakeTimers(new Date(2015,6,30).getTime());
 
     var model = new App.Models.Conference({
-      last_conference_date: "2015-06-30",
+      last_conference_session_at: "2015-06-30",
       number_per_week: 5
     });
     sinon.stub(model,"convertDate").returns(new Date(2015,6,30));
