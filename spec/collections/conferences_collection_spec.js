@@ -41,7 +41,7 @@ describe('App.Collections.Conferences', function() {
           "conference_type": "user",
           "weight": 5,
           "number_per_week": 3,
-          "last_conference_date": "2015-05-28T20:50:29.050Z",
+          "last_conference_session_at": "2015-05-28T20:50:29.050Z",
           "test": false,
           "archived": false,
           "updated_at": "2015-05-28T20:50:29.060Z",

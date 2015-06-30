@@ -79,6 +79,8 @@ App.syncData = {
   initializeNotesCollection: function(result) {
     console.log("initializing NotesCollection");
 
+    App.notesLastTakenAt = localStorage.getItem("App.notesLastTakenAt");
+
     App.notes = new App.Collections.Notes();
 
     App.Config.storageLocalState = true;
@@ -199,7 +201,6 @@ App.syncData = {
 
   initializeStimuliCollectionFail: function() {
     console.log("initializeStudentCollectionFail");
-    // App.stimuli.local = App.Config.storageLocalState;
     this.error();
 
   },
@@ -209,11 +210,30 @@ App.syncData = {
     console.log("initializeLocalStorage");
 
 
-    App.Config.storageLocalState=true;
-    _.each(App.notes.models, function(model){
-      model.save();
-    });
-    App.Config.storageLocalState=false;
+    // App.Config.storageLocalState=true;
+    // _.each(App.notes.models, function(model){
+    //   model.save();
+    // });
+    // App.Config.storageLocalState=false;
+
+
+    if(!localStorage["App.notes"]){
+      App.Config.storageLocalState=true;
+      _.each(App.notes.models, function(model){
+        model.save();
+      });
+      App.Config.storageLocalState=false;
+    }else{
+      if(App.resp.notes.length>0){
+        App.Config.storageLocalState=true;
+        _.each(App.resp.notes, function(note){
+          App.notes.get(note.id).save();
+        });
+        App.Config.storageLocalState=false;
+      }
+
+    }
+
 
     App.Config.storageLocalState=true;
     _.each(App.roster.models, function(model){
