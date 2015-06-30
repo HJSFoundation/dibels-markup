@@ -31,8 +31,6 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
       this.$tbody.append(view.render().el);
     }, this);
 
-    // $("table").stickyTableHeaders({ scrollableArea: $(".container--management")[0],"fixedOffset": 2});
-    
     return this;
   },
 

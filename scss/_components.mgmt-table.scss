@@ -2,11 +2,12 @@
   position: absolute;
   top: 50px;
   left: 0;
-  height: 100%;
   overflow: auto;
+  height: 718px;
 
   &.table__wrapper--student {
     top: 110px;
+    height: 708px;
   }
 }
 
@@ -27,6 +28,7 @@
   table-layout: fixed;
   text-transform: uppercase;
   position: relative;
+  overflow: auto;
 
   .table-column {
     text-align: center;
@@ -47,7 +49,6 @@
   }
 
   .session-cell--spacer {
-    // background: url(../img/spacer.png);
     background-color: $gray-light;
     width: 10px!important;
     border-bottom: 1px solid transparent;
