@@ -2,7 +2,6 @@ App.Models.ConferenceSession = Backbone.Model.extend({
 
   "conference_id":null,
   "user_id":null,
-  "classroom_id":null,
   "context": "teacher_notepad",
   "started_at":"",
   "ended_at":"",

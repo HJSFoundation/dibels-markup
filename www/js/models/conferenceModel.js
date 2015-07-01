@@ -17,7 +17,8 @@ App.Models.Conference = Backbone.Model.extend({
   },
 
   lastConferenceSessionAt: function(){
-    return this.convertDate(this.get("last_conference_session_at"));
+    var date = (this.get("last_conference_session_at") ? this.get("last_conference_session_at") : "2015-08-01T08:00:00Z");
+    return this.convertDate(date);
   }
 
 });

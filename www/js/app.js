@@ -50,6 +50,10 @@ var App = {
     }
   },
 
+  newISODate: function(){
+    return moment(new Date()).utc().toISOString();
+  },
+
   ActivityStimuli : {
     wordsByStage: {
       2: { // 17 consonants

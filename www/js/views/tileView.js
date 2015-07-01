@@ -38,7 +38,7 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   setAssessment: function(assessment) {
-    this.model.set({assessment: assessment, client_updated_at: new Date()});
+    this.model.set({assessment: assessment, client_updated_at: App.newISODate()});
     this.model.save();
     this.render();
   },

@@ -10,7 +10,10 @@ describe('App.Models.Conference', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Conference();
+    subject = new App.Models.Conference(
+     {last_conference_session_at: "2015-06-30T1:23",
+      number_per_week: 5
+    });
   });
 
   it("sets the urlRoot", function() {
@@ -26,5 +29,17 @@ describe('App.Models.Conference', function() {
     expect(subject.local()).to.equal(false);
     App.Config.storageLocalState = true;
     expect(subject.local()).to.equal(true);
+  });
+
+  describe("#lastConferenceSessionAt", function() {
+    it("", function() {
+      sinon.spy(subject, "convertDate");
+      subject.lastConferenceSessionAt();
+      expect(subject.convertDate).to.have.been.calledWith(subject.get("last_conference_session_at"));
+    });
+
+    it("", function() {
+
+    });
   });
 });

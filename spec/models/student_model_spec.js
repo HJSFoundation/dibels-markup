@@ -10,7 +10,7 @@ describe('App.Models.Student', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Student({first_name: "Bernie", last_name: "Bivins", reading_stage: 3, reading_stage_updated_at: new Date()});
+    subject = new App.Models.Student({first_name: "Bernie", last_name: "Bivins", reading_stage: 3, reading_stage_updated_at: App.newISODate()});
   });
 
   describe("methods", function() {

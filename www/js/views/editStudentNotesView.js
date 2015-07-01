@@ -15,7 +15,7 @@ App.Views.EditStudentNotes = Backbone.View.extend({
     this.$el.html(this.template());
     var noteModel = new App.Models.Note().set(
     {
-      "taken_at": new Date(),
+      "taken_at": App.newISODate(),
       "classroom_id": App.loggedInTeacher.classroom_id,
       "author_id": App.loggedInTeacher.id,
       "user_id": App.selectedStudent.id

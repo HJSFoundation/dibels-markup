@@ -31,10 +31,12 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
   handleBlur: function() {
     var newContent = $(this.$el.selector + " textarea").val();
     if (newContent !== this.model.get("content")) {
+
+      var date = App.newISODate();
       this.model.set({
         content: newContent,
-        client_updated_at: new Date(),
-        taken_at: new Date()
+        client_updated_at: date,
+        taken_at: date
       });
       App.notes.add(this.model);
 
