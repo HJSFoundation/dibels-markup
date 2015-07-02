@@ -34,7 +34,7 @@ App.Views.ConferenceStudent = Backbone.View.extend({
   },
 
   daysSinceLastSession: function() {
-    return moment().set({hour:0, minute:0, second:0}).diff(this.model.lastConferenceSessionAt().set({hour:0, minute:0, second:0}),"days");
+    return Math.round(moment.utc().set({hour:0, minute:0, second:0}).diff(this.model.lastConferenceSessionAt().set({hour:0, minute:0, second:0}),"days", true));
   },
 
   handleStartSession: function() {
