@@ -18,13 +18,12 @@ describe('App.Collections.Conferences', function() {
   });
 
   it("has a comparator", function() {
-    var clock = sinon.useFakeTimers(new Date(2015,6,30).getTime());
+    var clock = sinon.useFakeTimers(moment.utc([2015,5,30]).valueOf());
 
     var model = new App.Models.Conference({
-      last_conference_session_at: "2015-06-30",
+      last_conference_session_at: "2015-06-30T00:00:00.000Z",
       number_per_week: 5
     });
-    sinon.stub(model,"convertDate").returns(new Date(2015,6,30));
 
     expect(subject.comparator(model)).to.equal(120960000);
 
@@ -36,7 +35,6 @@ describe('App.Collections.Conferences', function() {
       "conferences": [
         {
           "id": 76,
-          "classroom_id": 91,
           "name": "Edwina Beier",
           "conference_type": "user",
           "weight": 5,

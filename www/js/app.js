@@ -51,7 +51,7 @@ var App = {
   },
 
   newISODate: function(){
-    return moment(new Date()).utc().toISOString();
+    return moment().utc().toISOString();
   },
 
   ActivityStimuli : {
