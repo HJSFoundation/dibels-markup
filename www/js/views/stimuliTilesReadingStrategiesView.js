@@ -1,5 +1,5 @@
 App.Views.StimuliTilesReadingStrategies = Backbone.View.extend({
-  tileClass: "tile u-text-center",
+  tileClass: "tile grid-cell u-text-center",
   tiles: [],
 
   initialize: function() {
