@@ -112,7 +112,8 @@
     margin-left: 75px;
 
     .stimulus__tile-column {
-      overflow: auto;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
 
       li {
         background-color: $tiles-color;
@@ -145,7 +146,8 @@
     font-size: 32px;
     margin-right: 75px;
     max-height: 340px;
-    overflow: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     .stimulus--tile-choices__wrapper {
       align-self: flex-end;

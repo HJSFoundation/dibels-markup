@@ -58,7 +58,7 @@
 
 .grid--wrap > .grid-cell,
 .grid--wrap > .g-cell {
-  flex: 0;
+  flex: 0 auto;
   display: block;
 }
 

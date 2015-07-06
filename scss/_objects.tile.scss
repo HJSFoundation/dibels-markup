@@ -7,6 +7,10 @@
   line-height: 65px;
   flex: 0;
 
+  &:last-child {
+    border-right: 1px solid lighten(#000, 20%);
+  }
+
   .stimuli-tiles--stories__tiles & {
     min-width: 33.3333%;
   }
