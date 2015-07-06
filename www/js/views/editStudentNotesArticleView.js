@@ -40,8 +40,7 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
       });
       App.notes.add(this.model);
 
-      var d = new Date();
-      App.notesLastTakenAt = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + "T" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);
 
       this.model.save()
