@@ -34,7 +34,7 @@ App.Views.ConferenceStudent = Backbone.View.extend({
   },
 
   daysSinceLastSession: function() {
-    return Math.ceil((new Date().valueOf() - new Date(this.model.lastConferenceSessionAt().valueOf())) / (1000 * 3600 * 24));
+    return Math.round(moment.utc().set({hour:0, minute:0, second:0}).diff(this.model.lastConferenceSessionAt().set({hour:0, minute:0, second:0}),"days", true));
   },
 
   handleStartSession: function() {
@@ -49,6 +49,8 @@ App.Views.ConferenceStudent = Backbone.View.extend({
     this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
     this.model.set("client_updated_at", App.newISODate());
     this.model.save();
+    App.conferences.sort();
+    App.Dispatcher.trigger("initializeConferenceManagementRequested");
     return false;
   }
 });

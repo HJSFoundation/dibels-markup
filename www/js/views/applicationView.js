@@ -25,6 +25,7 @@ App.Views.Application = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
     this.listenTo(App.Dispatcher, "initializeConferenceManagementRequested", this.initializeConferenceManagement);
+
     document.addEventListener("resume", this.handleResumeEvent, false);
     document.addEventListener("offline", this.handleOfflineEvent, false);
     document.addEventListener("online", this.handleOnlineEvent, false);

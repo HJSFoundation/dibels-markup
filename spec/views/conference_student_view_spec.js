@@ -1,4 +1,4 @@
-describe('App.Views.ConferenceStudent', function() {
+describe("App.Views.ConferenceStudent", function() {
   var subject;
   var xhr;
   var requests;
@@ -11,7 +11,7 @@ describe('App.Views.ConferenceStudent', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceStudent({el: '#applicationContainer', model: App.conferences.at(0)});
+    subject = new App.Views.ConferenceStudent({el: "#applicationContainer", model: App.conferences.get(76)});
   });
 
   afterEach(function() {
@@ -57,7 +57,7 @@ describe('App.Views.ConferenceStudent', function() {
     });
 
     it("sets the daysSinceLastSession", function() {
-      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
+      var clock = sinon.useFakeTimers(moment.utc([2015,4,29]).valueOf());
       expect(subject.templateJSON().daysSinceLastSession).to.equal(1);
       clock.restore();
     });
@@ -69,7 +69,7 @@ describe('App.Views.ConferenceStudent', function() {
     });
 
     it("#daysSinceLastSession", function() {
-      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
+      var clock = sinon.useFakeTimers(moment.utc([2015,4,29]).valueOf());
       expect(subject.daysSinceLastSession()).to.to.equal(1);
       clock.restore();
     });
@@ -89,7 +89,7 @@ describe('App.Views.ConferenceStudent', function() {
 
     it("sets the selectedConference", function() {
       subject.handleStartSession();
-      expect(App.selectedConference).to.equal(subject.model)
+      expect(App.selectedConference).to.equal(subject.model);
     });
 
     it("triggers startSessionRequested", function() {
@@ -114,8 +114,26 @@ describe('App.Views.ConferenceStudent', function() {
       expect(subject.model.save).to.have.been.called;
     });
 
-    xit("sets the local_updated_at date", function() {
-
+    it("calls sort on the collection", function() {
+      sinon.spy(App.conferences, "sort");
+      subject.handleEditNumberPerWeek();
+      expect(App.conferences.sort).to.have.been.called;
+      App.conferences.sort.restore();
     });
+
+    it("sets the client_updated_at date", function() {
+      var clock = sinon.useFakeTimers(moment.utc([2015,5,30]).valueOf());
+      subject.handleEditNumberPerWeek();
+      expect(subject.model.get("client_updated_at")).to.equal("2015-06-30T00:00:00.000Z");
+      clock.restore();
+    });
+
+    it("triggers initializeConferenceManagementRequested", function() {
+      sinon.spy(App.Dispatcher, "trigger");
+      subject.handleEditNumberPerWeek();
+      expect(App.Dispatcher.trigger).to.have.been.calledWith("initializeConferenceManagementRequested");
+      App.Dispatcher.trigger.restore();
+    });
+
   });
 });

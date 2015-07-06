@@ -50,7 +50,7 @@ describe('App.Views.ConferenceGroup', function() {
     });
 
     it("sets the daysSinceLastSession", function() {
-      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
+      var clock = sinon.useFakeTimers(moment.utc([2015,4,29]).valueOf());
       expect(subject.templateJSON().daysSinceLastSession).to.equal(1);
       clock.restore();
     });
@@ -58,7 +58,7 @@ describe('App.Views.ConferenceGroup', function() {
 
   describe("helper functions", function() {
     it("#daysSinceLastSession", function() {
-      var clock = sinon.useFakeTimers(new Date(2015,4,29).getTime());
+      var clock = sinon.useFakeTimers(moment.utc([2015,4,29]).valueOf());
       expect(subject.daysSinceLastSession()).to.to.equal(1);
       clock.restore();
     });
@@ -106,15 +106,33 @@ describe('App.Views.ConferenceGroup', function() {
         expect(subject.$el.find("#numberPerWeekSelect").val()).to.equal(subject.model.get("number_per_week").toString());
       });
 
-      xit("sets the local_updated_at", function() {
-
-      });
-
       it("calls save on the model", function() {
         sinon.spy(subject.model, "save");
         subject.handleEditNumberPerWeek();
         expect(subject.model.save).to.have.been.called;
       });
+
+      it("calls sort on the collection", function() {
+        sinon.spy(App.conferences, "sort");
+        subject.handleEditNumberPerWeek();
+        expect(App.conferences.sort).to.have.been.called;
+        App.conferences.sort.restore();
+      });
+
+      it("sets the client_updated_at date", function() {
+        var clock = sinon.useFakeTimers(moment.utc([2015,5,30]).valueOf());
+        subject.handleEditNumberPerWeek();
+        expect(subject.model.get("client_updated_at")).to.equal("2015-06-30T00:00:00.000Z");
+        clock.restore();
+      });
+
+      it("triggers initializeConferenceManagementRequested", function() {
+        sinon.spy(App.Dispatcher, "trigger");
+        subject.handleEditNumberPerWeek();
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("initializeConferenceManagementRequested");
+        App.Dispatcher.trigger.restore();
+      });
+
     });
   });
 });
