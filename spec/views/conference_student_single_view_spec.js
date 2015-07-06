@@ -11,7 +11,7 @@ describe('App.Views.ConferenceStudentSingle', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceStudentSingle({el: '#applicationContainer', model: App.conferences.at(0)});
+    subject = new App.Views.ConferenceStudentSingle({el: '#applicationContainer', model: App.conferences.get(76)});
   });
 
   afterEach(function() {

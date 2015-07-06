@@ -49,6 +49,8 @@ App.Views.ConferenceStudent = Backbone.View.extend({
     this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
     this.model.set("client_updated_at", App.newISODate());
     this.model.save();
+    App.conferences.sort();
+    App.Dispatcher.trigger("initializeConferenceManagementRequested");
     return false;
   }
 });

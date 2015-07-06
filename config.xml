@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ifl.teachernotepad2" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.innovationsforlearning.teachernotepad2" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TeacherNotepad2</name>
     <description>
         An educational tool for teachers and students.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="info@innovationsforlearning.org" href="http://www.innovationsforlearning.org">
+        Innovations for Learning
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -13,6 +13,7 @@
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="Orientation" value="landscape" />
     <platform name="ios">
+        <preference name="BackupWebStorage" value="local" />
         <!-- iOS 8.0+ -->
         <!-- iPhone 6 Plus  -->
         <icon src="res/ios/icon-60@3x.png" width="180" height="180" />

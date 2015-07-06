@@ -117,6 +117,9 @@ var App = {
       5: {
         rimes: {
           ape: ["cape","drape","grape","tape"],
+          ade: ["fade", "made", "blade", "grade", "trade", "spade", "shade"],
+          ame: ["came", "fame", "game", "name", "same", "blame", "flame", "shame"],
+          ane: ["cane", "lane"],
           ate: ["date","fate","gate","hate","late","plate","skate","state","nate"],
           ide: ["bride","glide","hide","pride","ride","side","slide","tide","wide"],
           ime: ["crime","dime","grime","lime","slime","time"],
