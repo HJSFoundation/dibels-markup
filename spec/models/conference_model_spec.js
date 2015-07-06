@@ -10,18 +10,11 @@ describe('App.Models.Conference', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Conference(
-     {last_conference_session_at: "2015-06-30T1:23",
-      number_per_week: 5
-    });
+    subject = new App.Models.Conference();
   });
 
   it("sets the urlRoot", function() {
     expect(subject.urlRoot()).to.equal(App.url +"/conferences");
-  });
-
-  it("#convertDate", function() {
-    expect(subject.convertDate("2015-06-30T1:23")).to.eql(new Date(2015,5,30,1,23));
   });
 
   it("#local", function(){
@@ -32,14 +25,24 @@ describe('App.Models.Conference', function() {
   });
 
   describe("#lastConferenceSessionAt", function() {
-    it("", function() {
-      sinon.spy(subject, "convertDate");
-      subject.lastConferenceSessionAt();
-      expect(subject.convertDate).to.have.been.calledWith(subject.get("last_conference_session_at"));
+    it("returns model's last_conference_session_at value if it is not null", function() {
+
+      subject.set({
+        last_conference_session_at: "2015-06-30T01:23:00.000Z",
+        number_per_week: 5
+      });
+
+      expect(subject.lastConferenceSessionAt().toISOString()).to.equal("2015-06-30T01:23:00.000Z");
     });
 
-    it("", function() {
+    it("returns default value if it is null", function() {
 
+      subject.set({
+        last_conference_session_at: null,
+        number_per_week: 5
+      });
+
+      expect(subject.lastConferenceSessionAt().toISOString()).to.equal("2015-08-01T00:00:00.000Z");
     });
   });
 });
