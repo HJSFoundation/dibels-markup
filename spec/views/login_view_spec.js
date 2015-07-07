@@ -64,10 +64,10 @@ describe('App.Views.Login', function() {
 
     it("#handleLoginFailure", function() {
       subject.render();
-      subject.submit();
-      expect($("#submit").prop("disabled")).to.equal(true);
+      $(".js-login-error").hide();
+      expect($(".js-login-error").css('display') === 'none').to.equal(true);
       subject.handleLoginFailure();
-      expect($("#submit").prop("disabled")).to.equal(false);
+      expect($(".js-login-error").css('display') === 'block').to.equal(true);
     });
   });
 });

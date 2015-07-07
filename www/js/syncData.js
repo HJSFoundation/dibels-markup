@@ -65,17 +65,6 @@ App.syncData = {
     this.error();
   },
 
-  // initializeStudentTestReadingStages: function() {
-  //   var readingStage = 1;
-  //   _.each(App.roster.models, function(student){
-  //     student.set({"reading_stage": readingStage});
-  //     readingStage = readingStage + 1;
-  //     if (readingStage > App.Config.maxStageCount) {
-  //       readingStage = 1;
-  //     }
-  //   },this);
-  // },
-
   initializeNotesCollection: function(result) {
     console.log("initializing NotesCollection");
 
@@ -193,8 +182,7 @@ App.syncData = {
   },
 
   initializeStimuliCollectionSuccess: function(result) {
-    var d = new Date();
-    App.clientLastFetchedAt = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + "T" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    App.clientLastFetchedAt = moment.utc().toISOString();
     localStorage.setItem("App.clientLastFetchedAt", App.clientLastFetchedAt);
     this.initializeLocalStorage();
   },
@@ -208,14 +196,6 @@ App.syncData = {
   initializeLocalStorage: function(){
 
     console.log("initializeLocalStorage");
-
-
-    // App.Config.storageLocalState=true;
-    // _.each(App.notes.models, function(model){
-    //   model.save();
-    // });
-    // App.Config.storageLocalState=false;
-
 
     if(!localStorage["App.notes"]){
       App.Config.storageLocalState=true;
@@ -231,9 +211,7 @@ App.syncData = {
         });
         App.Config.storageLocalState=false;
       }
-
     }
-
 
     App.Config.storageLocalState=true;
     _.each(App.roster.models, function(model){

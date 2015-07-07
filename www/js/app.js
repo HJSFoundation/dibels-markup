@@ -46,7 +46,7 @@ var App = {
     if(is_browser){
       return window.navigator.onLine;
     }else{
-      return App.online;
+      return navigator.connection.type !== Connection.NONE;
     }
   },
 
