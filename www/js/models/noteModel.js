@@ -24,13 +24,8 @@ App.Models.Note = Backbone.Model.extend({
   },
 
   updatedDate: function() {
-    var update = new Date(this.get("taken_at"));
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August","September","October","November","December"];
-    var month = months[update.getMonth()];
-    var day = update.getDate();
-    var year = update.getFullYear();
-
-    return month + " " + day + ", " + year;
+    var update = moment.utc(this.get("taken_at"));
+    return update.format("MMM DD, YYYY");
   },
 
   parse: function(resp, xhr) {
