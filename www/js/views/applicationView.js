@@ -37,6 +37,17 @@ App.Views.Application = Backbone.View.extend({
     $.ajaxSetup({beforeSend:this.sendAuthentication});
     this.displayLoadingScreen();
 
+    Backbone.DualStorage.offlineStatusCodes = function(xhr) {
+      var codes = [];
+
+      if (xhr.status>399) {
+        codes.push(xhr.status);
+      }
+
+      return codes;
+    }
+
+
     App.syncData.initialize(this.removeLogin, this.syncDataError);
   },
 

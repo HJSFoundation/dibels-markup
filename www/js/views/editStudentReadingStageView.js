@@ -46,7 +46,8 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
   updateUser: function(model, response, options) {
     console.log("EditStudentReadingStage.updateUser");
-    App.roster.fetch();
+    App.roster.fetch()
+      .fail(this.updateLocalUser);
   },
 
   updateLocalUser: function(model, response, options) {
