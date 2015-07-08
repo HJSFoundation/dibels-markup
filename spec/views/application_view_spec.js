@@ -22,7 +22,7 @@ describe('App.Views.Application', function() {
   });
 
   xit("#sendAuthentication", function() {
-    App.loggedInTeacher={
+    App.currentTeacher={
       email: "someone@somewhere.com",
       token: "1234567890"
     };
@@ -66,16 +66,17 @@ describe('App.Views.Application', function() {
 
     describe("the teacher is logged in", function() {
       beforeEach(function() {
-        localStorage.setItem("loggedInTeacher", JSON.stringify({id: 313, classroom_id: 91}));
+        localStorage.setItem("currentTeacher", JSON.stringify({id: 313, classroom_id: 91}));
       });
 
-      it("sets the App.loggedInTeacher from the teacher in local storage", function() {
+      it("sets the App.currentTeacher from the teacher in local storage", function() {
         subject.initialize();
-        expect(App.loggedInTeacher).to.eql({id: 313, classroom_id: 91});
+        expect(App.currentTeacher).to.eql({id: 313, classroom_id: 91});
       });
 
       it("triggers loginSuccess", function() {
         sinon.spy(App.Dispatcher, "trigger");
+        localStorage.setItem("currentTeacher", JSON.stringify({id: 313, classroom_id: 91, loggedIn:true}));
         subject.initialize();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("loginSuccess");
         App.Dispatcher.trigger.restore();
@@ -84,9 +85,11 @@ describe('App.Views.Application', function() {
 
     describe("the teacher is not logged in", function() {
       it("creates a login view", function() {
-        localStorage.removeItem("loggedInTeacher");
+        localStorage.removeItem("currentTeacher");
         subject.initialize();
         expect(subject.loginView.$el.find('#loginContainer')).to.exist;
+        // localStorage.setItem("currentTeacher", JSON.stringify({id: 313, classroom_id: 91, loggedIn:true}));
+
       });
     });
   });

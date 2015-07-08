@@ -33,7 +33,7 @@ var App = {
   notesLastTakenAt: "",
   resp:{},
   online: true,
-  loggedInTeacher: null,
+  currentTeacher: null,
   selectedStudent: null,
   selectedActivity: null,
   selectedStimulus: null,

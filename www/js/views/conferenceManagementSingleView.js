@@ -22,7 +22,7 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
     this.$tbody = this.$el.find("tbody");
 
-    var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.loggedInTeacher.classroom_id});
+    var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
     studentConferences = _.reject(studentConferences, function(conference){
       return (App.students.findWhere({id: conference.get("user_ids")[0]}));
     });

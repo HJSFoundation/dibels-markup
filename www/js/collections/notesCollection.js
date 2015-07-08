@@ -2,7 +2,7 @@ App.Collections.Notes = Backbone.Collection.extend({
   model: App.Models.Note,
 
   url: function(){
-    var url =  App.url + "/classrooms/" + App.loggedInTeacher.classroom_id + "/notes";
+    var url =  App.url + "/classrooms/" + App.currentTeacher.classroom_id + "/notes";
 
     if(App.notesLastTakenAt){
       url = url + "?taken_at="+App.notesLastTakenAt;

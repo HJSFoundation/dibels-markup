@@ -6,8 +6,9 @@ App.Views.Application = Backbone.View.extend({
 
     $(App.Config.el).empty();
 
-    if(localStorage.loggedInTeacher){
-      App.loggedInTeacher = JSON.parse(localStorage.loggedInTeacher);
+
+    if(localStorage.currentTeacher && JSON.parse(localStorage.currentTeacher).loggedIn){
+      App.currentTeacher = JSON.parse(localStorage.currentTeacher);
       App.Dispatcher.trigger("loginSuccess");
    }else{
       this.loginView = new App.Views.Login();
@@ -16,8 +17,8 @@ App.Views.Application = Backbone.View.extend({
   },
 
   sendAuthentication: function(xhr) {
-    var email = App.loggedInTeacher.email;
-    var token = App.loggedInTeacher.token;
+    var email = App.currentTeacher.email;
+    var token = App.currentTeacher.token;
     var header= 'Token token="'+ token +'", email="'+ email +'"';
     xhr.setRequestHeader('Authorization', header);
   },
@@ -30,12 +31,6 @@ App.Views.Application = Backbone.View.extend({
     document.addEventListener("offline", this.handleOfflineEvent, false);
     document.addEventListener("online", this.handleOnlineEvent, false);
   },
-
-  // handleLoggedIn: function() {
-  //   App.initializeStudentTestData();
-  //   App.initializeStimuliTestData();
-  //   this.initializeDeviceSelect();
-  // },
 
   handleLoggedIn: function() {
 

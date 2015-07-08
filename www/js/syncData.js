@@ -8,16 +8,41 @@ App.syncData = {
 
     this.success = success;
     this.error = error;
+    this.fetchLocalData();
+  },
+
+  fetchLocalData: function(){
+
+    App.Config.storageLocalState = true;
+
+    App.userReadingStages = new App.Collections.UserReadingStages();
+    App.userReadingStages.fetch({remove: false, add: true});
+
+    App.roster = new App.Collections.Students();
+    App.roster.fetch({remove: false, add: true});
+
+    App.conferences = new App.Collections.Conferences();
+    App.conferences.fetch({remove: false, add: true});
+
+    App.conferenceSessions = new App.Collections.ConferenceSessions();
+    App.conferenceSessions.fetch({remove: false, add: true});
+
+    App.notesLastTakenAt = localStorage.getItem("App.notesLastTakenAt");
+    App.notes = new App.Collections.Notes();
+    App.notes.fetch({remove: false, add: true});
+
+    App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
+    App.stimuli = new App.Collections.Stimuli();
+    App.stimuli.fetch({remove: false, add: true});
+
+    App.Config.storageLocalState = false;
+    console.log("local fetch complete");
     this.initializeUserReadingStagesCollection();
+
   },
 
   initializeUserReadingStagesCollection: function(result) {
     console.log("initializeUserReadingStagesCollection");
-    App.userReadingStages = new App.Collections.UserReadingStages();
-
-    App.Config.storageLocalState = true;
-    App.userReadingStages.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
       App.userReadingStages.syncDirtyAndDestroyed({success: this.removeCleanUserReadingStageModelsFromCollection});
@@ -37,15 +62,8 @@ App.syncData = {
     this.error();
   },
 
-
-
   initializeStudentCollection: function() {
     console.log("initializing StudentsCollection");
-
-    App.roster = new App.Collections.Students();
-    App.Config.storageLocalState = true;
-    App.roster.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
 
@@ -68,13 +86,6 @@ App.syncData = {
   initializeNotesCollection: function(result) {
     console.log("initializing NotesCollection");
 
-    App.notesLastTakenAt = localStorage.getItem("App.notesLastTakenAt");
-
-    App.notes = new App.Collections.Notes();
-
-    App.Config.storageLocalState = true;
-    App.notes.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
 
@@ -100,11 +111,6 @@ App.syncData = {
 
     console.log("initializeConferencesCollection");
     // $.ajaxSetup({beforeSend:this.sendAuthentication});
-    App.conferences = new App.Collections.Conferences();
-
-    App.Config.storageLocalState = true;
-    App.conferences.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
 
@@ -129,11 +135,6 @@ App.syncData = {
 
   initializeConferenceSessionsCollection: function(result) {
     console.log("initializeConferenceSessionsCollection");
-    App.conferenceSessions = new App.Collections.ConferenceSessions();
-
-    App.Config.storageLocalState = true;
-    App.conferenceSessions.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
       App.conferenceSessions.syncDirtyAndDestroyed({success: this.removeCleanModels});
@@ -156,14 +157,6 @@ App.syncData = {
   initializeStimuliCollections: function(result) {
     console.log("initializeStimuliCollections");
 
-    App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
-
-    App.stimuli = new App.Collections.Stimuli();
-    App.Config.storageLocalState = true;
-    App.stimuli.fetch({remove: false, add: true});
-    App.Config.storageLocalState=false;
-
-    console.log("local fetch complete");
 
     if(App.isOnline()){
       App.stimuli.syncDirtyAndDestroyed();

@@ -26,7 +26,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template());
     this.$tbody = this.$el.find("tbody");
-    var groupConferences = App.conferences.where({conference_type: "group", classroom_id: App.loggedInTeacher.classroom_id});
+    var groupConferences = App.conferences.where({conference_type: "group", classroom_id: App.currentTeacher.classroom_id});
 
     _.each(groupConferences, function(groupConference) {
       this.students = [];
@@ -42,7 +42,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       this.$tbody.append(dropDownView.render().el);
     }, this);
 
-    var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.loggedInTeacher.classroom_id});
+    var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
     _.each(studentConferences, function(studentConference) {
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudent({ model: studentConference});
       this.$tbody.append(view.render().el);
@@ -55,7 +55,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     var startAndUpdatedAtDate = App.newISODate();
     this.model = new App.Models.ConferenceSession({
       "conference_id":App.selectedConference.id,
-      "user_id":App.loggedInTeacher.id,
+      "user_id":App.currentTeacher.id,
       "context": "teacher_notepad",
       "started_at": startAndUpdatedAtDate,
       "ended_at":"",
@@ -94,7 +94,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    App.browser = window.open(App.Config.tutormateUrl + "/students/"+App.loggedInTeacher.classroom_id, "_blank", "location=yes");
+    App.browser = window.open(App.Config.tutormateUrl + "/students/"+App.currentTeacher.classroom_id, "_blank", "location=yes");
 
     console.log("handleDisplayManage");
     return false;

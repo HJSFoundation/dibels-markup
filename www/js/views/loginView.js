@@ -35,23 +35,23 @@ App.Views.Login = Backbone.View.extend({
         dataType: 'json',
         success: function(responseData) {
           console.log(responseData);
-          App.loggedInTeacher = responseData;
-          localStorage.loggedInTeacher = JSON.stringify(App.loggedInTeacher);
+          if(localStorage.currentTeacher && that.teachersMatch(responseData)){
+            App.currentTeacher = JSON.parse(localStorage.currentTeacher);
+          }else{
+            localStorage.clear();
+            App.currentTeacher =  responseData;
+          }
+          App.currentTeacher.loggedIn = true;
+          localStorage.currentTeacher = JSON.stringify(App.currentTeacher);
           that.handleLoginSuccess();
         },
-        error: function(responseData) {
-          alert("Should handle network error."); //TODO add network error
+        error: function(responseData ) {
           $("#submit").prop("disabled",false);
-        },
-        statusCode: {
-          403: function(responseData) {
-            that.handleLoginFailure(responseData);
-          },
-          404: function() {
-            alert( "page not found" );
-          },
-          500: function() {
-            alert( "We apologize, we are experiencing temporary server issues." );
+          console.log("status code" + responseData.status);
+          if(responseData.status===403){
+            that.handleLoginCredentialFailure();
+          }else{
+            alert("We apologize for the inconvenience. There has been an error. Please try to log in again.\n\nError("+responseData.status+")");
           }
         }
       });
@@ -62,11 +62,16 @@ App.Views.Login = Backbone.View.extend({
     return false;
   },
 
+  teachersMatch: function(teacher){
+    var oldTeacher = JSON.parse(localStorage.currentTeacher);
+    return ((oldTeacher.id === teacher.id) && (oldTeacher.email === teacher.email));
+  },
+
   handleLoginSuccess: function() {
     App.Dispatcher.trigger("loginSuccess");
   },
 
-  handleLoginFailure: function(responseData) {
+  handleLoginCredentialFailure: function() {
     $('.js-login-error').show();
   },
 

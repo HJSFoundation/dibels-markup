@@ -18,7 +18,7 @@ describe('App.Collections.Students', function() {
   });
 
   it("#url", function() {
-    expect(subject.url()).to.equal(App.url + "/classrooms/"+App.loggedInTeacher.classroom_id+"/students");
+    expect(subject.url()).to.equal(App.url + "/classrooms/"+App.currentTeacher.classroom_id+"/students");
   });
 
   xit("#parse", function() {
