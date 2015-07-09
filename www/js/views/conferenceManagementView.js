@@ -72,7 +72,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   showHideMenu: function() {
-    $(".js-mainNav").fadeToggle("slow");
+    $(".js-mainNav").toggleClass("st-show");
   },
 
   handleStartSessionRequested: function() {

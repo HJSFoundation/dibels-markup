@@ -8,7 +8,9 @@
   width: 75%;
   font-size: 14px;
   color: $text-med-light;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
 
   a {
     color: $text-medium;
@@ -16,6 +18,12 @@
     &:hover {
       color: $orange;
     }
+  }
+
+  &.st-show {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
   }
 
   .nav--main__teacher::after {
