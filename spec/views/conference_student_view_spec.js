@@ -114,6 +114,8 @@ describe("App.Views.ConferenceStudent", function() {
       expect(subject.model.save).to.have.been.called;
     });
 
+    // TODO test fail on save
+
     it("calls sort on the collection", function() {
       sinon.spy(App.conferences, "sort");
       subject.handleEditNumberPerWeek();

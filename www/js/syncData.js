@@ -8,6 +8,7 @@ App.syncData = {
 
     this.success = success;
     this.error = error;
+    App.clearRemoteSyncError();
     this.fetchLocalData();
   },
 
@@ -77,8 +78,8 @@ App.syncData = {
 
   initializeStudentCollectionFail: function(collection, response, options) {
     console.log("initializeStudentCollectionFail");
-    App.logError(collection, response, options, "initializeStudentCollectionFail");
-    if(App.initialSyncCompleted()){
+    App.logRemoteSyncError(collection, response, options, "initializeStudentCollectionFail");
+    if(localStorage.initialSyncCompleted){
       this.initializeNotesCollection();
     }else{
       this.returnToLoginWithError(collection, response, options, "initializeStudentCollectionFail");
@@ -87,7 +88,6 @@ App.syncData = {
 
   initializeNotesCollection: function(result) {
     console.log("initializing NotesCollection");
-
 
     if(App.isOnline()){
 
@@ -104,10 +104,10 @@ App.syncData = {
     }
   },
 
-  initializeNotesCollectionFail: function() {
+  initializeNotesCollectionFail: function(collection, response, options) {
     console.log("initializeNotesCollectionFail");
-    App.logError(collection, response, options, "initializeNotesCollectionFail");
-    if(App.initialSyncCompleted()){
+    App.logRemoteSyncError(collection, response, options, "initializeNotesCollectionFail");
+    if(localStorage.initialSyncCompleted){
       this.initializeConferencesCollection();
     }else{
       this.returnToLoginWithError(collection, response, options, "initializeNotesCollectionFail");
@@ -134,10 +134,10 @@ App.syncData = {
     }
   },
 
-  initializeConferencesCollectionFail: function() {
+  initializeConferencesCollectionFail: function(collection, response, options) {
     console.log("initializeConferencesCollectionFail");
-    App.logError(collection, response, options, "initializeConferencesCollectionFail");
-    if(App.initialSyncCompleted()){
+    App.logRemoteSyncError(collection, response, options, "initializeConferencesCollectionFail");
+    if(localStorage.initialSyncCompleted){
       this.initializeConferenceSessionsCollection();
     }else{
       this.returnToLoginWithError(collection, response, options, "initializeConferencesCollectionFail");
@@ -187,10 +187,10 @@ App.syncData = {
     this.initializeLocalStorage();
   },
 
-  initializeStimuliCollectionFail: function() {
+  initializeStimuliCollectionFail: function(collection, response, options) {
     console.log("initializeStimuliCollectionFail");
-    App.logError(collection, response, options, "initializeStimuliCollectionFail");
-    if(App.initialSyncCompleted()){
+    App.logRemoteSyncError(collection, response, options, "initializeStimuliCollectionFail");
+    if(localStorage.initialSyncCompleted){
       this.initializeLocalStorage();
     }else{
       this.returnToLoginWithError(collection, response, options, "initializeStimuliCollectionFail");
@@ -248,13 +248,35 @@ App.syncData = {
     }
 
     // TODO check the state when to call success booting up from local storage
-    if(!App.initialSyncCompleted()){
-      if(App.isOnline()){
-        localStorage.initialSyncCompleted=true;
+    if(localStorage.initialSyncCompleted){
+      console.log("localStorage.initialSyncCompleted")
+      if(!App.getRemoteSyncErrorState()){
+        localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
       }else{
-        this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
+        var lastSuccessfulFullSyncDate = moment.utc(localStorage.lastSuccessfulFullSyncDate);
+        var daysSinceLastSuccessfulFullSync = Math.floor(lastSuccessfulFullSyncDate.diff(moment.utc(), "days"));
+        if(daysSinceLastSuccessfulFullSync > App.Config.maxDaysSinceSuccessfulFullSync){
+          alert("It has been "+daysSinceLastSuccessfulFullSync+" since a successful sync. \nPlease check your network connection.")
+        }
       }
       this.success();
+
+    } else {
+      console.log("localStorage initialSync NOT Completed")
+
+      if(App.isOnline()){
+        console.log("localStorage initialSync NOT Completed ONLINE")
+
+        localStorage.initialSyncCompleted=true;
+        localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
+        this.success();
+      }else{
+        console.log("localStorage initialSync NOT Completed OFFLINE")
+        this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
+      }
     }
   },
+  returnToLoginWithError: function(collection, response, options, description){
+    console.log("returnToLoginWithError", collection, response, options, "description");
+  }
 };

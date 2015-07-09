@@ -62,7 +62,8 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       "client_updated_at": startAndUpdatedAtDate
     });
     App.conferenceSessions.add(this.model);
-    this.model.save();
+    this.model.save(null, {description:"conferenceManagementView.setStartSessionTime"})
+      .fail(App.logRemoteSaveError);
   },
 
   setEndSessionTime: function(){
@@ -82,7 +83,8 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   handlePauseEvent: function(){
     this.setEndSessionTime();
-    this.model.save();
+    this.model.save(null, {description:"conferenceManagementView.handlePauseEvent"})
+      .fail(App.logRemoteSaveError);
 
   },
 
@@ -90,7 +92,13 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     this.setEndSessionTime();
     this.model.save()
       .done(App.applicationView.handleResumeEvent)
-      .fail(App.applicationView.handleResumeEvent);
+      .fail(this.handleEndSessionRequestedFail);
+  },
+
+  handleEndSessionRequestedFail: function(response){
+    response.description = "conferenceManagementView.handleEndSessionRequested";
+    App.logRemoteSaveError(response);
+    App.applicationView.handleResumeEvent();
   },
 
   handleDisplayManage: function() {

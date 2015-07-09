@@ -60,28 +60,31 @@ describe('App.Views.EditStudentNotesArticle', function() {
         $(subject.$el.selector+" textarea").val("hello");
 
         sinon.stub(subject.model, 'save').returns({
-          done: function(){
-            return {fail: function(){}}
+          fail: function(){
           }
         });
 
         subject.handleBlur();
         expect(subject.model.save).to.have.been.called;
+        subject.model.save.restore();
       });
+
+      // TODO: test fails on save
 
       it("adds the model to the notes collection", function() {
         subject.render(model);
         $(subject.$el.selector+" textarea").val("hello");
 
         sinon.stub(subject.model, 'save').returns({
-          done: function(){
-            return {fail: function(){}}
+          fail: function(){
           }
         });
         App.notes = new App.Collections.Notes();
         var lengthOfCollection = App.notes.length;
         subject.handleBlur();
         expect(App.notes.length).to.equal(lengthOfCollection+1);
+        subject.model.save.restore();
+
       });
     });
   });

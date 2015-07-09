@@ -35,7 +35,7 @@ App.Views.Login = Backbone.View.extend({
         dataType: 'json',
         success: function(responseData) {
           console.log(responseData);
-          if(localStorage.currentTeacher && that.teachersMatch(responseData)){
+          if(localStorage.currentTeacher && that.teachersMatch(responseData) && localStorage.initialSyncCompleted){
             App.currentTeacher = JSON.parse(localStorage.currentTeacher);
           }else{
             localStorage.clear();

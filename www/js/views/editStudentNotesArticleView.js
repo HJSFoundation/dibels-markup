@@ -43,17 +43,8 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
       App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);
 
-      this.model.save()
-        .done(this.logSuccess)
-        .fail(this.logfailure);
+      this.model.save(null, {description:"editStudentNotesArticleView.handleBlur"})
+        .fail(App.logRemoteSaveError);
     }
-  },
-
-  logfailure: function() {
-    console.log("EditStudentNotesArticle: model saved failed");
-  },
-
-  logSuccess: function() {
-    console.log("EditStudentNotesArticle: model successfully saved");
   }
 });

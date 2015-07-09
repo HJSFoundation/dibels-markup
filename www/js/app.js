@@ -14,6 +14,7 @@ var App = {
     minReadingStageForStrategies: 4,
     firstStageWithSubSkill: 3,
     storageLocalState: false,
+    maxDaysSinceSuccessfulFullSync: 3,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",
@@ -52,6 +53,25 @@ var App = {
 
   newISODate: function(){
     return moment().utc().toISOString();
+  },
+
+  logRemoteSaveError: function(response){
+    var description = (this.description ? this.description : response.description);
+    console.log("logRemoteSaveError:", response.status, description);
+  },
+
+  logRemoteSyncError: function(collection, response, options, description){
+    console.log("logRemoteSyncError:", collection, response, options, description);
+
+    App.remoteSyncErrorEncountered = true;
+  },
+
+  clearRemoteSyncError: function(){
+    App.remoteSyncErrorEncountered = false;
+  },
+
+  getRemoteSyncErrorState: function(){
+    return App.remoteSyncErrorEncountered;
   },
 
   ActivityStimuli : {

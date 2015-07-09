@@ -44,14 +44,15 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       .fail(this.updateLocalUser);
   },
 
-  updateUser: function(model, response, options) {
+  updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");
     App.roster.fetch()
       .fail(this.updateLocalUser);
   },
 
-  updateLocalUser: function(model, response, options) {
-    console.log("EditStudentReadingStage.updateLocalUser");
+  updateLocalUser: function(response) {
+    response.description = "editStudentReadingStage.handleReadingStageChoice";
+    App.logRemoteSaveError(response);
     App.selectedStudent.save();
   }
 });

@@ -49,7 +49,8 @@ App.Views.ConferenceGroup = Backbone.View.extend({
   handleEditNumberPerWeek: function(){
     this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
     this.model.set("client_updated_at", App.newISODate());
-    this.model.save();
+    this.model.save(null, {description:"conferenceGroupView.handleEditNumberPerWeek"})
+      .fail(App.logRemoteSaveError);
     App.conferences.sort();
     App.Dispatcher.trigger("initializeConferenceManagementRequested");
     return false;
