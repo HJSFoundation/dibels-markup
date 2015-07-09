@@ -4,7 +4,8 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   conferenceGroups: {},
 
   events: {
-    'click .js-manageButton': 'handleDisplayManage'
+    'click .js-manageButton': 'handleDisplayManage',
+    'click .js-menuToggle' : 'showHideMenu'
   },
 
 
@@ -68,6 +69,10 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   setEndSessionTime: function(){
     this.model.set({ended_at: App.newISODate()});
     document.removeEventListener("pause", this.handlePauseEvent);
+  },
+
+  showHideMenu: function() {
+    $(".js-mainNav").fadeToggle("slow");
   },
 
   handleStartSessionRequested: function() {

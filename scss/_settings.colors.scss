@@ -3,7 +3,7 @@ $white: #fff;
 $black: #232425; // $shark
 $gray-dark: #3D3E40; // $tuna
 $gray-med: lighten(#000, 50%); // $gray
-$gray-light: #9ca1a5; 
+$gray-light: #9ca1a5;
 $gray-chateau: #A7A9AB;
 $iron: #e6e7e8;
 
@@ -30,6 +30,7 @@ $needs-work: $red;
 $text-dark: $black;
 $text-light: $white;
 $text-medium: $gray-light;
+$text-med-light: lighten($gray-light, 20%);
 $text-med-dark: $gray-med;
 
 
@@ -37,7 +38,7 @@ $bg-drawer: $gray-dark;
 $bg-dark: $black;
 
 
-$menu-button: $gray-light;
+$menu-button: lighten($gray-light, 20%);
 
 $matrix-tile: $black;
 $matrix-tab: $black;

@@ -58,7 +58,8 @@ body {
   border: 1px solid rgba(black, .2);
 
   &.container--overlay {
-    background: rgba($black, 0.9);
+    // background: rgba($black, 0.9);
+    background: $white;
     height: 768px;
     left: 0;
     opacity: 1;

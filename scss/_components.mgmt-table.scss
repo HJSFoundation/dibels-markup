@@ -1,6 +1,34 @@
+// re-organize this part
+.header--main-nav {
+  background: $white;
+  height: 50px;
+}
+.nav--main {
+  text-transform: uppercase;
+  width: 75%;
+  font-size: 14px;
+  color: $text-med-light;
+  display: none;
+
+  a {
+    color: $text-medium;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  .nav--main__teacher::after {
+    content: "";
+    height: 10px;
+    padding-right: 20px;
+    border-right: 1px solid $gray-light;
+  }
+}
+
 .table__wrapper {
   position: absolute;
-  top: 50px;
+  top: 100px;
   left: 0;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -14,7 +42,7 @@
 
 .table__wrapper__header {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
 
   &.table__wrapper__header--student {
