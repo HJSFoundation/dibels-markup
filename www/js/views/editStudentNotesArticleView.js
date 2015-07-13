@@ -30,8 +30,10 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
 
   handleBlur: function() {
     var newContent = $(this.$el.selector + " textarea").val();
-    if (newContent !== this.model.get("content")) {
+    var existingContent = this.model.get("content");
+    var request_type = existingContent ? "PUT" : "POST";
 
+    if (newContent !== existingContent) {
       var date = App.newISODate();
       this.model.set({
         content: newContent,
@@ -43,7 +45,11 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
       App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);
 
-      this.model.save(null, {description:"editStudentNotesArticleView.handleBlur"})
+      this.model.save(null, {
+        description:"editStudentNotesArticleView.handleBlur",
+        request_type: request_type,
+        request_resource: this.model.url()
+      })
         .fail(App.logRemoteSaveError);
     }
   }

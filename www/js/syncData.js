@@ -16,6 +16,9 @@ App.syncData = {
 
     App.Config.storageLocalState = true;
 
+    App.networkErrors = new App.Collections.NetworkErrors();
+    App.networkErrors.fetch({remove: false, add: true});
+
     App.userReadingStages = new App.Collections.UserReadingStages();
     App.userReadingStages.fetch({remove: false, add: true});
 
@@ -40,8 +43,24 @@ App.syncData = {
     console.log("local fetch complete");
 
 
-    this.initializeUserReadingStagesCollection();
+    this.initializeNetworkErrorsCollection();
 
+  },
+
+  initializeNetworkErrorsCollection: function(result) {
+    console.log("initializeNetworkErrorsCollection");
+
+    if(App.isOnline()){
+      App.networkErrors.syncDirtyAndDestroyed({success: this.removeCleanNetworkErrorModelsFromCollection});
+    }
+
+    this.initializeUserReadingStagesCollection();
+  },
+
+  removeCleanNetworkErrorModelsFromCollection: function(model, response, options){
+    if(!options.dirty){
+      App.networkErrors.reset();
+    }
   },
 
   initializeUserReadingStagesCollection: function(result) {
@@ -249,29 +268,29 @@ App.syncData = {
 
     // TODO check the state when to call success booting up from local storage
     if(localStorage.initialSyncCompleted){
-      console.log("localStorage.initialSyncCompleted")
+      console.log("localStorage.initialSyncCompleted");
       if(!App.getRemoteSyncErrorState()){
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
       }else{
         var lastSuccessfulFullSyncDate = moment.utc(localStorage.lastSuccessfulFullSyncDate);
         var daysSinceLastSuccessfulFullSync = Math.floor(lastSuccessfulFullSyncDate.diff(moment.utc(), "days"));
         if(daysSinceLastSuccessfulFullSync > App.Config.maxDaysSinceSuccessfulFullSync){
-          alert("It has been "+daysSinceLastSuccessfulFullSync+" since a successful sync. \nPlease check your network connection.")
+          alert("It has been "+daysSinceLastSuccessfulFullSync+" since a successful sync. \nPlease check your network connection.");
         }
       }
       this.success();
 
     } else {
-      console.log("localStorage initialSync NOT Completed")
+      console.log("localStorage initialSync NOT Completed");
 
       if(App.isOnline()){
-        console.log("localStorage initialSync NOT Completed ONLINE")
+        console.log("localStorage initialSync NOT Completed ONLINE");
 
         localStorage.initialSyncCompleted=true;
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
         this.success();
       }else{
-        console.log("localStorage initialSync NOT Completed OFFLINE")
+        console.log("localStorage initialSync NOT Completed OFFLINE");
         this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
       }
     }

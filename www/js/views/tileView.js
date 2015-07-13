@@ -39,7 +39,11 @@ App.Views.Tile = Backbone.View.extend({
 
   setAssessment: function(assessment) {
     this.model.set({assessment: assessment, client_updated_at: App.newISODate()});
-    this.model.save(null, {description:"tileView.setAssessment"})
+    this.model.save(null, {
+      description:"tileView.setAssessment",
+      request_type: "PUT",
+      request_resource: this.model.url()
+    })
       .fail(App.logRemoteSaveError);
     this.render();
   },

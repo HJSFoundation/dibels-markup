@@ -47,12 +47,26 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");
     App.roster.fetch()
-      .fail(this.updateLocalUser);
+      .fail(this.updateLocalUserFetch);
   },
 
   updateLocalUser: function(response) {
     response.description = "editStudentReadingStage.handleReadingStageChoice";
+    response.request_type = "POST";
+    response.request_resource = new App.Models.UserReadingStages().url();
     App.logRemoteSaveError(response);
+    App.Config.storageLocalState = true;
     App.selectedStudent.save();
+    App.Config.storageLocalState = false;
+  },
+
+  updateLocalUserFetch: function(response) {
+    response.description = "editStudentReadingStage.handleReadingStageChoice";
+    response.request_type = "GET";
+    response.request_resource = new App.Collections.UserReadingStages().url();
+    App.logRemoteSaveError(response);
+    App.Config.storageLocalState = true;
+    App.selectedStudent.save();
+    App.Config.storageLocalState = false;
   }
 });
