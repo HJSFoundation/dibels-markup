@@ -5,19 +5,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 80%;
-}
-.nav--main {
+  width: 100%;
   text-transform: uppercase;
+}
+
+.nav--main {
   font-size: 14px;
   color: $text-med-light;
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s ease-in-out;
-  width: 100%;
+  min-width: 50%;
 
   a {
     color: $text-medium;
+    // max-width: 20%;
 
     &:hover {
       color: $orange;
@@ -31,26 +33,20 @@
     z-index: 200;
   }
 
-  .nav--main__teacher,
-  .nav--main__session-info,
-  .nav--main__manage,
-  .nav--main__logout,
-  .nav--main__help {
-    // max-width: 15%;
-  }
-
   .nav--main__teacher::after {
     content: "";
     height: 10px;
     padding-right: 20px;
     border-right: 1px solid $gray-light;
   }
-
-  .nav--main__logo {
-    margin-left: auto;
-    text-align: right;
-  }
 }
+
+.nav--main__logo {
+  margin-left: auto;
+  text-align: right;
+}
+
+// ---------------------------------
 
 .table__wrapper {
   position: absolute;

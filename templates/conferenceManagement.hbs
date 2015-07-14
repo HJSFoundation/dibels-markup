@@ -1,14 +1,14 @@
 <div class="container">
-  <header class="header--main-nav grid">
+  <header class="header--main-nav grid grid--center">
     <button class="button--drawer-toggle js-menuToggle"><i class="icon-menu-toggle"></i></button>
-    <nav class="nav--main grid grid--center u-text-center js-mainNav st-show">
-      <span class="nav--main__teacher grid-cell">ms. dones</span>
-      <a href="#" class="nav--main__session-info grid-cell">session info</a>
-      <a href="#" class="nav--main__manage grid-cell">manage sessions</a>
+    <nav class="nav--main grid grid--center grid-cell u-text-center js-mainNav st-show">
+      {{!-- <span class="nav--main__teacher grid-cell">ms. dones</span>
+      <a href="#" class="nav--main__session-info grid-cell">session info</a> --}}
+      <a href="#" class="nav--main__manage grid-cell js-manageButton">manage sessions</a>
       <a href="#" class="nav--main__logout grid-cell">log out</a>
-      <a href="#" class="nav--main__help grid-cell">help/faq</a>
-      <span class="nav--main__logo grid-cell">teachermate</span>
+      {{!-- <a href="#" class="nav--main__help grid-cell">help/faq</a> --}}
     </nav>
+    <span class="nav--main__logo grid-cell">teachermate</span>
   </header>
   <div class="table__wrapper--header">
     <table class="management__table management__table__header">
@@ -28,7 +28,7 @@
 
       <thead>
         <th colspan="2" class="session-cell--name">sessions</th>
-        <th >reading stage</th>
+        <th>reading stage</th>
         <th>growth</th>
         <th>practice station score</th>
         <th width="10" class="session-cell--spacer"></th>
