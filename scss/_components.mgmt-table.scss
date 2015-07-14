@@ -44,6 +44,13 @@
 .nav--main__logo {
   margin-left: auto;
   text-align: right;
+  font-size: 16px;
+  font-family: $font-primary;
+  margin-right: 10px;
+
+  span {
+    color: $orange;
+  }
 }
 
 // ---------------------------------
@@ -57,18 +64,23 @@
   height: 718px;
 
   &.table__wrapper--student {
-    top: 50px;
-    height: 678px;
+    top: 110px;
+    height: 658px;
+  // student-tab todo
+    // top: 50px;
+    // height: 678px;
   }
 }
 
-.table__wrapper--header {
+.table__wrapper__header {
   position: absolute;
   top: 50px;
   left: 0;
 
   &.table__wrapper__header--student {
-    top: 0px;
+    top: 60px;
+  // student-tab todo - change this to 0px
+    // top: 0px;
   }
 }
 
