@@ -5,7 +5,7 @@ var App = {
   Dispatcher: _.clone(Backbone.Events),
   Config: {
     el: "#applicationContainer",
-    productionApiUrl: "",
+    productionApiUrl: "https://www.tutormate.org/api/v1",
     stagingApiUrl: "http://staging.tutormate.org/api/v1",
     developmentApiUrl: "http://localhost:3000/api/v1",
     tutormateUrl: "https://www.tutormate.org",
