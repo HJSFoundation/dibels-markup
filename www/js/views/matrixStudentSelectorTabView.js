@@ -5,7 +5,8 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   className: "menu--tab grid grid-cell",
 
   events: {
-    "click .icon": "handleIconClick",
+    "click .js-editStudentButton": "handleIconClick",
+    "click .js-exitEditStudent": "handleCloseRequest",
     "click": "handleClick"
   },
 
@@ -52,6 +53,11 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
 
   handleIconClick: function(event) {
     this.editStudent = new App.Views.EditStudent({el: ".js-overlay"});
+    return false;
+  },
+
+  handleCloseRequest: function() {
+    this.$el.closest(".js-overlay").empty();
     return false;
   }
 });

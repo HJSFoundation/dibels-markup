@@ -2,15 +2,19 @@
 .header--main-nav {
   background: $white;
   height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
 }
 .nav--main {
   text-transform: uppercase;
-  width: 75%;
   font-size: 14px;
   color: $text-med-light;
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s ease-in-out;
+  width: 100%;
 
   a {
     color: $text-medium;
@@ -24,6 +28,15 @@
     visibility: visible;
     opacity: 1;
     transition: all 0.5s ease-in-out;
+    z-index: 200;
+  }
+
+  .nav--main__teacher,
+  .nav--main__session-info,
+  .nav--main__manage,
+  .nav--main__logout,
+  .nav--main__help {
+    // max-width: 15%;
   }
 
   .nav--main__teacher::after {
@@ -31,6 +44,11 @@
     height: 10px;
     padding-right: 20px;
     border-right: 1px solid $gray-light;
+  }
+
+  .nav--main__logo {
+    margin-left: auto;
+    text-align: right;
   }
 }
 
@@ -43,8 +61,8 @@
   height: 718px;
 
   &.table__wrapper--student {
-    top: 110px;
-    height: 658px;
+    top: 50px;
+    height: 678px;
   }
 }
 
@@ -54,7 +72,7 @@
   left: 0;
 
   &.table__wrapper__header--student {
-    top: 60px;
+    top: 0px;
   }
 }
 

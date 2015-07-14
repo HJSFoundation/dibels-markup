@@ -5,7 +5,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   events: {
     'click .js-manageButton': 'handleDisplayManage',
-    'click .js-menuToggle' : 'showHideMenu'
+    'click .js-menuToggle' : 'handleToggleMenu'
   },
 
 
@@ -71,7 +71,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     document.removeEventListener("pause", this.handlePauseEvent);
   },
 
-  showHideMenu: function() {
+  handleToggleMenu: function() {
     $(".js-mainNav").toggleClass("st-show");
   },
 

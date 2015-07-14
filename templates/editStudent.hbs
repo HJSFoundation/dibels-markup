@@ -1,10 +1,10 @@
 <div class="edit-student container container--overlay animated slideInUp">
   <div class="overlay__menu">
-    <a href="#" class="menu--tab menu--tab--edit-student grid grid--center js-exitEditStudent" style="left: {{ math 170.5 "*" tab_position}}px">
+{{!--     <a href="#" class="menu--tab menu--tab--edit-student grid grid--center js-exitEditStudent" style="left: {{ math 170.5 "*" tab_position}}px">
       <span class="menu__number">{{ reading_stage }}</span>
       <span class="menu__title">{{ student_shortname }}</span>
       <span class="menu__icon icon icon-close"></span>
-    </a>
+    </a> --}}
   </div>
 
   <div class="stage stage--edit">
@@ -12,7 +12,9 @@
       <div class="menu--tabs menu--tabs--edit u-text-center grid u-text-center">
         <a href="#" class="menu--tab grid-cell" id="js-editReadingStage">Reading Stage</a>
         <a href="#" class="menu--tab grid-cell" id="js-editNotes">Notes</a>
+        <button class="button grid-cell button--close-student-edit js-exitEditStudent">Done</button>
       </div>
+
     </menu>
     <div class="js-editContainer"></div>
   </div>
