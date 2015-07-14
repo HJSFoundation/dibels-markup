@@ -17,42 +17,62 @@ App.Views.Login = Backbone.View.extend({
   },
 
   submit: function() {
-    console.log("login submitted");
     var email = $("#email-field").val();
     var password = $("#password-field").val();
     var that = this;
-    $("#submit").prop("disabled",true);
 
-    $.ajax({
-      type: 'POST',
-      url: App.url + '/sign_in',
-      crossDomain: true,
-      data: {
-        email: email,
-        password: password
-      },
-      dataType: 'json',
-      success: function(responseData) {
-        console.log(responseData);
-        App.loggedInTeacher = responseData;
-        localStorage.loggedInTeacher = JSON.stringify(App.loggedInTeacher);
-        that.handleLoginSuccess();
-      },
-      error: function(responseData) {
-        alert("Should handle network error."); //TODO add network error
-        that.handleLoginFailure(responseData);
-      }
-    });
+    if(App.isOnline()){
+      console.log("login submitted");
+      $("#submit").prop("disabled",true);
+      $.ajax({
+        type: 'POST',
+        url: App.url + '/sign_in',
+        crossDomain: true,
+        data: {
+          email: email,
+          password: password
+        },
+        dataType: 'json',
+        success: function(responseData) {
+          console.log(responseData);
+          if(localStorage.currentTeacher && that.teachersMatch(responseData) && localStorage.initialSyncCompleted){
+            App.currentTeacher = JSON.parse(localStorage.currentTeacher);
+          }else{
+            localStorage.clear();
+            App.currentTeacher =  responseData;
+          }
+          App.currentTeacher.loggedIn = true;
+          localStorage.currentTeacher = JSON.stringify(App.currentTeacher);
+          that.handleLoginSuccess();
+        },
+        error: function(responseData ) {
+          $("#submit").prop("disabled",false);
+          console.log("status code" + responseData.status);
+          if(responseData.status===403){
+            that.handleLoginCredentialFailure();
+          }else{
+            alert("We apologize for the inconvenience. There has been an error. Please try to log in again.\n\nError("+responseData.status+")");
+          }
+        }
+      });
+    }else{
+      alert("Please check your network connection.");
+    }
+
     return false;
+  },
+
+  teachersMatch: function(teacher){
+    var oldTeacher = JSON.parse(localStorage.currentTeacher);
+    return ((oldTeacher.id === teacher.id) && (oldTeacher.email === teacher.email));
   },
 
   handleLoginSuccess: function() {
     App.Dispatcher.trigger("loginSuccess");
   },
 
-  handleLoginFailure: function() {
+  handleLoginCredentialFailure: function() {
     $('.js-login-error').show();
-    $("#submit").prop("disabled",false);
   },
 
   handleForgotPassword: function(){

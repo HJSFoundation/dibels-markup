@@ -42,7 +42,7 @@ describe('App.Models.Conference', function() {
         number_per_week: 5
       });
 
-      expect(subject.lastConferenceSessionAt().toISOString()).to.equal("2015-08-01T00:00:00.000Z");
+      expect(subject.lastConferenceSessionAt().toISOString()).to.equal("2015-07-01T00:00:00.000Z");
     });
   });
 });

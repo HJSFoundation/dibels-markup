@@ -14,6 +14,7 @@ var App = {
     minReadingStageForStrategies: 4,
     firstStageWithSubSkill: 3,
     storageLocalState: false,
+    maxDaysSinceSuccessfulFullSync: 3,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",
@@ -33,7 +34,7 @@ var App = {
   notesLastTakenAt: "",
   resp:{},
   online: true,
-  loggedInTeacher: null,
+  currentTeacher: null,
   selectedStudent: null,
   selectedActivity: null,
   selectedStimulus: null,
@@ -46,12 +47,68 @@ var App = {
     if(is_browser){
       return window.navigator.onLine;
     }else{
-      return App.online;
+      return navigator.connection.type !== Connection.NONE;
     }
   },
 
   newISODate: function(){
     return moment().utc().toISOString();
+  },
+
+  logRemoteSaveError: function(response){
+    var description = (this.description ? this.description : response.description);
+    var request_type = (this.request_type ? this.request_type : response.request_type);
+    var request_resource = (this.request_resource ? this.request_resource : response.request_resource);
+    console.log("logRemoteSaveError:", response.status, description);
+
+    var error = new App.Models.NetworkError({
+      "user_id": App.currentTeacher.id,
+      "requested_at": moment.utc().toISOString(),
+      "request_type": request_type,
+      "request_resource": request_resource,
+      // "user_agent": navigator.userAgent,
+      "description": description,
+      "status_code": response.status,
+      "mac_address": "",
+      // "ip_address": "",
+      "archived": false,
+      "test": false,
+
+    });
+    App.networkErrors.add(error);
+    error.save();
+  },
+
+  logRemoteSyncError: function(collection, response, options, description){
+    console.log("logRemoteSyncError:", collection, response, options, description);
+
+    var error = new App.Models.NetworkError({
+      "user_id": App.currentTeacher.id,
+      "requested_at": moment.utc().toISOString(),
+      "request_type": "GET",
+      "request_resource": collection.url(),
+      // "user_agent": navigator.userAgent,
+      "description": description,
+      "status_code": response.status,
+      "mac_address": "",
+      // "ip_address": "",
+      "archived": false,
+      "test": false,
+
+    });
+
+    App.networkErrors.add(error);
+    error.save();
+
+    App.remoteSyncErrorEncountered = true;
+  },
+
+  clearRemoteSyncError: function(){
+    App.remoteSyncErrorEncountered = false;
+  },
+
+  getRemoteSyncErrorState: function(){
+    return App.remoteSyncErrorEncountered;
   },
 
   ActivityStimuli : {

@@ -105,6 +105,8 @@ describe('App.Views.Tile', function() {
       expect(subject.model.save).to.have.been.called;
     });
 
+    // TODO: handle fail on the save
+
   });
 
   describe("handlers", function() {

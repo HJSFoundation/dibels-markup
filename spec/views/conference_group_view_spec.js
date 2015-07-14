@@ -133,6 +133,10 @@ describe('App.Views.ConferenceGroup', function() {
         App.Dispatcher.trigger.restore();
       });
 
+      xit("calls fail on the model when save fails", function() {
+
+      });
+
     });
   });
 });

@@ -8,16 +8,63 @@ App.syncData = {
 
     this.success = success;
     this.error = error;
+    App.clearRemoteSyncError();
+    this.fetchLocalData();
+  },
+
+  fetchLocalData: function(){
+
+    App.Config.storageLocalState = true;
+
+    App.networkErrors = new App.Collections.NetworkErrors();
+    App.networkErrors.fetch({remove: false, add: true});
+
+    App.userReadingStages = new App.Collections.UserReadingStages();
+    App.userReadingStages.fetch({remove: false, add: true});
+
+    App.roster = new App.Collections.Students();
+    App.roster.fetch({remove: false, add: true});
+
+    App.conferences = new App.Collections.Conferences();
+    App.conferences.fetch({remove: false, add: true});
+
+    App.conferenceSessions = new App.Collections.ConferenceSessions();
+    App.conferenceSessions.fetch({remove: false, add: true});
+
+    App.notesLastTakenAt = localStorage.getItem("App.notesLastTakenAt");
+    App.notes = new App.Collections.Notes();
+    App.notes.fetch({remove: false, add: true});
+
+    App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
+    App.stimuli = new App.Collections.Stimuli();
+    App.stimuli.fetch({remove: false, add: true});
+
+    App.Config.storageLocalState = false;
+    console.log("local fetch complete");
+
+
+    this.initializeNetworkErrorsCollection();
+
+  },
+
+  initializeNetworkErrorsCollection: function(result) {
+    console.log("initializeNetworkErrorsCollection");
+
+    if(App.isOnline()){
+      App.networkErrors.syncDirtyAndDestroyed({success: this.removeCleanNetworkErrorModelsFromCollection});
+    }
+
     this.initializeUserReadingStagesCollection();
+  },
+
+  removeCleanNetworkErrorModelsFromCollection: function(model, response, options){
+    if(!options.dirty){
+      App.networkErrors.reset();
+    }
   },
 
   initializeUserReadingStagesCollection: function(result) {
     console.log("initializeUserReadingStagesCollection");
-    App.userReadingStages = new App.Collections.UserReadingStages();
-
-    App.Config.storageLocalState = true;
-    App.userReadingStages.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
       App.userReadingStages.syncDirtyAndDestroyed({success: this.removeCleanUserReadingStageModelsFromCollection});
@@ -32,20 +79,8 @@ App.syncData = {
     }
   },
 
-  initializeUserReadingStagesCollectionFail: function() {
-    console.log("initializeUserReadingStagesCollectionFail");
-    this.error();
-  },
-
-
-
   initializeStudentCollection: function() {
     console.log("initializing StudentsCollection");
-
-    App.roster = new App.Collections.Students();
-    App.Config.storageLocalState = true;
-    App.roster.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
 
@@ -60,32 +95,18 @@ App.syncData = {
     }
   },
 
-  initializeStudentCollectionFail: function() {
+  initializeStudentCollectionFail: function(collection, response, options) {
     console.log("initializeStudentCollectionFail");
-    this.error();
+    App.logRemoteSyncError(collection, response, options, "initializeStudentCollectionFail");
+    if(localStorage.initialSyncCompleted){
+      this.initializeNotesCollection();
+    }else{
+      this.returnToLoginWithError(collection, response, options, "initializeStudentCollectionFail");
+    }
   },
-
-  // initializeStudentTestReadingStages: function() {
-  //   var readingStage = 1;
-  //   _.each(App.roster.models, function(student){
-  //     student.set({"reading_stage": readingStage});
-  //     readingStage = readingStage + 1;
-  //     if (readingStage > App.Config.maxStageCount) {
-  //       readingStage = 1;
-  //     }
-  //   },this);
-  // },
 
   initializeNotesCollection: function(result) {
     console.log("initializing NotesCollection");
-
-    App.notesLastTakenAt = localStorage.getItem("App.notesLastTakenAt");
-
-    App.notes = new App.Collections.Notes();
-
-    App.Config.storageLocalState = true;
-    App.notes.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
 
@@ -102,20 +123,20 @@ App.syncData = {
     }
   },
 
-  initializeNotesCollectionFail: function() {
+  initializeNotesCollectionFail: function(collection, response, options) {
     console.log("initializeNotesCollectionFail");
-    this.error();
+    App.logRemoteSyncError(collection, response, options, "initializeNotesCollectionFail");
+    if(localStorage.initialSyncCompleted){
+      this.initializeConferencesCollection();
+    }else{
+      this.returnToLoginWithError(collection, response, options, "initializeNotesCollectionFail");
+    }
   },
 
   initializeConferencesCollection: function(result) {
 
     console.log("initializeConferencesCollection");
     // $.ajaxSetup({beforeSend:this.sendAuthentication});
-    App.conferences = new App.Collections.Conferences();
-
-    App.Config.storageLocalState = true;
-    App.conferences.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
 
@@ -132,19 +153,19 @@ App.syncData = {
     }
   },
 
-  initializeConferencesCollectionFail: function() {
+  initializeConferencesCollectionFail: function(collection, response, options) {
     console.log("initializeConferencesCollectionFail");
-    this.error();
+    App.logRemoteSyncError(collection, response, options, "initializeConferencesCollectionFail");
+    if(localStorage.initialSyncCompleted){
+      this.initializeConferenceSessionsCollection();
+    }else{
+      this.returnToLoginWithError(collection, response, options, "initializeConferencesCollectionFail");
+    }
 
   },
 
   initializeConferenceSessionsCollection: function(result) {
     console.log("initializeConferenceSessionsCollection");
-    App.conferenceSessions = new App.Collections.ConferenceSessions();
-
-    App.Config.storageLocalState = true;
-    App.conferenceSessions.fetch({remove: false, add: true});
-    App.Config.storageLocalState = false;
 
     if(App.isOnline()){
       App.conferenceSessions.syncDirtyAndDestroyed({success: this.removeCleanModels});
@@ -159,22 +180,9 @@ App.syncData = {
     }
   },
 
-  initializeConferenceSessionsCollectionFail: function() {
-    console.log("initializeConferenceSessionsCollectionFail");
-    this.error();
-  },
-
   initializeStimuliCollections: function(result) {
     console.log("initializeStimuliCollections");
 
-    App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
-
-    App.stimuli = new App.Collections.Stimuli();
-    App.Config.storageLocalState = true;
-    App.stimuli.fetch({remove: false, add: true});
-    App.Config.storageLocalState=false;
-
-    console.log("local fetch complete");
 
     if(App.isOnline()){
       App.stimuli.syncDirtyAndDestroyed();
@@ -193,29 +201,26 @@ App.syncData = {
   },
 
   initializeStimuliCollectionSuccess: function(result) {
-    var d = new Date();
-    App.clientLastFetchedAt = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + "T" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    App.clientLastFetchedAt = moment.utc().toISOString();
     localStorage.setItem("App.clientLastFetchedAt", App.clientLastFetchedAt);
     this.initializeLocalStorage();
   },
 
-  initializeStimuliCollectionFail: function() {
-    console.log("initializeStudentCollectionFail");
-    this.error();
+  initializeStimuliCollectionFail: function(collection, response, options) {
+    console.log("initializeStimuliCollectionFail");
+    App.logRemoteSyncError(collection, response, options, "initializeStimuliCollectionFail");
+    if(localStorage.initialSyncCompleted){
+      this.initializeLocalStorage();
+    }else{
+      this.returnToLoginWithError(collection, response, options, "initializeStimuliCollectionFail");
+    }
 
   },
 
   initializeLocalStorage: function(){
 
+
     console.log("initializeLocalStorage");
-
-
-    // App.Config.storageLocalState=true;
-    // _.each(App.notes.models, function(model){
-    //   model.save();
-    // });
-    // App.Config.storageLocalState=false;
-
 
     if(!localStorage["App.notes"]){
       App.Config.storageLocalState=true;
@@ -231,9 +236,7 @@ App.syncData = {
         });
         App.Config.storageLocalState=false;
       }
-
     }
-
 
     App.Config.storageLocalState=true;
     _.each(App.roster.models, function(model){
@@ -261,9 +264,38 @@ App.syncData = {
         });
         App.Config.storageLocalState=false;
       }
-
     }
 
-    this.success();
+    // TODO check the state when to call success booting up from local storage
+    if(localStorage.initialSyncCompleted){
+      console.log("localStorage.initialSyncCompleted");
+      if(!App.getRemoteSyncErrorState()){
+        localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
+      }else{
+        var lastSuccessfulFullSyncDate = moment.utc(localStorage.lastSuccessfulFullSyncDate);
+        var daysSinceLastSuccessfulFullSync = Math.floor(lastSuccessfulFullSyncDate.diff(moment.utc(), "days"));
+        if(daysSinceLastSuccessfulFullSync > App.Config.maxDaysSinceSuccessfulFullSync){
+          alert("It has been "+daysSinceLastSuccessfulFullSync+" since a successful sync. \nPlease check your network connection.");
+        }
+      }
+      this.success();
+
+    } else {
+      console.log("localStorage initialSync NOT Completed");
+
+      if(App.isOnline()){
+        console.log("localStorage initialSync NOT Completed ONLINE");
+
+        localStorage.initialSyncCompleted=true;
+        localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
+        this.success();
+      }else{
+        console.log("localStorage initialSync NOT Completed OFFLINE");
+        this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
+      }
+    }
   },
+  returnToLoginWithError: function(collection, response, options, description){
+    console.log("returnToLoginWithError", collection, response, options, "description");
+  }
 };

@@ -32,7 +32,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     App.selectedStudent.set({reading_stage: readingStage});
     var model = new App.Models.UserReadingStages({
       student_id: App.selectedStudent.get("id"),
-      assessor_id: App.loggedInTeacher.id,
+      assessor_id: App.currentTeacher.id,
       reading_stage: readingStage.toString(),
       context: "teacher_notepad",
       changed_at: App.newISODate()
@@ -44,13 +44,29 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       .fail(this.updateLocalUser);
   },
 
-  updateUser: function(model, response, options) {
+  updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");
-    App.roster.fetch();
+    App.roster.fetch()
+      .fail(this.updateLocalUserFetch);
   },
 
-  updateLocalUser: function(model, response, options) {
-    console.log("EditStudentReadingStage.updateLocalUser");
+  updateLocalUser: function(response) {
+    response.description = "editStudentReadingStage.handleReadingStageChoice";
+    response.request_type = "POST";
+    response.request_resource = new App.Models.UserReadingStages().url();
+    App.logRemoteSaveError(response);
+    App.Config.storageLocalState = true;
     App.selectedStudent.save();
+    App.Config.storageLocalState = false;
+  },
+
+  updateLocalUserFetch: function(response) {
+    response.description = "editStudentReadingStage.handleReadingStageChoice";
+    response.request_type = "GET";
+    response.request_resource = new App.Collections.UserReadingStages().url();
+    App.logRemoteSaveError(response);
+    App.Config.storageLocalState = true;
+    App.selectedStudent.save();
+    App.Config.storageLocalState = false;
   }
 });
