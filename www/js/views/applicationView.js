@@ -95,7 +95,6 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleResumeEvent: function(){
-    // this.displayLoadingScreen();
     if(!is_browser){
       navigator.splashscreen.show();
     }
