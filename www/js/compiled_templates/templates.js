@@ -192,9 +192,9 @@ this["App"]["templates"]["editStudentNotesArticle"] = Handlebars.template({"comp
 
   return "<header class=\"edit-notes__header\">\n  <span class=\"edit-notes__time\">"
     + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
-    + "</span>\n</header>\n<section class=\"edit-notes__body\">\n <textarea>"
+    + "</span>\n</header>\n<section class=\"edit-notes__body grid\">\n <textarea>"
     + alias3(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"content","hash":{},"data":data}) : helper)))
-    + "</textarea>\n</section>\n\n";
+    + "</textarea>\n <button class=\"button--primary button--edit-notes\">save</button>\n</section>\n\n";
 },"useData":true});
 this["App"]["templates"]["editStudentNotesList"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"edit-archive__list\">\n  <ul class=\"js-editStudentNote\">\n    \n  </ul>\n</div>\n\n\n";
