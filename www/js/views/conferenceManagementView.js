@@ -5,7 +5,8 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   events: {
     'click .js-manageButton': 'handleDisplayManage',
-    'click .js-menuToggle' : 'handleToggleMenu'
+    'click .js-menuToggle' : 'handleToggleMenu',
+    'click .js-logout' : 'handleLogout'
   },
 
 
@@ -121,5 +122,9 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
     console.log("handleDisplayManage");
     return false;
+  },
+
+  handleLogout: function(){
+    App.Dispatcher.trigger("logout");
   }
 });

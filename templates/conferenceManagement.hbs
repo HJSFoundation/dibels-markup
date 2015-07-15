@@ -2,11 +2,14 @@
   <header class="header--main-nav grid grid--center">
     <button class="button--drawer-toggle js-menuToggle"><i class="icon-menu-toggle"></i></button>
     <nav class="nav--main grid grid--center grid-cell u-text-center js-mainNav st-show">
-      {{!-- <span class="nav--main__teacher grid-cell">ms. dones</span>
+      {{!-- <span class="nav--main__teacher grid-cell">dr. dones</span>
       <a href="#" class="nav--main__session-info grid-cell">session info</a> --}}
-      <a href="#" class="nav--main__manage grid-cell js-manageButton">manage sessions</a>
-      <a href="#" class="nav--main__logout grid-cell">log out</a>
-      {{!-- <a href="#" class="nav--main__help grid-cell">help/faq</a> --}}
+      <div class="nav--main__manage grid-cell">
+        <a href="#" class="js-manageButton">manage sessions</a>
+      </div>
+      <div class="nav--main__logout grid-cell">
+        <a href="#" class="js-logout">log out</a>
+      </div>
     </nav>
     <span class="nav--main__logo grid-cell">teacher<span>notepad</span></span>
   </header>
