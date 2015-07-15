@@ -13,6 +13,10 @@ App.Views.Application = Backbone.View.extend({
    }else{
       this.loginView = new App.Views.Login();
       $(App.Config.el).append(this.loginView.render().el);
+
+      if(!is_browser){
+        navigator.splashscreen.hide();
+      }
     }
   },
 
@@ -25,6 +29,7 @@ App.Views.Application = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
+    this.listenTo(App.Dispatcher, "logout", this.handleLogout);
     this.listenTo(App.Dispatcher, "initializeConferenceManagementRequested", this.initializeConferenceManagement);
 
     document.addEventListener("resume", this.handleResumeEvent, false);
@@ -36,6 +41,9 @@ App.Views.Application = Backbone.View.extend({
 
     $.ajaxSetup({beforeSend:this.sendAuthentication});
     this.displayLoadingScreen();
+    if(!is_browser){
+      navigator.splashscreen.hide();
+    }
 
     Backbone.DualStorage.offlineStatusCodes = function(xhr) {
       var codes = [];
@@ -49,6 +57,13 @@ App.Views.Application = Backbone.View.extend({
 
 
     App.syncData.initialize(this.removeLogin, this.syncDataError);
+  },
+
+  handleLogout: function(){
+
+    App.currentTeacher.loggedIn = false;
+    localStorage.currentTeacher = JSON.stringify(App.currentTeacher);
+    location.reload();
   },
 
   syncDataError: function(){
@@ -80,7 +95,11 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleResumeEvent: function(){
-    this.displayLoadingScreen();
+    // this.displayLoadingScreen();
+    if(!is_browser){
+      navigator.splashscreen.show();
+    }
+
     location.reload();
   },
 

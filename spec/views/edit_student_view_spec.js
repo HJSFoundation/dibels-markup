@@ -113,4 +113,19 @@ describe('App.Views.EditStudent', function() {
     expect(subject.makeInactive).to.have.been.called;
     expect(subject.makeActive).to.have.been.calledWith("js-editNotes");
   });
+
+  describe("#handleCloseRequest", function() {
+    it("empties the element", function() {
+      subject.render();
+      subject.handleCloseRequest();
+      expect(subject.$el).to.be.empty;
+    });
+
+    it("triggers the matrixStudentSelectorTabActiveRequest event", function() {
+      sinon.spy(App.Dispatcher, "trigger");
+      subject.handleCloseRequest();
+      expect(App.Dispatcher.trigger).to.have.been.called;
+      App.Dispatcher.trigger.restore();
+    });
+  });
 });
