@@ -58,5 +58,10 @@ App.Views.EditStudent = Backbone.View.extend({
 
   handleCloseRequest: function () {
     this.$el.empty();
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
+      { current: App.selectedStudent,
+        previous: null
+      }
+    );
   }
 });
