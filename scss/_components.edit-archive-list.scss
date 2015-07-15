@@ -44,13 +44,11 @@
 
   h4 {
     font-size: 9px;
-    font-weight: 700;
+    font-family: $font-primary-semibold;
     margin: 0;
 
     .edit-notes__time {
-      font-weight: 100;
+      font-family: $font-primary;
     }
   }
-
-
 }

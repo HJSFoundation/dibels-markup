@@ -80,7 +80,7 @@
 .login__error {
   color: $warning;
   font-size: 18px;
-  font-weight: 500;
+  font-family: $font-primary-regular;
   text-align: center;
   display: none;
 }
@@ -90,7 +90,7 @@
   &::placeholder {
     color: $primary;
     font-size: 14px;
-    font-weight: 100;
+    font-family: $font-primary-light;
   }
 }
 
@@ -98,7 +98,6 @@
   @extend .button;
   color: inherit;
   font-size: inherit;
-  font-weight: 300;
   padding: 0;
   text-transform: uppercase;
 }

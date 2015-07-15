@@ -13,7 +13,6 @@
 .reading-stage__title {
   color: $text-medium;
   font-size: 12px;
-  font-weight: 100;
   margin: 0;
   min-width: 16%; // magic number?
   text-transform: uppercase;
@@ -26,7 +25,7 @@
   margin: 0 50px 50px 0;
   font-size: 100px;
   min-width: 140px;
-  font-weight: 700;
+  font-family: $font-primary-semibold;
   z-index: 1;
 
   &::before {

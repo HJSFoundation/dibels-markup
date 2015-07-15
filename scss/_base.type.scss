@@ -1,13 +1,13 @@
 body {
-  font-family: $font-primary-light;
+  font-family: $font-primary;
 }
 
 a {
   color: $text-dark;
-  
-  &:hover {
-    color: $orange;
-  }
+
+  // &:hover {
+  //   color: $orange;
+  // }
 }
 
 ul {

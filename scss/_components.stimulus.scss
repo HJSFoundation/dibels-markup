@@ -49,7 +49,6 @@
 
   &.stimulus--letters {
     font-size: 250px;
-    font-weight: 700;
 
     .stimulus-cell span {
       margin-right: 50px;
@@ -59,7 +58,6 @@
   &.stimulus--words {
     color: $words-color;
     font-size: 250px;
-    font-weight: 500;
 
   }
 
@@ -119,7 +117,7 @@
         background-color: $tiles-color;
         color: $text-light;
         font-size: 100px;
-        font-weight: 500;
+        font-family: $font-primary-regular;
         height: 120px;
         line-height: 100px;
         margin-bottom: 2px;

@@ -7,6 +7,8 @@
         <span class="menu__title">cancel</span>
         <span class="menu__icon icon icon-close"></span>
       </a>
+
+  {{!-- -------- --}}
     </div>
 
       <div class="table__wrapper__header table__wrapper__header--student">
@@ -61,7 +63,12 @@
       </table>
       </div>
   </div>
-
-
 </div>
+
+{{!-- This is totally illegal but I really wanted to see it work --}}
+  <script>
+    $("td:contains('n/a')").addClass("session-cell--na");
+  </script>
+
+  {{!-- ------------ --}}
 

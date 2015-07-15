@@ -153,7 +153,7 @@
 
   tbody {
     font-size: 20px;
-    font-weight: 600;
+    font-family: $font-primary-semibold;
     overflow: auto;
 
     tr {
@@ -198,6 +198,11 @@
     color: $white;
   }
 
+  .session-cell--na {
+    font-size: 12px;
+    color: $gray-light;
+  }
+
   .session-cell--desired {
     border-bottom: 1px solid lighten($gray-dark, 10%);
     border-right: 1px solid lighten($gray-dark, 10%);
@@ -217,7 +222,7 @@
   .session-cell--start,
   th {
     font-size: 8px;
-    font-weight: 300;
+    font-family: $font-primary-regular;
   }
   .session-cell--start {
     background: $orange;
@@ -257,7 +262,6 @@
 
   tbody {
     font-size: 14px;
-    font-weight: 300;
   }
 
   td {
