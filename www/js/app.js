@@ -392,6 +392,9 @@ var App = {
       },
       5: {
         rimes: {
+          ade: "what grade are you in",
+          ame: "let's play a game",
+          ane: "I want a candy cane",
           ape: "I ate a grape",
           ate: "I ate a date",
           ide: "do you want to hide",
