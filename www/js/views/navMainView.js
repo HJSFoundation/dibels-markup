@@ -28,7 +28,7 @@ App.Views.NavMain = Backbone.View.extend({
   },
 
   handleLogout: function(){
-    App.Dispatcher.trigger("logout");
+    App.Dispatcher.trigger("endSessionLogoutRequested");
   }
 
 });
