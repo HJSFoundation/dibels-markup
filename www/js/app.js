@@ -29,7 +29,7 @@ var App = {
       readingStrategies: "reading_strategies"
     },
   },
-  url: "http://staging.tutormate.org/api/v1",
+  url: "http://staging.tutormate.org/api/v1", // TODO change URL before submission!!!
   clientLastFetchedAt: "",
   notesLastTakenAt: "",
   resp:{},
@@ -392,9 +392,9 @@ var App = {
       },
       5: {
         rimes: {
-          ade: "what grade are you in",
-          ame: "let's play a game",
-          ane: "I want a candy cane",
+          ade: "I made a plan",
+          ame: "they came to the shop",
+          ane: "the man walks with a cane",
           ape: "I ate a grape",
           ate: "I ate a date",
           ide: "do you want to hide",
