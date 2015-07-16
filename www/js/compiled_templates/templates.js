@@ -157,7 +157,7 @@ this["App"]["templates"]["conferenceStudentSingle"] = Handlebars.template({"comp
     + alias3(((helper = (helper = helpers.daysOnCurrentReadingStage || (depth0 != null ? depth0.daysOnCurrentReadingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysOnCurrentReadingStage","hash":{},"data":data}) : helper)))
     + "</td>\n<td>"
     + alias3(((helper = (helper = helpers.daysSinceLastSession || (depth0 != null ? depth0.daysSinceLastSession : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysSinceLastSession","hash":{},"data":data}) : helper)))
-    + "</td>\n<td>4</td>\n<td class=\"session-cell--desired\">"
+    + "</td>\n<td>n/a</td>\n<td class=\"session-cell--desired\">"
     + alias3(((helper = (helper = helpers.number_per_week || (depth0 != null ? depth0.number_per_week : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"number_per_week","hash":{},"data":data}) : helper)))
     + "</td>\n<td class=\"session-cell--start session-cell--start--student js-addStudent\" colspan=\"4\">\n  <svg class=\"icon-add\"><use xlink:href=\"#icon-add\"></use></svg>\n  add student</td>\n";
 },"useData":true});
