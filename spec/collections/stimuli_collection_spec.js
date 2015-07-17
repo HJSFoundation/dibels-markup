@@ -22,6 +22,7 @@ describe('App.Collections.Stimuli', function() {
   });
 
   it("#url", function() {
-    expect(subject.url()).to.equal(App.url + "/classrooms/"+App.currentTeacher.classroom_id+"/stimuli");
+    subject.page=1;
+    expect(subject.url()).to.equal(App.url + "/classrooms/"+App.currentTeacher.classroom_id+"/stimuli?page=1");
   });
 });

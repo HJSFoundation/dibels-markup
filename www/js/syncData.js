@@ -40,8 +40,6 @@ App.syncData = {
     App.stimuli.fetch({remove: false, add: true});
 
     App.Config.storageLocalState = false;
-    console.log("local fetch complete");
-
 
     this.initializeNetworkErrorsCollection();
 
@@ -188,16 +186,32 @@ App.syncData = {
       App.stimuli.syncDirtyAndDestroyed();
       console.log("syncDirtyAndDestroyed complete");
 
-      App.stimuli.fetch({
-        success: this.initializeStimuliCollectionSuccess,
-        error: this.initializeStimuliCollectionFail,
-        remove: false,
-        add: true
-       });
+      App.stimuli.initializeFetch();
+      this.fetchStimuli();
     }else{
       this.initializeStimuliCollectionSuccess();
     }
+  },
 
+  fetchStimuli: function(){
+    App.stimuli.fetch({
+      success: this.fetchStimuliSuccess,
+      error: this.initializeStimuliCollectionFail,
+      remove: false,
+      add: true
+     });
+  },
+
+  fetchStimuliSuccess: function(){
+    if(App.stimuli.isError()){
+      this.initializeStimuliCollectionPageFail();
+    }else{
+      if(App.stimuli.isComplete()){
+        this.initializeStimuliCollectionSuccess();
+      }else{
+        this.fetchStimuli();
+      }
+    }
   },
 
   initializeStimuliCollectionSuccess: function(result) {
@@ -213,6 +227,18 @@ App.syncData = {
       this.initializeLocalStorage();
     }else{
       this.returnToLoginWithError(collection, response, options, "initializeStimuliCollectionFail");
+    }
+
+  },
+  initializeStimuliCollectionPageFail: function() {
+    var response = {status: -1};
+    var description = "initializeStimuliCollectionPageFail";
+    console.log(description);
+    App.logRemoteSyncError(App.stimuli, response, {}, description);
+    if(localStorage.initialSyncCompleted){
+      this.initializeLocalStorage();
+    }else{
+      this.returnToLoginWithError(App.stimuli, response, {}, description);
     }
 
   },
@@ -297,5 +323,6 @@ App.syncData = {
   },
   returnToLoginWithError: function(collection, response, options, description){
     console.log("returnToLoginWithError", collection, response, options, "description");
+    this.error(collection, response, options, description);
   }
 };

@@ -66,8 +66,14 @@ App.Views.Application = Backbone.View.extend({
     location.reload();
   },
 
-  syncDataError: function(){
-    console.log("syncDataError");
+  syncDataError: function(collection, response, options, description){
+    console.log("syncDataError"); // TODO handle syncDataError
+    $(App.Config.el).empty();
+    localStorage.clear();
+    this.loginView = new App.Views.Login();
+    $(App.Config.el).append(this.loginView.render().el);
+    alert("Network error. Please check your connection.");
+
   },
 
   displayLoadingScreen: function(){
