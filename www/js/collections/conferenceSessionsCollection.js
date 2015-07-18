@@ -1,19 +1,19 @@
 App.Collections.ConferenceSessions = Backbone.Collection.extend({
   model: App.Models.ConferenceSession,
-  url: function(){
+
+  url: function() {
     return App.url + "/conference_sessions";
   },
 
-  local: function(){
+  local: function() {
     return App.Config.storageLocalState;
   },
 
   parse: function(resp, xhr) {
-    if(this.local()){
+    if (this.local()) {
       return resp;
-    }else{
+    } else {
       return resp.conference_sessions;
     }
   }
-
 });
