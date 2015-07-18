@@ -39,23 +39,21 @@ var App = {
   selectedActivity: null,
   selectedStimulus: null,
   selectedSkill: null,
-
-
   browser: null,
 
-  isOnline: function(){
-    if(is_browser){
+  isOnline: function() {
+    if (is_browser) {
       return window.navigator.onLine;
-    }else{
+    } else {
       return navigator.connection.type !== Connection.NONE;
     }
   },
 
-  newISODate: function(){
+  newISODate: function() {
     return moment().utc().toISOString();
   },
 
-  logRemoteSaveError: function(response){
+  logRemoteSaveError: function(response) {
     var description = (this.description ? this.description : response.description);
     var request_type = (this.request_type ? this.request_type : response.request_type);
     var request_resource = (this.request_resource ? this.request_resource : response.request_resource);
@@ -66,20 +64,18 @@ var App = {
       "requested_at": moment.utc().toISOString(),
       "request_type": request_type,
       "request_resource": request_resource,
-      // "user_agent": navigator.userAgent,
       "description": description,
       "status_code": response.status,
       "mac_address": "",
-      // "ip_address": "",
       "archived": false,
-      "test": false,
-
+      "test": false
     });
+
     App.networkErrors.add(error);
     error.save();
   },
 
-  logRemoteSyncError: function(collection, response, options, description){
+  logRemoteSyncError: function(collection, response, options, description) {
     console.log("logRemoteSyncError:", collection, response, options, description);
 
     var error = new App.Models.NetworkError({
@@ -87,31 +83,27 @@ var App = {
       "requested_at": moment.utc().toISOString(),
       "request_type": "GET",
       "request_resource": collection.url(),
-      // "user_agent": navigator.userAgent,
       "description": description,
       "status_code": response.status,
       "mac_address": "",
-      // "ip_address": "",
       "archived": false,
-      "test": false,
-
+      "test": false
     });
 
     App.networkErrors.add(error);
     error.save();
-
     App.remoteSyncErrorEncountered = true;
   },
 
-  clearRemoteSyncError: function(){
+  clearRemoteSyncError: function() {
     App.remoteSyncErrorEncountered = false;
   },
 
-  getRemoteSyncErrorState: function(){
+  getRemoteSyncErrorState: function() {
     return App.remoteSyncErrorEncountered;
   },
 
-  ActivityStimuli : {
+  ActivityStimuli: {
     wordsByStage: {
       2: { // 17 consonants
         b: ["bat", "bet", "bit", "but"],
@@ -570,77 +562,69 @@ var App = {
       var a, z, c, A, Z;
       var user_id= student.get("id");
 
-      App.stimuli.create({reading_stage: 4, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_one_syllable_words", value: "Chunking one syllable words", assessment:"mastered", user_id: user_id});
-      App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "flipping_vowel_sounds", value: "Flipping vowel sounds", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "skipping_and_returning", value: "Skipping and returning", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 6, skill: App.Config.skill.readingStrategies, sub_skill: "listening_and_self_correcting", value: "Listening and self-correcting", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "reading_smoothly_and_expressively", value: "Reading smoothly and expressively", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "paying_attention_to_punctuation", value: "Paying attention to punctuation", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "visualizing", value: "Visualizing", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "predicting_and_asking_questions", value: "Predicting and asking questions", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "identifying_affixes", value: "Identifying affixes", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_multi_syllable_words", value: "Chunking multi syllable words", assessment:"clear", user_id: user_id});
-      App.stimuli.create({reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "making_inferences", value: "Making inferences", assessment:"clear", user_id: user_id});
+      App.stimuli.create({ reading_stage: 4, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_one_syllable_words", value: "Chunking one syllable words", assessment: "mastered", user_id: user_id });
+      App.stimuli.create({ reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "flipping_vowel_sounds", value: "Flipping vowel sounds", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "skipping_and_returning", value: "Skipping and returning", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 6, skill: App.Config.skill.readingStrategies, sub_skill: "listening_and_self_correcting", value: "Listening and self-correcting", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "reading_smoothly_and_expressively", value: "Reading smoothly and expressively", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "paying_attention_to_punctuation", value: "Paying attention to punctuation", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 7, skill: App.Config.skill.readingStrategies, sub_skill: "visualizing", value: "Visualizing", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "predicting_and_asking_questions", value: "Predicting and asking questions", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 8, skill: App.Config.skill.readingStrategies, sub_skill: "identifying_affixes", value: "Identifying affixes", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_multi_syllable_words", value: "Chunking multi syllable words", assessment: "clear", user_id: user_id });
+      App.stimuli.create({ reading_stage: 9, skill: App.Config.skill.readingStrategies, sub_skill: "making_inferences", value: "Making inferences", assessment: "clear", user_id: user_id });
 
-
-      for(var stageIndex=1; stageIndex<7; stageIndex = stageIndex + 1){
-
-        if(stageIndex===1){
-          a="a".charCodeAt(0);
-          z="z".charCodeAt(0);
+      for (var stageIndex = 1; stageIndex < 7; stageIndex = stageIndex + 1) {
+        if (stageIndex === 1) {
+          a = "a".charCodeAt(0);
+          z = "z".charCodeAt(0);
           c;
-          for( c = a; c <= z; c = c + 1) {
-            App.stimuli.create({reading_stage: 1, skill:App.Config.skill.letterNames, value: String.fromCharCode(c), assessment:"clear", user_id: user_id});
+          for ( c = a; c <= z; c = c + 1) {
+            App.stimuli.create({ reading_stage: 1, skill: App.Config.skill.letterNames, value: String.fromCharCode(c), assessment: "clear", user_id: user_id });
           }
 
           A="A".charCodeAt(0);
           Z="Z".charCodeAt(0);
 
-          for(
-            c=A; c<=Z;c=c+1) {
-            App.stimuli.create({reading_stage: 1, skill:App.Config.skill.letterNames, value: String.fromCharCode(c), assessment:"clear", user_id: user_id});
+          for (c=A; c<=Z;c=c+1) {
+            App.stimuli.create({ reading_stage: 1, skill: App.Config.skill.letterNames, value: String.fromCharCode(c), assessment: "clear", user_id: user_id });
           }
         }
 
-        if(stageIndex===2){
-
-          _.each(App.ActivityStimuli.wordsByStage[2], function(value,key){
-            App.stimuli.create({reading_stage: 2, skill:App.Config.skill.letterSounds, value: key, assessment:"clear", user_id: user_id});
+        if (stageIndex === 2) {
+          _.each(App.ActivityStimuli.wordsByStage[2], function(value, key) {
+            App.stimuli.create({ reading_stage: 2, skill: App.Config.skill.letterSounds, value: key, assessment: "clear", user_id: user_id });
           });
         }
 
-        if(stageIndex===3){
-          _.each(App.ActivityStimuli.wordsByStage[3].rimes, function(value,key){
-            App.stimuli.create({reading_stage: 3, skill:App.Config.skill.onsetRimes, sub_skill: "rimes", value: key, assessment:"clear", user_id: user_id});
+        if (stageIndex === 3) {
+          _.each(App.ActivityStimuli.wordsByStage[3].rimes, function(value, key){
+            App.stimuli.create({ reading_stage: 3, skill: App.Config.skill.onsetRimes, sub_skill: "rimes", value: key, assessment: "clear", user_id: user_id });
           });
         }
 
-        if(stageIndex===4){
-
-          _.each(App.ActivityStimuli.wordsByStage[4].sight, function(word){
-              App.stimuli.create({reading_stage: 4, skill:App.Config.skill.sightWords, value: word, assessment:"clear", user_id: user_id});
+        if (stageIndex === 4) {
+          _.each(App.ActivityStimuli.wordsByStage[4].sight, function(word) {
+              App.stimuli.create({ reading_stage: 4, skill: App.Config.skill.sightWords, value: word, assessment: "clear", user_id: user_id });
           });
 
-
-          _.forEach(App.ActivityStimuli.wordsByStage[4].rimes, function(o,key) {
-            App.stimuli.create({reading_stage: 4, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
+          _.forEach(App.ActivityStimuli.wordsByStage[4].rimes, function(o, key) {
+            App.stimuli.create({ reading_stage: 4, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment: "clear", user_id: user_id });
           });
         }
 
-
-        if(stageIndex>4){
-          _.each(App.ActivityStimuli.wordsByStage[stageIndex].sight, function(word){
-              App.stimuli.create({reading_stage: stageIndex, skill:App.Config.skill.sightWords, value: word, assessment:"clear", user_id: user_id});
+        if (stageIndex > 4) {
+          _.each(App.ActivityStimuli.wordsByStage[stageIndex].sight, function(word) {
+              App.stimuli.create({ reading_stage: stageIndex, skill: App.Config.skill.sightWords, value: word, assessment: "clear", user_id: user_id });
           });
 
-          if(stageIndex<9){
-
-            _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["onsets"], function(o,key) {
-              App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: key, assessment:"clear", user_id: user_id});
+          if (stageIndex < 9) {
+            _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["onsets"], function(o, key) {
+              App.stimuli.create({ reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.onsets, value: key, assessment: "clear", user_id: user_id });
             });
 
-            _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["rimes"], function(o,key) {
-              App.stimuli.create({reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment:"clear", user_id: user_id});
+            _.forEach(App.ActivityStimuli.wordsByStage[stageIndex]["rimes"], function(o, key) {
+              App.stimuli.create({ reading_stage: stageIndex, skill: App.Config.skill.onsetRimes, sub_skill: App.Config.skill.rimes, value: key, assessment: "clear", user_id: user_id });
             });
           }
         }
@@ -652,19 +636,19 @@ var App = {
     localStorage.clear();
 
     App.roster = new App.Collections.Students();
-    App.roster.create({id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7});
-    App.roster.create({id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3});
-    App.roster.create({id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2});
-    App.roster.create({id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4});
-    App.roster.create({id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1});
-    App.roster.create({id: 6, first_name: "Last", last_name: "Student", reading_stage: 5});
+    App.roster.create({ id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7 });
+    App.roster.create({ id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3 });
+    App.roster.create({ id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2 });
+    App.roster.create({ id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4 });
+    App.roster.create({ id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1 });
+    App.roster.create({ id: 6, first_name: "Last", last_name: "Student", reading_stage: 5 });
   },
 
-  initializeStimuliTestData: function() {
+  initializeStimuliTestData: function() {  //TODO Remove this??
     App.stimuli = new App.Collections.Stimuli();
     App.roster.each(function(student) {
       var a, z, c, A, Z;
-      var user_id= student.get("id");
+      var user_id = student.get("id");
 
       App.stimuli.create({reading_stage: 4, skill: App.Config.skill.readingStrategies, sub_skill: "chunking_one_syllable_words", value: "Chunking one syllable words", assessment:"mastered", user_id: user_id});
       App.stimuli.create({reading_stage: 5, skill: App.Config.skill.readingStrategies, sub_skill: "flipping_vowel_sounds", value: "Flipping vowel sounds", assessment:"clear", user_id: user_id});
