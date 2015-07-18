@@ -292,7 +292,6 @@ App.syncData = {
       }
     }
 
-    // TODO check the state when to call success booting up from local storage
     if(localStorage.initialSyncCompleted){
       console.log("localStorage.initialSyncCompleted");
       if(!App.getRemoteSyncErrorState()){

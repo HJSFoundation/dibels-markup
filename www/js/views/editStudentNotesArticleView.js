@@ -40,7 +40,7 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
         client_updated_at: date,
         taken_at: date
       });
-      App.notes.add(this.model);
+      App.notes.add(this.model, {merge: true});
 
       App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);

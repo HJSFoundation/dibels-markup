@@ -67,7 +67,7 @@ App.Views.Application = Backbone.View.extend({
   },
 
   syncDataError: function(collection, response, options, description){
-    console.log("syncDataError"); // TODO handle syncDataError
+    console.log("syncDataError");
     $(App.Config.el).empty();
     localStorage.clear();
     this.loginView = new App.Views.Login();
