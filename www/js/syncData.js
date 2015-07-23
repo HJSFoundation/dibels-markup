@@ -8,7 +8,28 @@ App.syncData = {
     this.success = success;
     this.error = error;
     App.clearRemoteSyncError();
-    this.fetchLocalData();
+
+
+    App.Config.storageLocalState = false;
+    App.database.init();
+    this.fetchLocalRoster();
+
+  },
+
+  addAllToDatabase: function(collectionName) {
+    _.each(App[collectionName].models, function(model) {
+      App.database.create(collectionName, model);
+    })
+  },
+
+  addAllToCollection: function(tableName, success) {
+    App.database.readAll(tableName, success);
+  },
+
+  fetchLocalRoster: function(){
+    App.roster = new App.Collections.Students();
+    App.database.createTable("roster");
+    this.addAllToCollection("roster", this.fetchLocalData);
   },
 
   fetchLocalData: function() {
@@ -20,8 +41,8 @@ App.syncData = {
     App.userReadingStages = new App.Collections.UserReadingStages();
     App.userReadingStages.fetch({ remove: false, add: true });
 
-    App.roster = new App.Collections.Students();
-    App.roster.fetch({ remove: false, add: true });
+    // App.roster = new App.Collections.Students();
+    // App.roster.fetch({ remove: false, add: true });
 
     App.conferences = new App.Collections.Conferences();
     App.conferences.fetch({ remove: false, add: true });
@@ -240,11 +261,14 @@ App.syncData = {
       }
     }
 
-    App.Config.storageLocalState = true;
-    _.each(App.roster.models, function(model) {
-      model.save();
-    });
-    App.Config.storageLocalState = false;
+    // App.Config.storageLocalState = true;
+    // _.each(App.roster.models, function(model) {
+    //   model.save();
+    // });
+    // App.Config.storageLocalState = false;
+    this.addAllToDatabase("roster");
+
+
 
     App.Config.storageLocalState = true;
     _.each(App.conferences.models, function(model) {
