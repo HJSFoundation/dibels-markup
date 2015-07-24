@@ -23,6 +23,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   listen: function(){
     this.listenTo(App.Dispatcher, "startSessionRequested", this.handleStartSessionRequested);
     this.listenTo(App.Dispatcher, "endSessionRequested", this.handleEndSessionRequested);
+    this.listenTo(App.Dispatcher, "endSessionLogoutRequested", this.handleEndSessionLogoutRequested);
   },
 
   render: function() {
@@ -58,8 +59,8 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   setStartSessionTime: function(){
     var startAndUpdatedAtDate = App.newISODate();
     this.model = new App.Models.ConferenceSession({
-      "conference_id":App.selectedConference.id,
-      "user_id":App.currentTeacher.id,
+      "conference_id": App.selectedConference.id,
+      "user_id": App.currentTeacher.id,
       "context": "teacher_notepad",
       "started_at": startAndUpdatedAtDate,
       "ended_at":"",
@@ -75,7 +76,8 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   setEndSessionTime: function(){
-    this.model.set({ended_at: App.newISODate()});
+    var startAndUpdatedAtDate = App.newISODate();
+    this.model.set({ended_at: startAndUpdatedAtDate, client_updated_at: startAndUpdatedAtDate});
     document.removeEventListener("pause", this.handlePauseEvent);
   },
 
@@ -87,7 +89,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     console.log("handleStartSessionRequested");
     this.setStartSessionTime();
     $(App.Config.el).empty();
-    this.teacherWorkspace = new App.Views.TeacherWorkspace({el: App.Config.el});
+    this.teacherWorkspace = new App.Views.TeacherWorkspace({ el: App.Config.el });
     document.addEventListener("pause", this.handlePauseEvent, false);
 
     return false;
@@ -126,7 +128,23 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     return false;
   },
 
-  handleLogout: function(){
+  handleEndSessionLogoutRequested: function(){
+    console.log("conferenceManagementView.handleEndSessionLogoutRequested")
+    this.setEndSessionTime();
+    this.model.save()
+      .done(this.handleLogout)
+      .fail(this.handleEndSessionLogoutRequestedFail);
+  },
+
+  handleEndSessionLogoutRequestedFail: function(response){
+    response.description = "conferenceManagementView.handleEndSessionLogoutRequested";
+    response.request_type = "PUT";
+    response.request_resource = this.model.url();
+    App.logRemoteSaveError(response);
+    App.Dispatcher.trigger("logout");
+  },
+
+  handleLogout: function() {
     App.Dispatcher.trigger("logout");
   }
 });

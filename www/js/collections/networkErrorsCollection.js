@@ -1,12 +1,11 @@
 App.Collections.NetworkErrors = Backbone.Collection.extend({
   model: App.Models.NetworkError,
 
-  url: function(){
+  url: function() {
     return App.url + "/client_errors";
   },
 
-  local: function(){
+  local: function() {
     return App.Config.storageLocalState;
   }
-
 });

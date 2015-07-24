@@ -1,15 +1,14 @@
 App.Models.Note = Backbone.Model.extend({
-
-  urlRoot: function(){
-    return App.url + "/notes"
-  },
-
   defaults: {
     "content": "",
     "program_type": "teacher_notepad"
   },
 
-  local: function(){
+  urlRoot: function() {
+    return App.url + "/notes";
+  },
+
+  local: function() {
     return App.Config.storageLocalState;
   },
 
@@ -17,7 +16,7 @@ App.Models.Note = Backbone.Model.extend({
     var maxChars = 40;
     var content = this.get("content");
     var s = content.slice(0, maxChars);
-    if(content.length > maxChars){
+    if (content.length > maxChars) {
       s = s + "...";
     }
     return s;
@@ -29,11 +28,10 @@ App.Models.Note = Backbone.Model.extend({
   },
 
   parse: function(resp, xhr) {
-    if(!resp.note){
+    if (!resp.note) {
       return resp;
-    }else{
+    } else {
       return resp.note;
     }
   }
-
 });

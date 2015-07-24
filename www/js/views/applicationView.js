@@ -66,8 +66,14 @@ App.Views.Application = Backbone.View.extend({
     location.reload();
   },
 
-  syncDataError: function(){
+  syncDataError: function(collection, response, options, description){
     console.log("syncDataError");
+    $(App.Config.el).empty();
+    localStorage.clear();
+    this.loginView = new App.Views.Login();
+    $(App.Config.el).append(this.loginView.render().el);
+    alert("Network error. Please check your connection.");
+
   },
 
   displayLoadingScreen: function(){
@@ -95,7 +101,6 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleResumeEvent: function(){
-    // this.displayLoadingScreen();
     if(!is_browser){
       navigator.splashscreen.show();
     }

@@ -1,27 +1,23 @@
 App.Models.ConferenceSession = Backbone.Model.extend({
+  conference_id: null,
+  user_id: null,
+  context: "teacher_notepad",
+  started_at: "",
+  ended_at: "",
 
-  "conference_id":null,
-  "user_id":null,
-  "context": "teacher_notepad",
-  "started_at":"",
-  "ended_at":"",
-
-
-  urlRoot: function(){
-    return App.url +"/conference_sessions";
+  urlRoot: function() {
+    return App.url + "/conference_sessions";
   },
 
-  local: function(){
+  local: function() {
     return App.Config.storageLocalState;
   },
 
-
   parse: function(resp, xhr) {
-    if(!resp.conference_session){
+    if (!resp.conference_session) {
       return resp;
-    }else{
+    } else {
       return resp.conference_session;
     }
-  },
-
+  }
 });
