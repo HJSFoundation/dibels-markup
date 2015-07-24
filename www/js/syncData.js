@@ -11,7 +11,6 @@ App.syncData = {
 
 
     App.Config.storageLocalState = false;
-    App.database.init();
     this.fetchLocalRoster();
 
   },
@@ -19,7 +18,7 @@ App.syncData = {
   addAllToDatabase: function(collectionName) {
     _.each(App[collectionName].models, function(model) {
       App.database.create(collectionName, model);
-    })
+    });
   },
 
   addAllToCollection: function(tableName, success) {
@@ -29,7 +28,13 @@ App.syncData = {
   fetchLocalRoster: function(){
     App.roster = new App.Collections.Students();
     App.database.createTable("roster");
-    this.addAllToCollection("roster", this.fetchLocalData);
+    this.addAllToCollection("roster", this.fetchLocalStimuli);
+  },
+
+  fetchLocalStimuli: function(){
+    App.stimuli = new App.Collections.Stimuli();
+    App.database.createTable("stimuli");
+    this.addAllToCollection("stimuli", this.fetchLocalData);
   },
 
   fetchLocalData: function() {
@@ -55,8 +60,8 @@ App.syncData = {
     App.notes.fetch({ remove: false, add: true });
 
     App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
-    App.stimuli = new App.Collections.Stimuli();
-    App.stimuli.fetch({ remove: false, add: true });
+    // App.stimuli = new App.Collections.Stimuli();
+    // App.stimuli.fetch({ remove: false, add: true });
 
     App.Config.storageLocalState = false;
 
@@ -261,14 +266,7 @@ App.syncData = {
       }
     }
 
-    // App.Config.storageLocalState = true;
-    // _.each(App.roster.models, function(model) {
-    //   model.save();
-    // });
-    // App.Config.storageLocalState = false;
     this.addAllToDatabase("roster");
-
-
 
     App.Config.storageLocalState = true;
     _.each(App.conferences.models, function(model) {
@@ -276,20 +274,12 @@ App.syncData = {
     });
     App.Config.storageLocalState=false;
 
-    if (!localStorage["App.stimuli"]) {
-      App.Config.storageLocalState = true;
-      _.each(App.stimuli.models, function(model) {
-        model.save();
+    if (!localStorage.initialSyncCompleted) {
+      this.addAllToDatabase("stimuli");
+    } else if (App.resp.stimuli.length > 0) {
+      _.each(App.resp.stimuli, function(stimulus) {
+        App.database.createOrUpdate("stimuli",stimulus);
       });
-      App.Config.storageLocalState = false;
-    } else {
-      if (App.resp.stimuli.length > 0) {
-        App.Config.storageLocalState = true;
-        _.each(App.resp.stimuli, function(stimulus) {
-          App.stimuli.get(stimulus.id).save();
-        });
-        App.Config.storageLocalState = false;
-      }
     }
 
     if (localStorage.initialSyncCompleted) {
@@ -304,17 +294,12 @@ App.syncData = {
         }
       }
       this.success();
-    } else {
-      console.log("localStorage initialSync NOT Completed");
-      if (App.isOnline()) {
-        console.log("localStorage initialSync NOT Completed ONLINE");
+    } else if (App.isOnline()) {
         localStorage.initialSyncCompleted = true;
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
         this.success();
-      } else {
-        console.log("localStorage initialSync NOT Completed OFFLINE");
-        this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
-      }
+    } else {
+      this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
     }
   },
 

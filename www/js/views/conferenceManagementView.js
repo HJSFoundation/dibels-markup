@@ -36,7 +36,10 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       this.students = [];
       var user_ids = groupConference.get("user_ids");
       _.each(user_ids, function(user_id){
-        this.students.push(App.roster.findWhere({id: user_id}));
+        var studentModel = App.roster.findWhere({id: user_id});
+        if(studentModel){
+          this.students.push(studentModel);
+        }
       }, this);
 
       var groupView = this.conferenceGroups[groupConference.get("id")] = new App.Views.ConferenceGroup({model: groupConference, students: this.students});
@@ -49,7 +52,9 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
     _.each(studentConferences, function(studentConference) {
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudent({ model: studentConference});
-      this.$tbody.append(view.render().el);
+      if(view.studentModel){
+        this.$tbody.append(view.render().el);
+      }
     }, this);
 
 

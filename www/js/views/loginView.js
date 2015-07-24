@@ -39,6 +39,7 @@ App.Views.Login = Backbone.View.extend({
             App.currentTeacher = JSON.parse(localStorage.currentTeacher);
           }else{
             localStorage.clear();
+            App.database.dropTables();
             App.currentTeacher =  responseData;
           }
           App.currentTeacher.loggedIn = true;

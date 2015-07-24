@@ -5,6 +5,7 @@ App.Views.Application = Backbone.View.extend({
     this.listen();
 
     $(App.Config.el).empty();
+    App.database.init();
 
 
     if(localStorage.currentTeacher && JSON.parse(localStorage.currentTeacher).loggedIn){
@@ -70,6 +71,7 @@ App.Views.Application = Backbone.View.extend({
     console.log("syncDataError");
     $(App.Config.el).empty();
     localStorage.clear();
+    App.database.dropTables();
     this.loginView = new App.Views.Login();
     $(App.Config.el).append(this.loginView.render().el);
     alert("Network error. Please check your connection.");
