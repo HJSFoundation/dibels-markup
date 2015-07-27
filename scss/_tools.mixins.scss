@@ -25,7 +25,7 @@
     height: $width;
     fill: $fill;
   }
-  &:hover,
+  // &:hover,
   &.st-active {
     .icon-#{$name} {
       display: none;
