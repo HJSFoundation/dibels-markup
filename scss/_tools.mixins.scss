@@ -22,6 +22,7 @@
 @mixin icon-hover($name, $width, $fill, $fillHover) {
   [class*='icon-#{$name}'] {
     width: $width;
+    height: $width;
     fill: $fill;
   }
   &:hover,

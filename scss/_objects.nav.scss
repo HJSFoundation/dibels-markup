@@ -1,0 +1,53 @@
+.header--main-nav {
+  background: $white;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  width: 100%;
+}
+
+.nav--main {
+  color: $text-med-light;
+  font-size: 14px;
+  min-width: 50%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+
+  a {
+    color: $text-medium;
+    // max-width: 20%;
+
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &.st-show {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    visibility: visible;
+    z-index: 15;
+  }
+
+  .nav--main__teacher::after {
+    border-right: 1px solid $gray-light;
+    content: "";
+    height: 10px;
+    padding-right: 20px;
+  }
+}
+
+.nav--main__logo {
+  font-family: $font-primary;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: 10px;
+  text-align: right;
+
+  span {
+    color: $orange;
+  }
+}

@@ -11,6 +11,7 @@
   border-right: 1px solid lighten($matrix-tab, 20%);
   border-bottom: 1px solid lighten($matrix-tab, 10%);
   color: lighten(#000, 50%);
+  cursor: pointer;
   font-size: 13px;
   line-height: 40px;
   text-transform: uppercase;
@@ -42,8 +43,7 @@
     }
   }
 
-  &.st-active,
-  &:hover {
+  &.st-active {
     color: $white;
     background-color: $matrix-tab;
   }
@@ -55,7 +55,6 @@
     border-bottom: 0;
     border-right: 1px solid $gray-chateau;
 
-    &:hover,
     &.st-selected {
       background-color: $white;
       color: $text-dark;
@@ -93,7 +92,7 @@
    &:last-child {
       border-right: 0;
     }
-   // &:hover,
+
    &.st-active {
      background-color: $orange;
      color: $white;
@@ -125,8 +124,7 @@
    width: 100%;
    height: 100%;
 
-   &.st-active,
-   &:hover {
+   &.st-active {
      background-color: $matrix-tab;
      color: $button-text-light;
    }

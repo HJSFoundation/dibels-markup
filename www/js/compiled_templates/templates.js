@@ -5,24 +5,24 @@ this["App"]["templates"]["buttonClear"] = Handlebars.template({"compiler":[6,">=
 
   return "<button class=\"icon-text--vertical button--clear\">\n  <svg class=\"icon-clear "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\"><use xlink:href=\"#icon-clear\"></use></svg>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
+    + "\"><use xlink:href=\"/img/icons.svg#icon-clear\"></use></svg>\n  <span class=\"icon-text__title\">clear</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonCloseStory"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<svg class=\"icon-close--overlay icon-close\"><use xlink:href=\"#icon-close\"></use></svg>\n<svg class=\"icon-close--overlay icon-close-filled st-hidden\"><use xlink:href=\"#icon-close-filled\"></use></svg>\n";
+    return "<svg class=\"icon-close--overlay icon-close\"><use xlink:href=\"/img/icons.svg#icon-close\"></use></svg>\n<svg class=\"icon-close--overlay icon-close-filled st-hidden\"><use xlink:href=\"/img/icons.svg#icon-close-filled\"></use></svg>\n";
 },"useData":true});
 this["App"]["templates"]["buttonEndSession"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<button class=\"icon-text--vertical button--manage "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-end-session\"><use xlink:href=\"#icon-end-session\"></use></svg>\n  <span class=\"icon-text__title\">End Session</span>\n</button>\n\n";
+    + "\">\n  <svg class=\"icon-end-session\"><use xlink:href=\"/img/icons.svg#icon-end-session\"></use></svg>\n  <span class=\"icon-text__title\">End Session</span>\n</button>\n\n";
 },"useData":true});
 this["App"]["templates"]["buttonFlip"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<button class=\"icon-text--vertical "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + " button--flip\">\n  <svg class=\"icon-flip\"><use xlink:href=\"#icon-flip\"></use></svg>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
+    + " button--flip\">\n  <svg class=\"icon-flip\"><use xlink:href=\"/img/icons.svg#icon-flip\"></use></svg>\n  <span class=\"icon-text__title\">Flip</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonLearning"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -36,7 +36,7 @@ this["App"]["templates"]["buttonLetters"] = Handlebars.template({"compiler":[6,"
 
   return "<button class=\"icon-text--vertical button--letters "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-letters\"><use xlink:href=\"#icon-letters\"></use></svg>\n  <svg class=\"icon-letters-filled st-hidden\"><use xlink:href=\"#icon-letters-filled\"></use></svg>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-letters\"><use xlink:href=\"/img/icons.svg#icon-letters\"></use></svg>\n  <svg class=\"icon-letters-filled st-hidden\"><use xlink:href=\"/img/icons.svg#icon-letters-filled\"></use></svg>\n  <span class=\"icon-text__title\">Letters</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -46,10 +46,10 @@ this["App"]["templates"]["buttonMastered"] = Handlebars.template({"compiler":[6,
     + "\"></span>\n  <span class=\"icon-text__title\">mastered</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixClose"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-close-matrix\"></span>\n<!-- \n<button class=\"icon-text--vertical js-matrix-toggle st-hidden\">\n  <span class=\"icon icon-close-matrix \"></span>\n</button>\n -->";
+    return "<svg class=\"icon-close-matrix\"><use xlink:href=\"/img/icons.svg#icon-close-matrix\"></use></svg>";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-matrix-open\"></span>";
+    return "<svg class=\"icon-matrix-open\"><use xlink:href=\"/img/icons.svg#icon-matrix-open\"></use></svg>";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<span class=\"icon icon-triangle-down\"></span>\n";
@@ -69,37 +69,37 @@ this["App"]["templates"]["buttonPhrases"] = Handlebars.template({"compiler":[6,"
 
   return "<button class=\"icon-text--vertical "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + " button--phrases\">\n  <svg class=\"icon-phrases\"><use xlink:href=\"#icon-phrases\"></use></svg>\n  <svg class=\"icon-phrases-filled st-hidden\"><use xlink:href=\"#icon-phrases-filled\"></use></svg>\n  <span class=\"icon-text__title\">Phrases</span>\n</button>\n";
+    + " button--phrases\">\n  <svg class=\"icon-phrases\"><use xlink:href=\"/img/icons.svg#icon-phrases\"></use></svg>\n  <svg class=\"icon-phrases-filled st-hidden\"><use xlink:href=\"/img/icons.svg#icon-phrases-filled\"></use></svg>\n  <span class=\"icon-text__title\">Phrases</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonTiles"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<button class=\"icon-text--vertical button--tiles "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-tiles\"><use xlink:href=\"#icon-tiles\"></use></svg>\n  <svg class=\"icon-tiles-filled st-hidden\"><use xlink:href=\"#icon-tiles-filled\"></use></svg>\n  <span class=\"icon-text__title\">Tiles</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-tiles\"><use xlink:href=\"/img/icons.svg#icon-tiles\"></use></svg>\n  <svg class=\"icon-tiles-filled st-hidden\"><use xlink:href=\"/img/icons.svg#icon-tiles-filled\"></use></svg>\n  <span class=\"icon-text__title\">Tiles</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonTimer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<button class=\"icon-text--vertical button--timer js-buttonTimer\">\n  <svg class=\"icon-timer "
     + alias3(((helper = (helper = helpers.unfilledClass || (depth0 != null ? depth0.unfilledClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"unfilledClass","hash":{},"data":data}) : helper)))
-    + "\"><use xlink:href=\"#icon-timer\"></use></svg>\n  <svg class=\"icon-timer-filled "
+    + "\"><use xlink:href=\"/img/icons.svg#icon-timer\"></use></svg>\n  <svg class=\"icon-timer-filled "
     + alias3(((helper = (helper = helpers.filledClass || (depth0 != null ? depth0.filledClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"filledClass","hash":{},"data":data}) : helper)))
-    + "\"><use xlink:href=\"#icon-timer-filled\"></use></svg>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
+    + "\"><use xlink:href=\"/img/icons.svg#icon-timer-filled\"></use></svg>\n  <span class=\"icon-text__title\">timer</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<button class=\"icon-text--vertical button--whiteboard "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-whiteboard\"><use xlink:href=\"#icon-whiteboard\"></use></svg>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-whiteboard\"><use xlink:href=\"/img/icons.svg#icon-whiteboard\"></use></svg>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<button class=\"icon-text--vertical button--words "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-words\"><use xlink:href=\"#icon-words\"></use></svg>\n  <svg class=\"icon-words-filled st-hidden\"><use xlink:href=\"#icon-words-filled\"></use></svg>\n  <span class=\"icon-text__title\">Words</span>\n</button>\n";
+    + "\">\n  <svg class=\"icon-words\"><use xlink:href=\"/img/icons.svg#icon-words\"></use></svg>\n  <svg class=\"icon-words-filled st-hidden\"><use xlink:href=\"/img/icons.svg#icon-words-filled\"></use></svg>\n  <span class=\"icon-text__title\">Words</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["conferenceGroup"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -282,7 +282,7 @@ this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,
     return "  <div class=\"grid-cell js-buttonMastered\"></div>\n  <div class=\"grid-cell js-buttonLearning\"></div>\n  <div class=\"grid-cell js-buttonNeedsWork\"></div>\n  <div class=\"grid-cell js-buttonClear\"></div>\n";
 },"useData":true});
 this["App"]["templates"]["navMain"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<button class=\"button--drawer-toggle js-menuToggle\"><i class=\"icon-menu-toggle\"></i></button>\n<nav class=\"nav--main grid grid--center u-text-center js-mainNav\">\n  <div class=\"nav--main__manage grid-cell\">\n    <a href=\"#\" class=\"js-manageButton\">manage sessions</a>\n  </div>\n  <div class=\"nav--main__logout grid-cell\">\n    <a href=\"#\" class=\"js-logout\">log out</a>\n  </div>\n\n\n</nav>\n";
+    return "<button class=\"button--drawer-toggle js-menuToggle\">\n  <svg class=\"icon-menu-toggle\"><use xlink:href=\"/img/icons.svg#icon-menu-toggle\"></use></svg>\n  </button>\n<nav class=\"nav--main grid grid--center u-text-center js-mainNav\">\n  <div class=\"nav--main__manage grid-cell\">\n    <a href=\"#\" class=\"js-manageButton\">manage sessions</a>\n  </div>\n  <div class=\"nav--main__logout grid-cell\">\n    <a href=\"#\" class=\"js-logout\">log out</a>\n  </div>\n\n\n</nav>\n";
 },"useData":true});
 this["App"]["templates"]["readingStrategies"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;

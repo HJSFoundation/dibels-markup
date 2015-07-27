@@ -26,6 +26,7 @@
     padding: 10px 0 10px 10px;
     background: darken($iron, 10%);
     border-bottom: 1px solid $white;
+    cursor: pointer;
 
     &.st-selected {
       background: $white;
