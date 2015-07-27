@@ -44,9 +44,6 @@ App.Views.Application = Backbone.View.extend({
     if(!localStorage.initialSyncCompleted){
       this.displayLoadingScreen();
     }
-    // if(!is_browser){
-    //   navigator.splashscreen.hide();
-    // }
 
     Backbone.DualStorage.offlineStatusCodes = function(xhr) {
       var codes = [];
@@ -94,7 +91,6 @@ App.Views.Application = Backbone.View.extend({
     if(!is_browser){
       navigator.splashscreen.hide();
     }
-    // this.loadingScreen.removeView();
     if(this.loginView){
       this.loginView.remove();
     }

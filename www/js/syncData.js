@@ -25,12 +25,14 @@ App.syncData = {
     App.database.readAll(tableName, success);
   },
 
+  // TODO discover why calling this.addAllToCollection breaks spec. Possibly _bindAll?
   fetchLocalRoster: function(){
     App.roster = new App.Collections.Students();
     App.database.createTable("roster");
     this.addAllToCollection("roster", this.fetchLocalStimuli);
   },
 
+  // TODO discover why calling this.addAllToCollection breaks spec. Possibly _bindAll?
   fetchLocalStimuli: function(){
     App.stimuli = new App.Collections.Stimuli();
     App.database.createTable("stimuli");
@@ -46,9 +48,6 @@ App.syncData = {
     App.userReadingStages = new App.Collections.UserReadingStages();
     App.userReadingStages.fetch({ remove: false, add: true });
 
-    // App.roster = new App.Collections.Students();
-    // App.roster.fetch({ remove: false, add: true });
-
     App.conferences = new App.Collections.Conferences();
     App.conferences.fetch({ remove: false, add: true });
 
@@ -60,8 +59,6 @@ App.syncData = {
     App.notes.fetch({ remove: false, add: true });
 
     App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
-    // App.stimuli = new App.Collections.Stimuli();
-    // App.stimuli.fetch({ remove: false, add: true });
 
     App.Config.storageLocalState = false;
 

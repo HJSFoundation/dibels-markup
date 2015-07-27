@@ -28,12 +28,12 @@ before(function() {
   };
   this.timeout(10000);
 
-  initializeTestData();
 
-  is_browser =
-    (window.location.href.indexOf("localhost:9876") > -1) ||
-    (window.location.href.indexOf("localhost:3333") > -1) ||
-    (window.location.href.indexOf("amazonaws") > -1);
+  is_browser = (typeof cordova == "undefined" );
+
+  App.syncData = {initialize:  function(){}};
+
+  initializeTestData();
 
 });
 
@@ -55,6 +55,8 @@ function initializeTestData (){
   App.url = "http://tutormate.org/api/v1";
 
   App.currentTeacher = {id: 313, classroom_id: 91};
+
+  App.database.init();
 
   App.notes = new App.Collections.Notes();
 
