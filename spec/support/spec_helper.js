@@ -32,8 +32,18 @@ before(function() {
   is_browser = (typeof cordova == "undefined" );
 
   App.syncData = {initialize:  function(){}};
+  App.database = {
+    init: function(){},
+    dropTables: function(){},
+    createTable: function(){},
+    create: function(){},
+    readAll: function(){},
+    update: function(){},
+    createOrUpdate: function(){},
+  };
 
   initializeTestData();
+  initializeTestStimuliData();
 
 });
 
@@ -56,7 +66,6 @@ function initializeTestData (){
 
   App.currentTeacher = {id: 313, classroom_id: 91};
 
-  App.database.init();
 
   App.notes = new App.Collections.Notes();
 
@@ -137,6 +146,9 @@ function initializeTestData (){
   });
 
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
+}
+
+function initializeTestStimuliData (){
 
   App.stimuli = new App.Collections.Stimuli();
   App.roster.each(function(student) {

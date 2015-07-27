@@ -38,6 +38,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       changed_at: App.newISODate()
     });
     App.userReadingStages.add(model);
+    // TODO write spec and test error handling
 
     model.save()
       .done(this.updateUser)
@@ -46,8 +47,13 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
   updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");
-    App.roster.fetch()
-      .fail(this.updateLocalUserFetch);
+    // TODO test error handling
+    // App.roster.fetch()
+    //   .fail(this.updateLocalUserFetch);
+    App.roster.fetch(
+      {
+        error: this.updateLocalUserFetch
+      });
   },
 
   updateLocalUser: function(response) {
