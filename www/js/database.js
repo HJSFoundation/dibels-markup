@@ -50,7 +50,7 @@ App.database = {
     this.db.transaction(function (tx) {
       var query = "SELECT  JSONString FROM " + tableName + " WHERE id = " + id;
       tx.executeSql(query, [], function(tx, results){
-        result = results.rows.item(0).JSONString;
+        var result = results.rows.item(0).JSONString;
         console.log("read result:" + result);
       });
     });
@@ -73,6 +73,6 @@ App.database = {
       });
     }
   }
-}
+};
 
 
