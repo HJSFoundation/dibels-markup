@@ -47,22 +47,19 @@ button,
   }
 }
 
-.button--drawer-toggle {
+.button--drawer-toggle{
   @extend %button;
   font-size: 26px;
   text-align: center;
   margin-right: 30px;
   z-index: 100;
-  color: $menu-button;
-  line-height: 50px;
   height: 50px;
   width: 50px;
 
-  &.st-closed {
-      color: lighten(#000, 50%);
-  }
-  &.st-open {
-      color: #fff;
+  .icon-menu-toggle {
+    fill: $menu-button;
+    width: 26px;
+    height: 100%;
   }
 }
 

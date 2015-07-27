@@ -2,20 +2,20 @@
 .header--main-nav {
   background: $white;
   height: 50px;
-  position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
+  position: absolute;
   text-transform: uppercase;
+  top: 0;
+  width: 100%;
 }
 
 .nav--main {
-  font-size: 14px;
   color: $text-med-light;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
+  font-size: 14px;
   min-width: 50%;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
 
   a {
     color: $text-medium;
@@ -27,26 +27,26 @@
   }
 
   &.st-show {
-    visibility: visible;
     opacity: 1;
     transition: all 0.5s ease-in-out;
+    visibility: visible;
     z-index: 200;
   }
 
   .nav--main__teacher::after {
+    border-right: 1px solid $gray-light;
     content: "";
     height: 10px;
     padding-right: 20px;
-    border-right: 1px solid $gray-light;
   }
 }
 
 .nav--main__logo {
-  margin-left: auto;
-  text-align: right;
-  font-size: 16px;
   font-family: $font-primary;
+  font-size: 16px;
+  margin-left: auto;
   margin-right: 10px;
+  text-align: right;
 
   span {
     color: $orange;
@@ -56,26 +56,24 @@
 // ---------------------------------
 
 .table__wrapper {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   height: 668px;
+  left: 0;
+  overflow-y: scroll;
+  position: absolute;
+  top: 100px;
 
   &.table__wrapper--student {
-    top: 110px;
     height: 658px;
-  // student-tab todo
-    // top: 50px;
-    // height: 678px;
+    top: 110px;
+
   }
 }
 
 .table__wrapper__header {
+  left: 0;
   position: absolute;
   top: 50px;
-  left: 0;
 
   &.table__wrapper__header--student {
     top: 60px;
@@ -88,10 +86,10 @@
   background: $white;
   border-collapse: collapse;
   border-spacing: 0;
+  overflow: auto;
+  position: relative;
   table-layout: fixed;
   text-transform: uppercase;
-  position: relative;
-  overflow: auto;
 
   .table-column {
     text-align: center;
@@ -113,14 +111,14 @@
 
   .session-cell--spacer {
     background-color: $gray-light;
-    width: 10px!important;
     border-bottom: 1px solid transparent;
+    width: 10px!important;
   }
 
   .session-cell--manage {
-    font-size: 14px;
-    cursor: pointer;
     color: $orange;
+    cursor: pointer;
+    font-size: 14px;
   }
 
   thead {
@@ -152,8 +150,8 @@
   }
 
   tbody {
-    font-size: 20px;
     font-family: $font-primary-semibold;
+    font-size: 20px;
     overflow: auto;
 
     tr {
@@ -172,7 +170,7 @@
     .icon-student-group {
       display: block;
       fill: $orange;
-      height: auto;
+      height: 100%;
       margin: 0 auto;
       text-align: center;
     }
@@ -210,11 +208,11 @@
     select {
       -webkit-appearance: none;
       -webkit-border-radius: 0px;
-      font-size: inherit;
-      font-family: inherit;
       background-color: inherit;
-      color: inherit;
       border: 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
     }
   }
 
@@ -236,6 +234,7 @@
 
     .icon-add {
       fill: white;
+      height: 100%;
       margin-right: 3px;
       vertical-align: middle;
       width: 20px;
