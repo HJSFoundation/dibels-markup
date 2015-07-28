@@ -38,6 +38,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       changed_at: App.newISODate()
     });
     App.userReadingStages.add(model);
+    // TODO write spec and test error handling
 
     model.save()
       .done(this.updateUser)
@@ -46,8 +47,13 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
   updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");
-    App.roster.fetch()
-      .fail(this.updateLocalUserFetch);
+    // TODO test error handling
+    // App.roster.fetch()
+    //   .fail(this.updateLocalUserFetch);
+    App.roster.fetch(
+      {
+        error: this.updateLocalUserFetch
+      });
   },
 
   updateLocalUser: function(response) {
@@ -55,9 +61,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     response.request_type = "POST";
     response.request_resource = new App.Models.UserReadingStages().url();
     App.logRemoteSaveError(response);
-    App.Config.storageLocalState = true;
-    App.selectedStudent.save();
-    App.Config.storageLocalState = false;
+    App.database.update("roster", App.selectedStudent);
   },
 
   updateLocalUserFetch: function(response) {
@@ -65,8 +69,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     response.request_type = "GET";
     response.request_resource = new App.Collections.UserReadingStages().url();
     App.logRemoteSaveError(response);
-    App.Config.storageLocalState = true;
-    App.selectedStudent.save();
-    App.Config.storageLocalState = false;
+    App.database.update("roster", App.selectedStudent);
   }
 });

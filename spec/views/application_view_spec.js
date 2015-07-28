@@ -122,7 +122,7 @@ describe('App.Views.Application', function() {
 
   describe("#removeLogin", function() {
     it("removes the Login View", function() {
-      this.timeout(10000);
+      this.timeout(15000);
       initializeTestData();
 
       subject.displayLoadingScreen();

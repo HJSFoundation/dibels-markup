@@ -11,5 +11,12 @@ App.Models.Stimulus = Backbone.Model.extend({
 
   local: function() {
     return App.Config.storageLocalState;
+  },
+
+  sync: function(method, model, options){
+    if(method==="update"){
+      App.database.update("stimuli", model);
+    }
+    return Backbone.sync(method, model, options);
   }
 });

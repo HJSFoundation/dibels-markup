@@ -45,6 +45,8 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
       App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);
 
+      // TODO write spec and test error handling
+
       this.model.save(null, {
         description:"editStudentNotesArticleView.handleBlur",
         request_type: request_type,
