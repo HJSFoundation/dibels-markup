@@ -56,7 +56,17 @@ App.Views.Application = Backbone.View.extend({
     }
 
 
-    App.syncData.initialize(this.removeLogin, this.syncDataError);
+    $.ajax({
+      type: 'GET',
+      url: App.url + '/classrooms/' + App.currentTeacher.classroom_id,
+      crossDomain: true,
+      success: function(responseData) {
+        App.syncData.initialize(App.applicationView.removeLogin, App.applicationView.syncDataError);
+      },
+      error: function(responseData) {
+        App.applicationView.redirectToLogin("Please log in again. Status: " + responseData.status);
+      }
+    });
   },
 
   handleLogout: function(){
@@ -64,6 +74,12 @@ App.Views.Application = Backbone.View.extend({
     App.currentTeacher.loggedIn = false;
     localStorage.currentTeacher = JSON.stringify(App.currentTeacher);
     location.reload();
+  },
+
+  redirectToLogin: function(msg){
+    this.loginView = new App.Views.Login();
+    $(App.Config.el).append(this.loginView.render().el);
+    alert(msg);
   },
 
   syncDataError: function(collection, response, options, description){
@@ -75,10 +91,7 @@ App.Views.Application = Backbone.View.extend({
     $(App.Config.el).empty();
     localStorage.clear();
     App.database.dropTables();
-    this.loginView = new App.Views.Login();
-    $(App.Config.el).append(this.loginView.render().el);
-    alert("Network error. Please check your connection.");
-
+    this.redirectToLogin("Network error. Please check your connection.");
   },
 
   displayLoadingScreen: function(){

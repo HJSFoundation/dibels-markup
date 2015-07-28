@@ -188,14 +188,14 @@ describe('App.Views.ConferenceManagement', function() {
       App.applicationView = {handleResumeEvent: function(){}};
     });
 
-    xit("calls setEndSessionTime", function() {
+    it("calls setEndSessionTime", function() {
       subject.setStartSessionTime();
       sinon.spy(subject, "setEndSessionTime");
       subject.handleEndSessionRequested();
       expect(subject.setEndSessionTime).to.have.been.called;
     });
 
-    xit("calls the handleResumeEvent", function() {
+    it("calls the handleResumeEvent", function() {
       sinon.spy(App.applicationView, "handleResumeEvent");
       subject.setStartSessionTime();
       subject.handleEndSessionRequested();

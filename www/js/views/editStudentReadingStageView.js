@@ -61,10 +61,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     response.request_type = "POST";
     response.request_resource = new App.Models.UserReadingStages().url();
     App.logRemoteSaveError(response);
-    //TODO replace with db record update call
-    // App.Config.storageLocalState = true;
-    // App.selectedStudent.save();
-    // App.Config.storageLocalState = false;
     App.database.update("roster", App.selectedStudent);
   },
 
@@ -73,9 +69,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     response.request_type = "GET";
     response.request_resource = new App.Collections.UserReadingStages().url();
     App.logRemoteSaveError(response);
-    // App.Config.storageLocalState = true;
-    // App.selectedStudent.save();
-    // App.Config.storageLocalState = false;
     App.database.update("roster", App.selectedStudent);
   }
 });
