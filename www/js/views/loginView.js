@@ -38,7 +38,9 @@ App.Views.Login = Backbone.View.extend({
           if(localStorage.currentTeacher && that.teachersMatch(responseData) && localStorage.initialSyncCompleted){
             App.currentTeacher = JSON.parse(localStorage.currentTeacher);
           }else{
+            console.log("teachers do not match");
             localStorage.clear();
+            App.database.dropTables();
             App.currentTeacher =  responseData;
           }
           App.currentTeacher.loggedIn = true;
@@ -64,7 +66,9 @@ App.Views.Login = Backbone.View.extend({
 
   teachersMatch: function(teacher){
     var oldTeacher = JSON.parse(localStorage.currentTeacher);
-    return ((oldTeacher.id === teacher.id) && (oldTeacher.email === teacher.email));
+    return ((oldTeacher.id === teacher.id)
+      && (oldTeacher.email === teacher.email)
+      && (oldTeacher.token === teacher.token));
   },
 
   handleLoginSuccess: function() {

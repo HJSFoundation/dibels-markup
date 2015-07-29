@@ -5,6 +5,7 @@ App.Views.Application = Backbone.View.extend({
     this.listen();
 
     $(App.Config.el).empty();
+    App.database.init();
 
 
     if(localStorage.currentTeacher && JSON.parse(localStorage.currentTeacher).loggedIn){
@@ -40,9 +41,8 @@ App.Views.Application = Backbone.View.extend({
   handleLoggedIn: function() {
 
     $.ajaxSetup({beforeSend:this.sendAuthentication});
-    this.displayLoadingScreen();
-    if(!is_browser){
-      navigator.splashscreen.hide();
+    if(!localStorage.initialSyncCompleted){
+      this.displayLoadingScreen();
     }
 
     Backbone.DualStorage.offlineStatusCodes = function(xhr) {
@@ -56,7 +56,17 @@ App.Views.Application = Backbone.View.extend({
     }
 
 
-    App.syncData.initialize(this.removeLogin, this.syncDataError);
+    $.ajax({
+      type: 'GET',
+      url: App.url + '/classrooms/' + App.currentTeacher.classroom_id,
+      crossDomain: true,
+      success: function(responseData) {
+        App.syncData.initialize(App.applicationView.removeLogin, App.applicationView.syncDataError);
+      },
+      error: function(responseData) {
+        App.applicationView.redirectToLogin("Please log in again. Status: " + responseData.status);
+      }
+    });
   },
 
   handleLogout: function(){
@@ -66,14 +76,22 @@ App.Views.Application = Backbone.View.extend({
     location.reload();
   },
 
+  redirectToLogin: function(msg){
+    this.loginView = new App.Views.Login();
+    $(App.Config.el).append(this.loginView.render().el);
+    alert(msg);
+  },
+
   syncDataError: function(collection, response, options, description){
+    if(!is_browser){
+      navigator.splashscreen.hide();
+    }
+
     console.log("syncDataError");
     $(App.Config.el).empty();
     localStorage.clear();
-    this.loginView = new App.Views.Login();
-    $(App.Config.el).append(this.loginView.render().el);
-    alert("Network error. Please check your connection.");
-
+    App.database.dropTables();
+    this.redirectToLogin("Network error. Please check your connection.");
   },
 
   displayLoadingScreen: function(){
@@ -81,8 +99,11 @@ App.Views.Application = Backbone.View.extend({
   },
 
   removeLogin: function() {
+
     console.log("removeLogin");
-    this.loadingScreen.removeView();
+    if(!is_browser){
+      navigator.splashscreen.hide();
+    }
     if(this.loginView){
       this.loginView.remove();
     }

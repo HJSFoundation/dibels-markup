@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -60,6 +64,9 @@
             "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
         },
         "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
+        },
+        "io.litehelpers.cordova.sqlite": {
             "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
         },
         "io.litehelpers.cordova.sqlite": {

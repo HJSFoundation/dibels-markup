@@ -19,9 +19,12 @@ App.Collections.Notes = Backbone.Collection.extend({
     if (this.local()) {
       App.resp.notes = [];
       return resp;
-    } else {
+    } else if (typeof resp.notes !== "undefined") {
       App.resp.notes = resp.notes;
       return resp.notes;
+    } else {
+      App.resp.notes = [];
+      return App.resp.notes;
     }
   }
 });

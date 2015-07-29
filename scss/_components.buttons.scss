@@ -216,7 +216,7 @@ button,
 
   .icon-close--overlay {
     bottom: 0;
-    height: 45px;
+    height: auto;
     left: 0;
     margin: auto;
     position: absolute;
@@ -226,14 +226,18 @@ button,
   }
   .icon-close {
     display: inline-block;
+    height: auto;
   }
 
-  &:hover {
-    .icon-close {
-      display: none;
-    }
-    .icon-close-filled {
-      display: inline-block;
-    }
-  }
+  // &:hover {
+  //   &:before {
+  //     background: $white;
+  //   }
+  //   .icon-close {
+  //     display: none;
+  //   }
+  //   .icon-close-filled {
+  //     display: inline-block;
+  //   }
+  // }
 }

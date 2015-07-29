@@ -36,7 +36,10 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       this.students = [];
       var user_ids = groupConference.get("user_ids");
       _.each(user_ids, function(user_id){
-        this.students.push(App.roster.findWhere({id: user_id}));
+        var studentModel = App.roster.findWhere({id: user_id});
+        if(studentModel){
+          this.students.push(studentModel);
+        }
       }, this);
 
       var groupView = this.conferenceGroups[groupConference.get("id")] = new App.Views.ConferenceGroup({model: groupConference, students: this.students});
@@ -49,7 +52,9 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
     _.each(studentConferences, function(studentConference) {
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudent({ model: studentConference});
-      this.$tbody.append(view.render().el);
+      if(view.studentModel){
+        this.$tbody.append(view.render().el);
+      }
     }, this);
 
 
@@ -67,12 +72,21 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       "client_updated_at": startAndUpdatedAtDate
     });
     App.conferenceSessions.add(this.model);
+    // TODO test error handling
+    // this.model.save(null, {
+    //   description:"conferenceManagementView.setStartSessionTime",
+    //   request_type: "POST",
+    //   request_resource: this.model.url()
+    // })
+    //   .fail(App.logRemoteSaveError);
     this.model.save(null, {
       description:"conferenceManagementView.setStartSessionTime",
       request_type: "POST",
       request_resource: this.model.url()
+    },
+    {
+      error: App.logRemoteSaveError
     })
-      .fail(App.logRemoteSaveError);
   },
 
   setEndSessionTime: function(){
@@ -97,16 +111,25 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   handlePauseEvent: function(){
     this.setEndSessionTime();
+    // TODO test error handling
+    // this.model.save(null, {
+    //   description:"conferenceManagementView.handlePauseEvent",
+    //   request_type: "PUT",
+    //   request_resource: this.model.url()
+    // })
+    //   .fail(App.logRemoteSaveError);
     this.model.save(null, {
       description:"conferenceManagementView.handlePauseEvent",
       request_type: "PUT",
       request_resource: this.model.url()
-    })
-      .fail(App.logRemoteSaveError);
-
+    },
+    {
+      error: App.logRemoteSaveError
+    });
   },
 
   handleEndSessionRequested: function() {
+    // TODO write spec and test error handling
     this.setEndSessionTime();
     this.model.save()
       .done(App.applicationView.handleResumeEvent)
@@ -131,6 +154,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   handleEndSessionLogoutRequested: function(){
     console.log("conferenceManagementView.handleEndSessionLogoutRequested")
     this.setEndSessionTime();
+    // TODO write spec and test error handling
     this.model.save()
       .done(this.handleLogout)
       .fail(this.handleEndSessionLogoutRequestedFail);

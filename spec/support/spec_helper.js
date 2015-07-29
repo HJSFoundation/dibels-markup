@@ -28,12 +28,22 @@ before(function() {
   };
   this.timeout(10000);
 
-  initializeTestData();
 
-  is_browser =
-    (window.location.href.indexOf("localhost:9876") > -1) ||
-    (window.location.href.indexOf("localhost:3333") > -1) ||
-    (window.location.href.indexOf("amazonaws") > -1);
+  is_browser = (typeof cordova == "undefined" );
+
+  App.syncData = {initialize:  function(){}};
+  App.database = {
+    init: function(){},
+    dropTables: function(){},
+    createTable: function(){},
+    create: function(){},
+    readAll: function(){},
+    update: function(){},
+    createOrUpdate: function(){},
+  };
+
+  initializeTestData();
+  initializeTestStimuliData();
 
 });
 
@@ -55,6 +65,7 @@ function initializeTestData (){
   App.url = "http://tutormate.org/api/v1";
 
   App.currentTeacher = {id: 313, classroom_id: 91};
+
 
   App.notes = new App.Collections.Notes();
 
@@ -135,6 +146,9 @@ function initializeTestData (){
   });
 
   App.selectedStimulus = new App.Models.Stimulus({skill: "letter_names", value: "a"});
+}
+
+function initializeTestStimuliData (){
 
   App.stimuli = new App.Collections.Stimuli();
   App.roster.each(function(student) {

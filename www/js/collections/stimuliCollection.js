@@ -34,11 +34,14 @@ App.Collections.Stimuli = Backbone.Collection.extend({
     if (this.local()) {
       App.resp.stimuli = [];
       return resp;
-    } else {
+    } else if (typeof resp.stimuli.length !== "undefined") {
       this.currentResponseLength = resp.stimuli.length;
       App.resp.stimuli = App.resp.stimuli.concat(resp.stimuli);
       this.page += 1;
       return resp.stimuli;
+    } else {
+      App.resp.stimuli = [];
+      return App.resp.stimuli;
     }
   }
 });
