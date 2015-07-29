@@ -22,8 +22,8 @@
 @mixin icon-hover($name, $width, $fill, $fillHover) {
   [class*='icon-#{$name}'] {
     width: $width;
-    height: $width;
-    fill: $fill;
+    height: auto;
+    // fill: $fill;
   }
   // &:hover,
   &.st-active {
@@ -32,7 +32,7 @@
     }
     .icon-#{$name}-filled {
       display: inline-block;
-      fill: $fillHover;
+      // fill: $fillHover;
     }
   }
 }

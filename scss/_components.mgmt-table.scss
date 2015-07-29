@@ -20,8 +20,6 @@
 
   &.table__wrapper__header--student {
     top: 60px;
-  // student-tab todo - change this to 0px
-    // top: 0px;
   }
 }
 
@@ -116,6 +114,7 @@
       height: 100%;
       margin: 0 auto;
       text-align: center;
+      height: auto;
     }
 
     .icon-student {

@@ -57,30 +57,31 @@ button,
   width: 50px;
 
   .icon-menu-toggle {
-    fill: $menu-button;
+    // fill: $menu-button;
     width: 26px;
-    height: 100%;
+    height: auto;
   }
 }
 
 .button--matrix-toggle {
   flex: none;
   cursor: pointer;
+  width: 100px;
 
   .icon-close-matrix,
   .icon-matrix-open {
-    width: 100px;
+    width: 40px;
     font-size: 32px;
     display: block;
-    height: 32px;
-    margin-top: 5px;
-    
+    height: auto;
+    margin: 0 auto;
+
   }
   .icon-close-matrix {
-    fill: gray;
+    // fill: gray;
   }
   .icon-matrix-open {
-    fill: $button-text-dark;
+    // fill: $button-text-dark;
   }
 
   &.button--matrix-toggle--open {

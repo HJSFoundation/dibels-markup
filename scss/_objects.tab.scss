@@ -35,8 +35,15 @@
   .menu__icon {
     fill: $white;
     width: 20%;
-    height: 25px;
+    height: 40px;
     margin-left: auto;
+
+    .icon-edit,
+    .icon-close {
+      width: 24px;
+      height: auto;
+      vertical-align: middle;
+    }
 
     &.icon-close::before {
       vertical-align: middle;
@@ -80,8 +87,7 @@
 
    .icon-edit {
      opacity: 0;
-     height: 25px;
-     fill: $white;
+     height: auto;
      transition-property: opacity;
      transition-duration: 0.2s;
      transition-timing-function: linear;
