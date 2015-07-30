@@ -9,15 +9,15 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
                         {
@@ -50,13 +50,13 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ifl.teachernotepad2"
-        },
-        "cordova-plugin-network-information": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
         },
-        "cordova-plugin-device": {
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
         },
         "cordova-plugin-splashscreen": {

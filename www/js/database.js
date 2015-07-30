@@ -23,11 +23,25 @@ App.database = {
     });
   },
 
+  createSuccess: function(){
+
+  },
+
+  createError: function(result, error){
+    console.log("App.database.createError: code:"+error.code+" msg: "+error.message);
+  },
+
+  escapeSingleQuotes: function(inputObject){
+    return JSON.stringify(inputObject).replace(/'/g, "''");
+  },
+
   create: function(tableName, object) {
     if(object.id){
+      var escapedObject  = this.escapeSingleQuotes(object);
+      console.log("App.database.create object: "+escapedObject);
       this.db.transaction(function (tx) {
-        var query = "INSERT INTO " + tableName + " (id , JSONString) VALUES (" + object.id + ",'" + JSON.stringify(object) + "')";
-        tx.executeSql(query);
+        var query = "INSERT INTO " + tableName + " (id, JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
+        tx.executeSql(query,[],App.database.createSuccess,App.database.createError);
       });
     }
   },
@@ -38,7 +52,7 @@ App.database = {
       tx.executeSql(query, [], function(tx, results){
         var models = [];
         for(var i = 0 ; i < results.rows.length; i+=1){
-          models.push(JSON.parse(results.rows.item(i).JSONString));
+          models.push(JSON.parse(decodeURI(results.rows.item(i).JSONString)));
         }
         App[tableName].reset(models);
         success();
@@ -50,15 +64,17 @@ App.database = {
     this.db.transaction(function (tx) {
       var query = "SELECT  JSONString FROM " + tableName + " WHERE id = " + id;
       tx.executeSql(query, [], function(tx, results){
-        var result = results.rows.item(0).JSONString;
+        var result = decodeURI(results.rows.item(0).JSONString);
         console.log("read result:" + result);
       });
     });
   },
 
   update: function(tableName, object) {
+    var escapedObject  = this.escapeSingleQuotes(object);
+
     this.db.transaction(function (tx) {
-      var query = "UPDATE " + tableName + " SET JSONString = '" + JSON.stringify(object) + "' WHERE id = " + object.get("id");
+      var query = "UPDATE " + tableName + " SET JSONString = '" + escapedObject + "' WHERE id = " + object.get("id");
       tx.executeSql(query, [], function(tx, results){
         console.log("update result:" + results);
       });
@@ -67,8 +83,11 @@ App.database = {
 
   createOrUpdate: function(tableName, object) {
     if(object.id){
+
+      var escapedObject  = this.escapeSingleQuotes(object);
+
       this.db.transaction(function (tx) {
-        var query = "INSERT OR REPLACE INTO " + tableName + " (id , JSONString) VALUES (" + object.id + ",'" + JSON.stringify(object) + "')";
+        var query = "INSERT OR REPLACE INTO " + tableName + " (id , JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
         tx.executeSql(query);
       });
     }

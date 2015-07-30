@@ -11,7 +11,7 @@ App.syncData = {
 
 
     App.Config.storageLocalState = false;
-    this.fetchLocalRoster();
+    this.populateRosterFromDatabase();
 
   },
 
@@ -21,17 +21,23 @@ App.syncData = {
     });
   },
 
+  createOrUpdateAllToDatabase: function(collectionName) {
+    _.each(App[collectionName].models, function(model) {
+      App.database.createOrUpdate(collectionName, model);
+    });
+  },
+
   addAllToCollection: function(tableName, success) {
     App.database.readAll(tableName, success);
   },
 
-  fetchLocalRoster: function(){
+  populateRosterFromDatabase: function(){
     App.roster = new App.Collections.Students();
     App.database.createTable("roster");
-    this.addAllToCollection("roster", this.fetchLocalStimuli);
+    this.addAllToCollection("roster", this.populateStimuliFromDatabase);
   },
 
-  fetchLocalStimuli: function(){
+  populateStimuliFromDatabase: function(){
     App.stimuli = new App.Collections.Stimuli();
     App.database.createTable("stimuli");
     this.addAllToCollection("stimuli", this.fetchLocalData);
@@ -204,6 +210,8 @@ App.syncData = {
   },
 
   fetchStimuliSuccess: function() {
+    console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
+    console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
     if (App.stimuli.isError()) {
       this.initializeStimuliCollectionPageFail();
     } else {
@@ -261,7 +269,7 @@ App.syncData = {
       }
     }
 
-    this.addAllToDatabase("roster");
+    this.createOrUpdateAllToDatabase("roster");
 
     App.Config.storageLocalState = true;
     _.each(App.conferences.models, function(model) {
