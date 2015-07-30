@@ -38,7 +38,6 @@ App.database = {
   create: function(tableName, object) {
     if(object.id){
       var escapedObject  = this.escapeSingleQuotes(object);
-      console.log("App.database.create object: "+escapedObject);
       this.db.transaction(function (tx) {
         var query = "INSERT INTO " + tableName + " (id, JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
         tx.executeSql(query,[],App.database.createSuccess,App.database.createError);

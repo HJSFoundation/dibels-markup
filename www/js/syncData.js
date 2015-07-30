@@ -205,7 +205,7 @@ App.syncData = {
       success: this.fetchStimuliSuccess,
       error: this.initializeStimuliCollectionFail,
       remove: false,
-      add: true
+      add: true,
      });
   },
 
@@ -214,12 +214,11 @@ App.syncData = {
     console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
     if (App.stimuli.isError()) {
       this.initializeStimuliCollectionPageFail();
+    } else if (App.stimuli.isComplete()) {
+
+      this.initializeStimuliCollectionSuccess();
     } else {
-      if (App.stimuli.isComplete()) {
-        this.initializeStimuliCollectionSuccess();
-      } else {
-        this.fetchStimuli();
-      }
+      this.fetchStimuli();
     }
   },
 
