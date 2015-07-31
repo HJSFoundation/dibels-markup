@@ -11,7 +11,7 @@ App.syncData = {
 
 
     App.Config.storageLocalState = false;
-    this.fetchLocalRoster();
+    this.populateRosterFromDatabase();
 
   },
 
@@ -21,17 +21,23 @@ App.syncData = {
     });
   },
 
+  createOrUpdateAllToDatabase: function(collectionName) {
+    _.each(App[collectionName].models, function(model) {
+      App.database.createOrUpdate(collectionName, model);
+    });
+  },
+
   addAllToCollection: function(tableName, success) {
     App.database.readAll(tableName, success);
   },
 
-  fetchLocalRoster: function(){
+  populateRosterFromDatabase: function(){
     App.roster = new App.Collections.Students();
     App.database.createTable("roster");
-    this.addAllToCollection("roster", this.fetchLocalStimuli);
+    this.addAllToCollection("roster", this.populateStimuliFromDatabase);
   },
 
-  fetchLocalStimuli: function(){
+  populateStimuliFromDatabase: function(){
     App.stimuli = new App.Collections.Stimuli();
     App.database.createTable("stimuli");
     this.addAllToCollection("stimuli", this.fetchLocalData);
@@ -199,19 +205,32 @@ App.syncData = {
       success: this.fetchStimuliSuccess,
       error: this.initializeStimuliCollectionFail,
       remove: false,
-      add: true
+      add: true,
      });
   },
 
+  addStimuliPageToDatabase: function(){
+    var models = _.clone(App.resp.stimuli);
+    _.each(models, function(model) {
+      App.database.create("stimuli", model, this.decrementTotalCount);
+    }, this);
+  },
+
+  decrementTotalCount: function(){
+    App.stimuli.totalCount = Math.max(App.stimuli.totalCount-1, 0);
+  },
+
   fetchStimuliSuccess: function() {
+    console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
+    console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
+
     if (App.stimuli.isError()) {
       this.initializeStimuliCollectionPageFail();
+    } else if (App.stimuli.isComplete()) {
+      this.initializeStimuliCollectionSuccess();
     } else {
-      if (App.stimuli.isComplete()) {
-        this.initializeStimuliCollectionSuccess();
-      } else {
-        this.fetchStimuli();
-      }
+      this.addStimuliPageToDatabase();
+      this.fetchStimuli();
     }
   },
 
@@ -261,7 +280,7 @@ App.syncData = {
       }
     }
 
-    this.addAllToDatabase("roster");
+    this.createOrUpdateAllToDatabase("roster");
 
     App.Config.storageLocalState = true;
     _.each(App.conferences.models, function(model) {
@@ -269,13 +288,8 @@ App.syncData = {
     });
     App.Config.storageLocalState=false;
 
-    if (!localStorage.initialSyncCompleted) {
-      this.addAllToDatabase("stimuli");
-    } else if (App.resp.stimuli.length > 0) {
-      _.each(App.resp.stimuli, function(stimulus) {
-        App.database.createOrUpdate("stimuli",stimulus);
-      });
-    }
+    console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
+    console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
 
     if (localStorage.initialSyncCompleted) {
       console.log("localStorage.initialSyncCompleted");
@@ -292,9 +306,17 @@ App.syncData = {
     } else if (App.isOnline()) {
         localStorage.initialSyncCompleted = true;
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
-        this.success();
+        this.stimuliInterval = setInterval(this.checkStimuliDone, 1000);
     } else {
       this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
+    }
+  },
+
+  checkStimuliDone: function(){
+    console.log("syncData.checkStimuliDone App.stimuli.totalCount: "+App.stimuli.totalCount);
+    if(App.stimuli.totalCount===0){
+      clearInterval(App.syncData.stimuliInterval);
+      App.syncData.success();
     }
   },
 

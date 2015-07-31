@@ -35,7 +35,7 @@ function processFiles(dir) {
                 if (stat.isDirectory()) {
                     processFiles(file);
                 } else{
-                    compress(file); 
+                    compress(file);
                 }
             });
         });
@@ -108,7 +108,7 @@ switch (platform) {
         return;
 }
 
-var foldersToProcess = ['js', 'css', 'img'];
+var foldersToProcess = ['css', 'img'];
 
 foldersToProcess.forEach(function(folder) {
     processFiles(path.join(platformPath, folder));

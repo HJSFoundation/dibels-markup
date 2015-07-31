@@ -41,6 +41,7 @@ App.Views.Login = Backbone.View.extend({
             console.log("teachers do not match");
             localStorage.clear();
             App.database.dropTables();
+            console.log("storage cleared");
             App.currentTeacher =  responseData;
           }
           App.currentTeacher.loggedIn = true;
