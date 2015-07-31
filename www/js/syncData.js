@@ -193,6 +193,14 @@ App.syncData = {
     if (App.isOnline()) {
       App.stimuli.syncDirtyAndDestroyed();
       console.log("syncDirtyAndDestroyed complete");
+
+
+      if(App.applicationView.loadingScreen){
+        this.totalStimuliModels = App.roster.length * App.Config.stimuliModelsPerStudent;
+        App.applicationView.loadingScreen.setMaxValue(this.totalStimuliModels);
+        App.applicationView.loadingScreen.render();
+        this.totalStimuliModels=0;
+      }
       App.stimuli.initializeFetch();
       this.fetchStimuli();
     } else {
@@ -218,6 +226,10 @@ App.syncData = {
 
   decrementTotalCount: function(){
     App.stimuli.totalCount = Math.max(App.stimuli.totalCount-1, 0);
+    if(App.applicationView.loadingScreen){
+      App.syncData.totalStimuliModels +=1;
+      App.applicationView.loadingScreen.updateValue(App.syncData.totalStimuliModels);
+    }
   },
 
   fetchStimuliSuccess: function() {

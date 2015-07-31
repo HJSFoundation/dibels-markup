@@ -15,6 +15,7 @@ var App = {
     firstStageWithSubSkill: 3,
     storageLocalState: false,
     maxDaysSinceSuccessfulFullSync: 3,
+    stimuliModelsPerStudent: 434,
     skill: {
       letterNames: "letter_names",
       letterSounds: "letter_sounds",

@@ -3,32 +3,45 @@ App.Views.Loading = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
+    this.setMaxValue(0);
     this.render();
   },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template(this.templateJSON()));
 
-    // THE PROGRESS BAR
-    var progressbar = $('#progress-bar'),
-      max = progressbar.attr('max'),
-      value = progressbar.val(),
-      time = (1000/max)*5;
+    // var progressbar = $('#progress-bar'),
+    //   max = progressbar.attr('max'),
+    //   value = progressbar.val(),
+    //   time = (1000/max)*5;
 
-    var loading = function() {
-      value += 1;
-      addValue = progressbar.val(value);
+    // var loading = function() {
+    //   value += 1;
+    //   progressbar.val(value);
 
-      // $('.progress-value').html(value + '%');
+    //   if (value == max) {
+    //     clearInterval(animate);
+    //   }
+    // }
 
-      if (value == max) {
-        clearInterval(animate);
-      }
+    // var animate = setInterval(function() {
+    //   loading();
+    // }, time);
+  },
+
+  templateJSON: function(){
+    return {
+      maxValue: this.maxValue
     }
+  },
 
-    var animate = setInterval(function() {
-      loading();
-    }, time);
+  setMaxValue: function(value){
+    this.maxValue = value;
+  },
+
+  updateValue: function(value){
+    var progressbar = $('#progress-bar');
+    progressbar.val(value);
   },
 
   removeView: function() {
