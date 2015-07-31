@@ -35,18 +35,20 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     _.each(groupConferences, function(groupConference) {
       this.students = [];
       var user_ids = groupConference.get("user_ids");
-      _.each(user_ids, function(user_id){
-        var studentModel = App.roster.findWhere({id: user_id});
-        if(studentModel){
-          this.students.push(studentModel);
-        }
-      }, this);
+      if(user_ids.length>0){
+        _.each(user_ids, function(user_id){
+          var studentModel = App.roster.findWhere({id: user_id});
+          if(studentModel){
+            this.students.push(studentModel);
+          }
+        }, this);
 
-      var groupView = this.conferenceGroups[groupConference.get("id")] = new App.Views.ConferenceGroup({model: groupConference, students: this.students});
-      this.$tbody.append(groupView.render().el);
+        var groupView = this.conferenceGroups[groupConference.get("id")] = new App.Views.ConferenceGroup({model: groupConference, students: this.students});
+        this.$tbody.append(groupView.render().el);
 
-      var dropDownView = new App.Views.ConferenceGroupDropdown({students: this.students, conferenceId: groupConference.get("id")});
-      this.$tbody.append(dropDownView.render().el);
+        var dropDownView = new App.Views.ConferenceGroupDropdown({students: this.students, conferenceId: groupConference.get("id")});
+        this.$tbody.append(dropDownView.render().el);
+      }
     }, this);
 
     var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
