@@ -23,10 +23,6 @@ App.database = {
     });
   },
 
-  createSuccess: function(){
-
-  },
-
   createError: function(result, error){
     console.log("App.database.createError: code:"+error.code+" msg: "+error.message);
   },
@@ -35,12 +31,12 @@ App.database = {
     return JSON.stringify(inputObject).replace(/'/g, "''");
   },
 
-  create: function(tableName, object) {
+  create: function(tableName, object, success) {
     if(object.id){
       var escapedObject  = this.escapeSingleQuotes(object);
       this.db.transaction(function (tx) {
         var query = "INSERT INTO " + tableName + " (id, JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
-        tx.executeSql(query,[],App.database.createSuccess,App.database.createError);
+        tx.executeSql(query,[], success, App.database.createError);
       });
     }
   },

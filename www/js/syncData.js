@@ -212,10 +212,12 @@ App.syncData = {
   addStimuliPageToDatabase: function(){
     var models = _.clone(App.resp.stimuli);
     _.each(models, function(model) {
-      App.database.create("stimuli", model);
-      App.stimuli.totalCount -=1;
-    });
+      App.database.create("stimuli", model, this.decrementTotalCount);
+    }, this);
+  },
 
+  decrementTotalCount: function(){
+    App.stimuli.totalCount = Math.max(App.stimuli.totalCount-1, 0);
   },
 
   fetchStimuliSuccess: function() {
@@ -311,6 +313,7 @@ App.syncData = {
   },
 
   checkStimuliDone: function(){
+    console.log("syncData.checkStimuliDone App.stimuli.totalCount: "+App.stimuli.totalCount);
     if(App.stimuli.totalCount===0){
       clearInterval(App.syncData.stimuliInterval);
       App.syncData.success();
