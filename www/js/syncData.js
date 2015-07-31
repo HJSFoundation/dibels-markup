@@ -105,7 +105,7 @@ App.syncData = {
       App.roster.fetch({
         success: this.initializeNotesCollection,
         error: this.initializeStudentCollectionFail,
-        remove: false,
+        // remove: false,
         add: true
       });
     } else {
@@ -155,7 +155,7 @@ App.syncData = {
       App.conferences.fetch({
         success: this.initializeConferenceSessionsCollection,
         error: this.initializeConferencesCollectionFail,
-        remove: false,
+        // remove: false,
         add: true
       });
     } else {
@@ -212,7 +212,7 @@ App.syncData = {
   addStimuliPageToDatabase: function(){
     var models = _.clone(App.resp.stimuli);
     _.each(models, function(model) {
-      App.database.create("stimuli", model, this.decrementTotalCount);
+      App.database.createOrUpdate("stimuli", model, this.decrementTotalCount);
     }, this);
   },
 

@@ -28,7 +28,9 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
     });
     _.each(studentConferences, function(studentConference) {
       var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudentSingle({ model: studentConference});
-      this.$tbody.append(view.render().el);
+      if(view.studentModel){
+        this.$tbody.append(view.render().el);
+      }
     }, this);
 
     return this;
