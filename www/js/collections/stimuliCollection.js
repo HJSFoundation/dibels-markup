@@ -38,7 +38,6 @@ App.Collections.Stimuli = Backbone.Collection.extend({
     } else if (typeof resp.stimuli === "object") {
 
       this.currentResponseLength = resp.stimuli.length;
-      // App.resp.stimuli = App.resp.stimuli.concat(resp.stimuli);
       App.resp.stimuli = resp.stimuli;
 
       this.page += 1;

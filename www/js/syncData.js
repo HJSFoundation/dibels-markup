@@ -286,21 +286,8 @@ App.syncData = {
     });
     App.Config.storageLocalState=false;
 
-
-
-    // if (!localStorage.initialSyncCompleted) {
-    //   this.addAllToDatabase("stimuli");
-    // } else if (App.resp.stimuli.length > 0) {
-    //   _.each(App.resp.stimuli, function(stimulus) {
-    //     App.database.createOrUpdate("stimuli",stimulus);
-    //   });
-    // }
-
     console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
     console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
-
-
-
 
     if (localStorage.initialSyncCompleted) {
       console.log("localStorage.initialSyncCompleted");
@@ -318,7 +305,6 @@ App.syncData = {
         localStorage.initialSyncCompleted = true;
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
         this.stimuliInterval = setInterval(this.checkStimuliDone, 1000);
-        // this.success();
     } else {
       this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
     }
