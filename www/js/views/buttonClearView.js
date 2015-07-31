@@ -18,7 +18,8 @@ App.Views.ButtonClear = Backbone.View.extend({
 
   templateJSON: function() {
     return {
-      selectedClass: this.selectedClass
+      selectedClass: this.selectedClass,
+      img: "img"
     };
   },
 
