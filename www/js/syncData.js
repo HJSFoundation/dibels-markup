@@ -209,15 +209,25 @@ App.syncData = {
      });
   },
 
+  addStimuliPageToDatabase: function(){
+    var models = _.clone(App.resp.stimuli);
+    _.each(models, function(model) {
+      App.database.create("stimuli", model);
+      App.stimuli.totalCount -=1;
+    });
+
+  },
+
   fetchStimuliSuccess: function() {
     console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
     console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
+
     if (App.stimuli.isError()) {
       this.initializeStimuliCollectionPageFail();
     } else if (App.stimuli.isComplete()) {
-
       this.initializeStimuliCollectionSuccess();
     } else {
+      this.addStimuliPageToDatabase();
       this.fetchStimuli();
     }
   },
@@ -276,13 +286,21 @@ App.syncData = {
     });
     App.Config.storageLocalState=false;
 
-    if (!localStorage.initialSyncCompleted) {
-      this.addAllToDatabase("stimuli");
-    } else if (App.resp.stimuli.length > 0) {
-      _.each(App.resp.stimuli, function(stimulus) {
-        App.database.createOrUpdate("stimuli",stimulus);
-      });
-    }
+
+
+    // if (!localStorage.initialSyncCompleted) {
+    //   this.addAllToDatabase("stimuli");
+    // } else if (App.resp.stimuli.length > 0) {
+    //   _.each(App.resp.stimuli, function(stimulus) {
+    //     App.database.createOrUpdate("stimuli",stimulus);
+    //   });
+    // }
+
+    console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
+    console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
+
+
+
 
     if (localStorage.initialSyncCompleted) {
       console.log("localStorage.initialSyncCompleted");
@@ -299,9 +317,17 @@ App.syncData = {
     } else if (App.isOnline()) {
         localStorage.initialSyncCompleted = true;
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
-        this.success();
+        this.stimuliInterval = setInterval(this.checkStimuliDone, 1000);
+        // this.success();
     } else {
       this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
+    }
+  },
+
+  checkStimuliDone: function(){
+    if(App.stimuli.totalCount===0){
+      clearInterval(App.syncData.stimuliInterval);
+      App.syncData.success();
     }
   },
 

@@ -69,6 +69,16 @@ App.database = {
     });
   },
 
+  length: function(tableName) {
+    this.db.transaction(function (tx) {
+      var query = "SELECT  count() FROM " + tableName ;
+      tx.executeSql(query, [], function(tx, results){
+        console.log("length:" + results.rows.item(0)["count()"]);
+      });
+    });
+  },
+
+
   update: function(tableName, object) {
     var escapedObject  = this.escapeSingleQuotes(object);
 

@@ -27,6 +27,7 @@ App.Collections.Stimuli = Backbone.Collection.extend({
 
   initializeFetch: function() {
     this.page = 1;
+    App.stimuli.totalCount=0;
     App.resp.stimuli = [];
   },
 
@@ -37,9 +38,11 @@ App.Collections.Stimuli = Backbone.Collection.extend({
     } else if (typeof resp.stimuli === "object") {
 
       this.currentResponseLength = resp.stimuli.length;
-      App.resp.stimuli = App.resp.stimuli.concat(resp.stimuli);
+      // App.resp.stimuli = App.resp.stimuli.concat(resp.stimuli);
+      App.resp.stimuli = resp.stimuli;
 
       this.page += 1;
+      App.stimuli.totalCount += resp.stimuli.length;
       return resp.stimuli;
     } else {
       App.resp.stimuli = [];
