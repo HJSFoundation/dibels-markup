@@ -30,7 +30,7 @@ var App = {
       readingStrategies: "reading_strategies"
     },
   },
-  url: "http://staging.tutormate.org/api/v1",
+  url: "https://www.tutormate.org/api/v1",
   clientLastFetchedAt: "",
   notesLastTakenAt: "",
   resp:{},
