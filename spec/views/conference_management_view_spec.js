@@ -123,7 +123,7 @@ describe('App.Views.ConferenceManagement', function() {
     it("opens an in-app-browser", function() {
       sinon.stub(window, "open");
       subject.handleDisplayManage();
-      expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/students/"+App.currentTeacher.classroom_id, "_blank", "location=yes");
+      expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/students/manage", "_blank", "location=yes");
       window.open.restore();
     });
   });
