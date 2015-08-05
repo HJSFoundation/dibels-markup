@@ -1,17 +1,6 @@
 App.Views.Timer = Backbone.View.extend({
   template: App.templates.timer,
 
-  // action: "start",
-  // visible: false,
-  // time: {
-  //   seconds: 0,
-  //   minutes: 0
-  // },
-
-  // events: {
-  //   // "click .js-timerButton": "handleTimerButtonClick"
-  // },
-
   initialize: function() {
     _.bindAll(this);
 
