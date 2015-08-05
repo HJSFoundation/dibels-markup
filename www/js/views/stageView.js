@@ -21,7 +21,8 @@ App.Views.Stage = Backbone.View.extend({
 
     this.buttonFlipView = new App.Views.ButtonFlip({el: ".js-stageButtonFlip", eventName: "flipStageButtonTapped"});
     this.buttonTimerView = new App.Views.ButtonTimer({el: ".js-stageButtonTimer"});
-    this.timerView = new App.Views.Timer({ el: ".js-timer"});
+    this.timerView0 = new App.Views.Timer({ el: ".js-timer0"});
+    this.timerView1 = new App.Views.Timer({ el: ".js-timer1"});
 
     this.menuAssessmentView = new App.Views.MenuAssessment({ el: ".js-menuAssessment"});
     this.menuActivityView = new App.Views.MenuActivity({ el: ".js-menuActivity"});

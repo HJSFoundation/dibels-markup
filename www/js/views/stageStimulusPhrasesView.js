@@ -6,12 +6,21 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.templateJSON()));
+    // this.$el.html(this.template(this.templateJSON()));
+
+  this.$el.html(this.template(this.templateJSON()));
+  $('.js-flickity-gallery').flickity({
+     cellAlign: 'left',
+     contain: true,
+     prevNextButtons: false,
+     pageDots: false
+   });
+  $(".js-fittext").fitText(2);
   },
 
   templateJSON: function() {
     return {
-      phrase: this.phrase
+      phrases: this.phrases
     };
   },
 
@@ -21,8 +30,7 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
     var value = model.get("value");
     var subSkill = model.get("sub_skill");
 
-    this.phrase = App.ActivityStimuli.phrasesByStage[readingStage][subSkill][value];
+    this.phrases = App.ActivityStimuli.phrasesByStage[readingStage][subSkill][value];
     this.render();
-    $(".js-fittext").fitText(2);
   }
 });
