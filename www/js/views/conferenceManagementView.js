@@ -30,35 +30,43 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     this.$el.html(this.template());
 
     this.$tbody = this.$el.find("tbody");
-    var groupConferences = App.conferences.where({conference_type: "group", classroom_id: App.currentTeacher.classroom_id});
 
-    _.each(groupConferences, function(groupConference) {
-      this.students = [];
-      var user_ids = groupConference.get("user_ids");
-      if(user_ids.length>0){
-        _.each(user_ids, function(user_id){
-          var studentModel = App.roster.findWhere({id: user_id});
-          if(studentModel){
-            this.students.push(studentModel);
-          }
-        }, this);
+    // var groupConferences = App.conferences.where({conference_type: "group", classroom_id: App.currentTeacher.classroom_id});
+    var conferences = App.conferences.where({classroom_id: App.currentTeacher.classroom_id});
 
-        var groupView = this.conferenceGroups[groupConference.get("id")] = new App.Views.ConferenceGroup({model: groupConference, students: this.students});
-        this.$tbody.append(groupView.render().el);
+    // _.each(groupConferences, function(groupConference) {
+    _.each(conferences, function(conference) {
 
-        var dropDownView = new App.Views.ConferenceGroupDropdown({students: this.students, conferenceId: groupConference.get("id")});
-        this.$tbody.append(dropDownView.render().el);
+      if(conference.get("conference_type")==="group"){
+
+        this.students = [];
+        var user_ids = conference.get("user_ids");
+        if(user_ids.length>0){
+          _.each(user_ids, function(user_id){
+            var studentModel = App.roster.findWhere({id: user_id});
+            if(studentModel){
+              this.students.push(studentModel);
+            }
+          }, this);
+
+          var groupView = this.conferenceGroups[conference.get("id")] = new App.Views.ConferenceGroup({model: conference, students: this.students});
+          this.$tbody.append(groupView.render().el);
+
+          var dropDownView = new App.Views.ConferenceGroupDropdown({students: this.students, conferenceId: conference.get("id")});
+          this.$tbody.append(dropDownView.render().el);
+        }
+    // }, this);
+      }else{
+
+
+    // var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
+    // _.each(studentConferences, function(studentConference) {
+        var view = this.conferenceGroups[conference.get("id")] = new App.Views.ConferenceStudent({ model: conference});
+        if(view.studentModel){
+          this.$tbody.append(view.render().el);
+        }
       }
     }, this);
-
-    var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
-    _.each(studentConferences, function(studentConference) {
-      var view = this.conferenceGroups[studentConference.get("id")] = new App.Views.ConferenceStudent({ model: studentConference});
-      if(view.studentModel){
-        this.$tbody.append(view.render().el);
-      }
-    }, this);
-
 
     return this;
   },
