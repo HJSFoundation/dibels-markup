@@ -2,18 +2,31 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   template: App.templates.editStudentReadingStage,
 
   events: {
-    "click .reading-stage__choice": "handleReadingStageChoice"
+    "click .reading-stage__choice": "handleReadingStageChoice",
+    "click .js-currentReadingStage": "handleCurrentReadingStage",
+    "click .js-initialReadingStage": "handleInitialReadingStage",
   },
 
   initialize: function() {
     _.bindAll(this);
+    this.isInitialReadingStage = false;
+    this.initialReadingStage = 1;
   },
 
   render: function() {
-    this.$el.html(this.template());
-    this.makeActive(App.selectedStudent.get("reading_stage"));
+    this.$el.html(this.template(this.templateJSON()));
+    this.makeActive(this.isInitialReadingStage? this.initialReadingStage: App.selectedStudent.get("reading_stage"));
     console.log("EditStudentReadingStage: should render current stage highlighted");
     return this;
+  },
+
+  templateJSON: function(){
+    return {
+      currentReadingStage: App.selectedStudent.get("reading_stage"),
+      initialReadingStage: this.initialReadingStage,
+      initialReadingStageSelected: (this.isInitialReadingStage? "st-selected" : ""),
+      currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected")
+    }
   },
 
   makeActive: function(readingStage) {
@@ -27,23 +40,47 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
   handleReadingStageChoice: function(readingStageChoiceClickEvent) {
     var readingStage = parseInt(readingStageChoiceClickEvent.currentTarget.innerHTML);
+
+    if(this.isInitialReadingStage){
+      this.initialReadingStage = readingStage;
+    }else{
+      App.selectedStudent.set({reading_stage: readingStage});
+    }
+
     this.makeInactive();
     this.makeActive(readingStage);
-    App.selectedStudent.set({reading_stage: readingStage});
     var model = new App.Models.UserReadingStages({
       student_id: App.selectedStudent.get("id"),
       assessor_id: App.currentTeacher.id,
       reading_stage: readingStage.toString(),
       context: "teacher_notepad",
+      initial: this.isInitialReadingStage,
       changed_at: App.newISODate()
     });
     App.userReadingStages.add(model);
+
+
+
     // TODO write spec and test error handling
 
     model.save()
       .done(this.updateUser)
       .fail(this.updateLocalUser);
+
+    this.render();
   },
+
+  handleCurrentReadingStage: function(){
+    this.isInitialReadingStage = false;
+    this.render();
+  },
+
+  handleInitialReadingStage: function(){
+    this.isInitialReadingStage = true;
+    this.render();
+  },
+
+
 
   updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");

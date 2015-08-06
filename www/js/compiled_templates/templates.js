@@ -200,7 +200,17 @@ this["App"]["templates"]["editStudentNotesList"] = Handlebars.template({"compile
     return "<div class=\"edit-archive__list\">\n  <ul class=\"js-editStudentNote\">\n    \n  </ul>\n</div>\n\n\n";
 },"useData":true});
 this["App"]["templates"]["editStudentReadingStage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage--edit__content\">\n  <div class=\"reading-stage-chooser grid grid--wrap grid--center\">\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">1</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">2</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">3</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">4</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">5</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">6</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">7</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">8</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">9</a>\n  </div>\n</div>\n";
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"stage--edit__content\">\n    <p>current: </p>\n    <a href=\"#\" class=\"grid-cell "
+    + alias3(((helper = (helper = helpers.currentReadingStageSelected || (depth0 != null ? depth0.currentReadingStageSelected : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"currentReadingStageSelected","hash":{},"data":data}) : helper)))
+    + " js-currentReadingStage\"> "
+    + alias3(((helper = (helper = helpers.currentReadingStage || (depth0 != null ? depth0.currentReadingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"currentReadingStage","hash":{},"data":data}) : helper)))
+    + "</a>\n    <p>initial: </p>\n    <a href=\"#\" class=\"grid-cell "
+    + alias3(((helper = (helper = helpers.initialReadingStageSelected || (depth0 != null ? depth0.initialReadingStageSelected : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"initialReadingStageSelected","hash":{},"data":data}) : helper)))
+    + " js-initialReadingStage\"> "
+    + alias3(((helper = (helper = helpers.initialReadingStage || (depth0 != null ? depth0.initialReadingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"initialReadingStage","hash":{},"data":data}) : helper)))
+    + "</a>\n  <div class=\"reading-stage-chooser grid grid--wrap grid--center\">\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">1</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">2</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">3</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">4</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">5</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">6</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">7</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">8</a>\n    <a href=\"#\" class=\"reading-stage__choice grid-cell\">9</a>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["leveledStories"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:0.80;background:black\">\n  <p style=\"font-size:180px;color:yellow\">Leveled Stories</p>\n</div>\n";
