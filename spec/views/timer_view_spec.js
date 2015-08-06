@@ -25,9 +25,6 @@ describe('App.Views.Timer', function() {
   });
 
   describe("events", function() {
-    it("handles a click event", function() {
-      expect(subject.events["click .js-timerButton"]).to.equal('handleTimerButtonClick');
-    });
   });
 
   describe("#initialize", function() {
@@ -47,6 +44,11 @@ describe('App.Views.Timer', function() {
       sinon.spy(subject, "listen");
       subject.initialize();
       expect(subject.listen).to.have.been.called;
+    });
+
+    it("handles a click event", function() {
+      subject.initialize();
+      expect(subject.events["click #"+subject.buttonId]).to.equal('handleTimerButtonClick');
     });
   });
 
@@ -87,13 +89,13 @@ describe('App.Views.Timer', function() {
 
       describe("when action === start", function() {
         it("sets the time's seconds", function() {
-          $("#seconds").val(10);
+          subject.$seconds.val(10);
           subject.handleTimerButtonClick();
           expect(subject.time.seconds).to.equal('10');
         });
 
         it("sets the time's minutes", function() {
-          $("#minutes").val(1);
+          subject.$minutes.val(1);
           subject.handleTimerButtonClick();
           expect(subject.time.minutes).to.equal('1');
         });
@@ -230,23 +232,27 @@ describe('App.Views.Timer', function() {
 
     it("#enableTimeSelection", function() {
       subject.render();
-      $("#minutes").prop("disabled", true);
-      $("#seconds").prop("disabled", true);
+      subject.$minutes.prop("disabled", true);
+      subject.$seconds.prop("disabled", true);
       subject.enableTimeSelection();
-      expect($("#minutes").prop("disabled")).to.equal(false);
-      expect($("#seconds").prop("disabled")).to.equal(false);
+      expect(subject.$minutes.prop("disabled")).to.equal(false);
+      expect(subject.$seconds.prop("disabled")).to.equal(false);
     });
 
     it("#disableTimeSelection", function() {
       subject.render();
-      $("#minutes").prop("disabled", false);
-      $("#seconds").prop("disabled", false);
+      subject.$minutes.prop("disabled", false);
+      subject.$seconds.prop("disabled", false);
       subject.disableTimeSelection();
-      expect($("#minutes").prop("disabled")).to.equal(true);
-      expect($("#seconds").prop("disabled")).to.equal(true);
+      expect(subject.$minutes.prop("disabled")).to.equal(true);
+      expect(subject.$seconds.prop("disabled")).to.equal(true);
     });
 
     describe("#updateTimerDisplay", function() {
+      beforeEach(function(){
+        subject.render();
+      });
+
       it("sets the seconds", function() {
         subject.time = { seconds: 3, minutes: 0};
         subject.updateTimerDisplay();
@@ -260,6 +266,7 @@ describe('App.Views.Timer', function() {
       });
 
       describe("decrements the time when greater than 0", function() {
+
         it("reduces the seconds by 1 second", function() {
           subject.time = { seconds: 0, minutes: 1};
           subject.updateTimerDisplay();
@@ -305,18 +312,12 @@ describe('App.Views.Timer', function() {
       });
 
       it("sets the minute value", function() {
-        expect($("#minutes").val()).to.equal("2");
+        expect(subject.$minutes.val()).to.equal("2");
       });
 
       it("sets the second value", function() {
-        expect($("#seconds").val()).to.equal("5");
+        expect(subject.$seconds.val()).to.equal("5");
       });
-    });
-
-    it("#setButtonText", function() {
-      subject.render();
-      subject.setButtonText("Start");
-      expect($(".js-timerButton").text()).to.equal("Start");
     });
   });
 });

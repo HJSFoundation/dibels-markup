@@ -24,8 +24,8 @@ describe('App.Views.StageStimulusPhrases', function() {
   });
 
   it("#templateJSON", function() {
-    subject.phrase = "a string";
-    expect(subject.templateJSON().phrase).to.equal("a string");
+    subject.phrases = ["an array of strings"];
+    expect(subject.templateJSON().phrases).to.eql(["an array of strings"]);
   });
 
   describe("#handleSkillChangeRequest", function() {
@@ -37,7 +37,7 @@ describe('App.Views.StageStimulusPhrases', function() {
 
     it("sets this phrase", function() {
       subject.handleSkillChangeRequest({model: model});
-      expect(subject.phrase).to.equal(App.ActivityStimuli.phrasesByStage[5]["rimes"]["ome"]);
+      expect(subject.phrases).to.equal(App.ActivityStimuli.phrasesByStage[5]["rimes"]["ome"]);
     });
 
     it("#render", function() {
