@@ -35,9 +35,6 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       expect(subject.user_id).to.equal(1);
     });
 
-    it("sets the reading_stage", function() {
-      expect(subject.reading_stage).to.equal(2);
-    });
   });
 
   it("#render", function() {
@@ -51,14 +48,20 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       expect(subject.templateJSON().reading_stage).to.equal(2);
     });
 
-    it("#makeActive", function() {
-      subject.render();
-      subject.makeActive();
-      expect(subject.$el).to.have.class("st-active");
+    describe("#makeActive", function() {
+      it("sets the active class", function() {
+        subject.makeActive();
+        expect(subject.$el).to.have.class("st-active");
+      });
+
+      it("calls render", function() {
+        sinon.spy(subject, "render");
+        subject.makeActive();
+        expect(subject.render).to.have.been.called;
+      });
     });
 
     it("#makeInactive", function() {
-      subject.render();
       subject.makeActive();
       expect(subject.$el).to.have.class("st-active");
       subject.makeInactive();

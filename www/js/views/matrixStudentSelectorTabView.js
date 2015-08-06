@@ -14,7 +14,6 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     _.bindAll(this);
     this.label = this.model.shortName();
     this.user_id = this.model.get("id");
-    this.reading_stage = this.model.get("reading_stage");
   },
 
   render: function() {
@@ -25,11 +24,12 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   templateJSON: function() {
     return {
       label: this.label,
-      reading_stage: this.reading_stage
+      reading_stage: this.model.get("reading_stage")
     };
   },
 
   makeActive: function() {
+    this.render();
     this.$el.addClass("st-active");
   },
 
