@@ -154,10 +154,10 @@
         // (window.location.href.indexOf("localhost:9876") > -1) ||
         // (window.location.href.indexOf("localhost:3333") > -1) ||
         // (window.location.href.indexOf("amazonaws") > -1);
-      if(is_browser){
+      if (is_browser) {
         FastClick.attach(document.body);
         App.applicationView = new App.Views.Application();
-      }else{
+      } else {
         document.addEventListener('deviceready', function() {
           FastClick.attach(document.body);
           App.applicationView = new App.Views.Application();

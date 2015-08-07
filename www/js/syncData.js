@@ -4,15 +4,11 @@ App.syncData = {
 
   initialize: function(success, error) {
     _.bindAll(this);
-
     this.success = success;
     this.error = error;
     App.clearRemoteSyncError();
-
-
     App.Config.storageLocalState = false;
     this.populateRosterFromDatabase();
-
   },
 
   addAllToDatabase: function(collectionName) {
@@ -31,13 +27,13 @@ App.syncData = {
     App.database.readAll(tableName, success);
   },
 
-  populateRosterFromDatabase: function(){
+  populateRosterFromDatabase: function() {
     App.roster = new App.Collections.Students();
     App.database.createTable("roster");
     this.addAllToCollection("roster", this.populateStimuliFromDatabase);
   },
 
-  populateStimuliFromDatabase: function(){
+  populateStimuliFromDatabase: function() {
     App.stimuli = new App.Collections.Stimuli();
     App.database.createTable("stimuli");
     this.addAllToCollection("stimuli", this.fetchLocalData);
@@ -63,9 +59,7 @@ App.syncData = {
     App.notes.fetch({ remove: false, add: true });
 
     App.clientLastFetchedAt = localStorage.getItem("App.clientLastFetchedAt");
-
     App.Config.storageLocalState = false;
-
     this.initializeNetworkErrorsCollection();
   },
 
@@ -74,29 +68,21 @@ App.syncData = {
     if (App.isOnline()) {
       App.networkErrors.syncDirtyAndDestroyed({ success: this.removeCleanNetworkErrorModelsFromCollection });
     }
-
     this.initializeUserReadingStagesCollection();
   },
 
   removeCleanNetworkErrorModelsFromCollection: function(model, response, options) {
-    if (!options.dirty) {
-      App.networkErrors.reset();
-    }
+    if (!options.dirty) { App.networkErrors.reset(); }
   },
 
   initializeUserReadingStagesCollection: function(result) {
     console.log("initializeUserReadingStagesCollection");
-    if (App.isOnline()) {
-      App.userReadingStages.syncDirtyAndDestroyed({ success: this.removeCleanUserReadingStageModelsFromCollection });
-    }
-
+    if (App.isOnline()) { App.userReadingStages.syncDirtyAndDestroyed({ success: this.removeCleanUserReadingStageModelsFromCollection }); }
     this.initializeStudentCollection();
   },
 
   removeCleanUserReadingStageModelsFromCollection: function(model, response, options) {
-    if (!options.dirty) {
-      App.userReadingStages.reset();
-    }
+    if (!options.dirty) { App.userReadingStages.reset(); }
   },
 
   initializeStudentCollection: function() {
@@ -105,7 +91,6 @@ App.syncData = {
       App.roster.fetch({
         success: this.initializeNotesCollection,
         error: this.initializeStudentCollectionFail,
-        // remove: false,
         add: true
       });
     } else {
@@ -155,7 +140,6 @@ App.syncData = {
       App.conferences.fetch({
         success: this.initializeConferenceSessionsCollection,
         error: this.initializeConferencesCollectionFail,
-        // remove: false,
         add: true
       });
     } else {
@@ -175,17 +159,12 @@ App.syncData = {
 
   initializeConferenceSessionsCollection: function(result) {
     console.log("initializeConferenceSessionsCollection");
-    if (App.isOnline()) {
-      App.conferenceSessions.syncDirtyAndDestroyed({success: this.removeCleanModels});
-    }
-
+    if (App.isOnline()) { App.conferenceSessions.syncDirtyAndDestroyed({success: this.removeCleanModels}); }
     this.initializeStimuliCollections();
   },
 
   removeCleanModels: function(model, response, options) {
-    if (!options.dirty) {
-      App.conferenceSessions.reset();
-    }
+    if (!options.dirty) { App.conferenceSessions.reset(); }
   },
 
   initializeStimuliCollections: function(result) {
@@ -193,13 +172,11 @@ App.syncData = {
     if (App.isOnline()) {
       App.stimuli.syncDirtyAndDestroyed();
       console.log("syncDirtyAndDestroyed complete");
-
-
-      if(App.applicationView.loadingScreen){
+      if (App.applicationView.loadingScreen) {
         this.totalStimuliModels = App.roster.length * App.Config.stimuliModelsPerStudent;
         App.applicationView.loadingScreen.setMaxValue(this.totalStimuliModels);
         App.applicationView.loadingScreen.render();
-        this.totalStimuliModels=0;
+        this.totalStimuliModels = 0;
       }
       App.stimuli.initializeFetch();
       this.fetchStimuli();
@@ -217,25 +194,24 @@ App.syncData = {
      });
   },
 
-  addStimuliPageToDatabase: function(){
+  addStimuliPageToDatabase: function() {
     var models = _.clone(App.resp.stimuli);
     _.each(models, function(model) {
       App.database.createOrUpdate("stimuli", model, this.decrementTotalCount);
     }, this);
   },
 
-  decrementTotalCount: function(){
-    App.stimuli.totalCount = Math.max(App.stimuli.totalCount-1, 0);
-    if(App.applicationView.loadingScreen){
-      App.syncData.totalStimuliModels +=1;
+  decrementTotalCount: function() {
+    App.stimuli.totalCount = Math.max(App.stimuli.totalCount - 1, 0);
+    if (App.applicationView.loadingScreen) {
+      App.syncData.totalStimuliModels += 1;
       App.applicationView.loadingScreen.updateValue(App.syncData.totalStimuliModels);
     }
   },
 
   fetchStimuliSuccess: function() {
-    console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
-    console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
-
+    console.log("fetchStimuliSuccess currentResponseLength:" + App.stimuli.currentResponseLength);
+    console.log("fetchStimuliSuccess models:" + App.stimuli.models.length);
     if (App.stimuli.isError()) {
       this.initializeStimuliCollectionPageFail();
     } else if (App.stimuli.isComplete()) {
@@ -282,27 +258,21 @@ App.syncData = {
         model.save();
       });
       App.Config.storageLocalState = false;
-    } else {
-      if (App.resp.notes.length > 0) {
-        App.Config.storageLocalState = true;
-        _.each(App.resp.notes, function(note) {
-          App.notes.get(note.id).save();
-        });
-        App.Config.storageLocalState = false;
-      }
+    } else if (App.resp.notes.length > 0) {
+      App.Config.storageLocalState = true;
+      _.each(App.resp.notes, function(note) {
+        App.notes.get(note.id).save();
+      });
+      App.Config.storageLocalState = false;
     }
-
     this.createOrUpdateAllToDatabase("roster");
-
     App.Config.storageLocalState = true;
     _.each(App.conferences.models, function(model) {
       model.save();
     });
-    App.Config.storageLocalState=false;
-
-    console.log("fetchStimuliSuccess currentResponseLength:"+App.stimuli.currentResponseLength);
-    console.log("fetchStimuliSuccess models:"+App.stimuli.models.length);
-
+    App.Config.storageLocalState = false;
+    console.log("fetchStimuliSuccess currentResponseLength:" + App.stimuli.currentResponseLength) ;
+    console.log("fetchStimuliSuccess models:" + App.stimuli.models.length);
     if (localStorage.initialSyncCompleted) {
       console.log("localStorage.initialSyncCompleted");
       if (!App.getRemoteSyncErrorState()) {
@@ -324,9 +294,9 @@ App.syncData = {
     }
   },
 
-  checkStimuliDone: function(){
-    console.log("syncData.checkStimuliDone App.stimuli.totalCount: "+App.stimuli.totalCount);
-    if(App.stimuli.totalCount===0){
+  checkStimuliDone: function() {
+    console.log("syncData.checkStimuliDone App.stimuli.totalCount: " + App.stimuli.totalCount);
+    if (App.stimuli.totalCount === 0) {
       clearInterval(App.syncData.stimuliInterval);
       App.syncData.success();
     }
