@@ -10,20 +10,20 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.isInitialReadingStage = false;
-    this.initialReadingStage = 1;
+    // TODO remove initial_reading_stage initialization
+    App.selectedStudent.set({initial_reading_stage: 1});
   },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
-    this.makeActive(this.isInitialReadingStage? this.initialReadingStage: App.selectedStudent.get("reading_stage"));
-    console.log("EditStudentReadingStage: should render current stage highlighted");
+    this.makeActive(this.isInitialReadingStage? App.selectedStudent.get("initial_reading_stage"): App.selectedStudent.get("reading_stage"));
     return this;
   },
 
   templateJSON: function(){
     return {
       currentReadingStage: App.selectedStudent.get("reading_stage"),
-      initialReadingStage: this.initialReadingStage,
+      initialReadingStage: App.selectedStudent.get("initial_reading_stage"),
       initialReadingStageSelected: (this.isInitialReadingStage? "st-selected" : ""),
       currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected")
     }
@@ -42,7 +42,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     var readingStage = parseInt(readingStageChoiceClickEvent.currentTarget.innerHTML);
 
     if(this.isInitialReadingStage){
-      this.initialReadingStage = readingStage;
+      App.selectedStudent.set({initial_reading_stage: readingStage});
     }else{
       App.selectedStudent.set({reading_stage: readingStage});
     }
@@ -79,8 +79,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     this.isInitialReadingStage = true;
     this.render();
   },
-
-
 
   updateUser: function() {
     console.log("EditStudentReadingStage.updateUser");
