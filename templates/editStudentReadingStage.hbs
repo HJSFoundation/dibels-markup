@@ -1,8 +1,17 @@
-<div class="stage--edit__content">
-    <p>current: </p>
-    <a href="#" class="grid-cell {{ currentReadingStageSelected }} js-currentReadingStage"> {{ currentReadingStage }}</a>
-    <p>initial: </p>
-    <a href="#" class="grid-cell {{ initialReadingStageSelected }} js-initialReadingStage"> {{ initialReadingStage }}</a>
+<div class="stage--edit__content grid grid--center">
+    <div class="reading-stage-setup">
+      <div class="reading-stage-setup__current">
+        
+        <a href="#" class="reading-stage__choice reading-stage__choice--large grid-cell {{ currentReadingStageSelected }} js-currentReadingStage"> {{ currentReadingStage }}</a>
+        <h3 class="reading-stage-setup__title">current reading stage </h3>
+      </div>
+      <div class="reading-stage-setup__initial">
+        
+        <a href="#" class="reading-stage__choice reading-stage__choice--large grid-cell {{ initialReadingStageSelected }} js-initialReadingStage"> {{ initialReadingStage }}</a>
+        <h3 class="reading-stage-setup__title">initial reading stage </h3>
+      </div>
+    </div>
+
   <div class="reading-stage-chooser grid grid--wrap grid--center">
     <a href="#" class="reading-stage__choice grid-cell">1</a>
     <a href="#" class="reading-stage__choice grid-cell">2</a>
