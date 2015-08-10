@@ -10,8 +10,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.isInitialReadingStage = false;
-    // TODO remove initial_reading_stage initialization
-    App.selectedStudent.set({initial_reading_stage: 1});
   },
 
   render: function() {
@@ -31,7 +29,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
   makeActive: function(readingStage) {
     var choices = $(".reading-stage__choice");
-    $(choices[readingStage - 1]).addClass("st-selected");
+    $(choices[readingStage + 1]).addClass("st-selected");
   },
 
   makeInactive: function() {

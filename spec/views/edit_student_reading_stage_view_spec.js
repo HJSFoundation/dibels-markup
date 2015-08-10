@@ -17,8 +17,24 @@ describe('App.Views.EditStudentReadingStage', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("has a click event", function() {
-    expect(subject.events["click .reading-stage__choice"]).to.equal("handleReadingStageChoice");
+  describe("has click events", function() {
+    it("has a reading stage choice click event", function() {
+      expect(subject.events["click .reading-stage__choice"]).to.equal("handleReadingStageChoice");
+    });
+
+    it("has a current reading stage click event", function() {
+      expect(subject.events["click .js-currentReadingStage"]).to.equal("handleCurrentReadingStage");
+    });
+
+    it("has a reading stage choice click event", function() {
+      expect(subject.events["click .js-initialReadingStage"]).to.equal("handleInitialReadingStage");
+    });
+  });
+
+  it("sets is initial reading stage to false", function() {
+    subject.isInitialReadingStage = true;
+    subject.initialize();
+    expect(subject.isInitialReadingStage).to.equal(false);
   });
 
   describe("#render", function() {
@@ -27,8 +43,15 @@ describe('App.Views.EditStudentReadingStage', function() {
       expect(subject.$el).not.to.be.empty;
     });
 
-    it("calls makeActive", function() {
+    it("calls makeActive with reading stage when initial reading stage is false", function() {
       sinon.spy(subject, "makeActive");
+      subject.render();
+      expect(subject.makeActive).to.have.been.calledWith(App.selectedStudent.get("reading_stage"));
+    });
+
+    it("calls makeActive with initial reading stage when initial reading stage is true", function() {
+      sinon.spy(subject, "makeActive");
+      subject.isInitialReadingStage = true;
       subject.render();
       expect(subject.makeActive).to.have.been.calledWith(App.selectedStudent.get("reading_stage"));
     });
