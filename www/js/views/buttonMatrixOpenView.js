@@ -19,6 +19,7 @@ App.Views.ButtonMatrixOpen = Backbone.View.extend({
     return this;
   },
 
+
   handleOpenMatrix: function() {
     this.$el.empty();
     App.Dispatcher.trigger('openMatrix');

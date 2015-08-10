@@ -15,6 +15,7 @@ App.Views.Stage = Backbone.View.extend({
     this.stageViews.tiles = new App.Views.StageStimulusTiles({ el: this.stageStimulusEl});
     this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
     this.leveledTextPageView = new App.Views.LeveledTextPage({ el: ".js-overlay"});
+    this.stageViews.whiteboard = new App.Views.Whiteboard({ el: this.stageStimulusEl});
 
 
     this.buttonEndSessionView = new App.Views.ButtonEndSession({el: ".js-stageButtonEndSession"});
@@ -33,6 +34,10 @@ App.Views.Stage = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix);
     this.listenTo(App.Dispatcher, "openMatrix", this.handleOpenMatrix);
+    this.listenTo(App.Dispatcher, "displayOpenMatrixButton", this.handleDisplayOpenMatrixButton);
+    this.listenTo(App.Dispatcher, "displayMenuAssessment", this.handleDisplayMenuAssessment);
+    this.listenTo(App.Dispatcher, "restoreStage", this.handleRestoreStage);
+
     this.listenTo(App.Dispatcher, "flipStageButtonTapped", this.handleFlipStageRequest);
 
 
@@ -41,11 +46,36 @@ App.Views.Stage = Backbone.View.extend({
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.sightWords, this.handleSightWordsChangeRequest);
 
     this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.letterSounds, this.handleLetterSoundsChangeRequest);
+
+    this.listenTo(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.letterNames, this.handleLetterNamesChangeRequest);
+
     this.listenTo(App.Dispatcher, "StageClearRequested" , this.handleStageClearRequest);
   },
 
   render: function() {
     this.$el.html(this.template());
+  },
+
+  handleRestoreStage: function(){
+    this.handleOpenMatrix();
+    this.buttonMatrixOpenView.$el.empty();
+    this.handleDisplayMenuAssessment(true);
+  },
+
+  handleDisplayOpenMatrixButton: function(displayState){
+    if(displayState){
+      this.buttonMatrixOpenView.$el.show();
+    }else{
+      this.buttonMatrixOpenView.$el.hide();
+    }
+  },
+
+  handleDisplayMenuAssessment: function(displayState){
+    if(displayState){
+      this.menuAssessmentView.$el.show();
+    }else{
+      this.menuAssessmentView.$el.hide();
+    }
   },
 
   handleCloseMatrix: function() {
@@ -79,11 +109,31 @@ App.Views.Stage = Backbone.View.extend({
       case "tiles":
         this.stageViews.tiles.handleSkillChangeRequest(stimulus_object);
         break;
+      case "whiteboard":
+        this.stageViews.whiteboard.handleSkillChangeRequest(stimulus_object);
+        break;
     }
   },
 
+  handleLetterNamesChangeRequest: function(stimulus_object) {
+    switch (App.selectedActivity) {
+      case "whiteboard":
+        this.stageViews.whiteboard.handleSkillChangeRequest(stimulus_object);
+        break;
+      case "letters":
+        this.stageViews.letters.render(stimulus_object);
+        break;
+    }
+  },
   handleSightWordsChangeRequest: function(stimulus_object) {
-    this.stageViews.sightWordsWords.render(stimulus_object);
+    switch (App.selectedActivity) {
+      case "whiteboard":
+        this.stageViews.whiteboard.handleSkillChangeRequest(stimulus_object);
+        break;
+      case "words":
+        this.stageViews.sightWordsWords.render(stimulus_object);
+        break;
+    }
   },
 
   handleLetterSoundsChangeRequest: function(stimulus_object) {
@@ -96,6 +146,9 @@ App.Views.Stage = Backbone.View.extend({
         break;
       case "tiles":
         this.stageViews.tiles.handleSkillChangeRequest(stimulus_object);
+        break;
+      case "whiteboard":
+        this.stageViews.whiteboard.handleSkillChangeRequest(stimulus_object);
         break;
     }
   },

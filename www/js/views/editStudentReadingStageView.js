@@ -43,6 +43,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
     if(this.isInitialReadingStage){
       App.selectedStudent.set({initial_reading_stage: readingStage});
+
     }else{
       App.selectedStudent.set({reading_stage: readingStage});
     }
@@ -57,6 +58,11 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       initial: this.isInitialReadingStage,
       changed_at: App.newISODate()
     });
+
+    if(this.isInitialReadingStage){
+      model.set({initial_reading_stage_updated_at: App.newISODate()});
+    }
+
     App.userReadingStages.add(model);
 
 
