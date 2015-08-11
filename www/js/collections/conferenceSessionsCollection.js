@@ -2,7 +2,7 @@ App.Collections.ConferenceSessions = Backbone.Collection.extend({
   model: App.Models.ConferenceSession,
 
   url: function() {
-    return App.url + "/conference_sessions";
+    return App.url() + "/conference_sessions";
   },
 
   local: function() {

@@ -19,6 +19,7 @@ App.Views.Login = Backbone.View.extend({
   submit: function() {
     var email = $("#email-field").val();
     var password = $("#password-field").val();
+    var signInUrl = App.url() + '/sign_in';
     var that = this;
 
     if(App.isOnline()){
@@ -26,7 +27,7 @@ App.Views.Login = Backbone.View.extend({
       $("#submit").prop("disabled",true);
       $.ajax({
         type: 'POST',
-        url: App.url + '/sign_in',
+        url: signInUrl,
         crossDomain: true,
         data: {
           email: email,
@@ -81,7 +82,7 @@ App.Views.Login = Backbone.View.extend({
   },
 
   handleForgotPassword: function(){
-    App.browser = window.open(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
+    App.browser = window.open(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
   }
 
 });

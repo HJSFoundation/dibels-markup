@@ -4,7 +4,7 @@ App.Collections.Notes = Backbone.Collection.extend({
   comparator: "taken_at",
 
   url: function() {
-    var url =  App.url + "/classrooms/" + App.currentTeacher.classroom_id + "/notes";
+    var url =  App.url()+ "/classrooms/" + App.currentTeacher.classroom_id + "/notes";
     if (App.notesLastTakenAt) {
       url = url + "?taken_at=" + App.notesLastTakenAt;
     }

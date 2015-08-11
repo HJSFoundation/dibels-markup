@@ -2,7 +2,7 @@ App.Collections.UserReadingStages = Backbone.Collection.extend({
   model: App.Models.UserReadingStages,
 
   url: function() {
-    return App.url + "/user_reading_stages";
+    return App.url()+ "/user_reading_stages";
   },
 
   local: function() {

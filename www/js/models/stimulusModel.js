@@ -6,7 +6,7 @@ App.Models.Stimulus = Backbone.Model.extend({
   assessment: "",
 
   urlRoot: function() {
-    return App.url + "/stimuli";
+    return App.url()+ "/stimuli";
   },
 
   local: function() {

@@ -3,7 +3,7 @@ App.Collections.Students = Backbone.Collection.extend({
   comparator: "first_name",
 
   url: function() {
-    return App.url + "/classrooms/" + App.currentTeacher.classroom_id + "/students";
+    return App.url()+ "/classrooms/" + App.currentTeacher.classroom_id + "/students";
   },
 
   local: function() {
