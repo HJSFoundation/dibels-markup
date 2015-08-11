@@ -1,6 +1,12 @@
 .reading-stage-chooser {
   max-width: 66.666%;
   margin: 75px auto;
+
+  &.st-initial {
+    .st-selected:before {
+      background-color: $blue-light;
+    }
+  }
 }
 
 .reading-stage-chooser__button {
@@ -83,7 +89,7 @@
 .reading-stage-setup__initial {
   .reading-stage__choice--large {
     &.st-selected::before {
-      background: $turquoise;
+      background: $blue-light;
     }
   }
 }

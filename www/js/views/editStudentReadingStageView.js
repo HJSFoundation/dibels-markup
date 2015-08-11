@@ -2,7 +2,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   template: App.templates.editStudentReadingStage,
 
   events: {
-    "click .reading-stage__choice": "handleReadingStageChoice",
+    "click .js-readingStageChooser": "handleReadingStageChoice",
     "click .js-currentReadingStage": "handleCurrentReadingStage",
     "click .js-initialReadingStage": "handleInitialReadingStage",
   },
@@ -23,7 +23,8 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       currentReadingStage: App.selectedStudent.get("reading_stage"),
       initialReadingStage: App.selectedStudent.get("initial_reading_stage"),
       initialReadingStageSelected: (this.isInitialReadingStage? "st-selected" : ""),
-      currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected")
+      currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected"),
+      initialClass: (this.isInitialReadingStage? "st-initial" : "")
     }
   },
 

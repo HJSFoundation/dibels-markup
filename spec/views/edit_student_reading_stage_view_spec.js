@@ -153,6 +153,7 @@ describe('App.Views.EditStudentReadingStage', function() {
         sinon.stub(App, "newISODate").returns("a date");
         subject.isInitialReadingStage = false;
         subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+
         expect(App.Models.UserReadingStages).to.have.been.calledWith({
           student_id: App.selectedStudent.get("id"),
           assessor_id: App.currentTeacher.id,
@@ -162,6 +163,9 @@ describe('App.Views.EditStudentReadingStage', function() {
           changed_at: App.newISODate()
 
         });
+        var model = App.userReadingStages.where({changed_at: "a date"});
+        // expect(subject.).to
+
         App.newISODate.restore();
       });
 
