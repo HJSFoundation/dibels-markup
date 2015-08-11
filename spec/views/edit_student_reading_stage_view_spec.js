@@ -46,15 +46,47 @@ describe('App.Views.EditStudentReadingStage', function() {
     it("calls makeActive with reading stage when initial reading stage is false", function() {
       sinon.spy(subject, "makeActive");
       subject.render();
-      expect(subject.makeActive).to.have.been.calledWith(App.selectedStudent.get("reading_stage"));
+      expect(subject.makeActive).to.have.been.calledWith(subject.isInitialReadingStage ? App.selectedStudent.get("initial_reading_stage") : App.selectedStudent.get("reading_stage"));
     });
 
     it("calls makeActive with initial reading stage when initial reading stage is true", function() {
       sinon.spy(subject, "makeActive");
       subject.isInitialReadingStage = true;
       subject.render();
-      expect(subject.makeActive).to.have.been.calledWith(App.selectedStudent.get("reading_stage"));
+      expect(subject.makeActive).to.have.been.calledWith(subject.isInitialReadingStage ? App.selectedStudent.get("initial_reading_stage") : App.selectedStudent.get("reading_stage"));
     });
+  });
+
+  describe("#templateJSON", function() {
+    it("returns selected student reading stage as current reading stage", function() {
+      expect(subject.templateJSON().currentReadingStage).to.equal(App.selectedStudent.get("reading_stage"));
+    });
+
+    it("returns selected student initial reading stage as initial reading stage", function() {
+      App.selectedStudent.set({"initial_reading_stage": 1});
+      expect(subject.templateJSON().initialReadingStage).to.equal(App.selectedStudent.get("initial_reading_stage"));
+    });
+
+    it("returns initialReadingStageSelected as st-selected if isInitialReadingStage is true", function(){
+      subject.isInitialReadingStage = true;
+      expect(subject.templateJSON().initialReadingStageSelected).to.equal("st-selected");
+    });
+
+    it("returns initialReadingStageSelected as an empty string if isInitialReadingStage is false", function(){
+      subject.isInitialReadingStage = false;
+      expect(subject.templateJSON().initialReadingStageSelected).to.equal("");
+    });
+
+    it("returns currentReadingStageSelected as st-selected if isInitialReadingStage is false", function(){
+      subject.isInitialReadingStage = false;
+      expect(subject.templateJSON().currentReadingStageSelected).to.equal("st-selected");
+    });
+
+    it("returns currentReadingStageSelected as an empty string if isInitialReadingStage is true", function(){
+      subject.isInitialReadingStage = true;
+      expect(subject.templateJSON().currentReadingStageSelected).to.equal("");
+    });
+
   });
 
   describe("handlers", function() {
@@ -73,11 +105,36 @@ describe('App.Views.EditStudentReadingStage', function() {
       afterEach(function(){
         App.Models.UserReadingStages.restore();
 
-      })
-      it("sets the newly selected reading stage", function() {
-        App.selectedStudent.set({reading_stage: 5});
-        subject.handleReadingStageChoice({currentTarget: {innerHTML: "2"}});
-        expect(App.selectedStudent.get("reading_stage")).to.equal(2);
+      });
+
+      describe("when setting the reading stage", function() {
+        it("sets the newly selected reading stage", function() {
+          subject.isInitialReadingStage = false;
+          App.selectedStudent.set({reading_stage: 5});
+          subject.handleReadingStageChoice({currentTarget: {innerHTML: "2"}});
+          expect(App.selectedStudent.get("reading_stage")).to.equal(2);
+        });
+
+        it("sets the reading stage on the selected student", function() {
+          subject.isInitialReadingStage = false;
+          subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+          expect(App.selectedStudent.get("reading_stage")).to.equal(3);
+        });
+      });
+
+      describe("when setting the initial reading stage", function() {
+        it("sets the newly selected initial reading stage", function() {
+          subject.isInitialReadingStage = true;
+          App.selectedStudent.set({initial_reading_stage: 5});
+          subject.handleReadingStageChoice({currentTarget: {innerHTML: "2"}});
+          expect(App.selectedStudent.get("initial_reading_stage")).to.equal(2);
+        });
+
+        it("sets the initial reading stage on the selected student", function() {
+          subject.isInitialReadingStage = true;
+          subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+          expect(App.selectedStudent.get("initial_reading_stage")).to.equal(3);
+        });
       });
 
       it("calls makeInactive", function() {
@@ -92,14 +149,30 @@ describe('App.Views.EditStudentReadingStage', function() {
         expect(subject.makeActive).to.have.been.called;
       });
 
-      it("sets the reading stage on the selected student", function() {
+      it("calls new App.Models.UserReadingStages", function() {
+        sinon.stub(App, "newISODate").returns("a date");
+        subject.isInitialReadingStage = false;
         subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
-        expect(App.selectedStudent.get("reading_stage")).to.equal(3);
+        expect(App.Models.UserReadingStages).to.have.been.calledWith({
+          student_id: App.selectedStudent.get("id"),
+          assessor_id: App.currentTeacher.id,
+          reading_stage: 3,
+          context: "teacher_notepad",
+          initial: false,
+          changed_at: App.newISODate()
+
+        });
+        App.newISODate.restore();
       });
 
-      it("calls save on the model", function() {
+      xit("calls save on the model", function() {
+        // TODO
+      });
+
+      it("calls render", function() {
+        sinon.spy(subject, "render");
         subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
-        expect(App.Models.UserReadingStages).to.have.been.called;
+        expect(subject.render).to.have.been.called;
       });
     });
   });

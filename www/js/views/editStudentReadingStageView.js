@@ -14,7 +14,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
-    this.makeActive(this.isInitialReadingStage? App.selectedStudent.get("initial_reading_stage"): App.selectedStudent.get("reading_stage"));
+    this.makeActive(this.isInitialReadingStage ? App.selectedStudent.get("initial_reading_stage") : App.selectedStudent.get("reading_stage"));
     return this;
   },
 
