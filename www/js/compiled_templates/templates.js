@@ -262,6 +262,13 @@ this["App"]["templates"]["loading"] = Handlebars.template({"compiler":[6,">= 2.0
 this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div id=\"loginContainer\" class=\"loading-login__container container\">\n  <div class=\"loading-login__logo\">\n    <img src=\"img/login-logo.png\" alt=\"\" width=\"468\">\n  </div>\n  <div class=\"loading-login__header\">\n  <h2 class=\"login__error js-login-error\">Incorrect username/password</h2>\n  <div class=\"grid\">\n    <input class=\"login__field login__field--email grid-cell u-1of2\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n    <input class=\"login__field login__field--password grid-cell u-1of2\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n  </div>\n  </div>\n  <div class=\"loading-login__footer\">\n    <input class=\"loading-login__title button--login\" type=\"button\" value=\"Log In\" id=\"submit\">\n    <input type=\"button\" class=\"button loading-login__forgot\" value=\"Forgot Password\" id=\"reset\">\n  </div>\n</div>\n\n";
 },"useData":true});
+this["App"]["templates"]["magnet"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div\nstyle=\"width: 150px; height: 150px; padding: 0.5em; border: 1px solid  black\"\nclass=\"js-magnet\">"
+    + this.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
+    + " <a class=\"js-magnetClose\"> X </a></div>\n";
+},"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n <div class=\"js-stimuliTiles\"></div>\n <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
 },"useData":true});
@@ -371,9 +378,6 @@ this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"1":functi
     + "</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stimulus--tile-choices__wrapper js-list\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.choices : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </ul>\n  </div>\n</div>\n\n";
-},"useData":true});
-this["App"]["templates"]["stageStimulusWhiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stimulus stimulus--whiteboard\">\n  <span>whiteboard</span>\n</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -516,5 +520,5 @@ this["App"]["templates"]["timer"] = Handlebars.template({"1":function(depth0,hel
     + "</button>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p>Whiteboard</p>";
+    return "<p>Whiteboard</p>\nEnter a word or word part and press enter...\n<input type=\"text\" name=\"magnetInput\">\n<div class=\"js-whiteboard\">\n</div>\n";
 },"useData":true});

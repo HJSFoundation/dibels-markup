@@ -18,7 +18,6 @@ App.Views.Matrix = Backbone.View.extend({
   },
 
   listen: function() {
-    // this.listenTo(App.Dispatcher, "closeMatrix", this.handleCloseMatrix); //TODO verify this can be rmoved.
     this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
   },
 

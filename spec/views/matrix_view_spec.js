@@ -86,7 +86,7 @@ describe('App.Views.Matrix', function() {
   it("#listen", function() {
     sinon.spy(subject, "listenTo");
     subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleStudentChangeRequest);
   });
 
   it("#handleStudentChangeRequest", function() {

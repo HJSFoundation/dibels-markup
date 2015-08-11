@@ -140,6 +140,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   handleEndSessionRequested: function() {
     // TODO write spec and test error handling
+    console.log("conferenceManagementView.handleEndSessionRequested");
     this.setEndSessionTime();
     this.model.save()
       .done(App.applicationView.handleResumeEvent)
