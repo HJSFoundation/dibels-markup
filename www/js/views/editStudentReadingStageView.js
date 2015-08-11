@@ -58,8 +58,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     });
     App.userReadingStages.add(model);
 
-
-
     // TODO write spec and test error handling
 
     model.save()
