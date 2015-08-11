@@ -1,13 +1,28 @@
-<div class="stage--edit__content">
-  <div class="reading-stage-chooser grid grid--wrap grid--center">
-    <a href="#" class="reading-stage__choice grid-cell">1</a>
-    <a href="#" class="reading-stage__choice grid-cell">2</a>
-    <a href="#" class="reading-stage__choice grid-cell">3</a>
-    <a href="#" class="reading-stage__choice grid-cell">4</a>
-    <a href="#" class="reading-stage__choice grid-cell">5</a>
-    <a href="#" class="reading-stage__choice grid-cell">6</a>
-    <a href="#" class="reading-stage__choice grid-cell">7</a>
-    <a href="#" class="reading-stage__choice grid-cell">8</a>
-    <a href="#" class="reading-stage__choice grid-cell">9</a>
+<div class="stage--edit__content grid grid--center">
+    <div class="reading-stage-setup">
+      <div class="reading-stage-setup__current">
+
+        <a href="#" class="reading-stage__choice reading-stage__choice--large grid-cell {{ currentReadingStageSelected }} js-currentReadingStage"> {{ currentReadingStage }}</a>
+        <h3 class="reading-stage-setup__title">current reading stage </h3>
+      </div>
+      <div class="reading-stage-setup__initial">
+
+        <a href="#" class="reading-stage__choice reading-stage__choice--large grid-cell {{ initialReadingStageSelected }} js-initialReadingStage"> {{ initialReadingStage }}</a>
+        <h3 class="reading-stage-setup__title">initial reading stage </h3>
+      </div>
+    </div>
+
+  <div class="reading-stage-chooser grid grid--wrap grid--center {{ initialClass }}" >
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">1</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">2</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">3</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">4</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">5</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">6</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">7</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">8</a>
+    <a href="#" class="reading-stage__choice grid-cell js-readingStageChooser">9</a>
   </div>
 </div>
+
+
