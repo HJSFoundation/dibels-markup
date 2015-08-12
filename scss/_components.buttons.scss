@@ -138,6 +138,10 @@ button,
   @include icon-hover(phrases, 32px, $gray-light, $purple);
 }
 
+.button--whiteboard {
+  @include icon-hover(whiteboard, 32px, $gray-light, $yellow);
+}
+
 .button--timer {
   @include icon-hover(timer, 32px, $gray-light, $red);
 }
@@ -167,16 +171,16 @@ button,
 }
 
 // iflTODO: find a way to get this one using the mixin?
-.button--whiteboard {
-  fill: $gray-light;
-  [class*='icon-whiteboard'] {
-    width: 32px;
-  }
-  &:hover,
-  &.st-active {
-    fill: $yellow;
-  }
-}
+// .button--whiteboard {
+//   fill: $gray-light;
+//   [class*='icon-whiteboard'] {
+//     width: 32px;
+//   }
+//   &:hover,
+//   &.st-active {
+//     fill: $yellow;
+//   }
+// }
 
 .button--reading-strategies-toggle {
   width: 100%;

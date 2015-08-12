@@ -92,7 +92,7 @@ this["App"]["templates"]["buttonWhiteboard"] = Handlebars.template({"compiler":[
 
   return "<button class=\"icon-text--vertical button--whiteboard "
     + this.escapeExpression(((helper = (helper = helpers.selectedClass || (depth0 != null ? depth0.selectedClass : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"selectedClass","hash":{},"data":data}) : helper)))
-    + "\">\n  <svg class=\"icon-whiteboard\"><use xlink:href=\"img/icons.svg#icon-whiteboard\"></use></svg>\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
+    + "\">\n  <img src=\"img/icons/icon-whiteboard.png\" alt=\"\" class=\"icon-whiteboard\">\n  <img class=\"icon-whiteboard-filled st-hidden\" src=\"img/icons/icon-whiteboard-filled.png\">\n  <span class=\"icon-text__title\">Whiteboard</span>\n</button>\n";
 },"useData":true});
 this["App"]["templates"]["buttonWords"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
