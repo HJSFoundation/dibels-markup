@@ -63,10 +63,11 @@
 
   &.stimulus--phrases {
     color: $phrases-color;
-    font-size: 65px;
+    font-size: 90px;
 
     .stimulus-cell {
-
+      height: 200px;
+      max-height: 200px;
       span {
         width: 100%;
         word-wrap: break-word;
@@ -117,7 +118,7 @@
         background-color: $tiles-color;
         color: $text-light;
         font-size: 100px;
-        font-family: $font-primary-regular;
+        font-family: $font-serif;
         height: 120px;
         line-height: 100px;
         margin-bottom: 2px;
