@@ -1,12 +1,13 @@
 .timer {
   display: none;
   transition: opacity .55s ease-in-out;
+  position: relative;
 }
 .timer__controls {
   bottom: 7px;
   left: 80px;
   position: absolute;
-  width: 215px;
+  width: 140px;
   padding: 0;
 
   .button--warning {
@@ -24,13 +25,13 @@
       color: $warning;
       display: inline-block;
       font-family: $font-condensed;
-      font-size: 36px;
+      font-size: 28px;
       padding: 0;
     }
 
     .timer__colon {
       font-family: $font-condensed;
-      font-size: 36px;
+      font-size: 28px;
       text-align: center;
     }
   }

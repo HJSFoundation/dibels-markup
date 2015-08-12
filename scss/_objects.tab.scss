@@ -5,7 +5,6 @@
   }
 }
 
-
 .menu--tab {
   background-color: #3d3e40;
   border-right: 1px solid lighten($matrix-tab, 20%);
@@ -30,6 +29,9 @@
   .menu__title {
     width: 60%;
     margin-left: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .menu__icon {

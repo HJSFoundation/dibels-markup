@@ -24,9 +24,9 @@ App.Views.Timer = Backbone.View.extend({
     this.events["click #"+this.buttonId] = "handleTimerButtonClick";
 
     if(this.$el.attr("class") === "js-timer0"){
-      this.bottomValue = "bottom:60px";
+      this.bottomValue = "bottom:0px";
     }else{
-      this.bottomValue = ""
+      this.bottomValue = "bottom:25px";
     }
   },
 
