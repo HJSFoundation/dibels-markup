@@ -15,7 +15,7 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
      prevNextButtons: false,
      pageDots: false
    });
-  $(".js-fittext").fitText(2);
+  $(".js-fittext").fitText(1.3);
   },
 
   templateJSON: function() {
