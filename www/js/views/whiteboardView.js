@@ -25,7 +25,9 @@ App.Views.Whiteboard = Backbone.View.extend({
     $(".js-whiteboard").append( new App.Views.Magnet({text: $("input").val()}).render());
     $("input").val("");
     $( ".js-magnet" ).draggable({
-      snap: true
+      snap: true,
+      cursor: "move",
+      containment: $(".stage--whiteboard")
     });
   },
 

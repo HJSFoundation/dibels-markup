@@ -265,9 +265,9 @@ this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0
 this["App"]["templates"]["magnet"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div\nstyle=\"width: 150px; height: 150px; padding: 0.5em; border: 1px solid  black\"\nclass=\"js-magnet\">"
+  return "<div class=\"js-magnet whiteboard__magnet\">\n  "
     + this.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
-    + " <a class=\"js-magnetClose\"> X </a></div>\n";
+    + " \n  <a class=\"js-magnetClose magnet__remove\"> \n    <img class=\"icon-remove\" src=\"img/icons/icon-remove.png\"> \n  </a>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n <div class=\"js-stimuliTiles\"></div>\n <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
@@ -520,5 +520,5 @@ this["App"]["templates"]["timer"] = Handlebars.template({"1":function(depth0,hel
     + "</button>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p>Whiteboard</p>\nEnter a word or word part and press enter...\n<input type=\"text\" name=\"magnetInput\">\n<div class=\"js-whiteboard\"></div>\n";
+    return "<div class=\"stage--whiteboard\">\n  <input type=\"text\" name=\"magnetInput\" class=\"whiteboard__input\" placeholder=\"Type a word or word part and press enter\" width=\"500px\">\n  <div class=\"js-whiteboard\"></div>\n\n</div>\n\n";
 },"useData":true});

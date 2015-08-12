@@ -2,7 +2,7 @@
 //   _components.magnet.scss
 
 .stage--whiteboard {
-  min-height: 768px;
+  height: 600px;
 }
 
 .footer--whiteboard {
@@ -24,9 +24,43 @@
   height: 25px;
 }
 
-// .button--whiteboard {
-//   align-self: center;
-//   max-width: 80px;
-//   margin-bottom: 0;
-// }
+.whiteboard__input {
+  display: block;
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  height: 25px;
+}
 
+.whiteboard__magnet {
+  font-size: 60px;
+  height: 90px;
+  background: $blue;
+  border: 1px solid darken($blue, 20%);
+  padding: 0 20px;
+  display: inline-block;
+  color: $white;
+  font-family: $font-serif;
+  line-height: 90px;
+  cursor: move;
+}
+
+.magnet__remove {
+  border-color: transparent $black transparent transparent;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  cursor: pointer;
+
+  .icon-remove {
+    width: 10px;
+    position: absolute;
+    right: -19px;
+    top: 0;
+  }
+}
