@@ -328,7 +328,7 @@ this["App"]["templates"]["stageStimulusOnsetRimesWords"] = Handlebars.template({
     + "</div>";
 },"useData":true});
 this["App"]["templates"]["stageStimulusPhrases"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "    <div class=\"stimulus-cell grid grid--center\">\n      <span class=\"js-fittext\">"
+    return "    <div class=\"stimulus-cell grid grid--center\">\n      <span>"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "</span>\n    </div>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
