@@ -520,5 +520,5 @@ this["App"]["templates"]["timer"] = Handlebars.template({"1":function(depth0,hel
     + "</button>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<p>Whiteboard</p>\nEnter a word or word part and press enter...\n<input type=\"text\" name=\"magnetInput\">\n<div class=\"js-whiteboard\">\n</div>\n";
+    return "<p>Whiteboard</p>\nEnter a word or word part and press enter...\n<input type=\"text\" name=\"magnetInput\">\n<div class=\"js-whiteboard\"></div>\n";
 },"useData":true});

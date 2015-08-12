@@ -22,7 +22,6 @@ App.Views.Whiteboard = Backbone.View.extend({
   },
 
   handleEnterKeyPressed: function(){
-    console.log("whiteboardView.handleEnterKeyPressed: " + $("input").val());
     $(".js-whiteboard").append( new App.Views.Magnet({text: $("input").val()}).render());
     $("input").val("");
     $( ".js-magnet" ).draggable({
@@ -34,7 +33,6 @@ App.Views.Whiteboard = Backbone.View.extend({
     if(keyEventObject.keyCode===13){
       this.handleEnterKeyPressed();
     }
-   console.log(keyEventObject.keyCode);
    return false;
   }
 });
