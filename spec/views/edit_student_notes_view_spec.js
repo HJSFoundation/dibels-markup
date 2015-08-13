@@ -37,10 +37,18 @@ describe('App.Views.EditStudentNotes', function() {
     });
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "editStudentNoteSelected", subject.handleEditStudentNoteSelected);
+  describe("#listen", function() {
+    it("listens to editStudentNoteSelected", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "editStudentNoteSelected", subject.handleEditStudentNoteSelected);
+    });
+
+    it("listens to editStudentNewNote", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "editStudentNewNote", subject.handleEditStudentNewNote);
+    });
   });
 
   describe("#render", function() {
@@ -78,6 +86,15 @@ describe('App.Views.EditStudentNotes', function() {
       sinon.spy(subject.article, "render");
       subject.handleEditStudentNoteSelected(new App.Views.EditStudentNote({model: new App.Models.Note}));
       expect(subject.article.render).to.have.been.called;
+    });
+
+    it("#handleEditStudentNewNote", function() {
+      subject.render();
+      sinon.spy(subject.article, "render");
+      var noteView = new App.Models.Note();
+      subject.handleEditStudentNewNote(noteView);
+      expect(subject.article.render).to.have.been.calledWith(noteView);
+
     });
   });
 });

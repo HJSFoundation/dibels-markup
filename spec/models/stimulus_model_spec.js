@@ -30,7 +30,7 @@ describe('App.Models.Stimulus', function() {
   });
 
   it("sets the urlRoot", function() {
-    expect(subject.urlRoot()).to.equal(App.url +"/stimuli");
+    expect(subject.urlRoot()).to.equal(App.url() +"/stimuli");
   });
 
   it("#local", function(){

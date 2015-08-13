@@ -62,7 +62,9 @@ function initializeTestData (){
 
   // localStorage.clear();
 
-  App.url = "http://tutormate.org/api/v1";
+  // App.url = function() {
+  //   return "http://staging.tutormate.org/api/v1";
+  // };
 
   App.currentTeacher = {id: 313, classroom_id: 91};
 

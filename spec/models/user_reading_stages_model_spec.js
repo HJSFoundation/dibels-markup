@@ -14,7 +14,7 @@ describe('App.Models.UserReadingStages', function() {
   });
 
   it("sets the urlRoot", function() {
-    expect(subject.urlRoot()).to.equal(App.url + "/user_reading_stages");
+    expect(subject.urlRoot()).to.equal(App.url() + "/user_reading_stages");
   });
 
   it("has a student_id value", function() {
