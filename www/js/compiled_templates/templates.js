@@ -263,11 +263,15 @@ this["App"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0
     return "<div id=\"loginContainer\" class=\"loading-login__container container\">\n  <div class=\"loading-login__logo\">\n    <img src=\"img/login-logo.png\" alt=\"\" width=\"468\">\n  </div>\n  <div class=\"loading-login__header\">\n  <h2 class=\"login__error js-login-error\">Incorrect username/password</h2>\n  <div class=\"grid\">\n    <input class=\"login__field login__field--email grid-cell u-1of2\" type=\"email\" name=\"email\" id=\"email-field\" placeholder=\"Email\">\n    <input class=\"login__field login__field--password grid-cell u-1of2\" type=\"password\" name=\"password\" id=\"password-field\" placeholder=\"Password\">\n  </div>\n  </div>\n  <div class=\"loading-login__footer\">\n    <input class=\"loading-login__title button--login\" type=\"button\" value=\"Log In\" id=\"submit\">\n    <input type=\"button\" class=\"button loading-login__forgot\" value=\"Forgot Password\" id=\"reset\">\n  </div>\n</div>\n\n";
 },"useData":true});
 this["App"]["templates"]["magnet"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"js-magnet whiteboard__magnet\">\n  "
-    + this.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
-    + " \n  <a class=\"js-magnetClose magnet__remove\"> \n    <img class=\"icon-remove\" src=\"img/icons/icon-remove.png\"> \n  </a>\n</div>\n";
+  return "<div class=\"js-magnet whiteboard__magnet\" style=\"position:absolute; left: "
+    + alias3(((helper = (helper = helpers.left || (depth0 != null ? depth0.left : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"left","hash":{},"data":data}) : helper)))
+    + "px; top: "
+    + alias3(((helper = (helper = helpers.top || (depth0 != null ? depth0.top : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"top","hash":{},"data":data}) : helper)))
+    + "px;\">\n  "
+    + alias3(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
+    + "\n  <a class=\"js-magnetClose magnet__remove\">\n    <img class=\"icon-remove\" src=\"img/icons/icon-remove.png\">\n  </a>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n <div class=\"js-stimuliTiles\"></div>\n <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";
@@ -299,7 +303,7 @@ this["App"]["templates"]["matrixStudentSelectorTab"] = Handlebars.template({"com
     + "</span>\n<span class=\"menu__icon\">\n  <img class=\"icon-edit js-editStudentButton\" src=\"img/icons/icon-edit.png\">\n</span>\n\n";
 },"useData":true});
 this["App"]["templates"]["menuActivity"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <div class=\"js-buttonLetters\"></div>\n  <div class=\"js-buttonWords\"></div>\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n  <div class=\"js-buttonWhiteboard\"></div>\n\n";
+    return "  <div class=\"js-buttonLetters\"></div>\n  <div class=\"js-buttonWords\"></div>\n  <div class=\"js-buttonPhrases\"></div>\n  <div class=\"js-buttonTiles\"></div>\n  <div class=\"js-buttonWhiteboard\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n\n";
 },"useData":true});
 this["App"]["templates"]["menuAssessment"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "  <div class=\"grid-cell js-buttonMastered\"></div>\n  <div class=\"grid-cell js-buttonLearning\"></div>\n  <div class=\"grid-cell js-buttonNeedsWork\"></div>\n  <div class=\"grid-cell js-buttonClear\"></div>\n";
@@ -320,7 +324,7 @@ this["App"]["templates"]["roster"] = Handlebars.template({"compiler":[6,">= 2.0.
     return "<div class=\"container container--overlay\">\n      <thead>\n        <td colspan=\"2\" class=\"session-cell--name\">students</td>\n        <td >reading stage</td>\n        <td>growth</td>\n        <td>practice station score</td>\n        <td width=\"10\" class=\"session-cell--spacer\"></td>\n        <td>days on current reading stage</td>\n        <td>days since last session</td>\n        <td>days since last fluency assignment</td>\n        <td>desired sessions per week</td>\n        <td colspan=\"3\"></td>\n      </thead>\n\n      <tbody>\n        <tr class=\"student-row\">\n          <td class=\"js-studentGroup\"><svg class=\"icon-student\"><use xlink:href=\"#icon-student\"></use></svg></td>\n          <td class=\"session-cell--name\">Billy B.</td>\n          <td>n/a</td>\n          <td>n/a</td>\n          <td>n/a</td>\n          <td width=\"10\" class=\"session-cell--spacer\"></td>\n          <td>3</td>\n          <td>n/a</td>\n          <td>4</td>\n          <td class=\"session-cell--desired\">5</td>\n          <td class=\"session-cell--start session-cell--start--student\" colspan=\"3\">\n            <svg class=\"icon-add\"><use xlink:href=\"#icon-add\"></use></svg>\n            add student</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["stage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "  <div class=\"stage__stimulus grid-cell js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-timer0\"></div>\n    <div class=\"js-timer1\"></div>\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"button--matrix-toggle button--matrix-toggle--open js-buttonMatrixOpen\"></div>\n  <div class=\"js-stageButtonManage\"></div>\n  <div class=\"js-stageButtonEndSession\"></div>\n";
+    return "  <div class=\"stage__stimulus grid-cell js-stageStimulus\"></div>\n  <div class=\"stage__menu stage__menu--left grid\">\n    <div class=\"js-stageButtonFlip\"></div>\n    <div class=\"js-stageButtonTimer\"></div>\n    <div class=\"js-timer0\"></div>\n    <div class=\"js-timer1\"></div>\n  </div>\n  <nav class=\"menu--assessment menu--assessment--stage grid grid--bottom u-text-center js-menuAssessment\">\n  </nav>\n  <div class=\"stage__menu stage__menu--right grid js-menuActivity\"></div>\n  <div class=\"js-stageButtonManage\"></div>\n  <div class=\"js-stageButtonEndSession\"></div>\n";
 },"useData":true});
 this["App"]["templates"]["stageStimulusLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -520,5 +524,5 @@ this["App"]["templates"]["timer"] = Handlebars.template({"1":function(depth0,hel
     + "</button>\n  </div>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["whiteboard"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"stage--whiteboard\">\n  <input type=\"text\" name=\"magnetInput\" class=\"whiteboard__input\" placeholder=\"Type a word or word part and press enter\" width=\"500px\">\n  <div class=\"js-whiteboard\"></div>\n\n</div>\n\n";
+    return "<input type=\"text\" name=\"magnetInput\" class=\"whiteboard__input\" placeholder=\"Type a word or word part and press enter\" width=\"500px\">\n<div class=\"stage--whiteboard js-whiteboard\" style=\"position: relative;\"></div>\n\n";
 },"useData":true});

@@ -57,6 +57,7 @@ App.Views.MenuActivity = Backbone.View.extend({
 
     if(( App.selectedActivity === "whiteboard") && ( selectedActivity !== "whiteboard")){
       App.Dispatcher.trigger("restoreStage");
+
     }
 
     _.each(this.buttons, function(button, key) {

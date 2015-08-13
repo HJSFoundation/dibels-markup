@@ -17,11 +17,11 @@ App.Views.Whiteboard = Backbone.View.extend({
     return this.$el.html(this.template());
   },
 
-  handleSkillChangeRequest: function(stimulus_object){
+  handleSkillChangeRequest: function(stimulus_object) {
     this.render();
   },
 
-  handleEnterKeyPressed: function(){
+  handleEnterKeyPressed: function() {
     $(".js-whiteboard").append( new App.Views.Magnet({text: $("input").val()}).render());
     $("input").val("");
     $( ".js-magnet" ).draggable({
@@ -31,10 +31,10 @@ App.Views.Whiteboard = Backbone.View.extend({
     });
   },
 
-  handleKeyUp: function(keyEventObject){
-    if(keyEventObject.keyCode===13){
+  handleKeyUp: function(keyEventObject) {
+    if (keyEventObject.keyCode === 13) {
       this.handleEnterKeyPressed();
     }
-   return false;
+    return false;
   }
 });

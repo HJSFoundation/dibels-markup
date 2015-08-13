@@ -86,6 +86,7 @@ describe('App.Views.Whiteboard', function() {
     describe("#handleKeyUp", function() {
       it("calls handleEnterKeyPressed when the keycode is 13", function() {
         sinon.spy(subject, "handleEnterKeyPressed");
+        subject.render();
         subject.handleKeyUp({keyCode:13});
         expect(subject.handleEnterKeyPressed).to.have.been.called;
       });

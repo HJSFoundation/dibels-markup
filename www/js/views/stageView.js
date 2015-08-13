@@ -58,7 +58,7 @@ App.Views.Stage = Backbone.View.extend({
 
   handleRestoreStage: function(){
     this.handleOpenMatrix();
-    this.buttonMatrixOpenView.$el.empty();
+    this.buttonMatrixOpenView.$el.hide();
     this.handleDisplayMenuAssessment(true);
   },
 
@@ -80,6 +80,9 @@ App.Views.Stage = Backbone.View.extend({
 
   handleCloseMatrix: function() {
     this.$el.addClass("stage--workspace--full");
+    if(App.selectedActivity !== "whiteboard"){
+      this.handleDisplayOpenMatrixButton(true);
+    }
   },
 
   handleOpenMatrix: function() {
