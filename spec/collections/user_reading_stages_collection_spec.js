@@ -39,6 +39,6 @@ describe('App.Collections.UserReadingStages', function() {
   });
 
   it("sets the url", function() {
-    expect(subject.url()).to.equal(App.url + "/user_reading_stages");
+    expect(subject.url()).to.equal(App.url() + "/user_reading_stages");
   });
 });

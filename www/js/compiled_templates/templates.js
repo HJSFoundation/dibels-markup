@@ -194,7 +194,7 @@ this["App"]["templates"]["editStudentNotesArticle"] = Handlebars.template({"comp
     + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
     + "</span>\n</header>\n<section class=\"edit-notes__body grid\">\n <textarea>"
     + alias3(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"content","hash":{},"data":data}) : helper)))
-    + "</textarea>\n <button class=\"button--edit-notes\">save</button>\n</section>\n\n";
+    + "</textarea>\n</section>\n <button class=\"button--edit-notes js-saveNote\">save</button>\n <button class=\"button--edit-notes js-cancelEdit\">cancel</button>\n <button class=\"button--edit-notes js-newNote\">new note</button>\n\n";
 },"useData":true});
 this["App"]["templates"]["editStudentNotesList"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"edit-archive__list\">\n  <ul class=\"js-editStudentNote\">\n    \n  </ul>\n</div>\n\n\n";

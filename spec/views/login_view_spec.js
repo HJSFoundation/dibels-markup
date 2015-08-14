@@ -57,7 +57,7 @@ describe('App.Views.Login', function() {
       it("opens an in-app-browser", function() {
         sinon.stub(window, "open");
         subject.handleForgotPassword();
-        expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl + "/users/password/new", "_blank", "location=yes");
+        expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
         window.open.restore();
       });
     });

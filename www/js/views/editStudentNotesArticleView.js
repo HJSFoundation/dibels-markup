@@ -3,7 +3,9 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
 
   events: {
     "focus textarea": "handleFocus",
-    "blur textarea": "handleBlur"
+    "click .js-saveNote": "handleSaveNote",
+    "click .js-cancelEdit": "handleCancelEdit",
+    "click .js-newNote": "handleNewNote"
   },
 
   initialize: function() {
@@ -28,7 +30,22 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
     console.log("EditStudentNotesArticle:handleFocus");
   },
 
-  handleBlur: function() {
+  handleCancelEdit: function(){
+    $(this.$el.selector + " textarea").val(this.model.get("content"));
+  },
+
+  handleNewNote: function(){
+    var noteModel = new App.Models.Note().set(
+    {
+      "taken_at": App.newISODate(),
+      "classroom_id": App.currentTeacher.classroom_id,
+      "author_id": App.currentTeacher.id,
+      "user_id": App.selectedStudent.id
+    });
+    App.Dispatcher.trigger("editStudentNewNote", noteModel);
+  },
+
+  handleSaveNote: function() {
     var newContent = $(this.$el.selector + " textarea").val();
     var existingContent = this.model.get("content");
     var request_type = existingContent ? "PUT" : "POST";
@@ -45,6 +62,7 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
       App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);
 
+      this.render(this.model);
       // TODO write spec and test error handling
 
       this.model.save(null, {
