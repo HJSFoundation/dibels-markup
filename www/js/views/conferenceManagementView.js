@@ -156,7 +156,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    App.browser = window.open(App.Config.tutormateUrl + "/students/manage", "_blank", "location=yes");
+    App.browser = window.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
 
     console.log("handleDisplayManage");
     return false;

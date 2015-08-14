@@ -55,10 +55,11 @@ App.Views.Application = Backbone.View.extend({
       return codes;
     }
 
+    var classroomUrl = App.url() + '/classrooms/' + App.currentTeacher.classroom_id;
 
     $.ajax({
       type: 'GET',
-      url: App.url + '/classrooms/' + App.currentTeacher.classroom_id,
+      url: classroomUrl,
       crossDomain: true,
       success: function(responseData) {
         App.syncData.initialize(App.applicationView.removeLogin, App.applicationView.syncDataError);

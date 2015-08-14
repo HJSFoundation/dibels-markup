@@ -2,7 +2,7 @@ App.Collections.Conferences = Backbone.Collection.extend({
   model: App.Models.Conference,
 
   url: function() {
-    return App.url + "/classrooms/" + App.currentTeacher.classroom_id + "/conferences";
+    return App.url() + "/classrooms/" + App.currentTeacher.classroom_id + "/conferences";
   },
 
   comparator: function(model) {

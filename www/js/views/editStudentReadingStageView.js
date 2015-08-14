@@ -2,7 +2,7 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   template: App.templates.editStudentReadingStage,
 
   events: {
-    "click .reading-stage__choice": "handleReadingStageChoice",
+    "click .js-readingStageChooser": "handleReadingStageChoice",
     "click .js-currentReadingStage": "handleCurrentReadingStage",
     "click .js-initialReadingStage": "handleInitialReadingStage",
   },
@@ -10,13 +10,11 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.isInitialReadingStage = false;
-    // TODO remove initial_reading_stage initialization
-    App.selectedStudent.set({initial_reading_stage: 1});
   },
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
-    this.makeActive(this.isInitialReadingStage? App.selectedStudent.get("initial_reading_stage"): App.selectedStudent.get("reading_stage"));
+    this.makeActive(this.isInitialReadingStage ? App.selectedStudent.get("initial_reading_stage") : App.selectedStudent.get("reading_stage"));
     return this;
   },
 
@@ -25,13 +23,14 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       currentReadingStage: App.selectedStudent.get("reading_stage"),
       initialReadingStage: App.selectedStudent.get("initial_reading_stage"),
       initialReadingStageSelected: (this.isInitialReadingStage? "st-selected" : ""),
-      currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected")
+      currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected"),
+      initialClass: (this.isInitialReadingStage? "st-initial" : "")
     }
   },
 
   makeActive: function(readingStage) {
     var choices = $(".reading-stage__choice");
-    $(choices[readingStage - 1]).addClass("st-selected");
+    $(choices[readingStage + 1]).addClass("st-selected");
   },
 
   makeInactive: function() {
@@ -64,8 +63,6 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     }
 
     App.userReadingStages.add(model);
-
-
 
     // TODO write spec and test error handling
 
