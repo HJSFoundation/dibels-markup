@@ -93,6 +93,7 @@ describe('App.Views.EditStudentReadingStage', function() {
     describe("#handleReadingStageChoice", function() {
       beforeEach(function(){
         sinon.stub(App.Models, 'UserReadingStages').returns({
+          set: function() {},
           save: function(){
             return {
               done: function(){
@@ -315,8 +316,5 @@ describe('App.Views.EditStudentReadingStage', function() {
         expect(App.database.update).to.have.been.calledWith("roster", App.selectedStudent);
       });
     });
-
-
-
   });
 });

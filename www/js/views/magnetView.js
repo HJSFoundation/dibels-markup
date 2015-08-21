@@ -8,6 +8,7 @@ App.Views.Magnet = Backbone.View.extend({
   initialize: function(options) {
     _.bindAll(this);
     this.text = options.text;
+    this.flipped = options.flipped;
   },
 
   render: function() {
@@ -18,7 +19,8 @@ App.Views.Magnet = Backbone.View.extend({
     return {
       text: this.text,
       left: this.magnetLeft(),
-      top: this.magnetTop()
+      top: this.magnetTop(),
+      flipped: ( this.flipped ? "st-flipped" : "")
     };
   },
 

@@ -108,6 +108,45 @@ describe('App.Views.Stage', function() {
   });
 
   describe("handlers", function() {
+    describe("#handleRestoreStage", function() {
+      it("calls setFlippedClass", function() {
+        sinon.spy(subject, "setFlippedClass");
+        subject.handleRestoreStage();
+        expect(subject.setFlippedClass).to.have.been.called;
+      });
+
+      it("calls handleOpenMatrix", function() {
+        sinon.spy(subject, "handleOpenMatrix");
+        subject.handleRestoreStage();
+        expect(subject.handleOpenMatrix).to.have.been.called;
+      });
+
+      xit("hides buttonMatrixOpenView", function() {
+        subject.buttonMatrixOpenView.render();
+        expect($(".icon-matrix-open")).to.exist;
+        subject.handleRestoreStage();
+        expect($(".icon-matrix-open")).not.to.be.visible;
+      });
+
+      it("calls handleDisplayMenuAssessment", function() {
+        sinon.spy(subject, "handleDisplayMenuAssessment");
+        subject.handleRestoreStage();
+        expect(subject.handleDisplayMenuAssessment).to.have.been.calledWith(true);
+      });
+    });
+
+    describe("#handleDisplayOpenMatrixButton", function() {
+      xit("shows the button when display state is true", function() {
+
+      });
+    });
+
+    describe("#handleDisplayMenuAssessment", function() {
+      xit("shows the menu when display state is true", function() {
+
+      });
+    });
+
     it("#handleCloseMatrix", function() {
       subject.handleCloseMatrix();
       expect(subject.$el).to.have.class("stage--workspace--full");
@@ -137,6 +176,28 @@ describe('App.Views.Stage', function() {
         expect(subject.flipped).to.equal(true);
         expect($(subject.stageStimulusEl)).to.have.class("st-flipped");
         expect($(subject.stageStimulusEl)).not.to.have.class("st-unflipped");
+      });
+
+      it("calls setFlipped on the whiteboard", function() {
+        sinon.spy(subject.stageViews.whiteboard, "setFlipped");
+        subject.handleFlipStageRequest();
+        expect(subject.stageViews.whiteboard.setFlipped).to.have.been.calledWith(subject.flipped);
+      });
+    });
+
+    describe("#setFlippedClass", function() {
+      it("sets the st-flipped class when subject.flipped is true", function() {
+        subject.flipped=true;
+        subject.setFlippedClass();
+        expect($(subject.stageStimulusEl)).to.have.class("st-flipped");
+        expect($(subject.stageStimulusEl)).not.to.have.class("st-unflipped");
+      });
+
+      it("sets the st-unflipped class when subject.flipped is false", function() {
+        subject.flipped=false;
+        subject.setFlippedClass();
+        expect($(subject.stageStimulusEl)).to.have.class("st-unflipped");
+        expect($(subject.stageStimulusEl)).not.to.have.class("st-flipped");
       });
     });
 

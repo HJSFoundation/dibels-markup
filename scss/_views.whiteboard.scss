@@ -66,3 +66,11 @@
     top: 0;
   }
 }
+
+.magnet__text {
+  display: block;
+
+  &.st-flipped {
+    transform: scale(-1, -1);
+  }
+}

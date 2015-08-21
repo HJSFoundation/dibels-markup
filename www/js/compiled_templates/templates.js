@@ -271,9 +271,11 @@ this["App"]["templates"]["magnet"] = Handlebars.template({"compiler":[6,">= 2.0.
     + alias3(((helper = (helper = helpers.left || (depth0 != null ? depth0.left : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"left","hash":{},"data":data}) : helper)))
     + "px; top: "
     + alias3(((helper = (helper = helpers.top || (depth0 != null ? depth0.top : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"top","hash":{},"data":data}) : helper)))
-    + "px;\">\n  "
+    + "px;\">\n  <span class=\"magnet__text js-magnetText "
+    + alias3(((helper = (helper = helpers.flipped || (depth0 != null ? depth0.flipped : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"flipped","hash":{},"data":data}) : helper)))
+    + "\">"
     + alias3(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
-    + "\n  <a class=\"js-magnetClose magnet__remove\">\n    <img class=\"icon-remove\" src=\"img/icons/icon-remove.png\">\n  </a>\n</div>\n";
+    + "</span>\n  <a class=\"js-magnetClose magnet__remove\">\n    <img class=\"icon-remove\" src=\"img/icons/icon-remove.png\">\n  </a>\n</div>\n";
 },"useData":true});
 this["App"]["templates"]["matrix"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"matrix\">\n  <nav class=\"matrix__menu\">\n    <div class=\"js-matrixMenu\"></div>\n  </nav>\n <div class=\"js-stimuliTiles\"></div>\n <nav class=\"matrix__student-selector\">\n    <div class=\"js-matrixStudentSelector\"></div>\n  </nav>\n</div>\n\n\n";

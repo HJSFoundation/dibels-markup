@@ -15,7 +15,7 @@ App.Views.Stage = Backbone.View.extend({
     this.stageViews.tiles = new App.Views.StageStimulusTiles({ el: this.stageStimulusEl});
     this.stageStoryPageView = new App.Views.StageStoryPage({ el: ".js-overlay"});
     this.leveledTextPageView = new App.Views.LeveledTextPage({ el: ".js-overlay"});
-    this.stageViews.whiteboard = new App.Views.Whiteboard({ el: this.stageStimulusEl});
+    this.stageViews.whiteboard = new App.Views.Whiteboard({ el: this.stageStimulusEl, flipped: this.flipped});
 
 
     this.buttonEndSessionView = new App.Views.ButtonEndSession({el: ".js-stageButtonEndSession"});
@@ -57,6 +57,7 @@ App.Views.Stage = Backbone.View.extend({
   },
 
   handleRestoreStage: function(){
+    this.setFlippedClass();
     this.handleOpenMatrix();
     this.buttonMatrixOpenView.$el.hide();
     this.handleDisplayMenuAssessment(true);
@@ -90,15 +91,24 @@ App.Views.Stage = Backbone.View.extend({
   },
 
   handleFlipStageRequest: function() {
+
+    this.flipped = !this.flipped;
+    if(App.selectedActivity !== "whiteboard"){
+      this.setFlippedClass();
+    }
+
+    this.stageViews.whiteboard.setFlipped(this.flipped);
+  },
+
+  setFlippedClass: function(){
     var $sel = $(this.stageStimulusEl);
-    if (this.flipped) {
+    if (!this.flipped) {
       $sel.addClass("st-unflipped");
       $sel.removeClass("st-flipped");
     } else {
       $sel.addClass("st-flipped");
       $sel.removeClass("st-unflipped");
     }
-    this.flipped = !this.flipped;
   },
 
   handleOnsetRimesChangeRequest: function(stimulus_object) {
