@@ -19,10 +19,17 @@ App.Views.Matrix = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", this.handleStudentChangeRequest);
+    this.listenTo(App.Dispatcher, "matrixRerenderRequest", this.handleRerenderRequest);
   },
 
   render: function() {
     this.$el.html(this.template());
+  },
+
+  handleRerenderRequest: function(){
+    var tile = this.tiles[App.selectedSkill];
+    tile.handleSkillReplaceRequest();
+    tile.render();
   },
 
   handleStudentChangeRequest: function(selectedStudents) {

@@ -1,4 +1,4 @@
-App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
+  App.Views.StimuliTilesOnsetRimes = Backbone.View.extend({
   template: App.templates.stimuliTilesOnsetRimes,
 
   gridClassOnset: "js-stimuliTileOnset",

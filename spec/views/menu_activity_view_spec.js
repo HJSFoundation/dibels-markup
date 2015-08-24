@@ -94,6 +94,22 @@ describe('App.Views.MenuActivity', function() {
     });
 
     describe("#handleActivityMenuButtonActiveRequest", function() {
+      it("triggers restore stage when App.selectedActivity equals whiteboard and selectedActivity does not equal whiteboard", function() {
+        sinon.spy(App.Dispatcher, "trigger");
+        App.selectedActivity = "whiteboard";
+        subject.handleActivityMenuButtonActiveRequest("phrases");
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("restoreStage");
+        App.Dispatcher.trigger.restore();
+      });
+
+      it("does not trigger restore stage when App.selectedActivity does not equal whiteboard or selectedActivity equals whiteboard", function() {
+        sinon.spy(App.Dispatcher, "trigger");
+        App.selectedActivity = "phrases";
+        subject.handleActivityMenuButtonActiveRequest("phrases");
+        expect(App.Dispatcher.trigger).not.to.have.been.called;
+        App.Dispatcher.trigger.restore();
+      });
+
       it("makes active the selected activity", function() {
         sinon.spy(subject.buttons.phrases, "makeActive");
         subject.handleActivityMenuButtonActiveRequest("phrases");
@@ -104,6 +120,22 @@ describe('App.Views.MenuActivity', function() {
         sinon.spy(subject.buttons.tiles, "makeInactive");
         subject.handleActivityMenuButtonActiveRequest("phrases");
         expect(subject.buttons.tiles.makeInactive).to.have.been.called;
+      });
+
+      it("triggers matrixRerenderRequest when App.selectedActivity equals phrases or selectedActivity equals phrases", function() {
+        sinon.spy(App.Dispatcher, "trigger");
+        App.selectedActivity = "phrases";
+        subject.handleActivityMenuButtonActiveRequest("phrases");
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("matrixRerenderRequest");
+        App.Dispatcher.trigger.restore();
+      });
+
+      it("does not trigger matrixRerenderRequest when App.selectedActivity does not equal phrases and selectedActivity does not equal phrases", function() {
+        sinon.spy(App.Dispatcher, "trigger");
+        App.selectedActivity = "tiles";
+        subject.handleActivityMenuButtonActiveRequest("tiles");
+        expect(App.Dispatcher.trigger).not.to.have.been.called;
+        App.Dispatcher.trigger.restore();
       });
 
       it("triggers stimulus change request when selected stimulus is not null and selected student reading stage equals selected stimulus reading stage", function() {

@@ -57,8 +57,9 @@ App.Views.MenuActivity = Backbone.View.extend({
 
     if(( App.selectedActivity === "whiteboard") && ( selectedActivity !== "whiteboard")){
       App.Dispatcher.trigger("restoreStage");
-
     }
+
+    var oldSelectedActivity = App.selectedActivity;
 
     _.each(this.buttons, function(button, key) {
       if (selectedActivity === key) {
@@ -69,6 +70,11 @@ App.Views.MenuActivity = Backbone.View.extend({
         button.makeInactive();
       }
     });
+
+    if(((oldSelectedActivity === "phrases") || (selectedActivity === "phrases"))){
+      App.Dispatcher.trigger("matrixRerenderRequest");
+    }
+
     if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage")==App.selectedStimulus.get("reading_stage"))) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
