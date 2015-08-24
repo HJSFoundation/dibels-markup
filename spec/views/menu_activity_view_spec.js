@@ -106,7 +106,7 @@ describe('App.Views.MenuActivity', function() {
         sinon.spy(App.Dispatcher, "trigger");
         App.selectedActivity = "phrases";
         subject.handleActivityMenuButtonActiveRequest("phrases");
-        expect(App.Dispatcher.trigger).not.to.have.been.called;
+        expect(App.Dispatcher.trigger).not.to.have.been.calledWith("restoreStage");
         App.Dispatcher.trigger.restore();
       });
 
