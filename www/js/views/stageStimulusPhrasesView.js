@@ -6,7 +6,6 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
   },
 
   render: function() {
-    // this.$el.html(this.template(this.templateJSON()));
 
   this.$el.html(this.template(this.templateJSON()));
   $('.js-flickity-gallery').flickity({

@@ -83,10 +83,17 @@ describe('App.Views.Matrix', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  it("#listen", function() {
-    sinon.spy(subject, "listenTo");
-    subject.listen();
-    expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "closeMatrix", subject.handleCloseMatrix);
+  describe("#listen", function() {
+    it("listens for matrixStudentSelectorTabActiveRequest", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixStudentSelectorTabActiveRequest", subject.handleStudentChangeRequest);
+    });
+    it("listens for matrixRerenderRequest", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "matrixRerenderRequest", subject.handleRerenderRequest);
+    });
   });
 
   it("#handleStudentChangeRequest", function() {

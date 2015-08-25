@@ -23,20 +23,6 @@ describe('App.Views.StageStimulusLetters', function() {
     expect(subject.template()).to.exist;
   });
 
-  it("calls listen on initialize", function() {
-    sinon.spy(subject, "listen");
-    subject.initialize();
-    expect(subject.listen).to.have.been.called;
-  });
-
-  describe("#listen", function() {
-    it("listens for the StimulusChangeRequested:LetterNames", function() {
-      sinon.spy(subject, "listenTo");
-      subject.listen();
-      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.letterNames, subject.handleSkillChangeRequest);
-    });
-  });
-
   it("#render", function() {
     subject.render({value: "B"});
     expect(subject.$el).not.to.be.empty;

@@ -9,6 +9,7 @@ App.Views.EditStudentNotes = Backbone.View.extend({
 
   listen: function() {
     this.listenTo(App.Dispatcher, "editStudentNoteSelected", this.handleEditStudentNoteSelected);
+    this.listenTo(App.Dispatcher, "editStudentNewNote", this.handleEditStudentNewNote);
   },
 
   render: function() {
@@ -26,6 +27,10 @@ App.Views.EditStudentNotes = Backbone.View.extend({
     this.article.render(noteModel);
     this.list.render();
     return this;
+  },
+
+  handleEditStudentNewNote: function(noteModel){
+    this.article.render(noteModel);
   },
 
   handleEditStudentNoteSelected: function(noteView){

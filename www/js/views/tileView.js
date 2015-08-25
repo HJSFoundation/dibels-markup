@@ -24,7 +24,9 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template(this.templateJSON()));
+    if(!((App.selectedActivity === "phrases") && (this.model.get("sub_skill") === App.Config.skill.onsets))){
+      this.$el.html(this.template(this.templateJSON()));
+    }
     return this;
   },
 

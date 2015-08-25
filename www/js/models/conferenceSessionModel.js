@@ -6,7 +6,7 @@ App.Models.ConferenceSession = Backbone.Model.extend({
   ended_at: "",
 
   urlRoot: function() {
-    return App.url + "/conference_sessions";
+    return App.url()+ "/conference_sessions";
   },
 
   local: function() {

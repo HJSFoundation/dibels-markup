@@ -6,7 +6,7 @@ App.Collections.Stimuli = Backbone.Collection.extend({
   comparator: "value",
 
   url: function() {
-    var url = App.url + "/classrooms/" + App.currentTeacher.classroom_id + "/stimuli?page=" + this.page;
+    var url = App.url()+ "/classrooms/" + App.currentTeacher.classroom_id + "/stimuli?page=" + this.page;
     if (App.clientLastFetchedAt) {
       url = url + "&client_last_fetched_at=" + App.clientLastFetchedAt;
     }

@@ -39,6 +39,6 @@ describe('App.Collections.ConferenceSessions', function() {
   });
 
   it("sets the url", function() {
-    expect(subject.url()).to.equal(App.url + "/conference_sessions");
+    expect(subject.url()).to.equal(App.url() + "/conference_sessions");
   });
 });

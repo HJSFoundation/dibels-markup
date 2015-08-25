@@ -31,10 +31,9 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
     this.$tbody = this.$el.find("tbody");
 
-    // var groupConferences = App.conferences.where({conference_type: "group", classroom_id: App.currentTeacher.classroom_id});
+    App.conferences.sort();
     var conferences = App.conferences.where({classroom_id: App.currentTeacher.classroom_id});
 
-    // _.each(groupConferences, function(groupConference) {
     _.each(conferences, function(conference) {
 
       if(conference.get("conference_type")==="group"){
@@ -140,6 +139,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   handleEndSessionRequested: function() {
     // TODO write spec and test error handling
+    console.log("conferenceManagementView.handleEndSessionRequested");
     this.setEndSessionTime();
     this.model.save()
       .done(App.applicationView.handleResumeEvent)
@@ -155,7 +155,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    App.browser = window.open(App.Config.tutormateUrl + "/students/manage", "_blank", "location=yes");
+    App.browser = window.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
 
     console.log("handleDisplayManage");
     return false;

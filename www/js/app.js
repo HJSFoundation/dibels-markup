@@ -8,7 +8,13 @@ var App = {
     productionApiUrl: "https://www.tutormate.org/api/v1",
     stagingApiUrl: "http://staging.tutormate.org/api/v1",
     developmentApiUrl: "http://localhost:3000/api/v1",
-    tutormateUrl: "https://www.tutormate.org",
+    tutormateUrl: function(){
+      if(is_browser){
+        return "http://staging.tutormate.org";
+      }else{
+        return "https://www.tutormate.org";
+      }
+    },
     maxStudentCount: 6,
     maxStageCount: 9,
     minReadingStageForStrategies: 4,
@@ -30,7 +36,13 @@ var App = {
       readingStrategies: "reading_strategies"
     },
   },
-  url: "https://www.tutormate.org/api/v1",
+  url: function() {
+    if (is_browser) {
+      return "http://staging.tutormate.org/api/v1";
+    } else {
+      return "https://www.tutormate.org/api/v1";
+    }
+  },
   clientLastFetchedAt: "",
   notesLastTakenAt: "",
   resp:{},

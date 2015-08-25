@@ -14,7 +14,7 @@ describe('App.Models.NetworkError', function() {
   });
 
   it("#urlRoot", function() {
-    expect(subject.urlRoot()).to.equal(App.url+"/client_errors");
+    expect(subject.urlRoot()).to.equal(App.url() + "/client_errors");
   });
 
   it("#local", function(){

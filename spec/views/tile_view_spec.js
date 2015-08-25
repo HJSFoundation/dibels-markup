@@ -73,9 +73,18 @@ describe('App.Views.Tile', function() {
     });
   });
 
-  it("renders", function() {
-    subject.render();
-    expect(subject.$el).not.to.be.empty;
+  describe("#render", function() {
+    it("renders when the selected activity is not phrases and the sub_skill is not onsets", function() {
+      subject.render();
+      expect(subject.$el).not.to.be.empty;
+    });
+
+    it("does not render when the selected activity is phrases and the sub_skill is onsets", function() {
+      App.selectedActivity = "phrases";
+      subject.model.set({sub_skill: App.Config.skill.onsets});
+      subject.render();
+      expect(subject.$el).to.be.empty;
+    });
   });
 
   it("#templateJSON", function() {

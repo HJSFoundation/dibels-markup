@@ -16,6 +16,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'www/js/vendor/jquery-2.1.3.min.js',
+      'www/js/vendor/jquery-ui.min.js',
+      'www/js/vendor/jquery.ui.touch-punch.min.js',
       'www/js/vendor/lodash.min.js',
       'www/js/vendor/backbone-1.1.2.js',
       'www/js/vendor/backbone.dualstorage.js',

@@ -14,7 +14,7 @@ describe('App.Models.Conference', function() {
   });
 
   it("sets the urlRoot", function() {
-    expect(subject.urlRoot()).to.equal(App.url +"/conferences");
+    expect(subject.urlRoot()).to.equal(App.url() +"/conferences");
   });
 
   it("#local", function(){

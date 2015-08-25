@@ -3,10 +3,10 @@ App.Views.MenuActivity = Backbone.View.extend({
 
   config: {
     buttonMap: {
-      letter_names: ["letters"],
-      letter_sounds: ["letters", "words", "tiles"],
-      sight_words: ["words"],
-      onset_rimes: ["words","phrases","tiles"],
+      letter_names: ["letters", "whiteboard"],
+      letter_sounds: ["letters", "words", "tiles", "whiteboard"],
+      sight_words: ["words", "whiteboard"],
+      onset_rimes: ["words","phrases","tiles", "whiteboard"],
       stage_stories: [],
       leveled_texts:[]
     }
@@ -21,6 +21,7 @@ App.Views.MenuActivity = Backbone.View.extend({
     this.buttons.words = new App.Views.ButtonWords({el: ".js-buttonWords"});
     this.buttons.phrases = new App.Views.ButtonPhrases({el: ".js-buttonPhrases"});
     this.buttons.tiles = new App.Views.ButtonTiles({el: ".js-buttonTiles"});
+    this.buttons.whiteboard = new App.Views.ButtonWhiteboard({el: ".js-buttonWhiteboard"});
     this.listen();
   },
 
@@ -53,6 +54,13 @@ App.Views.MenuActivity = Backbone.View.extend({
   handleActivityMenuButtonActiveRequest: function(selectedActivity){
     var that = this;
     this.isActive = false;
+
+    if(( App.selectedActivity === "whiteboard") && ( selectedActivity !== "whiteboard")){
+      App.Dispatcher.trigger("restoreStage");
+    }
+
+    var oldSelectedActivity = App.selectedActivity;
+
     _.each(this.buttons, function(button, key) {
       if (selectedActivity === key) {
         that.isActive = true;
@@ -62,6 +70,11 @@ App.Views.MenuActivity = Backbone.View.extend({
         button.makeInactive();
       }
     });
+
+    if(((oldSelectedActivity === "phrases") || (selectedActivity === "phrases"))){
+      App.Dispatcher.trigger("matrixRerenderRequest");
+    }
+
     if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage")==App.selectedStimulus.get("reading_stage"))) {
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");

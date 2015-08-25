@@ -2,7 +2,7 @@ App.Collections.Conferences = Backbone.Collection.extend({
   model: App.Models.Conference,
 
   url: function() {
-    return App.url + "/classrooms/" + App.currentTeacher.classroom_id + "/conferences";
+    return App.url() + "/classrooms/" + App.currentTeacher.classroom_id + "/conferences";
   },
 
   comparator: function(model) {
@@ -10,7 +10,8 @@ App.Collections.Conferences = Backbone.Collection.extend({
     var date1 = model.lastConferenceSessionAt().set({ hour: 0, minute: 0, second: 0 });
     var date2 = moment().utc().set({ hour: 0, minute: 0, second: 0 });
     var timeSinceLastConference = Math.abs(date2.valueOf() - date1.valueOf());
-    var desiredTimeBetweenConf = 7 * msPerDay/model.get("number_per_week");
+    var numberPerWeek = Math.max(model.get("number_per_week"), .001);
+    var desiredTimeBetweenConf = 7 * msPerDay/numberPerWeek;
     return desiredTimeBetweenConf - timeSinceLastConference;
   },
 
