@@ -85,12 +85,18 @@
         align-self: flex-start;
       }
 
-      .stimulus__tile-column--onset li {
-        background-color: darken($tiles-color, 20%);
-      }
+      .stimulus__tile-column--onset {
+        @extend .slideInLeft;
+        li {
+          background-color: darken($tiles-color, 20%);
+        }
+      } 
 
-      .stimulus__tile-column--rime li {
-        background-color: $tiles-color;
+      .stimulus__tile-column--rime {
+        @extend .slideInDown;
+        li {
+          background-color: $tiles-color;
+        }
       }
 
       .stimulus--onsets-rimes {
@@ -127,11 +133,15 @@
     }
 
     .stimulus__tile-column--onset {
+      @extend .animated;
+      @extend .slideInDown;
       text-align: right;
       max-width: 165px;
     }
 
     .stimulus__tile-column--rime {
+      @extend .animated;
+      @extend .slideInRight;
       text-align: left;
 
       li {
