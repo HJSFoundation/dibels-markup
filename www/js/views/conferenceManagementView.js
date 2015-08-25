@@ -31,10 +31,9 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
     this.$tbody = this.$el.find("tbody");
 
-    // var groupConferences = App.conferences.where({conference_type: "group", classroom_id: App.currentTeacher.classroom_id});
+    App.conferences.sort();
     var conferences = App.conferences.where({classroom_id: App.currentTeacher.classroom_id});
 
-    // _.each(groupConferences, function(groupConference) {
     _.each(conferences, function(conference) {
 
       if(conference.get("conference_type")==="group"){
