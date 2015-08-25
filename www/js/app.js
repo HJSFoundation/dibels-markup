@@ -187,7 +187,7 @@ var App = {
           ime: ["crime","dime","grime","lime","slime","time"],
           ine: ["dine","fine","line","mine","nine","pine","spine","vine","wine"],
           ipe: ["wipe","pipe","ripe"],
-          ite: ["bite","kite","site","spite","white "],
+          ite: ["bite","kite","site","spite","white"],
           ode: ["code","mode","rode"],
           ome: ["dome","home"],
           one: ["bone","cone","lone","stone","tone","zone"],
