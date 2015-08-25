@@ -60,15 +60,17 @@
 .login__field {
   width: 240px;
   margin-right: 10px;
-  height: 22px;
+  height: auto;
   font-family: $font-primary;
   font-size: 18px;
+  line-height: 1;
   border-top: 0;
   border-right: 0;
   border-left: 0;
   border-bottom: 2px solid $white;
   background: transparent;
   color: $orange;
+  border-radius: 0;
 
   &:last-of-type {
     margin-right: 0;
