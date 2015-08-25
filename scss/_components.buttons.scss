@@ -30,6 +30,17 @@ button,
   width: 150px;
 }
 
+.button--save-note,
+.button--cancel-note,
+.button--new-note {
+  @extend .button--primary;
+  margin-right: 2%;
+}
+
+.button--new-note {
+  margin-right: 0;
+}
+
 .button--warning {
   @extend %button;
   background: $warning;
