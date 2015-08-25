@@ -10,6 +10,7 @@ App.Views.ConferenceManagementSingle = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     App.selectedSkill = "";
+    App.selectedActivity = "";
     this.listen();
     this.render();
   },
