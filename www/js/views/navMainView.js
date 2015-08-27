@@ -21,10 +21,18 @@ App.Views.NavMain = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    App.browser = window.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
-
+    if(App.browser){
+      App.browser.show();
+    }else{
+      App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
+      App.browser.addEventListener("exit", this.handleInAppBrowserExit);
+    }
     console.log("handleDisplayManage");
     return false;
+  },
+
+  handleInAppBrowserExit: function(){
+    App.Dispatcher.trigger("resyncRequest");
   },
 
   handleLogout: function(){

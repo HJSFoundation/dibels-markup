@@ -31,6 +31,7 @@ App.Views.Application = Backbone.View.extend({
   listen: function() {
     this.listenTo(App.Dispatcher, "loginSuccess", this.handleLoggedIn);
     this.listenTo(App.Dispatcher, "logout", this.handleLogout);
+    this.listenTo(App.Dispatcher, "resyncRequest", this.handleResyncRequest);
     this.listenTo(App.Dispatcher, "initializeConferenceManagementRequested", this.initializeConferenceManagement);
 
     document.addEventListener("resume", this.handleResumeEvent, false);
@@ -123,6 +124,14 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleResumeEvent: function(){
+    this.resync();
+  },
+
+  handleResyncRequest: function(){
+    this.resync();
+  },
+
+  resync: function(){
     if(!is_browser){
       navigator.splashscreen.show();
     }

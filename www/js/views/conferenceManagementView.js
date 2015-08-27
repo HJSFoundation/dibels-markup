@@ -142,8 +142,12 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     console.log("conferenceManagementView.handleEndSessionRequested");
     this.setEndSessionTime();
     this.model.save()
-      .done(App.applicationView.handleResumeEvent)
+      .done(this.resync)
       .fail(this.handleEndSessionRequestedFail);
+  },
+
+  resync: function(){
+    App.Dispatcher.trigger("resyncRequest");
   },
 
   handleEndSessionRequestedFail: function(response){
@@ -155,10 +159,18 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    App.browser = window.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
-
+    if(App.browser){
+      App.browser.show();
+    }else{
+      App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
+      App.browser.addEventListener("exit", this.handleInAppBrowserExit);
+    }
     console.log("handleDisplayManage");
     return false;
+  },
+
+  handleInAppBrowserExit: function(){
+    App.Dispatcher.trigger("resyncRequest");
   },
 
   handleEndSessionLogoutRequested: function(){

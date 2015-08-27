@@ -121,10 +121,22 @@ describe('App.Views.ConferenceManagement', function() {
 
   describe("#handleDisplayManage", function() {
     it("opens an in-app-browser", function() {
-      sinon.stub(window, "open");
+
+      cordova = {
+        InAppBrowser: {
+          open: function(url, targetType, locationOption){
+            return {
+              addEventListener: function(){
+
+              }
+            };
+          }
+        }
+      };
+
+      sinon.spy(cordova.InAppBrowser, "open");
       subject.handleDisplayManage();
-      expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
-      window.open.restore();
+      expect(cordova.InAppBrowser.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
     });
   });
 
