@@ -30,22 +30,6 @@ describe('App.Views.Application', function() {
     expect(requests[0].requestHeaders).to.include({"Authorization": 'Token token="1234567890", email="someone@somewhere.com"'});
   });
 
-  xit("#initializeStudentCollection", function() {
-
-  });
-
-  xit("#initializeStudentCollectionFail", function() {
-
-  });
-
-  xit("#initializeStimuliCollections", function() {
-
-  });
-
-  xit("#initializeStimuliCollectionFail", function() {
-
-  });
-
   it("has a reference to the application container", function() {
     expect(subject.$el).to.exist;
     expect(subject.$el).to.have.id('applicationContainer');
@@ -101,6 +85,18 @@ describe('App.Views.Application', function() {
       expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "loginSuccess", subject.handleLoggedIn);
     });
 
+    it("listens for logout", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "logout", subject.handleLogout);
+    });
+
+    it("listens for resyncRequest", function() {
+      sinon.spy(subject, "listenTo");
+      subject.listen();
+      expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "resyncRequest", subject.handleResyncRequest);
+    });
+
     it("listens for initializeConferenceManagement", function() {
       sinon.spy(subject, "listenTo");
       subject.listen();
@@ -113,59 +109,89 @@ describe('App.Views.Application', function() {
       expect(document.addEventListener).to.have.been.calledWith("resume", subject.handleResumeEvent, false);
       document.addEventListener.restore();
     });
-  });
 
-  it("#displayLoadingScreen", function() {
-    subject.displayLoadingScreen();
-    expect(subject.loadingScreen).to.be.an.instanceOf(App.Views.Loading);
-  });
-
-  describe("#removeLogin", function() {
-    it("removes the Login View", function() {
-      this.timeout(15000);
-      initializeTestData();
-
-      subject.displayLoadingScreen();
-      subject.removeLogin();
-      expect($("#loginContainer")).not.to.exist;
-
+    it("listens for the offline", function() {
+      sinon.spy(document, "addEventListener");
+      subject.listen();
+      expect(document.addEventListener).to.have.been.calledWith("offline", subject.handleOfflineEvent, false);
+      document.addEventListener.restore();
     });
 
-    it("calls initializeConferenceManagement", function() {
-      sinon.spy(subject, "initializeConferenceManagement");
-      subject.displayLoadingScreen();
-      subject.removeLogin();
-      expect(subject.initializeConferenceManagement).to.have.been.called;
+    it("listens for the online", function() {
+      sinon.spy(document, "addEventListener");
+      subject.listen();
+      expect(document.addEventListener).to.have.been.calledWith("online", subject.handleOnlineEvent, false);
+      document.addEventListener.restore();
     });
 
-    it("stops listening to loginSuccess", function() {
-      sinon.spy(subject, "stopListening");
+  });
+
+  describe("helpers", function() {
+
+    it("#displayLoadingScreen", function() {
       subject.displayLoadingScreen();
-      subject.removeLogin();
-      expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "loginSuccess")
+      expect(subject.loadingScreen).to.be.an.instanceOf(App.Views.Loading);
+    });
+
+    describe("#removeLogin", function() {
+      it("removes the Login View", function() {
+        this.timeout(15000);
+        initializeTestData();
+
+        subject.displayLoadingScreen();
+        subject.removeLogin();
+        expect($("#loginContainer")).not.to.exist;
+      });
+
+      it("calls initializeConferenceManagement", function() {
+        sinon.spy(subject, "initializeConferenceManagement");
+        subject.displayLoadingScreen();
+        subject.removeLogin();
+        expect(subject.initializeConferenceManagement).to.have.been.called;
+      });
+
+      it("stops listening to loginSuccess", function() {
+        sinon.spy(subject, "stopListening");
+        subject.displayLoadingScreen();
+        subject.removeLogin();
+        expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "loginSuccess")
+      });
+    });
+
+    it("#initializeConferenceManagement", function() {
+      subject.initializeConferenceManagement();
+      expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
+      expect($(App.Config.el)).not.to.be.empty;
+    });
+
+    describe("#resync", function() {
+
     });
   });
 
-  it("#initializeConferenceManagement", function() {
-    subject.initializeConferenceManagement();
-    expect(subject.conferenceManagement).to.be.an.instanceOf(App.Views.ConferenceManagement);
-    expect($(App.Config.el)).not.to.be.empty;
-  });
-
-  describe("#handleResumeEvent", function() {
-    xit("calls #displayLoadingScreen", function() {
-      var location = { reload: function(){}};
-      sinon.spy(subject, "displayLoadingScreen");
-      sinon.stub(location, "reload");
+  describe("handlers", function() {
+    it("#handleResumeEvent", function() {
+      sinon.stub(subject, "resync");
       subject.handleResumeEvent();
-      expect(subject.displayLoadingScreen).to.have.been.called;
+      expect(subject.resync).to.have.been.called;
     });
 
-    xit("calls location #reload", function() {
-      var location = { reload: function(){}};
-      sinon.stub(location, "reload");
-      subject.handleResumeEvent();
-      expect(location.reload).to.have.been.called;
+    it("#handleResyncRequest", function() {
+      sinon.stub(subject, "resync");
+      subject.handleResyncRequest();
+      expect(subject.resync).to.have.been.called;
+    });
+
+    it("#handleOfflineEvent", function() {
+      App.online = true;
+      subject.handleOfflineEvent();
+      expect(App.online).to.equal(false);
+    });
+
+    it("#handleOnlineEvent", function() {
+      App.online = false;
+      subject.handleOnlineEvent();
+      expect(App.online).to.equal(true);
     });
   });
 });

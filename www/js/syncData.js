@@ -225,6 +225,11 @@ App.syncData = {
   initializeStimuliCollectionSuccess: function(result) {
     App.clientLastFetchedAt = moment.utc().toISOString();
     localStorage.setItem("App.clientLastFetchedAt", App.clientLastFetchedAt);
+
+    if((App.Config.stimuliModelsPerStudent * App.roster.length) > App.stimuli.length){
+      App.logRemoteSyncError(App.stimuli, {status: App.Config.errorCode.stimuliTotalCountInconsistent}, {}, "stimuliTotalCountInconsistent");
+    }
+
     this.initializeLocalStorage();
   },
 
@@ -285,6 +290,8 @@ App.syncData = {
         }
       }
       this.success();
+    } else if (App.getRemoteSyncErrorState()) {
+      this.returnToLoginWithError({}, "Sync Error", {}, "Stimuli total count inconsistent. Please try again.");
     } else if (App.isOnline()) {
         localStorage.initialSyncCompleted = true;
         localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
@@ -303,7 +310,7 @@ App.syncData = {
   },
 
   returnToLoginWithError: function(collection, response, options, description) {
-    console.log("returnToLoginWithError", collection, response, options, "description");
+    console.log("returnToLoginWithError", collection, response, options, description);
     this.error(collection, response, options, description);
   }
 };

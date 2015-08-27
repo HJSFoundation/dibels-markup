@@ -89,11 +89,11 @@ App.Views.Application = Backbone.View.extend({
       navigator.splashscreen.hide();
     }
 
-    console.log("syncDataError");
+    console.log("syncDataError:" + description);
     $(App.Config.el).empty();
     localStorage.clear();
     App.database.dropTables();
-    this.redirectToLogin("Network error. Please check your connection.");
+    this.redirectToLogin(description);
   },
 
   displayLoadingScreen: function(){
@@ -148,6 +148,5 @@ App.Views.Application = Backbone.View.extend({
     console.log("handleOnlineEvent");
     App.online = true;
   }
-
 
 });

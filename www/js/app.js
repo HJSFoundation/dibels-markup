@@ -35,6 +35,9 @@ var App = {
       leveledTexts: "leveled_texts",
       readingStrategies: "reading_strategies"
     },
+    errorCode: {
+      stimuliTotalCountInconsistent: 1000-1
+    }
   },
   url: function() {
     if (is_browser) {
