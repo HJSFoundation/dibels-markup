@@ -252,7 +252,7 @@ this["App"]["templates"]["leveledTextPage"] = Handlebars.template({"1":function(
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--close js-storyButtonCloseStory\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
+    + "    </div>\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--close js-storyButtonCloseStory\"></button>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
 },"useData":true,"useDepths":true});
 this["App"]["templates"]["loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -379,11 +379,11 @@ this["App"]["templates"]["stageStimulusTiles"] = Handlebars.template({"1":functi
 
   return "<div class=\"stimulus stimulus--tiles "
     + alias3(((helper = (helper = helpers.subSkillClass || (depth0 != null ? depth0.subSkillClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"subSkillClass","hash":{},"data":data}) : helper)))
-    + " grid grid--center\">\n\n <div class=\"stimulus--onsets-rimes grid-cell grid grid--space-between grid--center\">\n    <div class=\"stimulus__tile-column stimulus__tile-column--onset grid-cell animated slideInLeft u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
+    + " grid grid--center\">\n\n <div class=\"stimulus--onsets-rimes grid-cell grid grid--space-between grid--center\">\n    <div class=\"stimulus__tile-column stimulus__tile-column--onset grid-cell u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
     + alias3(((helper = (helper = helpers.onset || (depth0 != null ? depth0.onset : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"onset","hash":{},"data":data}) : helper)))
-    + "</li>\n      </ul>\n    </div>\n    <div class=\"stimulus__tile-column stimulus__tile-column--rime grid-cell animated slideInDown u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
+    + "</li>\n      </ul>\n    </div>\n\n    <div class=\"stimulus__tile-column stimulus__tile-column--rime grid-cell u-no-scrollbar\">\n      <ul class=\"grid grid--column\">\n        <li class=\"grid-cell\">"
     + alias3(((helper = (helper = helpers.rime || (depth0 != null ? depth0.rime : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"rime","hash":{},"data":data}) : helper)))
-    + "</li>\n      </ul>\n    </div>\n  </div>\n  <div class=\"stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stimulus--tile-choices__wrapper js-list\">\n"
+    + "</li>\n      </ul>\n    </div>\n  </div>\n\n  <div class=\"stimulus--tile-choices grid-cell grid grid--column grid--center\">\n    <ul class=\"stimulus--tile-choices__wrapper js-list\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.choices : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </ul>\n  </div>\n</div>\n\n";
 },"useData":true});
@@ -429,7 +429,7 @@ this["App"]["templates"]["stageStoryPage"] = Handlebars.template({"1":function(d
 
   return "<div class=\"story container\" style=\"position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:100;background-color: white\">\n  <div class=\"stage--story stage\">\n    <div class=\"stage--story__gallery\">\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.pages : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <footer class=\"story__footer\">\n      <button class=\"story__flip js-storyButtonFlip\"></button>\n      <button class=\"button button--close js-storyButtonCloseStory\"></button>\n    </footer>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
+    + "    </div>\n    <button class=\"story__flip js-storyButtonFlip\"></button>\n    <button class=\"button button--close js-storyButtonCloseStory\"></button>\n    <div class=\"js-readingStrategies\"></div>\n  </div>\n</div>";
 },"useData":true,"useDepths":true});
 this["App"]["templates"]["stimuliTilesLetters"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

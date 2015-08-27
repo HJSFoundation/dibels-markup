@@ -1,17 +1,19 @@
 <div class="stimulus stimulus--tiles {{subSkillClass}} grid grid--center">
 
  <div class="stimulus--onsets-rimes grid-cell grid grid--space-between grid--center">
-    <div class="stimulus__tile-column stimulus__tile-column--onset grid-cell animated slideInLeft u-no-scrollbar">
+    <div class="stimulus__tile-column stimulus__tile-column--onset grid-cell u-no-scrollbar">
       <ul class="grid grid--column">
         <li class="grid-cell">{{ onset }}</li>
       </ul>
     </div>
-    <div class="stimulus__tile-column stimulus__tile-column--rime grid-cell animated slideInDown u-no-scrollbar">
+
+    <div class="stimulus__tile-column stimulus__tile-column--rime grid-cell u-no-scrollbar">
       <ul class="grid grid--column">
         <li class="grid-cell">{{ rime }}</li>
       </ul>
     </div>
   </div>
+
   <div class="stimulus--tile-choices grid-cell grid grid--column grid--center">
     <ul class="stimulus--tile-choices__wrapper js-list">
       {{#each choices}}
