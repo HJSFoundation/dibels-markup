@@ -305,7 +305,15 @@ App.syncData = {
     console.log("syncData.checkStimuliDone App.stimuli.totalCount: " + App.stimuli.totalCount);
     if (App.stimuli.totalCount === 0) {
       clearInterval(App.syncData.stimuliInterval);
+      App.database.length("stimuli", this.checkStimuliLengthSuccess, this.checkStimuliLengthFailure);
+    }
+  },
+
+  checkStimuliLengthSuccess: function(length){
+    if(length === App.stimuli.length){
       App.syncData.success();
+    }else{
+      this.returnToLoginWithError(App.stimuli,{status: App.Config.errorCode.stimuliDatabaseCountInconsistent},{},"stimuli Database Count Inconsistent");
     }
   },
 
