@@ -10,7 +10,7 @@ App.Views.StimuliTilesLeveledTexts = Backbone.View.extend({
     _.bindAll(this);
     this.listen();
   for (var stage = 1; stage <= App.Config.maxStageCount; stage += 1) {
-      this.stories[stage] = _.where(App.Stories, {reading_level: App.leveledTextReadingStageMap[stage], story_type: "reading"});
+      this.stories[stage] = _.where(App.Stories, { reading_level: App.leveledTextReadingStageMap[stage], story_type: "reading" });
     }
   },
 

@@ -22,7 +22,7 @@ App.Views.Login = Backbone.View.extend({
     var signInUrl = App.url() + '/sign_in';
     var that = this;
 
-    if(App.isOnline()){
+    if (App.isOnline()) {
       console.log("login submitted");
       $("#submit").prop("disabled",true);
       $.ajax({
@@ -36,14 +36,14 @@ App.Views.Login = Backbone.View.extend({
         dataType: 'json',
         success: function(responseData) {
           console.log(responseData);
-          if(localStorage.currentTeacher && that.teachersMatch(responseData) && localStorage.initialSyncCompleted){
+          if (localStorage.currentTeacher && that.teachersMatch(responseData) && localStorage.initialSyncCompleted) {
             App.currentTeacher = JSON.parse(localStorage.currentTeacher);
-          }else{
+          } else {
             console.log("teachers do not match");
             localStorage.clear();
             App.database.dropTables();
             console.log("storage cleared");
-            App.currentTeacher =  responseData;
+            App.currentTeacher = responseData;
           }
           App.currentTeacher.loggedIn = true;
           localStorage.currentTeacher = JSON.stringify(App.currentTeacher);
@@ -52,25 +52,22 @@ App.Views.Login = Backbone.View.extend({
         error: function(responseData ) {
           $("#submit").prop("disabled",false);
           console.log("status code" + responseData.status);
-          if(responseData.status===403){
+          if (responseData.status === 403) {
             that.handleLoginCredentialFailure();
-          }else{
-            alert("We apologize for the inconvenience. There has been an error. Please try to log in again.\n\nError("+responseData.status+")");
+          } else {
+            alert("We apologize for the inconvenience. There has been an error. Please try to log in again.\n\nError(" + responseData.status+")");
           }
         }
       });
-    }else{
+    } else {
       alert("Please check your network connection.");
     }
-
     return false;
   },
 
-  teachersMatch: function(teacher){
+  teachersMatch: function(teacher) {
     var oldTeacher = JSON.parse(localStorage.currentTeacher);
-    return ((oldTeacher.id === teacher.id)
-      && (oldTeacher.email === teacher.email)
-      && (oldTeacher.token === teacher.token));
+    return ((oldTeacher.id === teacher.id) && (oldTeacher.email === teacher.email) && (oldTeacher.token === teacher.token));
   },
 
   handleLoginSuccess: function() {
@@ -81,8 +78,7 @@ App.Views.Login = Backbone.View.extend({
     $('.js-login-error').show();
   },
 
-  handleForgotPassword: function(){
+  handleForgotPassword: function() {
     App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
   }
-
 });

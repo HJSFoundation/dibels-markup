@@ -10,7 +10,7 @@ App.Views.StageStoryPage = Backbone.View.extend({
     _.bindAll(this);
     this.listen();
     for (var stage = 1; stage <= App.Config.maxStageCount; stage += 1) {
-      this.stories[stage] = _.where(App.Stories, {reading_level: App.stageStoryReadingStageMap[stage], story_type: "controlled"});
+      this.stories[stage] = _.where(App.Stories, { reading_level: App.stageStoryReadingStageMap[stage], story_type: "controlled" });
     }
   },
 
@@ -28,11 +28,9 @@ App.Views.StageStoryPage = Backbone.View.extend({
       prevNextButtons: false,
       pageDots: false
     });
-
     if (App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies) {
-      this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies"});
+      this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies" });
     }
-
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
     this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({el: ".js-storyButtonCloseStory"});
   },
@@ -51,12 +49,12 @@ App.Views.StageStoryPage = Backbone.View.extend({
 
   handleStoryChangeRequest: function(event_payload) {
     var storiesForStage = this.stories[App.selectedStudent.get('reading_stage')];
-    var story = _.find(storiesForStage, function(story){
+    var story = _.find(storiesForStage, function(story) {
       return story.content_id === event_payload.id;
     });
     this.storyId = story.content_id;
     this.pages = _.clone(story.pages);
-    _.each(this.pages, function(page){
+    _.each(this.pages, function(page) {
       page.linesArray = page.lines.split("\n");
     });
     this.render();

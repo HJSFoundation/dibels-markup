@@ -1,11 +1,12 @@
 App.Views.ButtonWhiteboard = Backbone.View.extend({
   template: App.templates.buttonWhiteboard,
 
+  status: "",
+  activity: "whiteboard",
+
   events: {
     "click": "handleClick"
   },
-  status: "",
-  activity: "whiteboard",
 
   initialize: function() {
     _.bindAll(this);
@@ -16,23 +17,21 @@ App.Views.ButtonWhiteboard = Backbone.View.extend({
     this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       selectedClass: this.status
-    }
+    };
   },
 
   makeActive: function() {
     this.status = "st-active";
     this.render();
     App.selectedActivity = this.key;
-
   },
 
   makeInactive: function() {
     this.status = "";
     this.render();
-
   },
 
   handleClick: function() {

@@ -15,7 +15,7 @@ App.Views.Magnet = Backbone.View.extend({
     return this.$el.html(this.template(this.templateJSON()));
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       text: this.text,
       left: this.magnetLeft(),
@@ -28,30 +28,24 @@ App.Views.Magnet = Backbone.View.extend({
     return Math.floor(Math.random() * (max - min + 1) + min);
   },
 
-  magnetTop: function(){
+  magnetTop: function() {
     var keyboardHeight = 442;
     var magnetHeight = 90;
     var screenHeight = $(".workspace").height();
     var parentTop = $(".js-whiteboard").offset().top;
-
     var max = screenHeight - keyboardHeight - parentTop - ( magnetHeight / 2);
-
     return this.randomIntFromRange(0, max);
   },
 
-  magnetLeft: function(){
+  magnetLeft: function() {
     var magnetHeight = 90;
-
     var parentWidth = $(".js-whiteboard").width();
-
     var max = parentWidth - magnetHeight;
-
     return this.randomIntFromRange(0, max);
   },
 
-  handleMagnetClosePressed: function(){
+  handleMagnetClosePressed: function() {
     this.remove();
     return false;
   }
-
 });

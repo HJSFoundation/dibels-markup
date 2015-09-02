@@ -3,29 +3,23 @@ App.Views.Timer = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-
-
     this.action = "start";
     this.visible = false;
     this.time = {
       seconds: 0,
       minutes: 0
     };
-
-
     this.initializeSeconds(5);
     this.initializeMinutes();
     this.listen();
     this.secondsId = this.$el.attr("class")+"_seconds";
     this.minutesId = this.$el.attr("class")+"_minutes";
     this.buttonId = this.$el.attr("class")+"_button";
-
     this.events = {};
     this.events["click #"+this.buttonId] = "handleTimerButtonClick";
-
-    if(this.$el.attr("class") === "js-timer0"){
+    if (this.$el.attr("class") === "js-timer0") {
       this.bottomValue = "bottom:0px";
-    }else{
+    } else {
       this.bottomValue = "bottom:25px";
     }
   },
@@ -42,7 +36,7 @@ App.Views.Timer = Backbone.View.extend({
 
   templateJSON: function() {
     return {
-      visible: (this.visible? "display:block;"+this.bottomValue:""),
+      visible: (this.visible? "display:block;" + this.bottomValue:""),
       action: this.action,
       seconds: this.seconds,
       minutes: this.minutes,
@@ -63,15 +57,15 @@ App.Views.Timer = Backbone.View.extend({
 
   initializeSeconds: function(step) {
     this.seconds = [];
-    for (var i=0; i<60; i+=step) {
+    for (var i = 0; i < 60; i += step) {
       this.seconds.push({value: i, display: this.formatTime(i)});
     }
   },
 
   initializeMinutes: function() {
     this.minutes = [];
-    for (var i=0; i<31; i+=1) {
-      this.minutes.push({value: i, display: this.formatTime(i)});
+    for (var i = 0; i < 31; i += 1) {
+      this.minutes.push({ value: i, display: this.formatTime(i) });
     }
   },
 

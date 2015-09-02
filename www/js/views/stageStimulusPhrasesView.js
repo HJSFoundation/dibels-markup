@@ -28,7 +28,6 @@ App.Views.StageStimulusPhrases = Backbone.View.extend({
     var readingStage = model.get("reading_stage");
     var value = model.get("value");
     var subSkill = model.get("sub_skill");
-
     this.phrases = App.ActivityStimuli.phrasesByStage[readingStage][subSkill][value];
     this.render();
   }

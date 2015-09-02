@@ -30,11 +30,11 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
     console.log("EditStudentNotesArticle:handleFocus");
   },
 
-  handleCancelEdit: function(){
+  handleCancelEdit: function() {
     $(this.$el.selector + " textarea").val(this.model.get("content"));
   },
 
-  handleNewNote: function(){
+  handleNewNote: function() {
     var noteModel = new App.Models.Note().set(
     {
       "taken_at": App.newISODate(),
@@ -57,15 +57,11 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
         client_updated_at: date,
         taken_at: date
       });
-      App.notes.add(this.model, {merge: true});
-
+      App.notes.add(this.model, { merge: true });  // TODO write spec and test error handling
       App.notesLastTakenAt = date;
       localStorage.setItem("App.notesLastTakenAt", App.notesLastTakenAt);
-
       this.render(this.model);
-      // TODO write spec and test error handling
-
-      this.model.save(null, {
+        this.model.save(null, {
         description:"editStudentNotesArticleView.handleBlur",
         request_type: request_type,
         request_resource: this.model.url()

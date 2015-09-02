@@ -5,7 +5,7 @@ App.Models.UserReadingStages = Backbone.Model.extend({
   context: "teacher_notepad",
 
   urlRoot: function() {
-    return App.url()+ "/user_reading_stages";
+    return App.url() + "/user_reading_stages";
   },
 
   local: function() {

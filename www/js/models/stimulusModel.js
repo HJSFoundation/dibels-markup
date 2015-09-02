@@ -6,14 +6,14 @@ App.Models.Stimulus = Backbone.Model.extend({
   assessment: "",
 
   urlRoot: function() {
-    return App.url()+ "/stimuli";
+    return App.url() + "/stimuli";
   },
 
   local: function() {
     return App.Config.storageLocalState;
   },
 
-  sync: function(method, model, options){
+  sync: function(method, model, options) {
     if (method === "update") {
       App.database.update("stimuli", model);
     }

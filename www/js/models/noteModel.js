@@ -5,7 +5,7 @@ App.Models.Note = Backbone.Model.extend({
   },
 
   urlRoot: function() {
-    return App.url()+ "/notes";
+    return App.url() + "/notes";
   },
 
   local: function() {

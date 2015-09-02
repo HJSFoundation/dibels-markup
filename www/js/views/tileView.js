@@ -24,7 +24,7 @@ App.Views.Tile = Backbone.View.extend({
   },
 
   render: function() {
-    if(!((App.selectedActivity === "phrases") && (this.model.get("sub_skill") === App.Config.skill.onsets))){
+    if (!((App.selectedActivity === "phrases") && (this.model.get("sub_skill") === App.Config.skill.onsets))) {
       this.$el.html(this.template(this.templateJSON()));
     }
     return this;
@@ -42,11 +42,6 @@ App.Views.Tile = Backbone.View.extend({
   setAssessment: function(assessment) {
     this.model.set({assessment: assessment, client_updated_at: App.newISODate()});
     // TODO test error handling
-    // this.model.save(null, {
-    //   description:"tileView.setAssessment",
-    //   request_type: "PUT",
-    //   request_resource: this.model.url()
-    // })
     //   .fail(App.logRemoteSaveError);
     this.model.save(null, {
       description:"tileView.setAssessment",

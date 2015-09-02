@@ -5,22 +5,19 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   events: {
     'click .js-manageButton': 'handleDisplayManage',
-    'click .js-menuToggle' : 'handleToggleMenu',
-    'click .js-logout' : 'handleLogout'
+    'click .js-menuToggle': 'handleToggleMenu',
+    'click .js-logout': 'handleLogout'
   },
-
 
   initialize: function() {
     _.bindAll(this);
-
     App.students = new App.Collections.Students();
     App.selectedSkill = "";
-
     this.listen();
     this.render();
   },
 
-  listen: function(){
+  listen: function() {
     this.listenTo(App.Dispatcher, "startSessionRequested", this.handleStartSessionRequested);
     this.listenTo(App.Dispatcher, "endSessionRequested", this.handleEndSessionRequested);
     this.listenTo(App.Dispatcher, "endSessionLogoutRequested", this.handleEndSessionLogoutRequested);
@@ -28,40 +25,29 @@ App.Views.ConferenceManagement = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
-
     this.$tbody = this.$el.find("tbody");
-
     App.conferences.sort();
-    var conferences = App.conferences.where({classroom_id: App.currentTeacher.classroom_id});
+    var conferences = App.conferences.where({ classroom_id: App.currentTeacher.classroom_id });
 
     _.each(conferences, function(conference) {
-
-      if(conference.get("conference_type")==="group"){
-
+      if (conference.get("conference_type") === "group") {
         this.students = [];
         var user_ids = conference.get("user_ids");
-        if(user_ids.length>0){
-          _.each(user_ids, function(user_id){
-            var studentModel = App.roster.findWhere({id: user_id});
-            if(studentModel){
+        if (user_ids.length > 0) {
+          _.each(user_ids, function(user_id) {
+            var studentModel = App.roster.findWhere({ id: user_id });
+            if (studentModel) {
               this.students.push(studentModel);
             }
           }, this);
-
-          var groupView = this.conferenceGroups[conference.get("id")] = new App.Views.ConferenceGroup({model: conference, students: this.students});
+          var groupView = this.conferenceGroups[conference.get("id")] = new App.Views.ConferenceGroup({ model: conference, students: this.students });
           this.$tbody.append(groupView.render().el);
-
-          var dropDownView = new App.Views.ConferenceGroupDropdown({students: this.students, conferenceId: conference.get("id")});
+          var dropDownView = new App.Views.ConferenceGroupDropdown({ students: this.students, conferenceId: conference.get("id") });
           this.$tbody.append(dropDownView.render().el);
         }
-    // }, this);
-      }else{
-
-
-    // var studentConferences = App.conferences.where({conference_type: "user", classroom_id: App.currentTeacher.classroom_id});
-    // _.each(studentConferences, function(studentConference) {
-        var view = this.conferenceGroups[conference.get("id")] = new App.Views.ConferenceStudent({ model: conference});
-        if(view.studentModel){
+      } else {
+        var view = this.conferenceGroups[conference.get("id")] = new App.Views.ConferenceStudent({ model: conference });
+        if (view.studentModel) {
           this.$tbody.append(view.render().el);
         }
       }
@@ -70,7 +56,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     return this;
   },
 
-  setStartSessionTime: function(){
+  setStartSessionTime: function() {
     var startAndUpdatedAtDate = App.newISODate();
     this.model = new App.Models.ConferenceSession({
       "conference_id": App.selectedConference.id,
@@ -82,12 +68,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     });
     App.conferenceSessions.add(this.model);
     // TODO test error handling
-    // this.model.save(null, {
-    //   description:"conferenceManagementView.setStartSessionTime",
-    //   request_type: "POST",
-    //   request_resource: this.model.url()
-    // })
-    //   .fail(App.logRemoteSaveError);
+        //   .fail(App.logRemoteSaveError);
     this.model.save(null, {
       description:"conferenceManagementView.setStartSessionTime",
       request_type: "POST",
@@ -95,12 +76,12 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     },
     {
       error: App.logRemoteSaveError
-    })
+    });
   },
 
-  setEndSessionTime: function(){
+  setEndSessionTime: function() {
     var startAndUpdatedAtDate = App.newISODate();
-    this.model.set({ended_at: startAndUpdatedAtDate, client_updated_at: startAndUpdatedAtDate});
+    this.model.set({ ended_at: startAndUpdatedAtDate, client_updated_at: startAndUpdatedAtDate });
     document.removeEventListener("pause", this.handlePauseEvent);
   },
 
@@ -118,17 +99,12 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     return false;
   },
 
-  handlePauseEvent: function(){
+  handlePauseEvent: function() {
     this.setEndSessionTime();
     // TODO test error handling
-    // this.model.save(null, {
-    //   description:"conferenceManagementView.handlePauseEvent",
-    //   request_type: "PUT",
-    //   request_resource: this.model.url()
-    // })
     //   .fail(App.logRemoteSaveError);
     this.model.save(null, {
-      description:"conferenceManagementView.handlePauseEvent",
+      description: "conferenceManagementView.handlePauseEvent",
       request_type: "PUT",
       request_resource: this.model.url()
     },
@@ -146,11 +122,11 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       .fail(this.handleEndSessionRequestedFail);
   },
 
-  resync: function(){
+  resync: function() {
     App.Dispatcher.trigger("resyncRequest");
   },
 
-  handleEndSessionRequestedFail: function(response){
+  handleEndSessionRequestedFail: function(response) {
     response.description = "conferenceManagementView.handleEndSessionRequested";
     response.request_type = "PUT";
     response.request_resource = this.model.url();
@@ -159,9 +135,9 @@ App.Views.ConferenceManagement = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    if(App.browser){
+    if (App.browser) {
       App.browser.show();
-    }else{
+    } else {
       App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
       App.browser.addEventListener("exit", this.handleInAppBrowserExit);
     }
@@ -169,12 +145,12 @@ App.Views.ConferenceManagement = Backbone.View.extend({
     return false;
   },
 
-  handleInAppBrowserExit: function(){
+  handleInAppBrowserExit: function() {
     App.Dispatcher.trigger("resyncRequest");
   },
 
-  handleEndSessionLogoutRequested: function(){
-    console.log("conferenceManagementView.handleEndSessionLogoutRequested")
+  handleEndSessionLogoutRequested: function() {
+    console.log("conferenceManagementView.handleEndSessionLogoutRequested");
     this.setEndSessionTime();
     // TODO write spec and test error handling
     this.model.save()
@@ -182,7 +158,7 @@ App.Views.ConferenceManagement = Backbone.View.extend({
       .fail(this.handleEndSessionLogoutRequestedFail);
   },
 
-  handleEndSessionLogoutRequestedFail: function(response){
+  handleEndSessionLogoutRequestedFail: function(response) {
     response.description = "conferenceManagementView.handleEndSessionLogoutRequested";
     response.request_type = "PUT";
     response.request_resource = this.model.url();

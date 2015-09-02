@@ -4,7 +4,7 @@ App.database = {
     if (is_browser) {
       this.db = openDatabase('tnp2', '', 'Teacher Notepad 2 database', 15 * 1024 * 1024);
     } else {
-      this.db = sqlitePlugin.openDatabase({name: 'tnp2', version: '', estimatedSize: (15 * 1024 * 1024), location: 2});
+      this.db = sqlitePlugin.openDatabase({ name: 'tnp2', version: '', estimatedSize: (15 * 1024 * 1024), location: 2 });
     }
   },
 
@@ -45,7 +45,7 @@ App.database = {
       var query = "SELECT  JSONString FROM " + tableName;
       tx.executeSql(query, [], function(tx, results) {
         var models = [];
-        for (var i = 0 ; i < results.rows.length; i += 1) {
+        for (var i = 0; i < results.rows.length; i += 1) {
           models.push(JSON.parse(decodeURI(results.rows.item(i).JSONString)));
         }
         App[tableName].reset(models);
@@ -86,8 +86,8 @@ App.database = {
   },
 
   createOrUpdate: function(tableName, object, success) {
-    if(object.id){
-      var escapedObject  = this.escapeSingleQuotes(object);
+    if (object.id) {
+      var escapedObject = this.escapeSingleQuotes(object);
       this.db.transaction(function(tx) {
         var query = "INSERT OR REPLACE INTO " + tableName + " (id , JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
         tx.executeSql(query,[],success);

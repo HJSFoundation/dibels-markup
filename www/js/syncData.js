@@ -159,7 +159,7 @@ App.syncData = {
 
   initializeConferenceSessionsCollection: function(result) {
     console.log("initializeConferenceSessionsCollection");
-    if (App.isOnline()) { App.conferenceSessions.syncDirtyAndDestroyed({success: this.removeCleanModels}); }
+    if (App.isOnline()) { App.conferenceSessions.syncDirtyAndDestroyed({ success: this.removeCleanModels }); }
     this.initializeStimuliCollections();
   },
 
@@ -226,8 +226,8 @@ App.syncData = {
     App.clientLastFetchedAt = moment.utc().toISOString();
     localStorage.setItem("App.clientLastFetchedAt", App.clientLastFetchedAt);
 
-    if((App.Config.stimuliModelsPerStudent * App.roster.length) > App.stimuli.length){
-      App.logRemoteSyncError(App.stimuli, {status: App.Config.errorCode.stimuliTotalCountInconsistent}, {}, "stimuliTotalCountInconsistent");
+    if ((App.Config.stimuliModelsPerStudent * App.roster.length) > App.stimuli.length) {
+      App.logRemoteSyncError(App.stimuli, { status: App.Config.errorCode.stimuliTotalCountInconsistent }, {}, "stimuliTotalCountInconsistent");
     }
 
     this.initializeLocalStorage();
@@ -310,10 +310,10 @@ App.syncData = {
   },
 
   checkStimuliLengthSuccess: function(length){
-    if(length === App.stimuli.length){
+    if (length === App.stimuli.length) {
       App.syncData.success();
-    }else{
-      this.returnToLoginWithError(App.stimuli,{status: App.Config.errorCode.stimuliDatabaseCountInconsistent},{},"stimuli Database Count Inconsistent");
+    } else {
+      this.returnToLoginWithError(App.stimuli,{ status: App.Config.errorCode.stimuliDatabaseCountInconsistent },{},"stimuli Database Count Inconsistent");
     }
   },
 

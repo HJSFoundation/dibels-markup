@@ -9,12 +9,12 @@ App.Views.StimuliTilesReadingStrategies = Backbone.View.extend({
 
   render: function() {
     var that = this;
-    for (var readingStage = App.Config.minReadingStageForStrategies, stimuli = []; readingStage <= App.selectedStudent.get('reading_stage'); readingStage += 1){
-      stimuli = stimuli.concat(App.stimuli.where({user_id: App.selectedStudent.get('id'), reading_stage: readingStage, skill: App.Config.skill.readingStrategies}));
+    for (var readingStage = App.Config.minReadingStageForStrategies, stimuli = []; readingStage <= App.selectedStudent.get('reading_stage'); readingStage += 1) {
+      stimuli = stimuli.concat(App.stimuli.where({ user_id: App.selectedStudent.get('id'), reading_stage: readingStage, skill: App.Config.skill.readingStrategies }));
     }
 
     _.each(stimuli,function(stimulus) {
-      var view = new App.Views.Tile({ className: that.tileClass, model: stimulus});
+      var view = new App.Views.Tile({ className: that.tileClass, model: stimulus });
       that.tiles.push(view);
       that.$el.append(view.render().el);
     });

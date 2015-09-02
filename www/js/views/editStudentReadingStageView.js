@@ -18,14 +18,14 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
     return this;
   },
 
-  templateJSON: function(){
+  templateJSON: function() {
     return {
       currentReadingStage: App.selectedStudent.get("reading_stage"),
       initialReadingStage: App.selectedStudent.get("initial_reading_stage"),
-      initialReadingStageSelected: (this.isInitialReadingStage? "st-selected" : ""),
-      currentReadingStageSelected: (this.isInitialReadingStage? "" : "st-selected"),
-      initialClass: (this.isInitialReadingStage? "st-initial" : "")
-    }
+      initialReadingStageSelected: (this.isInitialReadingStage ? "st-selected" : ""),
+      currentReadingStageSelected: (this.isInitialReadingStage ? "" : "st-selected"),
+      initialClass: (this.isInitialReadingStage ? "st-initial" : "")
+    };
   },
 
   makeActive: function(readingStage) {
@@ -40,11 +40,10 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
   handleReadingStageChoice: function(readingStageChoiceClickEvent) {
     var readingStage = parseInt(readingStageChoiceClickEvent.currentTarget.innerHTML);
 
-    if(this.isInitialReadingStage){
-      App.selectedStudent.set({initial_reading_stage: readingStage});
-
-    }else{
-      App.selectedStudent.set({reading_stage: readingStage});
+    if (this.isInitialReadingStage) {
+      App.selectedStudent.set({ initial_reading_stage: readingStage });
+    } else {
+      App.selectedStudent.set({ reading_stage: readingStage });
     }
 
     this.makeInactive();
@@ -58,27 +57,24 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       changed_at: App.newISODate()
     });
 
-    if(this.isInitialReadingStage){
-      model.set({initial_reading_stage_updated_at: App.newISODate()});
+    if (this.isInitialReadingStage) {
+      model.set({ initial_reading_stage_updated_at: App.newISODate() });
     }
 
     App.userReadingStages.add(model);
-
-    // TODO write spec and test error handling
-
-    model.save()
+    model.save()     // TODO write spec and test error handling
       .done(this.updateUser)
       .fail(this.updateLocalUser);
 
     this.render();
   },
 
-  handleCurrentReadingStage: function(){
+  handleCurrentReadingStage: function() {
     this.isInitialReadingStage = false;
     this.render();
   },
 
-  handleInitialReadingStage: function(){
+  handleInitialReadingStage: function() {
     this.isInitialReadingStage = true;
     this.render();
   },

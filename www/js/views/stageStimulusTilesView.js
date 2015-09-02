@@ -35,7 +35,7 @@ App.Views.StageStimulusTiles = Backbone.View.extend({
     } else {
       words = App.ActivityStimuli.wordsByStage[readingStage].onsets[value];
     }
-    _.each(words, function(word){
+    _.each(words, function(word) {
       this.choices.push(word.slice(this.onset.length));
     },this);
 
@@ -48,7 +48,7 @@ App.Views.StageStimulusTiles = Backbone.View.extend({
     this.rime = model.get("value");
     this.choices = [];
     var words = App.ActivityStimuli.wordsByStage[model.get("reading_stage")].rimes[model.get("value")];
-     _.each(words, function(word, key){
+     _.each(words, function(word, key) {
        this.choices.push(word.slice(0,-this.rime.length));
      },this);
 
@@ -72,8 +72,7 @@ App.Views.StageStimulusTiles = Backbone.View.extend({
   },
 
   handleSkillChangeRequest: function(stimulus_object) {
-    if (stimulus_object.model.get("sub_skill") === "onsets"
-      || stimulus_object.model.get("skill") === "letter_sounds") {
+    if (stimulus_object.model.get("sub_skill") === "onsets" || stimulus_object.model.get("skill") === "letter_sounds") {
       this.initializeOnsets(stimulus_object.model);
     } else {
       this.initializeRimes(stimulus_object.model);

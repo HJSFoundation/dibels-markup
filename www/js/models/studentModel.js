@@ -18,7 +18,7 @@ App.Models.Student = Backbone.Model.extend({
 
   daysOnCurrentReadingStage: function() {
     var updatedDate = this.get("reading_stage_updated_at");
-    updatedDate = (updatedDate ? moment.utc(updatedDate).set({ hours: 0, minutes: 0, seconds: 0}) : moment.utc().set({ hours: 0, minutes: 0, seconds: 0}));
+    updatedDate = (updatedDate ? moment.utc(updatedDate).set({ hours: 0, minutes: 0, seconds: 0 }) : moment.utc().set({ hours: 0, minutes: 0, seconds: 0 }));
     return moment.utc().diff(updatedDate, "days");
   }
 });

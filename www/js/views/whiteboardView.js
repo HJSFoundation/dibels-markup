@@ -17,17 +17,17 @@ App.Views.Whiteboard = Backbone.View.extend({
     return this.$el.html(this.template());
   },
 
-  setFlipped: function(flipped){
+  setFlipped: function(flipped) {
     this.flipped = flipped;
-    if(App.selectedActivity === "whiteboard"){
+    if (App.selectedActivity === "whiteboard") {
       this.setFlippedOnMagnets();
     }
   },
 
-  setFlippedOnMagnets: function(){
-    if(this.flipped){
+  setFlippedOnMagnets: function() {
+    if (this.flipped) {
       $(".js-magnetText").addClass("st-flipped");
-    }else{
+    } else {
       $(".js-magnetText").removeClass("st-flipped");
     }
   },

@@ -17,11 +17,11 @@ App.Views.MenuActivity = Backbone.View.extend({
   initialize: function() {
     _.bindAll(this);
     this.render();
-    this.buttons.letters = new App.Views.ButtonLetters({el: ".js-buttonLetters"});
-    this.buttons.words = new App.Views.ButtonWords({el: ".js-buttonWords"});
-    this.buttons.phrases = new App.Views.ButtonPhrases({el: ".js-buttonPhrases"});
-    this.buttons.tiles = new App.Views.ButtonTiles({el: ".js-buttonTiles"});
-    this.buttons.whiteboard = new App.Views.ButtonWhiteboard({el: ".js-buttonWhiteboard"});
+    this.buttons.letters = new App.Views.ButtonLetters({ el: ".js-buttonLetters" });
+    this.buttons.words = new App.Views.ButtonWords({ el: ".js-buttonWords" });
+    this.buttons.phrases = new App.Views.ButtonPhrases({ el: ".js-buttonPhrases" });
+    this.buttons.tiles = new App.Views.ButtonTiles({ el: ".js-buttonTiles" });
+    this.buttons.whiteboard = new App.Views.ButtonWhiteboard({ el: ".js-buttonWhiteboard" });
     this.listen();
   },
 
@@ -51,16 +51,14 @@ App.Views.MenuActivity = Backbone.View.extend({
     this.handleActivityMenuButtonActiveRequest(activity);
   },
 
-  handleActivityMenuButtonActiveRequest: function(selectedActivity){
+  handleActivityMenuButtonActiveRequest: function(selectedActivity) {
     var that = this;
     this.isActive = false;
-
-    if(( App.selectedActivity === "whiteboard") && ( selectedActivity !== "whiteboard")){
+    if (( App.selectedActivity === "whiteboard") && ( selectedActivity !== "whiteboard")) {
       App.Dispatcher.trigger("restoreStage");
     }
 
     var oldSelectedActivity = App.selectedActivity;
-
     _.each(this.buttons, function(button, key) {
       if (selectedActivity === key) {
         that.isActive = true;
@@ -71,11 +69,11 @@ App.Views.MenuActivity = Backbone.View.extend({
       }
     });
 
-    if(((oldSelectedActivity === "phrases") || (selectedActivity === "phrases"))){
+    if (((oldSelectedActivity === "phrases") || (selectedActivity === "phrases"))) {
       App.Dispatcher.trigger("matrixRerenderRequest");
     }
 
-    if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage")==App.selectedStimulus.get("reading_stage"))) {
+    if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage") == App.selectedStimulus.get("reading_stage"))) { //intentional == not ===
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
       App.Dispatcher.trigger("StimulusChangeRequested:" + skill,

@@ -15,15 +15,15 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
   },
 
   render: function() {
-    var filteredNotes = App.notes.where({user_id: App.selectedStudent.get("id")});
+    var filteredNotes = App.notes.where({ user_id: App.selectedStudent.get("id") });
     var notes = _.sortBy(filteredNotes, function(note){
       return -(moment.utc(note.get("taken_at")).valueOf());
     });
     this.$el.html(this.template());
     var that = this;
     this.noteViews = [];
-    _.each(notes, function(note){
-      var noteView = new App.Views.EditStudentNote({model: note});
+    _.each(notes, function(note) {
+      var noteView = new App.Views.EditStudentNote({ model: note });
       that.noteViews.push(noteView);
       $(".js-editStudentNote").append(noteView.render().el);
     });
@@ -35,7 +35,7 @@ App.Views.EditStudentNotesList = Backbone.View.extend({
   },
 
   makeInactive: function() {
-    _.each(this.noteViews, function(noteView){
+    _.each(this.noteViews, function(noteView) {
       noteView.makeInactive();
     });
   },

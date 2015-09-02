@@ -16,8 +16,8 @@ App.Views.ReadingStrategies = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
-    this.stimuliTilesReadingStrategies = new App.Views.StimuliTilesReadingStrategies({el: ".js-stimuliTilesReadingStrategies"});
-    this.menuAssessment = new App.Views.MenuAssessment({el: ".js-menuAssessment"});
+    this.stimuliTilesReadingStrategies = new App.Views.StimuliTilesReadingStrategies({ el: ".js-stimuliTilesReadingStrategies" });
+    this.menuAssessment = new App.Views.MenuAssessment({ el: ".js-menuAssessment" });
   },
 
   templateJSON: function() {

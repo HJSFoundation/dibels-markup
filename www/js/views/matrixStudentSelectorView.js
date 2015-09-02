@@ -18,16 +18,15 @@ App.Views.MatrixStudentSelector = Backbone.View.extend({
     this.$el.html(this.template());
     var that = this;
     App.students.each(function(student) {
-      var view = that.tabs[student.get("id")] = new App.Views.MatrixStudentSelectorTab({ model: student});
+      var view = that.tabs[student.get("id")] = new App.Views.MatrixStudentSelectorTab({ model: student });
       $('.js-matrixStudentSelectorTabs').append(view.render().el);
     });
 
     var nonStudentTabCount = App.Config.maxStudentCount - App.students.length;
-    for (; nonStudentTabCount > 0 ; nonStudentTabCount -= 1) {
+    for (; nonStudentTabCount > 0; nonStudentTabCount -= 1) {
       var view = new App.Views.MatrixNonStudentSelectorTab();
       $('.js-matrixStudentSelectorTabs').append(view.render().el);
     }
-
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
       {
         current: this.tabs[App.selectedStudent.get("id")].model,

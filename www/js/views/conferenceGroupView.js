@@ -8,7 +8,6 @@ App.Views.ConferenceGroup = Backbone.View.extend({
     "click .js-startSession": "handleStartSession",
     "click .js-studentGroup": "handleGroupDropdown",
     "change .js-editNumberPerWeek": "handleEditNumberPerWeek"
-
   },
 
   initialize: function(options) {
@@ -19,7 +18,6 @@ App.Views.ConferenceGroup = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template(this.templateJSON()));
     this.$el.find("#numberPerWeekSelect").val(this.model.get("number_per_week").toString());
-
     return this;
   },
 
@@ -31,7 +29,7 @@ App.Views.ConferenceGroup = Backbone.View.extend({
   },
 
   daysSinceLastSession: function() {
-    return Math.round(moment.utc().set({hour:0, minute:0, second:0}).diff(this.model.lastConferenceSessionAt().set({hour:0, minute:0, second:0}),"days", true));
+    return Math.round(moment.utc().set({ hour:0, minute:0, second:0 }).diff(this.model.lastConferenceSessionAt().set({ hour:0, minute:0, second:0 }),"days", true));
   },
 
   handleGroupDropdown: function() {
@@ -46,16 +44,10 @@ App.Views.ConferenceGroup = Backbone.View.extend({
     return false;
   },
 
-  handleEditNumberPerWeek: function(){
+  handleEditNumberPerWeek: function() {
     this.model.set("number_per_week", parseInt(this.$el.find("#numberPerWeekSelect").val()));
     this.model.set("client_updated_at", App.newISODate());
     // TODO test error handling
-    // this.model.save(null,
-    //   {
-    //     description:"conferenceGroupView.handleEditNumberPerWeek",
-    //     request_type: "PUT",
-    //     request_resource: this.model.url()
-    //   })
     //   .fail(App.logRemoteSaveError);
     this.model.save(null,
       {
@@ -70,6 +62,4 @@ App.Views.ConferenceGroup = Backbone.View.extend({
     App.Dispatcher.trigger("initializeConferenceManagementRequested");
     return false;
   }
-
 });
-

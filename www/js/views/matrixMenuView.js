@@ -3,12 +3,12 @@ App.Views.MatrixMenu = Backbone.View.extend({
 
   gridClass: "js-matrixMenuTabs",
   tabDefs: {
-    letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames},
-    letterSounds: { label: "ONSETS & RIMES", key: App.Config.skill.letterSounds},
-    sightWords: { label: "SIGHT WORDS", key: App.Config.skill.sightWords},
-    onsetRimes: { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes},
-    stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories},
-    leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts}
+    letterNames: { label: "LETTER NAMES", key: App.Config.skill.letterNames },
+    letterSounds: { label: "ONSETS & RIMES", key: App.Config.skill.letterSounds },
+    sightWords: { label: "SIGHT WORDS", key: App.Config.skill.sightWords },
+    onsetRimes: { label: "ONSETS & RIMES", key: App.Config.skill.onsetRimes },
+    stageStories: { label: "STAGE STORIES", key: App.Config.skill.stageStories },
+    leveledTexts: { label: "LEVELED TEXTS", key: App.Config.skill.leveledTexts }
   },
   tabViews: {},
 
@@ -44,7 +44,6 @@ App.Views.MatrixMenu = Backbone.View.extend({
     });
 
     this.tabViews = {};
-
     _.each(this.activeTabDefs, function(tab) {
       var options = {
         label: tab.label,

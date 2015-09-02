@@ -7,15 +7,13 @@ App.Views.Application = Backbone.View.extend({
     $(App.Config.el).empty();
     App.database.init();
 
-
-    if(localStorage.currentTeacher && JSON.parse(localStorage.currentTeacher).loggedIn){
+    if (localStorage.currentTeacher && JSON.parse(localStorage.currentTeacher).loggedIn) {
       App.currentTeacher = JSON.parse(localStorage.currentTeacher);
       App.Dispatcher.trigger("loginSuccess");
-   }else{
+    } else {
       this.loginView = new App.Views.Login();
       $(App.Config.el).append(this.loginView.render().el);
-
-      if(!is_browser){
+      if (!is_browser) {
         navigator.splashscreen.hide();
       }
     }
@@ -24,7 +22,7 @@ App.Views.Application = Backbone.View.extend({
   sendAuthentication: function(xhr) {
     var email = App.currentTeacher.email;
     var token = App.currentTeacher.token;
-    var header= 'Token token="'+ token +'", email="'+ email +'"';
+    var header = 'Token token="' + token + '", email="' + email + '"';
     xhr.setRequestHeader('Authorization', header);
   },
 
@@ -40,21 +38,19 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLoggedIn: function() {
-
-    $.ajaxSetup({beforeSend:this.sendAuthentication});
-    if(!localStorage.initialSyncCompleted){
+    $.ajaxSetup({ beforeSend:this.sendAuthentication });
+    if (!localStorage.initialSyncCompleted) {
       this.displayLoadingScreen();
     }
 
     Backbone.DualStorage.offlineStatusCodes = function(xhr) {
       var codes = [];
 
-      if (xhr.status>399) {
+      if (xhr.status > 399) {
         codes.push(xhr.status);
       }
-
       return codes;
-    }
+    };
 
     var classroomUrl = App.url() + '/classrooms/' + App.currentTeacher.classroom_id;
 
@@ -72,20 +68,19 @@ App.Views.Application = Backbone.View.extend({
   },
 
   handleLogout: function(){
-
     App.currentTeacher.loggedIn = false;
     localStorage.currentTeacher = JSON.stringify(App.currentTeacher);
     location.reload();
   },
 
-  redirectToLogin: function(msg){
+  redirectToLogin: function(msg) {
     this.loginView = new App.Views.Login();
     $(App.Config.el).append(this.loginView.render().el);
     alert(msg);
   },
 
-  syncDataError: function(collection, response, options, description){
-    if(!is_browser){
+  syncDataError: function(collection, response, options, description) {
+    if (!is_browser) {
       navigator.splashscreen.hide();
     }
 
@@ -96,17 +91,16 @@ App.Views.Application = Backbone.View.extend({
     this.redirectToLogin(description);
   },
 
-  displayLoadingScreen: function(){
-    this.loadingScreen = new App.Views.Loading({el: App.Config.el});
+  displayLoadingScreen: function() {
+    this.loadingScreen = new App.Views.Loading({ el: App.Config.el });
   },
 
   removeLogin: function() {
-
     console.log("removeLogin");
-    if(!is_browser){
+    if (!is_browser) {
       navigator.splashscreen.hide();
     }
-    if(this.loginView){
+    if (this.loginView) {
       this.loginView.remove();
     }
     this.stopListening(App.Dispatcher, "loginSuccess");
@@ -115,38 +109,35 @@ App.Views.Application = Backbone.View.extend({
 
   initializeConferenceManagement: function() {
     $(App.Config.el).empty();
-    if(this.conferenceManagement){
+    if (this.conferenceManagement) {
       this.conferenceManagement.remove();
     }
     this.conferenceManagement = new App.Views.ConferenceManagement();
     $(App.Config.el).append(this.conferenceManagement.render().el);
-
   },
 
-  handleResumeEvent: function(){
+  handleResumeEvent: function() {
     this.resync();
   },
 
-  handleResyncRequest: function(){
+  handleResyncRequest: function() {
     this.resync();
   },
 
-  resync: function(){
-    if(!is_browser){
+  resync: function() {
+    if (!is_browser) {
       navigator.splashscreen.show();
     }
-
     location.reload();
   },
 
-  handleOfflineEvent: function(){
+  handleOfflineEvent: function() {
     console.log("handleOfflineEvent");
     App.online = false;
   },
 
-  handleOnlineEvent: function(){
+  handleOnlineEvent: function() {
     console.log("handleOnlineEvent");
     App.online = true;
   }
-
 });

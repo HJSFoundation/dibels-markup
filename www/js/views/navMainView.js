@@ -4,7 +4,7 @@ App.Views.NavMain = Backbone.View.extend({
   events: {
     'click .js-menuToggle': 'handleToggleMenu',
     'click .js-manageButton': 'handleDisplayManage',
-    'click .js-logout' : 'handleLogout'
+    'click .js-logout': 'handleLogout'
   },
 
   initialize: function() {
@@ -21,9 +21,9 @@ App.Views.NavMain = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    if(App.browser){
+    if (App.browser) {
       App.browser.show();
-    }else{
+    } else {
       App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
       App.browser.addEventListener("exit", this.handleInAppBrowserExit);
     }
@@ -31,12 +31,11 @@ App.Views.NavMain = Backbone.View.extend({
     return false;
   },
 
-  handleInAppBrowserExit: function(){
+  handleInAppBrowserExit: function() {
     App.Dispatcher.trigger("resyncRequest");
   },
 
-  handleLogout: function(){
+  handleLogout: function() {
     App.Dispatcher.trigger("endSessionLogoutRequested");
   }
-
 });

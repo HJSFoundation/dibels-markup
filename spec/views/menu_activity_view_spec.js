@@ -139,14 +139,14 @@ describe('App.Views.MenuActivity', function() {
       });
 
       it("triggers stimulus change request when selected stimulus is not null and selected student reading stage equals selected stimulus reading stage", function() {
-        App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "b", reading_stage: "2"});
+        App.selectedStimulus = new App.Models.Stimulus({ skill: "letter_sounds", value: "b", reading_stage: "2" });
         App.selectedStudent.set({reading_stage: 2});
         sinon.spy(App.Dispatcher, "trigger");
         var skill = App.selectedStimulus.get("skill");
         var value = App.selectedStimulus.get("value");
         subject.handleActivityMenuButtonActiveRequest("words");
 
-        expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:" + skill, {model: App.selectedStimulus, skill:skill, value: value});
+        expect(App.Dispatcher.trigger).to.have.been.calledWith("StimulusChangeRequested:" + skill, { model: App.selectedStimulus, skill:skill, value: value });
         App.Dispatcher.trigger.restore();
       });
 

@@ -10,7 +10,7 @@ App.Views.LeveledTextPage = Backbone.View.extend({
     _.bindAll(this);
     this.listen();
     for (var stage = 1; stage <= App.Config.maxStageCount; stage += 1){
-      this.stories[stage] = _.where(App.Stories, {reading_level: App.leveledTextReadingStageMap[stage], story_type: "reading"});
+      this.stories[stage] = _.where(App.Stories, { reading_level: App.leveledTextReadingStageMap[stage], story_type: "reading" });
     }
   },
 
@@ -30,11 +30,11 @@ App.Views.LeveledTextPage = Backbone.View.extend({
     });
 
     if (App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies) {
-      this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies"});
+      this.readingStrategies = new App.Views.ReadingStrategies({ el: ".js-readingStrategies" });
     }
 
-    this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
-    this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({el: ".js-storyButtonCloseStory"});
+    this.storyButtonFlipView = new App.Views.ButtonFlip({ el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped" });
+    this.storyButtonCloseStoryView = new App.Views.ButtonCloseStory({ el: ".js-storyButtonCloseStory" });
   },
 
   templateJSON: function() {
@@ -51,7 +51,7 @@ App.Views.LeveledTextPage = Backbone.View.extend({
 
   handleStoryChangeRequest: function(requestedStory) {
     var storiesForStage = this.stories[App.selectedStudent.get('reading_stage')];
-    var story = _.find(storiesForStage, function(story){
+    var story = _.find(storiesForStage, function(story) {
       return story.content_id === requestedStory.id;
     });
     this.storyId = story.content_id;

@@ -10,7 +10,7 @@ App.Views.ConferenceStudentSingle = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
-    this.studentModel = App.roster.where({id: this.model.get("user_ids")[0]})[0];
+    this.studentModel = App.roster.where({ id: this.model.get("user_ids")[0] })[0];
   },
 
   render: function() {
@@ -33,7 +33,7 @@ App.Views.ConferenceStudentSingle = Backbone.View.extend({
   },
 
   daysSinceLastSession: function() {
-    return Math.round(moment.utc().set({hour:0, minute:0, second:0}).diff(this.model.lastConferenceSessionAt().set({hour:0, minute:0, second:0}),"days", true));
+    return Math.round(moment.utc().set({ hour:0, minute:0, second:0 }).diff(this.model.lastConferenceSessionAt().set({ hour:0, minute:0, second:0 }),"days", true));
   },
 
   handleAddStudent: function() {

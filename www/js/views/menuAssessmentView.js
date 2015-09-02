@@ -7,10 +7,10 @@ App.Views.MenuAssessment = Backbone.View.extend({
     _.bindAll(this);
     this.render();
     this.listen();
-    this.buttons.mastered = new App.Views.ButtonMastered({ el: ".js-buttonMastered"});
-    this.buttons.learning = new App.Views.ButtonLearning({ el: ".js-buttonLearning"});
-    this.buttons.needs_work = new App.Views.ButtonNeedsWork({ el: ".js-buttonNeedsWork"});
-    this.buttons.clear = new App.Views.ButtonClear({ el: ".js-buttonClear"});
+    this.buttons.mastered = new App.Views.ButtonMastered({ el: ".js-buttonMastered" });
+    this.buttons.learning = new App.Views.ButtonLearning({ el: ".js-buttonLearning" });
+    this.buttons.needs_work = new App.Views.ButtonNeedsWork({ el: ".js-buttonNeedsWork" });
+    this.buttons.clear = new App.Views.ButtonClear({ el: ".js-buttonClear" });
   },
 
   listen: function() {

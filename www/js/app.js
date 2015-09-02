@@ -8,10 +8,10 @@ var App = {
     productionApiUrl: "https://www.tutormate.org/api/v1",
     stagingApiUrl: "http://staging.tutormate.org/api/v1",
     developmentApiUrl: "http://localhost:3000/api/v1",
-    tutormateUrl: function(){
-      if(is_browser && !App.debuggingProduction){
+    tutormateUrl: function() {
+      if (is_browser && !App.debuggingProduction) {
         return "http://staging.tutormate.org";
-      }else{
+      } else {
         return "https://www.tutormate.org";
       }
     },
@@ -36,8 +36,8 @@ var App = {
       readingStrategies: "reading_strategies"
     },
     errorCode: {
-      stimuliTotalCountInconsistent: 1000-1,
-      stimuliDatabaseCountInconsistent: 1000-2
+      stimuliTotalCountInconsistent: 1000 - 1,
+      stimuliDatabaseCountInconsistent: 1000 - 2
     }
   },
 
