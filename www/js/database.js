@@ -91,7 +91,7 @@ App.database = {
       this.db.transaction(function(tx) {
         var query = "INSERT OR REPLACE INTO " + tableName + " (id , JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
         tx.executeSql(query, [], success, failure);
-      });
+      }, failure);
     }
   }
 };

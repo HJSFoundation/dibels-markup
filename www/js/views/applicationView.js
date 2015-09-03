@@ -5,6 +5,11 @@ App.Views.Application = Backbone.View.extend({
     this.listen();
 
     $(App.Config.el).empty();
+
+    // if(! is_browser){
+    //   cordova.exec.setJsToNativeBridgeMode(cordova.exec.jsToNativeModes.XHR_OPTIONAL_PAYLOAD);
+    // }
+
     App.database.init();
 
     if (localStorage.currentTeacher && JSON.parse(localStorage.currentTeacher).loggedIn) {

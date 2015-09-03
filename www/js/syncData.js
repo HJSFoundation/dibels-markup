@@ -194,17 +194,30 @@ App.syncData = {
      });
   },
 
+  // addStimuliPageToDatabase: function() {
+  //   var models = _.clone(App.resp.stimuli);
+  //   _.each(models, function(model) {
+  //     App.database.createOrUpdate("stimuli", model, this.decrementTotalCount, this.addStimuliPageToDatabaseFail);
+  //   }, this);
+  // },
+
   addStimuliPageToDatabase: function() {
-    var models = _.clone(App.resp.stimuli);
-    _.each(models, function(model) {
-      App.database.createOrUpdate("stimuli", model, this.decrementTotalCount, this.addStimuliPageToDatabaseFail);
-    }, this);
+    App.stimuli.modelsToAdd = _.clone(App.resp.stimuli);
+    this.addStimuliModelToDatabase();
   },
 
-  // addStimuliModelToDatabase: function() {},
+  addStimuliModelToDatabase: function() {
+    if (App.stimuli.modelsToAdd.length > 0) {
+      var model = App.stimuli.modelsToAdd.pop();
+      App.database.createOrUpdate("stimuli", model, this.decrementTotalCount, this.addStimuliPageToDatabaseFail);
+    } else {
+      this.fetchStimuli();
+    }
+  },
 
   addStimuliPageToDatabaseFail: function(transactionObj, errorObj) {
-    console.log("addStimuliPageToDatabaseFail: " + errorObj.message + " code:" + errorObj.code);
+    console.log("addStimuliPageToDatabaseFail error: " + errorObj.message + " code:" + errorObj.code);
+    console.log("addStimuliPageToDatabaseFail transaction: " + transactionObj.message + " code:" + transactionObj.code);
   },
 
   decrementTotalCount: function() {
@@ -213,6 +226,7 @@ App.syncData = {
       App.syncData.totalStimuliModels += 1;
       App.applicationView.loadingScreen.updateValue(App.syncData.totalStimuliModels);
     }
+    this.addStimuliModelToDatabase();
   },
 
   fetchStimuliSuccess: function() {
@@ -224,7 +238,7 @@ App.syncData = {
       this.initializeStimuliCollectionSuccess();
     } else {
       this.addStimuliPageToDatabase();
-      this.fetchStimuli();
+      // this.fetchStimuli();
     }
   },
 

@@ -34,7 +34,7 @@
     "io.litehelpers.cordova.sqlite": {
         "source": {
             "type": "registry",
-            "id": "io.litehelpers.cordova.sqlite"
+            "id": "cordova-sqlite-storage"
         },
         "is_top_level": true,
         "variables": {}
