@@ -85,12 +85,12 @@ App.database = {
     });
   },
 
-  createOrUpdate: function(tableName, object, success) {
+  createOrUpdate: function(tableName, object, success, failure) {
     if (object.id) {
       var escapedObject = this.escapeSingleQuotes(object);
       this.db.transaction(function(tx) {
         var query = "INSERT OR REPLACE INTO " + tableName + " (id , JSONString) VALUES (" + object.id + ",'" + escapedObject + "')";
-        tx.executeSql(query,[],success);
+        tx.executeSql(query, [], success, failure);
       });
     }
   }

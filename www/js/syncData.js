@@ -197,8 +197,14 @@ App.syncData = {
   addStimuliPageToDatabase: function() {
     var models = _.clone(App.resp.stimuli);
     _.each(models, function(model) {
-      App.database.createOrUpdate("stimuli", model, this.decrementTotalCount);
+      App.database.createOrUpdate("stimuli", model, this.decrementTotalCount, this.addStimuliPageToDatabaseFail);
     }, this);
+  },
+
+  // addStimuliModelToDatabase: function() {},
+
+  addStimuliPageToDatabaseFail: function(transactionObj, errorObj) {
+    console.log("addStimuliPageToDatabaseFail: " + errorObj.message + " code:" + errorObj.code);
   },
 
   decrementTotalCount: function() {
@@ -293,9 +299,10 @@ App.syncData = {
     } else if (App.getRemoteSyncErrorState()) {
       this.returnToLoginWithError({}, "Sync Error", {}, "Stimuli total count inconsistent. Please try again.");
     } else if (App.isOnline()) {
-        localStorage.initialSyncCompleted = true;
-        localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
-        this.stimuliInterval = setInterval(this.checkStimuliDone, 1000);
+      localStorage.initialSyncCompleted = true;
+      localStorage.lastSuccessfulFullSyncDate = moment.utc().toISOString();
+      App.stimuli.previousCount = -1;
+      this.stimuliInterval = setInterval(this.checkStimuliDone, 1000);
     } else {
       this.returnToLoginWithError({}, "OFFLINE", {}, "Device is offline.");
     }
@@ -306,6 +313,11 @@ App.syncData = {
     if (App.stimuli.totalCount === 0) {
       clearInterval(App.syncData.stimuliInterval);
       App.database.length("stimuli", this.checkStimuliLengthSuccess, this.checkStimuliLengthFailure);
+    } else if (App.stimuli.totalCount === App.stimuli.previousCount) {
+      clearInterval(App.syncData.stimuliInterval);
+      this.returnToLoginWithError(App.stimuli,{ status: App.Config.errorCode.stimuliDatabaseInsertionIncomplete },{},"stimuli Database Insertion Incomplete");
+    } else {
+      App.stimuli.previousCount = App.stimuli.totalCount;
     }
   },
 

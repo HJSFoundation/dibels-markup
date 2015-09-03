@@ -37,7 +37,8 @@ var App = {
     },
     errorCode: {
       stimuliTotalCountInconsistent: 1000 - 1,
-      stimuliDatabaseCountInconsistent: 1000 - 2
+      stimuliDatabaseCountInconsistent: 1000 - 2,
+      stimuliDatabaseInsertionIncomplete: 1000 - 3
     }
   },
 
