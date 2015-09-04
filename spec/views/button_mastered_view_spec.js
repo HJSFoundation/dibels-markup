@@ -12,7 +12,7 @@ describe('App.Views.ButtonMastered', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonMastered" });
-    subject = new App.Views.ButtonMastered({el: '.js-buttonMastered'});
+    subject = new App.Views.ButtonMastered({ el: '.js-buttonMastered' });
   });
 
   afterEach(function() {

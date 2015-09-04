@@ -11,7 +11,7 @@ describe('App.Views.ConferenceGroup', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceGroup({el: '#applicationContainer', model: App.conferences.get(97), students: App.roster.slice(0, 6)});
+    subject = new App.Views.ConferenceGroup({ el: '#applicationContainer', model: App.conferences.get(97), students: App.roster.slice(0, 6) });
   });
 
   afterEach(function() {
@@ -136,7 +136,6 @@ describe('App.Views.ConferenceGroup', function() {
       xit("calls fail on the model when save fails", function() {
 
       });
-
     });
   });
 });

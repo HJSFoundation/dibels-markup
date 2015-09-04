@@ -74,9 +74,9 @@ describe('App.Views.EditStudent', function() {
   });
 
   it("#templateJSON", function() {
-    App.selectedStudent.set("reading_stage",1);
-    App.selectedStudent.set("first_name","Bob");
-    App.selectedStudent.set("last_name","Jones");
+    App.selectedStudent.set("reading_stage", 1);
+    App.selectedStudent.set("first_name", "Bob");
+    App.selectedStudent.set("last_name", "Jones");
     expect(subject.templateJSON().reading_stage).to.equal(1);
     expect(subject.templateJSON().student_shortname).to.equal("BOB J.");
   });
@@ -100,7 +100,7 @@ describe('App.Views.EditStudent', function() {
       appendFixture("div", { id: "js-editNotes" });
       subject.makeActive("js-editNotes");
       subject.makeInactive();
-      for (var i=0; i< subject.ids.length; i += 1) {
+      for (var i = 0; i < subject.ids.length; i += 1) {
         expect($("#" + subject.ids[i])).not.to.have.class("st-selected");
       }
     });
@@ -109,7 +109,7 @@ describe('App.Views.EditStudent', function() {
   it("#handleTabRequest", function() {
     sinon.spy(subject, "makeActive");
     sinon.spy(subject, "makeInactive");
-    subject.handleTabRequest({currentTarget: {id: "js-editNotes"}});
+    subject.handleTabRequest({ currentTarget: { id: "js-editNotes" } });
     expect(subject.makeInactive).to.have.been.called;
     expect(subject.makeActive).to.have.been.calledWith("js-editNotes");
   });

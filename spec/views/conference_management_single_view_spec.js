@@ -11,7 +11,7 @@ describe('App.Views.ConferenceManagementSingle', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceManagementSingle({el: '#applicationContainer'});
+    subject = new App.Views.ConferenceManagementSingle({ el: '#applicationContainer' });
   });
 
   afterEach(function() {

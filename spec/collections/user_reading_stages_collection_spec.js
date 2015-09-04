@@ -17,17 +17,17 @@ describe('App.Collections.UserReadingStages', function() {
     expect(new subject.model()).to.be.an.instanceof(App.Models.UserReadingStages);
   });
 
-  it("#local", function(){
+  it("#local", function() {
     App.Config.storageLocalState = false;
     expect(subject.local()).to.equal(false);
     App.Config.storageLocalState = true;
     expect(subject.local()).to.equal(true);
   });
 
-  describe("#parse", function(){
+  describe("#parse", function() {
     it("returns resp if local returns true", function() {
       App.Config.storageLocalState = true;
-      var resp = {id: 1};
+      var resp = { id: 1 };
       expect(subject.parse(resp)).to.equal(resp);
     });
 

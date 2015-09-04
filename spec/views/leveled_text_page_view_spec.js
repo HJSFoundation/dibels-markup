@@ -12,7 +12,7 @@ describe('App.Views.LeveledTextPage', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-storyOverlay" });
-    subject = new App.Views.LeveledTextPage({el: '.js-storyOverlay'});
+    subject = new App.Views.LeveledTextPage({ el: '.js-storyOverlay' });
   });
 
   afterEach(function() {
@@ -52,13 +52,13 @@ describe('App.Views.LeveledTextPage', function() {
     });
 
     it("creates reading strategies when selected student reading stage in range", function() {
-      App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
+      App.selectedStudent.set({ reading_stage: App.Config.minReadingStageForStrategies });
       subject.render();
       expect(subject.readingStrategies).to.be.an.instanceOf(App.Views.ReadingStrategies);
     });
 
     it("does not create reading strategies when selected student reading stage out of range", function() {
-      App.selectedStudent.set({reading_stage: 0});
+      App.selectedStudent.set({ reading_stage: 0 });
       subject.render();
       expect(subject.readingStrategies).to.be.undefined;
     });
@@ -79,7 +79,7 @@ describe('App.Views.LeveledTextPage', function() {
     it("listens for stimulus change request for leveledTexts", function() {
       subject.listenTo = sinon.spy();
       subject.listen();
-      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:"+App.Config.skill.leveledTexts, subject.handleStoryChangeRequest);
+      expect(subject.listenTo).to.be.calledWith(App.Dispatcher, "StimulusChangeRequested:" + App.Config.skill.leveledTexts, subject.handleStoryChangeRequest);
     });
 
     it("listens for flip story button tapped", function() {
@@ -97,9 +97,9 @@ describe('App.Views.LeveledTextPage', function() {
 
   describe("handlers", function() {
     it("#handleStoryChangeRequest", function() {
-      App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
+      App.selectedStudent.set({ reading_stage: App.Config.minReadingStageForStrategies });
       sinon.spy(subject, "render");
-      subject.handleStoryChangeRequest({id: 6670 });
+      subject.handleStoryChangeRequest({ id: 6670 });
       expect(subject.pages).to.be.instanceof(Array);
       expect(subject.render).to.have.been.called;
     });
@@ -117,7 +117,7 @@ describe('App.Views.LeveledTextPage', function() {
       });
 
       it("handles flip story request from the flipped state", function() {
-        subject.flipped=true;
+        subject.flipped = true;
         subject.handleFlipStoryRequest();
         expect(subject.flipped).to.equal(false);
         expect($(subject.storyStimulusEl)).to.have.class("st-unflipped");
@@ -126,7 +126,7 @@ describe('App.Views.LeveledTextPage', function() {
       });
 
       it("handles flip story request from the unflipped state", function() {
-        subject.flipped=false;
+        subject.flipped = false;
         subject.handleFlipStoryRequest();
         expect(subject.flipped).to.equal(true);
         expect($(subject.storyStimulusEl)).to.have.class("st-flipped");

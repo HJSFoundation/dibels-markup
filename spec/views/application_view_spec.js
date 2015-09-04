@@ -4,7 +4,6 @@ describe('App.Views.Application', function() {
   var requests;
 
   beforeEach(function() {
-
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
     xhr.onCreate = function(xhr) {
@@ -13,8 +12,7 @@ describe('App.Views.Application', function() {
 
     sinon.stub(_, "bindAll");
 
-    subject = new App.Views.Application({el: '#applicationContainer'});
-
+    subject = new App.Views.Application({ el: '#applicationContainer' });
   });
 
   afterEach(function() {
@@ -72,8 +70,6 @@ describe('App.Views.Application', function() {
         localStorage.removeItem("currentTeacher");
         subject.initialize();
         expect(subject.loginView.$el.find('#loginContainer')).to.exist;
-        // localStorage.setItem("currentTeacher", JSON.stringify({id: 313, classroom_id: 91, loggedIn:true}));
-
       });
     });
   });
@@ -123,11 +119,9 @@ describe('App.Views.Application', function() {
       expect(document.addEventListener).to.have.been.calledWith("online", subject.handleOnlineEvent, false);
       document.addEventListener.restore();
     });
-
   });
 
   describe("helpers", function() {
-
     it("#displayLoadingScreen", function() {
       subject.displayLoadingScreen();
       expect(subject.loadingScreen).to.be.an.instanceOf(App.Views.Loading);
@@ -137,7 +131,6 @@ describe('App.Views.Application', function() {
       it("removes the Login View", function() {
         this.timeout(15000);
         initializeTestData();
-
         subject.displayLoadingScreen();
         subject.removeLogin();
         expect($("#loginContainer")).not.to.exist;
@@ -154,7 +147,7 @@ describe('App.Views.Application', function() {
         sinon.spy(subject, "stopListening");
         subject.displayLoadingScreen();
         subject.removeLogin();
-        expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "loginSuccess")
+        expect(subject.stopListening).to.have.been.calledWith(App.Dispatcher, "loginSuccess");
       });
     });
 

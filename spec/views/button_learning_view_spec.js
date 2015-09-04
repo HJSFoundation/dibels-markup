@@ -12,7 +12,7 @@ describe('App.Views.ButtonLearning', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonLearning" });
-    subject = new App.Views.ButtonLearning({el: '.js-buttonLearning'});
+    subject = new App.Views.ButtonLearning({ el: '.js-buttonLearning' });
   });
 
   afterEach(function() {

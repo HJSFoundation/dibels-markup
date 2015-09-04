@@ -12,7 +12,7 @@ describe('App.Views.EditStudentNotesArticle', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.EditStudentNotesArticle({el: '#applicationContainer'});
+    subject = new App.Views.EditStudentNotesArticle({ el: '#applicationContainer' });
     model = new App.Models.Note({
       "id": 80,
       "classroom_id": 91,
@@ -138,17 +138,16 @@ describe('App.Views.EditStudentNotesArticle', function() {
       it("adds the model to the notes collection", function() {
         subject.render(model);
         $(subject.$el.selector+" textarea").val("hello");
-
         sinon.stub(subject.model, 'save').returns({
           fail: function(){
           }
         });
+
         App.notes = new App.Collections.Notes();
         var lengthOfCollection = App.notes.length;
         subject.handleSaveNote();
-        expect(App.notes.length).to.equal(lengthOfCollection+1);
+        expect(App.notes.length).to.equal(lengthOfCollection + 1);
         subject.model.save.restore();
-
       });
     });
   });

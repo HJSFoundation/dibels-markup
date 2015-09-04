@@ -11,7 +11,7 @@ describe('App.Views.Whiteboard', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.Whiteboard({el: '#applicationContainer'});
+    subject = new App.Views.Whiteboard({ el: '#applicationContainer' });
   });
 
   afterEach(function() {
@@ -87,18 +87,18 @@ describe('App.Views.Whiteboard', function() {
       it("calls handleEnterKeyPressed when the keycode is 13", function() {
         sinon.spy(subject, "handleEnterKeyPressed");
         subject.render();
-        subject.handleKeyUp({keyCode:13});
+        subject.handleKeyUp({ keyCode:13 });
         expect(subject.handleEnterKeyPressed).to.have.been.called;
       });
 
       it("does not call handleEnterKeyPressed when the keycode is not 13", function() {
         sinon.spy(subject, "handleEnterKeyPressed");
-        subject.handleKeyUp({keyCode:12});
+        subject.handleKeyUp({ keyCode:12 });
         expect(subject.handleEnterKeyPressed).not.to.have.been.called;
       });
 
       it("returns false", function() {
-        expect(subject.handleKeyUp({keyCode:12})).to.equal(false);
+        expect(subject.handleKeyUp({ keyCode:12 })).to.equal(false);
       });
     });
   });

@@ -4,7 +4,6 @@ describe('App', function() {
   var requests;
 
   beforeEach(function() {
-
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
     xhr.onCreate = function(xhr) {
@@ -14,13 +13,9 @@ describe('App', function() {
     sinon.stub(_, "bindAll");
 
     subject = new App.Views.Application({el: '#applicationContainer'});
-
   });
 
   afterEach(function() {
     _.bindAll.restore();
   });
-
-
-
 });

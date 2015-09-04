@@ -11,7 +11,7 @@ describe('App.Views.ButtonMatrixClose', function() {
     };
 
     appendFixture("div", { class: "js-buttonMatrixClose" });
-    subject = new App.Views.ButtonMatrixClose({el: '.js-buttonMatrixClose'});
+    subject = new App.Views.ButtonMatrixClose({ el: '.js-buttonMatrixClose' });
   });
 
   it("has a template", function() {

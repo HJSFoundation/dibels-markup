@@ -12,9 +12,9 @@ describe('App.Views.Magnet', function() {
     };
 
     sinon.stub(_, "bindAll");
-    whiteboard = new App.Views.Whiteboard({el: '#applicationContainer'});
+    whiteboard = new App.Views.Whiteboard({ el: '#applicationContainer' });
     whiteboard.render();
-    subject = new App.Views.Magnet({text: "content text"});
+    subject = new App.Views.Magnet({ text: "content text" });
   });
 
   afterEach(function() {

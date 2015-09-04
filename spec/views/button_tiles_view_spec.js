@@ -12,7 +12,7 @@ describe('App.Views.ButtonTiles', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonTiles" });
-    subject = new App.Views.ButtonTiles({el: '.js-buttonTiles'});
+    subject = new App.Views.ButtonTiles({ el: '.js-buttonTiles' });
   });
 
   afterEach(function() {

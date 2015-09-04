@@ -11,7 +11,7 @@ describe('App.Views.EditStudentNotesList', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.EditStudentNotesList({el: '#applicationContainer'});
+    subject = new App.Views.EditStudentNotesList({ el: '#applicationContainer' });
   });
 
   afterEach(function() {
@@ -59,13 +59,13 @@ describe('App.Views.EditStudentNotesList', function() {
     describe("#handleEditStudentNoteSelected", function() {
       it(" calls makeInactive", function() {
         sinon.spy(subject, "makeInactive");
-        subject.handleEditStudentNoteSelected(new App.Views.EditStudentNote({model: new App.Models.Note}));
+        subject.handleEditStudentNoteSelected(new App.Views.EditStudentNote({ model: new App.Models.Note }));
         expect(subject.makeInactive).to.have.been.called;
       });
 
       it(" calls makeActive", function() {
         sinon.spy(subject, "makeActive");
-        var noteView = new App.Views.EditStudentNote({model: new App.Models.Note});
+        var noteView = new App.Views.EditStudentNote({ model: new App.Models.Note });
         subject.handleEditStudentNoteSelected(noteView);
         expect(subject.makeActive).to.have.been.calledWith(noteView);
       });
@@ -74,7 +74,7 @@ describe('App.Views.EditStudentNotesList', function() {
 
   describe("helpers", function() {
     it("#makeInactive", function() {
-      var noteView = new App.Views.EditStudentNote({model: new App.Models.Note});
+      var noteView = new App.Views.EditStudentNote({ model: new App.Models.Note });
       subject.noteViews.push(noteView);
       sinon.spy(noteView, "makeInactive");
       subject.makeInactive();
@@ -82,7 +82,7 @@ describe('App.Views.EditStudentNotesList', function() {
     });
 
     it("makeActive", function() {
-      var noteView = new App.Views.EditStudentNote({model: new App.Models.Note});
+      var noteView = new App.Views.EditStudentNote({ model: new App.Models.Note });
       sinon.spy(noteView, "makeActive");
       subject.makeActive(noteView);
       expect(noteView.makeActive).to.have.been.called;

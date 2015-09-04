@@ -62,14 +62,13 @@ describe('App.Models.Note', function() {
 
   describe("#parse", function(){
     it("sets id to resp id if note is not in the response", function() {
-      var resp = {id: 1};
+      var resp = { id: 1 };
       expect(subject.parse(resp)).to.equal(resp);
     });
 
     it("sets id to resp id if note is not in the response", function() {
-      var resp = {note: {id: 1}};
+      var resp = { note: { id: 1 } };
       expect(subject.parse(resp)).to.equal(resp.note);
     });
   });
-
 });

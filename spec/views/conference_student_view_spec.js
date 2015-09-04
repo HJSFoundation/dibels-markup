@@ -11,7 +11,7 @@ describe("App.Views.ConferenceStudent", function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceStudent({el: "#applicationContainer", model: App.conferences.get(76)});
+    subject = new App.Views.ConferenceStudent({ el: "#applicationContainer", model: App.conferences.get(76) });
   });
 
   afterEach(function() {
@@ -136,6 +136,5 @@ describe("App.Views.ConferenceStudent", function() {
       expect(App.Dispatcher.trigger).to.have.been.calledWith("initializeConferenceManagementRequested");
       App.Dispatcher.trigger.restore();
     });
-
   });
 });

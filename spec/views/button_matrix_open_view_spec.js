@@ -12,7 +12,7 @@ describe('App.Views.ButtonMatrixOpen', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonMatrixOpen" });
-    subject = new App.Views.ButtonMatrixOpen({el: '.js-buttonMatrixOpen'});
+    subject = new App.Views.ButtonMatrixOpen({ el: '.js-buttonMatrixOpen' });
   });
 
   afterEach(function() {

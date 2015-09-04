@@ -11,7 +11,7 @@ describe('App.Views.ConferenceGroupDropdown', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceGroupDropdown({conferenceId: 97, students: App.roster.models});
+    subject = new App.Views.ConferenceGroupDropdown({ conferenceId: 97, students: App.roster.models });
   });
 
   afterEach(function() {
@@ -33,7 +33,7 @@ describe('App.Views.ConferenceGroupDropdown', function() {
 
     it("calls listen", function() {
       sinon.spy(subject, "listen");
-      subject.initialize({conferenceId: 97, students: App.roster.models});
+      subject.initialize({ conferenceId: 97, students: App.roster.models });
       expect(subject.listen).to.have.been.called;
     });
   });

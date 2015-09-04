@@ -11,7 +11,7 @@ describe('App.Views.NavMain', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.NavMain({el: '#applicationContainer'});
+    subject = new App.Views.NavMain({ el: '#applicationContainer' });
   });
 
   afterEach(function() {
@@ -26,9 +26,11 @@ describe('App.Views.NavMain', function() {
     it("has a handle toggle menu event", function() {
       expect(subject.events["click .js-menuToggle"]).to.equal("handleToggleMenu");
     });
+
     it("has a handle display manage event", function() {
       expect(subject.events["click .js-manageButton"]).to.equal("handleDisplayManage");
     });
+
     it("has a handle logout event", function() {
       expect(subject.events["click .js-logout"]).to.equal("handleLogout");
     });
@@ -57,24 +59,24 @@ describe('App.Views.NavMain', function() {
       it("shows the in app browser if a reference already exists", function() {
         App.browser = {
           show: function(){
-
           }
-        }
+        };
         sinon.spy(App.browser, "show");
         subject.handleDisplayManage();
         expect(App.browser.show).to.have.been.called;
       });
 
       describe("if in app browser does not exist", function() {
+        var cordova;
+
         beforeEach(function() {
           App.browser = null;
           cordova = {
             InAppBrowser: {
-              open: function(url, targetType, locationOption){
+              open: function(url, targetType, locationOption) {
                 return this;
               },
-              addEventListener: function(eventType, handler){
-
+              addEventListener: function(eventType, handler) {
               }
             }
           };
@@ -92,7 +94,6 @@ describe('App.Views.NavMain', function() {
           expect(cordova.InAppBrowser.addEventListener).to.have.been.calledWith("exit", subject.handleInAppBrowserExit);
         });
       });
-
     });
 
     it("handles in app browser exit", function() {

@@ -16,6 +16,5 @@ describe('App.Collections.NetworkErrors', function() {
   it("#url", function() {
     expect(subject.url()).to.equal(App.url() + "/client_errors");
   });
-
 });
 

@@ -10,7 +10,7 @@ describe('App.Models.UserReadingStages', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.UserReadingStages({student_id: 1, accessor_id: 1, reading_stage: "1", context: "teacher_notepad"});
+    subject = new App.Models.UserReadingStages({ student_id: 1, accessor_id: 1, reading_stage: "1", context: "teacher_notepad" });
   });
 
   it("sets the urlRoot", function() {
@@ -42,14 +42,13 @@ describe('App.Models.UserReadingStages', function() {
 
   describe("#parse", function(){
     it("sets id to resp id if user_reading_stages is not in the response", function() {
-      var resp = {id: 1};
+      var resp = { id: 1 };
       expect(subject.parse(resp)).to.equal(resp);
     });
 
     it("sets id to resp id if user_reading_stages is not in the response", function() {
-      var resp = {user_reading_stages: {id: 1}};
+      var resp = { user_reading_stages: { id: 1 } };
       expect(subject.parse(resp)).to.equal(resp.user_reading_stages);
     });
   });
-
 });

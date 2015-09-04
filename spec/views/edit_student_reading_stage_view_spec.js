@@ -10,7 +10,7 @@ describe('App.Views.EditStudentReadingStage', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Views.EditStudentReadingStage({el: '#applicationContainer'});
+    subject = new App.Views.EditStudentReadingStage({ el: '#applicationContainer' });
   });
 
   it("has a template", function() {
@@ -86,7 +86,6 @@ describe('App.Views.EditStudentReadingStage', function() {
       subject.isInitialReadingStage = true;
       expect(subject.templateJSON().currentReadingStageSelected).to.equal("");
     });
-
   });
 
   describe("handlers", function() {
@@ -94,31 +93,33 @@ describe('App.Views.EditStudentReadingStage', function() {
       beforeEach(function(){
         sinon.stub(App.Models, 'UserReadingStages').returns({
           set: function() {},
-          save: function(){
+          save: function() {
             return {
-              done: function(){
-                return {fail: function(){}}
+              done: function() {
+                return {
+                  fail: function() {}
+                };
               }
-            }
+            };
           }
         });
       });
+
       afterEach(function(){
         App.Models.UserReadingStages.restore();
-
       });
 
       describe("when setting the reading stage", function() {
         it("sets the newly selected reading stage", function() {
           subject.isInitialReadingStage = false;
-          App.selectedStudent.set({reading_stage: 5});
-          subject.handleReadingStageChoice({currentTarget: {innerHTML: "2"}});
+          App.selectedStudent.set({ reading_stage: 5 });
+          subject.handleReadingStageChoice({ currentTarget: { innerHTML: "2" } });
           expect(App.selectedStudent.get("reading_stage")).to.equal(2);
         });
 
         it("sets the reading stage on the selected student", function() {
           subject.isInitialReadingStage = false;
-          subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+          subject.handleReadingStageChoice({ currentTarget: { innerHTML: "3" } });
           expect(App.selectedStudent.get("reading_stage")).to.equal(3);
         });
       });
@@ -126,34 +127,34 @@ describe('App.Views.EditStudentReadingStage', function() {
       describe("when setting the initial reading stage", function() {
         it("sets the newly selected initial reading stage", function() {
           subject.isInitialReadingStage = true;
-          App.selectedStudent.set({initial_reading_stage: 5});
-          subject.handleReadingStageChoice({currentTarget: {innerHTML: "2"}});
+          App.selectedStudent.set({ initial_reading_stage: 5 });
+          subject.handleReadingStageChoice({ currentTarget: { innerHTML: "2" } });
           expect(App.selectedStudent.get("initial_reading_stage")).to.equal(2);
         });
 
         it("sets the initial reading stage on the selected student", function() {
           subject.isInitialReadingStage = true;
-          subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+          subject.handleReadingStageChoice({ currentTarget: { innerHTML: "3" } });
           expect(App.selectedStudent.get("initial_reading_stage")).to.equal(3);
         });
       });
 
       it("calls makeInactive", function() {
         sinon.spy(subject, "makeInactive");
-        subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+        subject.handleReadingStageChoice({ currentTarget: { innerHTML: "3" } });
         expect(subject.makeInactive).to.have.been.called;
       });
 
       it("calls makeActive", function() {
         sinon.spy(subject, "makeActive");
-        subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+        subject.handleReadingStageChoice({ currentTarget: { innerHTML: "3" } });
         expect(subject.makeActive).to.have.been.called;
       });
 
       xit("calls new App.Models.UserReadingStages", function() {
         sinon.stub(App, "newISODate").returns("a date");
         subject.isInitialReadingStage = false;
-        subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+        subject.handleReadingStageChoice({ currentTarget: { innerHTML: "3" } });
 
         expect(App.Models.UserReadingStages).to.have.been.calledWith({
           student_id: App.selectedStudent.get("id"),
@@ -173,7 +174,7 @@ describe('App.Views.EditStudentReadingStage', function() {
 
       it("calls render", function() {
         sinon.spy(subject, "render");
-        subject.handleReadingStageChoice({currentTarget: {innerHTML: "3"}});
+        subject.handleReadingStageChoice({ currentTarget: { innerHTML: "3" } });
         expect(subject.render).to.have.been.called;
       });
     });
@@ -233,7 +234,6 @@ describe('App.Views.EditStudentReadingStage', function() {
     });
 
     describe("#updateLocalUser", function() {
-
       beforeEach(function() {
         sinon.stub(App, "logRemoteSaveError");
         sinon.stub(App.database, "update");

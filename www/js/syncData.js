@@ -191,7 +191,7 @@ App.syncData = {
       error: this.initializeStimuliCollectionFail,
       remove: false,
       add: true,
-     });
+    });
   },
 
   // addStimuliPageToDatabase: function() {
@@ -329,7 +329,7 @@ App.syncData = {
       App.database.length("stimuli", this.checkStimuliLengthSuccess, this.checkStimuliLengthFailure);
     } else if (App.stimuli.totalCount === App.stimuli.previousCount) {
       clearInterval(App.syncData.stimuliInterval);
-      this.returnToLoginWithError(App.stimuli,{ status: App.Config.errorCode.stimuliDatabaseInsertionIncomplete },{},"stimuli Database Insertion Incomplete");
+      this.returnToLoginWithError(App.stimuli,{ status: App.Config.errorCode.stimuliDatabaseInsertionIncomplete }, {}, "stimuli Database Insertion Incomplete");
     } else {
       App.stimuli.previousCount = App.stimuli.totalCount;
     }
@@ -339,7 +339,7 @@ App.syncData = {
     if (length === App.stimuli.length) {
       App.syncData.success();
     } else {
-      this.returnToLoginWithError(App.stimuli,{ status: App.Config.errorCode.stimuliDatabaseCountInconsistent },{},"stimuli Database Count Inconsistent");
+      this.returnToLoginWithError(App.stimuli,{ status: App.Config.errorCode.stimuliDatabaseCountInconsistent }, {}, "stimuli Database Count Inconsistent");
     }
   },
 

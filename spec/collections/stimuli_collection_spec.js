@@ -13,8 +13,8 @@ describe('App.Collections.Stimuli', function() {
     subject = new App.Collections.Stimuli();
   });
 
-  xit("#parse", function  () {
-    // body...
+  xit("#parse", function () {
+
   });
 
   it("has a stimulus model", function() {
@@ -22,7 +22,7 @@ describe('App.Collections.Stimuli', function() {
   });
 
   it("#url", function() {
-    subject.page=1;
-    expect(subject.url()).to.equal(App.url() + "/classrooms/"+App.currentTeacher.classroom_id+"/stimuli?page=1");
+    subject.page = 1;
+    expect(subject.url()).to.equal(App.url() + "/classrooms/" + App.currentTeacher.classroom_id + "/stimuli?page=1");
   });
 });

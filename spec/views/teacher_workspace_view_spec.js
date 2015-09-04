@@ -11,7 +11,7 @@ describe('App.Views.TeacherWorkspace', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.TeacherWorkspace({el: '#applicationContainer'});
+    subject = new App.Views.TeacherWorkspace({ el: '#applicationContainer' });
   });
 
   afterEach(function() {

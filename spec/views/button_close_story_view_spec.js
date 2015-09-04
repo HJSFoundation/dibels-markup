@@ -12,7 +12,7 @@ describe('App.Views.ButtonCloseStory', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonCloseStory" });
-    subject = new App.Views.ButtonCloseStory({el: '.js-buttonCloseStory'});
+    subject = new App.Views.ButtonCloseStory({ el: '.js-buttonCloseStory' });
   });
 
   afterEach(function() {

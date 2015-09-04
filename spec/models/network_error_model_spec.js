@@ -17,11 +17,10 @@ describe('App.Models.NetworkError', function() {
     expect(subject.urlRoot()).to.equal(App.url() + "/client_errors");
   });
 
-  it("#local", function(){
+  it("#local", function() {
     App.Config.storageLocalState = false;
     expect(subject.local()).to.equal(false);
     App.Config.storageLocalState = true;
     expect(subject.local()).to.equal(true);
   });
-
 });

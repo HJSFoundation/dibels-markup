@@ -11,7 +11,7 @@ describe('App.Views.Login', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.Login({el: '#applicationContainer'});
+    subject = new App.Views.Login({ el: '#applicationContainer' });
   });
 
   afterEach(function() {
@@ -55,9 +55,9 @@ describe('App.Views.Login', function() {
 
     describe("#handleForgotPassword", function() {
       it("opens an in-app-browser", function() {
-        cordova = {
+        var cordova = {
           InAppBrowser: {
-            open: function(url, targetType, locationOption){
+            open: function(url, targetType, locationOption) {
               return this;
             }
           }

@@ -12,7 +12,7 @@ describe('App.Views.EditStudentNotes', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageEditStudentNotes" });
-    subject = new App.Views.EditStudentNotes({el: '.js-stageEditStudentNotes'});
+    subject = new App.Views.EditStudentNotes({ el: '.js-stageEditStudentNotes' });
   });
 
   afterEach(function() {
@@ -84,7 +84,7 @@ describe('App.Views.EditStudentNotes', function() {
     it("#handleEditStudentNoteSelected", function() {
       subject.render();
       sinon.spy(subject.article, "render");
-      subject.handleEditStudentNoteSelected(new App.Views.EditStudentNote({model: new App.Models.Note}));
+      subject.handleEditStudentNoteSelected(new App.Views.EditStudentNote({ model: new App.Models.Note }));
       expect(subject.article.render).to.have.been.called;
     });
 
@@ -94,7 +94,6 @@ describe('App.Views.EditStudentNotes', function() {
       var noteView = new App.Models.Note();
       subject.handleEditStudentNewNote(noteView);
       expect(subject.article.render).to.have.been.calledWith(noteView);
-
     });
   });
 });

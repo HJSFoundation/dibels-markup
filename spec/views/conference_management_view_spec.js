@@ -11,7 +11,7 @@ describe('App.Views.ConferenceManagement', function() {
     };
 
     sinon.stub(_, "bindAll");
-    subject = new App.Views.ConferenceManagement({el: '#applicationContainer'});
+    subject = new App.Views.ConferenceManagement({ el: '#applicationContainer' });
   });
 
   afterEach(function() {
@@ -120,14 +120,13 @@ describe('App.Views.ConferenceManagement', function() {
   });
 
   describe("#handleDisplayManage", function() {
+    var cordova;
     it("opens an in-app-browser", function() {
-
       cordova = {
         InAppBrowser: {
           open: function(url, targetType, locationOption){
             return {
               addEventListener: function(){
-
               }
             };
           }
@@ -155,7 +154,6 @@ describe('App.Views.ConferenceManagement', function() {
       // expect(subject.model.save).to.have.been.called;
       // App.Models.ConferenceSession.restore();
       //App.Models.ConferenceSession = backup;
-
     });
   });
 
@@ -178,7 +176,6 @@ describe('App.Views.ConferenceManagement', function() {
   });
 
   describe("#handlePauseEvent", function() {
-
     it("calls set end session time", function() {
       subject.setStartSessionTime();
       sinon.spy(subject, "setEndSessionTime");
@@ -192,12 +189,11 @@ describe('App.Views.ConferenceManagement', function() {
       subject.handlePauseEvent();
       expect(subject.model.save).to.have.been.called;
     });
-
   });
 
   describe("#handleEndSessionRequested", function() {
     beforeEach(function(){
-      App.applicationView = {handleResumeEvent: function(){}};
+      App.applicationView = { handleResumeEvent: function(){} };
     });
 
     xit("calls setEndSessionTime", function() {

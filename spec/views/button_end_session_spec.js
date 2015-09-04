@@ -12,7 +12,7 @@ describe('App.Views.ButtonEndSession', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonEndSession" });
-    subject = new App.Views.ButtonEndSession({el: '.js-buttonEndSession'});
+    subject = new App.Views.ButtonEndSession({ el: '.js-buttonEndSession' });
   });
 
   afterEach(function() {

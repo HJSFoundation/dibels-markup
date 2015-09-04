@@ -14,10 +14,10 @@ describe('App.Models.Conference', function() {
   });
 
   it("sets the urlRoot", function() {
-    expect(subject.urlRoot()).to.equal(App.url() +"/conferences");
+    expect(subject.urlRoot()).to.equal(App.url() + "/conferences");
   });
 
-  it("#local", function(){
+  it("#local", function() {
     App.Config.storageLocalState = false;
     expect(subject.local()).to.equal(false);
     App.Config.storageLocalState = true;
@@ -26,7 +26,6 @@ describe('App.Models.Conference', function() {
 
   describe("#lastConferenceSessionAt", function() {
     it("returns model's last_conference_session_at value if it is not null", function() {
-
       subject.set({
         last_conference_session_at: "2015-06-30T01:23:00.000Z",
         number_per_week: 5
@@ -36,7 +35,6 @@ describe('App.Models.Conference', function() {
     });
 
     it("returns default value if it is null", function() {
-
       subject.set({
         last_conference_session_at: null,
         number_per_week: 5

@@ -37,7 +37,7 @@ describe('App.Collections.Notes', function() {
 
     it("adds taken_at and date to the default url when App.notesLastTakenAt is defined", function() {
       App.notesLastTakenAt = "2015-06-30";
-      expect(subject.url()).to.equal(App.url() + "/classrooms/" + App.currentTeacher.classroom_id + "/notes?taken_at="+"2015-06-30");
+      expect(subject.url()).to.equal(App.url() + "/classrooms/" + App.currentTeacher.classroom_id + "/notes?taken_at=" + "2015-06-30");
     });
   });
 });

@@ -12,7 +12,7 @@ describe('App.Views.EditStudentNote', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", {class: "js-editStudentNotes"});
-    subject = new App.Views.EditStudentNote({model: new App.Models.Note({taken_at: "2015-05-27T14:34:28.712Z", content: "new012345678901234567890123456789012345678901234567890123456789"}), el: '.js-editStudentNotes'});
+    subject = new App.Views.EditStudentNote({ model: new App.Models.Note({ taken_at: "2015-05-27T14:34:28.712Z", content: "new012345678901234567890123456789012345678901234567890123456789" }), el: '.js-editStudentNotes' });
   });
 
   afterEach(function() {

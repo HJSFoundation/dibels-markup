@@ -10,10 +10,10 @@ describe('App.Models.Student', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Student({first_name: "Bernie", last_name: "Bivins", reading_stage: 3, reading_stage_updated_at: App.newISODate()});
+    subject = new App.Models.Student({ first_name: "Bernie", last_name: "Bivins", reading_stage: 3, reading_stage_updated_at: App.newISODate() });
   });
 
-  describe("methods", function() {
+  describe("helper methods", function() {
     it("#shortName", function() {
       expect(subject.shortName()).to.equal("BERNIE B.");
     });
@@ -33,5 +33,4 @@ describe('App.Models.Student', function() {
     App.Config.storageLocalState = true;
     expect(subject.local()).to.equal(true);
   });
-
 });

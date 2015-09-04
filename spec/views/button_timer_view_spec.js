@@ -12,7 +12,7 @@ describe('App.Views.ButtonTimer', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonTimer" });
-    subject = new App.Views.ButtonTimer({el: '.js-buttonTimer'});
+    subject = new App.Views.ButtonTimer({ el: '.js-buttonTimer' });
   });
 
   afterEach(function() {

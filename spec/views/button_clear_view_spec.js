@@ -12,7 +12,7 @@ describe('App.Views.ButtonClear', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-buttonClear" });
-    subject = new App.Views.ButtonClear({el: '.js-buttonClear'});
+    subject = new App.Views.ButtonClear({ el: '.js-buttonClear' });
   });
 
   afterEach(function() {

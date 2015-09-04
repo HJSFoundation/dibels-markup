@@ -12,7 +12,7 @@ describe('App.Views.ButtonFlip', function() {
 
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stageButtonFlip" });
-    subject = new App.Views.ButtonFlip({el: '.js-stageButtonFlip'});
+    subject = new App.Views.ButtonFlip({ el: '.js-stageButtonFlip' });
   });
 
   afterEach(function() {

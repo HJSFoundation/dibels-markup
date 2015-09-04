@@ -10,7 +10,7 @@ describe('App.Models.Stimulus', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Stimulus({value: "a", reading_stage: 1, skill:"letterNames", assessment: "mastered"});
+    subject = new App.Models.Stimulus({ value: "a", reading_stage: 1, skill:"letterNames", assessment: "mastered" });
   });
 
   it("has a stimulus value", function() {
@@ -30,14 +30,13 @@ describe('App.Models.Stimulus', function() {
   });
 
   it("sets the urlRoot", function() {
-    expect(subject.urlRoot()).to.equal(App.url() +"/stimuli");
+    expect(subject.urlRoot()).to.equal(App.url() + "/stimuli");
   });
 
-  it("#local", function(){
+  it("#local", function() {
     App.Config.storageLocalState = false;
     expect(subject.local()).to.equal(false);
     App.Config.storageLocalState = true;
     expect(subject.local()).to.equal(true);
   });
-
 });
