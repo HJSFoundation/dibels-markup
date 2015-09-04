@@ -120,7 +120,6 @@ describe('App.Views.ConferenceManagement', function() {
   });
 
   describe("#handleDisplayManage", function() {
-    var cordova;
     it("opens an in-app-browser", function() {
       cordova = {
         InAppBrowser: {

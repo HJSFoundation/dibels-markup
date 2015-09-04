@@ -67,8 +67,6 @@ describe('App.Views.NavMain', function() {
       });
 
       describe("if in app browser does not exist", function() {
-        var cordova;
-
         beforeEach(function() {
           App.browser = null;
           cordova = {

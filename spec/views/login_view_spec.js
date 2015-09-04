@@ -55,7 +55,7 @@ describe('App.Views.Login', function() {
 
     describe("#handleForgotPassword", function() {
       it("opens an in-app-browser", function() {
-        var cordova = {
+        cordova = {
           InAppBrowser: {
             open: function(url, targetType, locationOption) {
               return this;
