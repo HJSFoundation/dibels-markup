@@ -28,7 +28,13 @@ before(function() {
   };
   this.timeout(10000);
 
- is_browser = (typeof cordova == "undefined" );
+  is_browser = (typeof cordova == "undefined" );
+
+  sinon.stub(window, "open", function(){
+    return {
+      addEventListener: sinon.stub()
+    };
+  });
 
   App.syncData = {initialize: function(){}};
   App.database = {
@@ -53,6 +59,10 @@ beforeEach(function() {
 
 afterEach(function() {
   $("#applicationContainer").remove();
+});
+
+after(function() {
+  window.open.restore();
 });
 
 function initializeTestData () {

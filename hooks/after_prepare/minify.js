@@ -108,7 +108,7 @@ switch (platform) {
         return;
 }
 
-var foldersToProcess = ['css', 'img', 'js'];
+var foldersToProcess = ['css', 'img'];
 
 foldersToProcess.forEach(function(folder) {
     processFiles(path.join(platformPath, folder));

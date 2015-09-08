@@ -55,16 +55,8 @@ describe('App.Views.Login', function() {
 
     describe("#handleForgotPassword", function() {
       it("opens an in-app-browser", function() {
-        cordova = {
-          InAppBrowser: {
-            open: function(url, targetType, locationOption) {
-              return this;
-            }
-          }
-        };
-        sinon.spy(cordova.InAppBrowser, "open");
         subject.handleForgotPassword();
-        expect(cordova.InAppBrowser.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
+        expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
       });
     });
 

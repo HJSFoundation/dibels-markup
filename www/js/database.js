@@ -17,6 +17,7 @@ App.database = {
   },
 
   createTable: function(tableName) {
+    console.log("database.createTable: "+ tableName);
     this.db.transaction(function(tx) {
       tx.executeSql('CREATE TABLE IF NOT EXISTS ' + tableName + ' (id unique, JSONString)');
     });

@@ -56,40 +56,19 @@ describe('App.Views.NavMain', function() {
     });
 
     describe("handles display manage", function() {
-      it("shows the in app browser if a reference already exists", function() {
-        App.browser = {
-          show: function(){
-          }
-        };
-        sinon.spy(App.browser, "show");
-        subject.handleDisplayManage();
-        expect(App.browser.show).to.have.been.called;
-      });
-
-      describe("if in app browser does not exist", function() {
+      describe("when app browser does not exist", function() {
         beforeEach(function() {
           App.browser = null;
-          cordova = {
-            InAppBrowser: {
-              open: function(url, targetType, locationOption) {
-                return this;
-              },
-              addEventListener: function(eventType, handler) {
-              }
-            }
-          };
         });
 
         it("creates the in app browser", function() {
-          sinon.spy(cordova.InAppBrowser, "open");
           subject.handleDisplayManage();
-          expect(cordova.InAppBrowser.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
+          expect(window.open).to.have.been.calledWith(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
         });
 
         it("adds an event listener to the in app browser", function() {
-          sinon.spy(cordova.InAppBrowser, "addEventListener");
           subject.handleDisplayManage();
-          expect(cordova.InAppBrowser.addEventListener).to.have.been.calledWith("exit", subject.handleInAppBrowserExit);
+          expect(App.browser.addEventListener).to.have.been.calledWith("exit", subject.handleInAppBrowserExit);
         });
       });
     });

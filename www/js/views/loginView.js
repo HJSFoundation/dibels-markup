@@ -71,6 +71,7 @@ App.Views.Login = Backbone.View.extend({
   },
 
   handleLoginSuccess: function() {
+    console.log("loginView.handleLoginSuccess")
     App.Dispatcher.trigger("loginSuccess");
   },
 
@@ -79,6 +80,6 @@ App.Views.Login = Backbone.View.extend({
   },
 
   handleForgotPassword: function() {
-    App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
+    App.browser = window.open(App.Config.tutormateUrl() + "/users/password/new", "_blank", "location=yes");
   }
 });

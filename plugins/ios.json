@@ -62,6 +62,9 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ifl.TeacherNotepad2"
+        },
         "io.litehelpers.cordova.sqlite": {
             "PACKAGE_NAME": "org.innovationsforlearning.teachernotepad2"
         }

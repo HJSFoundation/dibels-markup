@@ -21,13 +21,8 @@ App.Views.NavMain = Backbone.View.extend({
   },
 
   handleDisplayManage: function() {
-    if (App.browser) {
-      App.browser.show();
-    } else {
-      App.browser = cordova.InAppBrowser.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
-      App.browser.addEventListener("exit", this.handleInAppBrowserExit);
-    }
-    console.log("handleDisplayManage");
+    App.browser = window.open(App.Config.tutormateUrl() + "/students/manage", "_blank", "location=yes");
+    App.browser.addEventListener("exit", this.handleInAppBrowserExit);
     return false;
   },
 
