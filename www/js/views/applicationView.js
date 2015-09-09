@@ -57,6 +57,7 @@ App.Views.Application = Backbone.View.extend({
       url: classroomUrl,
       crossDomain: true,
       success: function(responseData) {
+        window.plugins.insomnia.keepAwake();
         App.syncData.initialize(App.applicationView.removeLogin, App.applicationView.syncDataError);
       },
       error: function(responseData) {
@@ -78,10 +79,11 @@ App.Views.Application = Backbone.View.extend({
   },
 
   syncDataError: function(collection, response, options, description) {
+
     if (!is_browser) {
       navigator.splashscreen.hide();
+      window.plugins.insomnia.allowSleepAgain();
     }
-
     console.log("syncDataError:" + description);
     $(App.Config.el).empty();
     localStorage.clear();
@@ -97,6 +99,7 @@ App.Views.Application = Backbone.View.extend({
     console.log("removeLogin");
     if (!is_browser) {
       navigator.splashscreen.hide();
+      window.plugins.insomnia.allowSleepAgain();
     }
     if (this.loginView) {
       this.loginView.remove();
