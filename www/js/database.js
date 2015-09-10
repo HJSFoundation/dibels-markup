@@ -94,5 +94,16 @@ App.database = {
         tx.executeSql(query, [], success, failure);
       }, failure);
     }
+  },
+
+  createOrUpdateAll: function(tableName, objects, success, failure) {
+    var that = this;
+    this.db.transaction(function(tx) {
+      var query = "INSERT OR REPLACE INTO " + tableName + " (id , JSONString) VALUES (?,?)";
+      _.each(objects, function(object){
+        var escapedObject = that.escapeSingleQuotes(object);
+        tx.executeSql(query, [object.id, escapedObject], success);
+      }, that);
+    });
   }
 };
