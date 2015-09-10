@@ -39,6 +39,8 @@ App.Views.Application = Backbone.View.extend({
     $.ajaxSetup({ beforeSend:this.sendAuthentication });
     if (!localStorage.initialSyncCompleted) {
       this.displayLoadingScreen();
+    } else if (!is_browser){
+      navigator.splashscreen.show();
     }
 
     Backbone.DualStorage.offlineStatusCodes = function(xhr) {
@@ -99,15 +101,15 @@ App.Views.Application = Backbone.View.extend({
 
   removeLogin: function() {
     console.log("removeLogin");
-    if (!is_browser) {
-      navigator.splashscreen.hide();
-      window.plugins.insomnia.allowSleepAgain();
-    }
     if (this.loginView) {
       this.loginView.remove();
     }
     this.stopListening(App.Dispatcher, "loginSuccess");
     this.initializeConferenceManagement();
+    if (!is_browser) {
+      navigator.splashscreen.hide();
+      window.plugins.insomnia.allowSleepAgain();
+    }
   },
 
   initializeConferenceManagement: function() {
