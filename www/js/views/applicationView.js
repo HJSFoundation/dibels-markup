@@ -57,7 +57,9 @@ App.Views.Application = Backbone.View.extend({
       url: classroomUrl,
       crossDomain: true,
       success: function(responseData) {
-        window.plugins.insomnia.keepAwake();
+        if(!is_browser){
+          window.plugins.insomnia.keepAwake();
+        }
         App.syncData.initialize(App.applicationView.removeLogin, App.applicationView.syncDataError);
       },
       error: function(responseData) {
