@@ -47,6 +47,11 @@ App.Views.EditStudentNotesArticle = Backbone.View.extend({
 
   handleSaveNote: function() {
     var newContent = $(this.$el.selector + " textarea").val();
+
+    if(App.includesScriptTag(newContent)){
+      return;
+    }
+
     var existingContent = this.model.get("content");
     var request_type = existingContent ? "PUT" : "POST";
 

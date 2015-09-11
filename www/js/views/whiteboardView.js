@@ -48,7 +48,9 @@ App.Views.Whiteboard = Backbone.View.extend({
 
   handleKeyUp: function(keyEventObject) {
     if (keyEventObject.keyCode === 13) {
-      this.handleEnterKeyPressed();
+      if(!App.includesScriptTag($("input").val())){
+        this.handleEnterKeyPressed();
+      }
     }
     return false;
   }

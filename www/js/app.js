@@ -42,7 +42,7 @@ var App = {
     }
   },
 
-  debuggingProduction: false,
+  debuggingProduction: true,
 
   url: function() {
     if (is_browser && !App.debuggingProduction) {
@@ -72,6 +72,10 @@ var App = {
 
   newISODate: function() {
     return moment().utc().toISOString();
+  },
+
+  includesScriptTag: function(string){
+    return (string.indexOf("<script") >= 0);
   },
 
   logRemoteSaveError: function(response) {
