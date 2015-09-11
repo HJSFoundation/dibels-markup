@@ -226,8 +226,10 @@ App.syncData = {
   },
 
   initializeStimuliCollectionSuccess: function(result) {
-    App.clientLastFetchedAt = moment.utc().toISOString();
-    localStorage.setItem("App.clientLastFetchedAt", App.clientLastFetchedAt);
+    if(App.stimuli.dataReceived){
+      App.clientLastFetchedAt = moment.utc().toISOString();
+      localStorage.setItem("App.clientLastFetchedAt", App.clientLastFetchedAt);
+    }
 
     if ((App.Config.stimuliModelsPerStudent * App.roster.length) > App.stimuli.length) {
       App.logRemoteSyncError(App.stimuli, { status: App.Config.errorCode.stimuliTotalCountInconsistent }, {}, "stimuliTotalCountInconsistent");
