@@ -12,6 +12,10 @@ App.Models.Student = Backbone.Model.extend({
     return this.get("reading_stage");
   },
 
+  readingStageGrowth: function() {
+    return this.get("reading_stage") - this.get("initial_reading_stage");
+  },
+
   shortName: function() {
     return (this.get("first_name") + " " + this.get("last_name").charAt(0) + ".").toUpperCase();
   },

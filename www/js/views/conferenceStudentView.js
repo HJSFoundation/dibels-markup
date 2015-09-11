@@ -23,9 +23,11 @@ App.Views.ConferenceStudent = Backbone.View.extend({
   templateJSON: function() {
     return {
       shortName: this.studentModel.shortName(),
-      reading_stage: this.studentModel.get("reading_stage"),
+      readingStage: this.studentModel.readingStage(),
+      readingStageGrowth: this.studentModel.readingStageGrowth(),
       daysOnCurrentReadingStage: this.daysOnCurrentReadingStage(),
-      daysSinceLastSession: this.daysSinceLastSession()
+      daysSinceLastSession: this.daysSinceLastSession(),
+
     };
   },
 

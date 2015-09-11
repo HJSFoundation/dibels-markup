@@ -10,7 +10,7 @@ describe('App.Models.Student', function() {
       requests.push(xhr);
     };
 
-    subject = new App.Models.Student({ first_name: "Bernie", last_name: "Bivins", reading_stage: 3, reading_stage_updated_at: App.newISODate() });
+    subject = new App.Models.Student({ first_name: "Bernie", last_name: "Bivins", reading_stage: 3, initial_reading_stage: 1, reading_stage_updated_at: App.newISODate() });
   });
 
   describe("helper methods", function() {
@@ -20,6 +20,10 @@ describe('App.Models.Student', function() {
 
     it("#readingStage", function() {
       expect(subject.readingStage()).to.equal(3);
+    });
+
+    it("#readingStageGrowth", function() {
+      expect(subject.readingStageGrowth()).to.equal(2);
     });
 
     it("#daysOnCurrentReadingStage", function() {

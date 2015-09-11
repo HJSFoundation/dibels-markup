@@ -139,8 +139,10 @@ this["App"]["templates"]["conferenceStudent"] = Handlebars.template({"compiler":
   return "  <td>\n  <img src=\"img/icons/icon-student.png\" alt=\"\" class=\"icon-student\">\n  </td>\n  <td class=\"session-cell--name\">"
     + alias3(((helper = (helper = helpers.shortName || (depth0 != null ? depth0.shortName : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"shortName","hash":{},"data":data}) : helper)))
     + "</td>\n  <td>"
-    + alias3(((helper = (helper = helpers.reading_stage || (depth0 != null ? depth0.reading_stage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"reading_stage","hash":{},"data":data}) : helper)))
-    + "</td>\n  <td class=\"session-cell--na\">n/a</td>\n  <td class=\"session-cell--na\">n/a</td>\n  <td class=\"session-cell--spacer\"></td>\n  <td>"
+    + alias3(((helper = (helper = helpers.readingStage || (depth0 != null ? depth0.readingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"readingStage","hash":{},"data":data}) : helper)))
+    + "</td>\n  <td>"
+    + alias3(((helper = (helper = helpers.readingStageGrowth || (depth0 != null ? depth0.readingStageGrowth : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"readingStageGrowth","hash":{},"data":data}) : helper)))
+    + "</td>\n  <td class=\"session-cell--na\">n/a</td>\n  <td class=\"session-cell--spacer\"></td>\n  <td>"
     + alias3(((helper = (helper = helpers.daysOnCurrentReadingStage || (depth0 != null ? depth0.daysOnCurrentReadingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysOnCurrentReadingStage","hash":{},"data":data}) : helper)))
     + "</td>\n  <td>"
     + alias3(((helper = (helper = helpers.daysSinceLastSession || (depth0 != null ? depth0.daysSinceLastSession : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"daysSinceLastSession","hash":{},"data":data}) : helper)))
