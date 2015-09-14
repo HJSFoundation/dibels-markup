@@ -41,7 +41,11 @@ describe('App.Views.ConferenceStudentSingle', function() {
     });
 
     it("sets the reading stage", function() {
-      expect(subject.templateJSON().reading_stage).to.equal(3);
+      expect(subject.templateJSON().readingStage).to.equal(3);
+    });
+
+    it("sets the reading stage growth", function() {
+      expect(subject.templateJSON().readingStageGrowth).to.equal(2);
     });
 
     it("sets the daysOnCurrentReadingStage", function() {
@@ -55,7 +59,7 @@ describe('App.Views.ConferenceStudentSingle', function() {
     });
 
     it("sets the number_per_week", function() {
-      expect(subject.templateJSON().number_per_week).to.equal(3);
+      expect(subject.templateJSON().numberPerWeek).to.equal(3);
     });
   });
 
