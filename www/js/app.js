@@ -60,6 +60,7 @@ var App = {
   selectedActivity: null,
   selectedStimulus: null,
   selectedSkill: null,
+  selectedReadingLevel: null,
   browser: null,
 
   isOnline: function() {

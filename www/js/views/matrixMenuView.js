@@ -52,6 +52,15 @@ App.Views.MatrixMenu = Backbone.View.extend({
       var view = that.tabViews[tab.key] = new App.Views.MatrixMenuTab(options);
       that.$gridClass.append(view.render().el);
     });
+    this.readingStageNumberTab = new App.Views.ButtonMatrixReadingStageNumber();
+    this.$gridClass.append(this.readingStageNumberTab.render().el);
+
+    this.readingStageUpTab = new App.Views.ButtonMatrixReadingStageUp();
+    this.$gridClass.append(this.readingStageUpTab.render().el);
+
+    this.readingStageDownTab = new App.Views.ButtonMatrixReadingStageDown();
+    this.$gridClass.append(this.readingStageDownTab.render().el);
+
     this.closeTab = new App.Views.ButtonMatrixClose();
     this.$gridClass.append(this.closeTab.render().el);
   },

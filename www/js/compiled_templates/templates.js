@@ -51,11 +51,18 @@ this["App"]["templates"]["buttonMatrixClose"] = Handlebars.template({"compiler":
 this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<img class=\"icon-matrix-open\" src=\"img/icons/icon-matrix-open.png\">\n";
 },"useData":true});
-this["App"]["templates"]["buttonMatrixStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-triangle-down\"></span>\n";
+this["App"]["templates"]["buttonMatrixReadingStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span style=\"font-size: 32px; width: 5%;\">V</span>\n";
 },"useData":true});
-this["App"]["templates"]["buttonMatrixStageUp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"icon icon-triangle-up\"></span>\n";
+this["App"]["templates"]["buttonMatrixReadingStageNumber"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<span style=\"font-size: 32px; width: 5%;\">RS "
+    + this.escapeExpression(((helper = (helper = helpers.readingStage || (depth0 != null ? depth0.readingStage : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"readingStage","hash":{},"data":data}) : helper)))
+    + "</span>\n";
+},"useData":true});
+this["App"]["templates"]["buttonMatrixReadingStageUp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<span style=\"font-size: 32px; width: 5%;\">A</span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
