@@ -42,7 +42,7 @@ var App = {
     }
   },
 
-  debuggingProduction: true,
+  debuggingProduction: false,
 
   url: function() {
     if (is_browser && !App.debuggingProduction) {
