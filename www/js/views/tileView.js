@@ -56,6 +56,7 @@ App.Views.Tile = Backbone.View.extend({
 
   handleClick: function() {
     App.selectedStimulus = this.model;
+    App.selectedStudent.set({ persistReadingStage: true });
     App.Dispatcher.trigger("StimulusChangeRequested:" + this.model.get("skill"),
       {
         skill: this.model.get("skill"),

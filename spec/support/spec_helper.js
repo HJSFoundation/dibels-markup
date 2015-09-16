@@ -69,12 +69,12 @@ function initializeTestData () {
   App.currentTeacher = { id: 313, classroom_id: 91 };
   App.notes = new App.Collections.Notes();
   App.roster = new App.Collections.Students();
-  App.roster.create({ id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7, initial_reading_stage: 1 });
-  App.roster.create({ id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3, initial_reading_stage: 1 });
-  App.roster.create({ id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2, initial_reading_stage: 1 });
-  App.roster.create({ id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4, initial_reading_stage: 1 });
-  App.roster.create({ id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1, initial_reading_stage: 1 });
-  App.roster.create({ id: 6, first_name: "Last", last_name: "Student", reading_stage: 1, initial_reading_stage: 1 });
+  App.roster.create({ id: 1, first_name: "Bernie", last_name: "Bivins", reading_stage: 7, initial_reading_stage: 1, displayedReadingStage: 7 });
+  App.roster.create({ id: 2, first_name: "Clark", last_name: "Kempt", reading_stage: 3, initial_reading_stage: 1, displayedReadingStage: 7 });
+  App.roster.create({ id: 3, first_name: "Princess", last_name: "Peach", reading_stage: 2, initial_reading_stage: 1, displayedReadingStage: 7 });
+  App.roster.create({ id: 4, first_name: "Clint", last_name: "Eastman", reading_stage: 4, initial_reading_stage: 1, displayedReadingStage: 7 });
+  App.roster.create({ id: 5, first_name: "Hugo", last_name: "Boss", reading_stage: 1, initial_reading_stage: 1, displayedReadingStage: 7 });
+  App.roster.create({ id: 6, first_name: "Last", last_name: "Student", reading_stage: 1, initial_reading_stage: 1, displayedReadingStage: 7 });
 
   App.students = new App.Collections.Students();
   for (var i=0; i < App.Config.maxStudentCount; i = i + 1) {

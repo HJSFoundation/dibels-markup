@@ -43,6 +43,9 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
     }
     var previous = App.selectedStudent;
     App.selectedStudent = this.model;
+    if(!App.selectedStudent.get("persistReadingStage")){
+      App.selectedStudent.set({displayedReadingStage: App.selectedStudent.readingStage()})
+    }
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
       { current: this.model,
         previous: previous

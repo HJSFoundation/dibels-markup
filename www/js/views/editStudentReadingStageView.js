@@ -44,6 +44,9 @@ App.Views.EditStudentReadingStage = Backbone.View.extend({
       App.selectedStudent.set({ initial_reading_stage: readingStage });
     } else {
       App.selectedStudent.set({ reading_stage: readingStage });
+      if(!App.selectedStudent.get("persistReadingStage")){
+        App.selectedStudent.set({displayedReadingStage: App.selectedStudent.readingStage()})
+      }
     }
 
     this.makeInactive();
