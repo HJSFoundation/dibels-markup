@@ -29,7 +29,7 @@ App.Views.StimuliTilesStageStories = Backbone.View.extend({
     this.$gridClass = $("." + this.gridClass);
     var that = this;
     var i = 0;
-    var stories = this.stories[App.selectedStudent.get('reading_stage')];
+    var stories = this.stories[App.selectedStudent.displayedReadingStage()];
     _.each(stories,function(story) {
       var view = new App.Views.StoryTile({ className: that.tileClass, id: story.content_id, title: story.title, storyType: App.Config.skill.stageStories, index: (i += 1) + ". " });
       that.tiles.push(view);

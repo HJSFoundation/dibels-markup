@@ -12,6 +12,15 @@ App.Models.Student = Backbone.Model.extend({
     return this.get("reading_stage");
   },
 
+  displayedReadingStage: function() {
+    return this.get("displayedReadingStage");
+  },
+
+  initializeDisplayedReadingStage: function () {
+    this.set({ displayedReadingStage: this.readingStage() });
+    this.set({ persistReadingStage: false });
+  },
+
   readingStageGrowth: function() {
     return this.get("reading_stage") - this.get("initial_reading_stage");
   },

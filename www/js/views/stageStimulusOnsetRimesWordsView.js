@@ -7,7 +7,7 @@ App.Views.StageStimulusOnsetRimesWords = Backbone.View.extend({
 
   render: function(stimulus_object) {
     var words;
-    var readingStage = App.selectedStudent.get("reading_stage");
+    var readingStage = App.selectedStudent.displayReadingStage();
 
     if (readingStage < App.Config.firstStageWithSubSkill) {
       words = App.ActivityStimuli.wordsByStage[readingStage][stimulus_object.value];

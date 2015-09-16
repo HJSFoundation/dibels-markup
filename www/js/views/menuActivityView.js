@@ -73,7 +73,7 @@ App.Views.MenuActivity = Backbone.View.extend({
       App.Dispatcher.trigger("matrixRerenderRequest");
     }
 
-    if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.get("reading_stage") == App.selectedStimulus.get("reading_stage"))) { //intentional == not ===
+    if (App.selectedStimulus !== null && (that.isActive) && (App.selectedStudent.displayedReadingStage() == App.selectedStimulus.get("reading_stage"))) { //intentional == not ===
       var skill = App.selectedStimulus.get("skill");
       var value = App.selectedStimulus.get("value");
       App.Dispatcher.trigger("StimulusChangeRequested:" + skill,

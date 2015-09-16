@@ -52,7 +52,7 @@ this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[
     return "<img class=\"icon-matrix-open\" src=\"img/icons/icon-matrix-open.png\">\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixReadingStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span style=\"font-size: 32px; width: 5%;\">V</span>\n";
+    return "<span class=\"js-buttonMatrixReadingStageDown\" style=\"font-size: 32px; width: 5%;\">V</span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixReadingStageNumber"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
@@ -62,7 +62,7 @@ this["App"]["templates"]["buttonMatrixReadingStageNumber"] = Handlebars.template
     + "</span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixReadingStageUp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span style=\"font-size: 32px; width: 5%;\">A</span>\n";
+    return "<span class=\"js-buttonMatrixReadingStageUp\" style=\"font-size: 32px; width: 5%;\">A</span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

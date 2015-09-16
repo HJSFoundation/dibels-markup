@@ -29,7 +29,7 @@ App.Views.LeveledTextPage = Backbone.View.extend({
       pageDots: false
     });
 
-    if (App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies) {
+    if (App.selectedStudent.displayedReadingStage() >= App.Config.minReadingStageForStrategies) {
       this.readingStrategies = new App.Views.ReadingStrategies({ el: ".js-readingStrategies" });
     }
 
@@ -50,7 +50,7 @@ App.Views.LeveledTextPage = Backbone.View.extend({
   },
 
   handleStoryChangeRequest: function(requestedStory) {
-    var storiesForStage = this.stories[App.selectedStudent.get('reading_stage')];
+    var storiesForStage = this.stories[App.selectedStudent.displayedReadingStage()];
     var story = _.find(storiesForStage, function(story) {
       return story.content_id === requestedStory.id;
     });

@@ -6,6 +6,12 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
 
   initialize: function() {
     _.bindAll(this);
+    this.listen();
+  },
+
+  listen: function() {
+    this.listenTo(App.Dispatcher, "readingStageDownRequest", this.handleReadingStageDownRequest);
+    this.listenTo(App.Dispatcher, "readingStageUpRequest", this.handleReadingStageUpRequest);
   },
 
   render: function() {
@@ -15,11 +21,28 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
 
   templateJSON: function(){
     return {
-      readingStage: App.selectedStudent.get("reading_stage")
+      readingStage: App.selectedStudent.displayedReadingStage()
     };
+  },
+
+  handleReadingStageUpRequest: function() {
+    this.stopListening();
+    App.selectedStudent.set({displayedReadingStage: Math.min(App.selectedStudent.displayedReadingStage()+1, App.Config.maxStageCount)});
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
+      { current: App.selectedStudent,
+        previous: App.selectedStudent
+      }
+    );
+  },
+
+  handleReadingStageDownRequest: function() {
+    App.selectedStudent.set({displayedReadingStage: Math.max(App.selectedStudent.displayedReadingStage()-1, 1)});
+    App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
+      { current: App.selectedStudent,
+        previous: App.selectedStudent
+      }
+    );
   }
 
-  // handleCloseMatrix: function() {
-  //   App.Dispatcher.trigger('closeMatrix');
-  // }
+
 });

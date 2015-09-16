@@ -38,7 +38,7 @@ App.Views.MatrixStudentSelectorTab = Backbone.View.extend({
   },
 
   handleClick: function() {
-    if (this.model.get("reading_stage") !== App.selectedStudent.get("reading_stage")) {
+    if (this.model.displayedReadingStage() !== App.selectedStudent.displayedReadingStage()) {
       App.Dispatcher.trigger("StageClearRequested");
     }
     var previous = App.selectedStudent;

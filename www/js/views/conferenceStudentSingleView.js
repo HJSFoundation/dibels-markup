@@ -39,6 +39,7 @@ App.Views.ConferenceStudentSingle = Backbone.View.extend({
 
   handleAddStudent: function() {
     App.selectedStudent = this.studentModel;
+    App.selectedStudent.initializeDisplayedReadingStage();
     App.students.add(this.studentModel);
     App.Dispatcher.trigger("addStudentRequested");
     return false;

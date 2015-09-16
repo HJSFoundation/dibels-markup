@@ -36,8 +36,8 @@ App.Views.Matrix = Backbone.View.extend({
     var tile = this.tiles[App.selectedSkill];
     tile.handleSkillReplaceRequest();
     tile.render();
-    var stage = (selectedStudents.previous ? selectedStudents.previous.get("reading_stage") : null);
-    if ((selectedStudents.current.get("reading_stage") === stage) && ( App.selectedStimulus )) {
+    var stage = (selectedStudents.previous ? selectedStudents.previous.displayedReadingStage() : null);
+    if ((selectedStudents.current.displayedReadingStage() === stage) && ( App.selectedStimulus )) {
       // NOTE: if stimuli data is consistent selectedStimulus will find exactly 1 match
       // but while the data is not consistent App.selectedStimulus may find 0 or >1 match
       App.selectedStimulus = App.stimuli.where(

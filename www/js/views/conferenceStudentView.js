@@ -41,6 +41,7 @@ App.Views.ConferenceStudent = Backbone.View.extend({
 
   handleStartSession: function() {
     App.selectedStudent = this.studentModel;
+    App.selectedStudent.initializeDisplayedReadingStage();
     App.students.add(this.studentModel);
     App.selectedConference = this.model;
     App.Dispatcher.trigger("startSessionRequested");

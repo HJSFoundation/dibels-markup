@@ -28,7 +28,7 @@ App.Views.StageStoryPage = Backbone.View.extend({
       prevNextButtons: false,
       pageDots: false
     });
-    if (App.selectedStudent.get("reading_stage") >= App.Config.minReadingStageForStrategies) {
+    if (App.selectedStudent.displayedReadingStage() >= App.Config.minReadingStageForStrategies) {
       this.readingStrategies = new App.Views.ReadingStrategies({el: ".js-readingStrategies" });
     }
     this.storyButtonFlipView = new App.Views.ButtonFlip({el: ".js-storyButtonFlip", eventName: "flipStoryButtonTapped"});
@@ -48,7 +48,7 @@ App.Views.StageStoryPage = Backbone.View.extend({
   },
 
   handleStoryChangeRequest: function(event_payload) {
-    var storiesForStage = this.stories[App.selectedStudent.get('reading_stage')];
+    var storiesForStage = this.stories[App.selectedStudent.displayedReadingStage()];
     var story = _.find(storiesForStage, function(story) {
       return story.content_id === event_payload.id;
     });

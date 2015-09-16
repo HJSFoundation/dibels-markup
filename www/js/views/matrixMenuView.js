@@ -42,6 +42,10 @@ App.Views.MatrixMenu = Backbone.View.extend({
     _.each(this.tabViews, function(tabView) {
       tabView.remove();
     });
+    if(this.readingStageNumberTab) this.readingStageNumberTab.remove();
+    if(this.readingStageUpTab) this.readingStageUpTab.remove();
+    if(this.readingStageDownTab) this.readingStageDownTab.remove();
+    if(this.readingStageDownTab) this.readingStageDownTab.remove();
 
     this.tabViews = {};
     _.each(this.activeTabDefs, function(tab) {
@@ -99,7 +103,7 @@ App.Views.MatrixMenu = Backbone.View.extend({
   },
 
   handleMatrixStudentSelectorTabActiveRequest: function() {
-    var studentReadingStage = App.selectedStudent.get("reading_stage");
+    var studentReadingStage = App.selectedStudent.displayedReadingStage();
     this.activeTabDefs = this.tabsByStage[studentReadingStage];
     this.render();
 
