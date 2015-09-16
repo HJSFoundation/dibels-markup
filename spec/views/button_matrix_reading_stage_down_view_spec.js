@@ -19,7 +19,7 @@ describe('App.Views.ButtonMatrixReadingStageDown', function() {
 
   describe("events", function() {
     it("handles a click event", function() {
-      expect(subject.events.click).to.equal('handleReadingStageDownRequest');
+      expect(subject.events["click .js-buttonMatrixReadingStageDown"]).to.equal('handleReadingStageDownRequest');
     });
   });
 

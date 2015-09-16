@@ -13,7 +13,7 @@ describe('App.Views.MatrixMenu', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-matrixMenu" });
     subject = new App.Views.MatrixMenu({el: '.js-matrixMenu'});
-    App.selectedStudent = new App.Models.Student({reading_stage:1});
+    App.selectedStudent = new App.Models.Student({ reading_stage: 1, displayedReadingStage: 1 });
     var studentReadingStage = App.selectedStudent.get("reading_stage");
     subject.activeTabDefs = subject.tabsByStage[studentReadingStage];
   });

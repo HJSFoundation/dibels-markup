@@ -2,7 +2,6 @@ App.Views.ButtonMatrixReadingStageUp = Backbone.View.extend({
   template: App.templates.buttonMatrixReadingStageUp,
 
   tagName: "a",
-  // className: "",
 
   events: {
     'click .js-buttonMatrixReadingStageUp': 'handleReadingStageUpRequest'

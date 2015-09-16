@@ -23,8 +23,8 @@ describe('App.Views.ButtonMatrixReadingStageNumber', function() {
   });
 
   it("#templateJSON", function() {
-    App.selectedStudent.set("reading_stage", 2);
-    expect(subject.templateJSON().readingStage).to.equal(2);
+    App.selectedStudent.set({ displayedReadingStage: 8 });
+    expect(subject.templateJSON().readingStage).to.equal(8);
   });
 
   describe("handlers", function() {

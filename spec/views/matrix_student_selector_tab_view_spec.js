@@ -89,7 +89,7 @@ describe('App.Views.MatrixStudentSelectorTab', function() {
       });
 
       it("triggers the stageClearRequested if the reading stages do not match", function() {
-        App.selectedStudent = new App.Models.Student({id: 2, first_name: "Bernie", last_name: "Bivins", reading_stage: 4}),
+        App.selectedStudent = new App.Models.Student({id: 2, first_name: "Bernie", last_name: "Bivins", reading_stage: 4, displayedReadingStage: 1 }),
         sinon.spy(App.Dispatcher, "trigger");
         subject.handleClick();
         expect(App.Dispatcher.trigger).to.have.been.calledWith("StageClearRequested");

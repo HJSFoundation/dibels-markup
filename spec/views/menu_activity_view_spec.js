@@ -132,6 +132,7 @@ describe('App.Views.MenuActivity', function() {
 
       it("does not trigger matrixRerenderRequest when App.selectedActivity does not equal phrases and selectedActivity does not equal phrases", function() {
         sinon.spy(App.Dispatcher, "trigger");
+        App.selectedStudent.set({ reading_stage: 2, displayedReadingStage: 2 });
         App.selectedActivity = "tiles";
         subject.handleActivityMenuButtonActiveRequest("tiles");
         expect(App.Dispatcher.trigger).not.to.have.been.called;
@@ -140,7 +141,7 @@ describe('App.Views.MenuActivity', function() {
 
       it("triggers stimulus change request when selected stimulus is not null and selected student reading stage equals selected stimulus reading stage", function() {
         App.selectedStimulus = new App.Models.Stimulus({ skill: "letter_sounds", value: "b", reading_stage: "2" });
-        App.selectedStudent.set({reading_stage: 2});
+        App.selectedStudent.set({ reading_stage: 2, displayedReadingStage: 2 });
         sinon.spy(App.Dispatcher, "trigger");
         var skill = App.selectedStimulus.get("skill");
         var value = App.selectedStimulus.get("value");
@@ -152,7 +153,7 @@ describe('App.Views.MenuActivity', function() {
 
       it("does not trigger stimulus change request when selected stimulus is not null and selected student reading stage doesnot equal selected stimulus reading stage", function() {
         App.selectedStimulus = new App.Models.Stimulus({skill: "letter_sounds", value: "b", reading_stage: "2"});
-        App.selectedStudent.set({reading_stage: 4});
+        App.selectedStudent.set({ reading_stage: 4, displayedReadingStage: 4 });
         sinon.spy(App.Dispatcher, "trigger");
         var skill = App.selectedStimulus.get("skill");
         var value = App.selectedStimulus.get("value");

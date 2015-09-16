@@ -13,7 +13,7 @@ describe('App.Views.Stage', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stage" });
     subject = new App.Views.Stage({el: '.js-stage'});
-    App.selectedStudent.set({reading_stage: 2});
+    App.selectedStudent.set({ reading_stage: 2, displayedReadingStage: 2 });
   });
 
   afterEach(function() {
@@ -205,7 +205,7 @@ describe('App.Views.Stage', function() {
       var model;
 
       beforeEach(function() {
-        model = new App.Models.Stimulus({value: "bl", sub_skill: "onsets", reading_stage: 5});
+        model = new App.Models.Stimulus({ value: "bl", sub_skill: "onsets", reading_stage: 5, displayedReadingStage: 5 });
       });
 
       it("handles selectedActivity === words", function() {

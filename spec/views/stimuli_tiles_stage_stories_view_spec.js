@@ -88,6 +88,7 @@ describe('App.Views.StimuliTilesStageStories', function() {
     });
 
     it("#handleSkillReplaceRequest", function() {
+      App.selectedStudent.set({ displayedReadingStage: 5 });
       subject.render();
       expect(subject.tiles).not.to.be.empty;
       subject.handleSkillReplaceRequest();

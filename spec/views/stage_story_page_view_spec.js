@@ -52,13 +52,13 @@ describe('App.Views.StageStoryPage', function() {
     });
 
     it("creates reading strategies when selected student reading stage in range", function() {
-      App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
+      App.selectedStudent.set({ displayedReadingStage: App.Config.minReadingStageForStrategies });
       subject.render();
       expect(subject.readingStrategies).to.be.an.instanceOf(App.Views.ReadingStrategies);
     });
 
     it("does not create reading strategies when selected student reading stage out of range", function() {
-      App.selectedStudent.set({reading_stage: 0});
+      App.selectedStudent.set({ displayedReadingStage: 1 });
       subject.render();
       expect(subject.readingStrategies).to.be.undefined;
     });
@@ -97,7 +97,7 @@ describe('App.Views.StageStoryPage', function() {
 
   describe("handlers", function() {
     it("#handleStoryChangeRequest", function() {
-      App.selectedStudent.set({reading_stage: App.Config.minReadingStageForStrategies});
+      App.selectedStudent.set({ displayedReadingStage: App.Config.minReadingStageForStrategies });
       sinon.spy(subject, "render");
       subject.handleStoryChangeRequest({id: 6728 });
       expect(subject.pages).to.be.instanceof(Array);

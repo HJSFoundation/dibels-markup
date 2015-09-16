@@ -13,7 +13,7 @@ describe('App.Views.StimuliTilesLetterNames', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-stimuliTiles" });
     subject = new App.Views.StimuliTilesLetterNames({el: '.js-stimuliTiles'});
-    App.selectedStudent = new App.Models.Student({id: 1, reading_stage: 1});
+    App.selectedStudent = new App.Models.Student({ id: 1, reading_stage: 1, displayedReadingStage: 1 });
   });
 
   afterEach(function() {

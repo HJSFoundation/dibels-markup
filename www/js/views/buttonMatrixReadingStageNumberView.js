@@ -2,7 +2,6 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
   template: App.templates.buttonMatrixReadingStageNumber,
 
   tagName: "a",
-  // className: "",
 
   initialize: function() {
     _.bindAll(this);

@@ -24,7 +24,7 @@ describe('App.Views.StageStimulusOnsetRimesWords', function() {
   });
 
   it("#render", function() {
-    App.selectedStudent.set({reading_stage: 2});
+    App.selectedStudent.set({ displayedReadingStage: 2 });
     subject.render({value: "b"});
     expect(subject.$el).not.to.be.empty;
   });

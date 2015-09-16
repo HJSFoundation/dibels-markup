@@ -58,7 +58,7 @@ describe('App.Views.LeveledTextPage', function() {
     });
 
     it("does not create reading strategies when selected student reading stage out of range", function() {
-      App.selectedStudent.set({ reading_stage: 0 });
+      App.selectedStudent.set({ displayedReadingStage: 1 });
       subject.render();
       expect(subject.readingStrategies).to.be.undefined;
     });
@@ -97,7 +97,7 @@ describe('App.Views.LeveledTextPage', function() {
 
   describe("handlers", function() {
     it("#handleStoryChangeRequest", function() {
-      App.selectedStudent.set({ reading_stage: App.Config.minReadingStageForStrategies });
+      App.selectedStudent.set({ displayedReadingStage: App.Config.minReadingStageForStrategies });
       sinon.spy(subject, "render");
       subject.handleStoryChangeRequest({ id: 6670 });
       expect(subject.pages).to.be.instanceof(Array);
