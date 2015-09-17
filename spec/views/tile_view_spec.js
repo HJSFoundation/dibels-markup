@@ -3,7 +3,7 @@ describe('App.Views.Tile', function() {
   var xhr;
   var requests;
   var model;
-  var collection;
+  // var collection;
 
   beforeEach(function() {
     xhr = sinon.useFakeXMLHttpRequest();
@@ -15,9 +15,10 @@ describe('App.Views.Tile', function() {
     sinon.stub(_, "bindAll");
     appendFixture("div", { class: "js-tile" });
 
-    collection = new App.Collections.Stimuli({localStorageName: "stimuli"});
+    // collection = new App.Collections.Stimuli({localStorageName: "stimuli"});
     App.stimuli.create({reading_stage: 0, skill:App.Config.skill.letterNames, value: "a", assessment:"clear"});
-    model = collection.at(0);
+    // model = collection.at(0);
+    model = new App.Models.Stimulus({reading_stage: 0, skill:App.Config.skill.letterNames, value: "a", assessment:"clear"});
     subject = new App.Views.Tile({model: model, el: '.js-tile', index: 0, selectedClass: ""});
   });
 
@@ -87,9 +88,13 @@ describe('App.Views.Tile', function() {
     });
   });
 
+  it("#filter", function() {
+    expect(subject.filter("''")).to.equal("'");
+  });
+
   it("#templateJSON", function() {
     expect(subject.templateJSON().index).to.equal(subject.index);
-    expect(subject.templateJSON().stimulusValue).to.equal(subject.model.get("value"));
+    expect(subject.templateJSON().stimulusValue).to.equal(subject.filter(subject.model.get("value")));
     expect(subject.templateJSON().assessmentClass).to.equal("st-" + subject.model.get("assessment"));
     expect(subject.templateJSON().selected).to.equal(subject.selected);
   });
@@ -137,7 +142,7 @@ describe('App.Views.Tile', function() {
     describe("#handleStimulusChangeRequested", function() {
       it("listens when stimulus argument equals this.value", function() {
         sinon.spy(subject, "listenTo");
-        subject.handleStimulusChangeRequested({value: subject.model.get("value")});
+        subject.handleStimulusChangeRequested({value: subject.model.get("value"), skill: subject.model.get("skill")});
         expect(subject.listenTo).to.have.been.calledWith(App.Dispatcher, "buttonAssessmentClicked", subject.handleButtonAssessmentClicked);
       });
 

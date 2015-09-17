@@ -30,13 +30,17 @@ App.Views.Tile = Backbone.View.extend({
     return this;
   },
 
+  filter: function (stimulusString) {
+     return stimulusString.replace("''","'");
+   },
+
   templateJSON: function() {
-    return {
-      index: this.index,
-      stimulusValue: this.model.get("value"),
-      assessmentClass: "st-" + this.model.get("assessment"),
-      selectedClass: this.selectedClass
-    };
+   return {
+     index: this.index,
+     stimulusValue: this.filter(this.model.get("value")),
+     assessmentClass: "st-" + this.model.get("assessment"),
+     selectedClass: this.selectedClass
+   };
   },
 
   setAssessment: function(assessment) {
