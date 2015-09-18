@@ -1,113 +1,50 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.innovationsforlearning.teachernotepad2" version="1.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>TeacherNotepad2 Staging</name>
+<widget id="org.innovationsforlearning.teachernotepad2" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>TeacherNotepad2</name>
     <description>
         An educational tool for teachers and students.
     </description>
-    <author email="support@innovationsforlearning.org" href="http://innovationsforlearning.org">
-        Innovations for Learning Team
+    <author email="info@innovationsforlearning.org" href="http://www.innovationsforlearning.org">
+        Innovations for Learning
     </author>
-    <preference name="phonegap-version" value="3.8.0" />
     <content src="index.html" />
-    <preference name="permissions" value="none" />
-    <preference name="orientation" value="landscape" />
-    <preference name="target-device" value="tablet" />
-    <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="false" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="false" />
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="false" />
-    <preference name="disable-cursor" value="false" />
-
-
-    <gap:plugin name="io.litehelpers.cordova.sqlite" version="0.7.10" />
-    <gap:plugin name="org.apache.cordova.console" version="0.2.11" />
-    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.4" source="plugins.cordova.io" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
-    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
-    <gap:plugin name="nl.x-services.plugins.insomnia" version="4.0.1" />
-
-
-<!-- <gap:plugin name="io.litehelpers.cordova.sqlite" source="npm" />
-    <gap:plugin name="org.apache.cordova.console" source="npm" />
-    <gap:plugin name="org.apache.cordova.device" source="npm" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
-    <gap:plugin name="org.apache.cordova.network-information" source="npm" />
-    <gap:plugin name="org.apache.cordova.splashscreen" source="npm"/>
--->
-
-    <icon src="icon.png" />
-    <icon gap:platform="ios" height="60" src="res/ios/icon-60.png" width="60" />
-    <icon gap:platform="ios" height="120" src="res/ios/icon-60@2x.png" width="120" />
-    <icon gap:platform="ios" height="180" src="res/ios/icon-60@3x.png" width="180" />
-    <icon gap:platform="ios" height="72" src="res/ios/icon-72.png" width="72" />
-    <icon gap:platform="ios" height="144" src="res/ios/icon-72@2x.png" width="144" />
-    <icon gap:platform="ios" height="76" src="res/ios/icon-76.png" width="76" />
-    <icon gap:platform="ios" height="152" src="res/ios/icon-76@2.png" width="152" />
-
-    <icon gap:platform="ios" height="40" src="res/ios/Icon-Small-40.png" width="40" />
-    <icon gap:platform="ios" height="80" src="res/ios/Icon-Small-40@2x.png" width="80" />
-    <icon gap:platform="ios" height="120" src="res/ios/Icon-Small-40@3x.png" width="120" />
-
-    <icon gap:platform="ios" height="50" src="res/ios/Icon-Small-50.png" width="50" />
-    <icon gap:platform="ios" height="100" src="res/ios/Icon-Small-50@2x.png" width="100" />
-
-    <icon gap:platform="ios" height="29" src="res/ios/Icon-Small.png" width="29" />
-    <icon gap:platform="ios" height="58" src="res/ios/Icon-Small@2x.png" width="58" />
-    <icon gap:platform="ios" height="87" src="res/ios/Icon-Small@3x.png" width="87" />
-
-    <icon gap:platform="ios" height="57" src="res/ios/Icon.png" width="57" />
-    <icon gap:platform="ios" height="114" src="res/ios/Icon@2x.png" width="114" />
-
-    <gap:splash src="res/screen/ios/Default-Landscape@2x~ipad.png" gap:platform="ios" width="2048" height="1536" />
-    <gap:splash src="res/screen/ios/Default-Landscape@~ipad.png" gap:platform="ios" width="1024" height="768" />
-
-
-
-
-
-
-
-    <gap:config-file platform="ios" parent="UISupportedInterfaceOrientations" mode="replace">
-        <array>
-            <string>UIInterfaceOrientationLandscapeLeft</string>
-        </array>
-    </gap:config-file>
-
-    <gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" mode="replace">
-        <false/>
-    </gap:config-file>
-
-    <gap:config-file platform="ios" parent="UIStatusBarHidden" mode="replace">
-        <true/>
-    </gap:config-file>
-
-
-
-
-    <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
-
-    <gap:splash gap:platform="ios" src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
-    <gap:splash gap:platform="ios" src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
-
     <access origin="*" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true"/>
+    <preference name="Orientation" value="landscape" />
+    <platform name="ios">
+        <preference name="BackupWebStorage" value="local" />
+        <!-- iOS 8.0+ -->
+        <!-- iPhone 6 Plus  -->
+        <icon src="res/ios/icon-60@3x.png" width="180" height="180" />
+        <!-- iOS 7.0+ -->
+        <!-- iPhone / iPod Touch  -->
+        <icon src="res/ios/icon-60.png" width="60" height="60" />
+        <icon src="res/ios/icon-60@2x.png" width="120" height="120" />
+        <!-- iPad -->
+        <icon src="res/ios/icon-76.png" width="76" height="76" />
+        <icon src="res/ios/icon-76@2x.png" width="152" height="152" />
+        <!-- iOS 6.1 -->
+        <!-- Spotlight Icon -->
+        <icon src="res/ios/icon-Small-40.png" width="40" height="40" />
+        <icon src="res/ios/icon-Small-40@2x.png" width="80" height="80" />
+        <!-- iPhone / iPod Touch -->
+        <icon src="res/ios/icon.png" width="57" height="57" />
+        <icon src="res/ios/icon@2x.png" width="114" height="114" />
+        <!-- iPad -->
+        <icon src="res/ios/icon-72.png" width="72" height="72" />
+        <icon src="res/ios/icon-72@2x.png" width="144" height="144" />
+        <!-- iPhone Spotlight and Settings Icon -->
+        <icon src="res/ios/icon-Small.png" width="29" height="29" />
+        <icon src="res/ios/icon-Small@2x.png" width="58" height="58" />
+        <!-- iPad Spotlight and Settings Icon -->
+        <icon src="res/ios/icon-Small-50.png" width="50" height="50" />
+        <icon src="res/ios/icon-Small-50@2x.png" width="100" height="100" />
     </platform>
     <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
+        <!-- images are determined by width and height. The following are supported -->
+        <splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
     </platform>
+    <preference name="AutoHideSplashScreen" value="false" />
 </widget>
