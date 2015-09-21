@@ -2,6 +2,7 @@ App.Views.ButtonMatrixReadingStageDown = Backbone.View.extend({
   template: App.templates.buttonMatrixReadingStageDown,
 
   tagName: "a",
+  className: "menu--tab menu--tab--reading-stage",
 
   events: {
     'click .js-buttonMatrixReadingStageDown': 'handleReadingStageDownRequest'

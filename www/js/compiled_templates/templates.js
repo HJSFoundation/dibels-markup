@@ -52,17 +52,19 @@ this["App"]["templates"]["buttonMatrixOpen"] = Handlebars.template({"compiler":[
     return "<img class=\"icon-matrix-open\" src=\"img/icons/icon-matrix-open.png\">\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixReadingStageDown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"js-buttonMatrixReadingStageDown\" style=\"font-size: 32px; width: 5%;\">V</span>\n";
+    return "<span class=\"js-buttonMatrixReadingStageDown\">\n  <img src=\"img/icons/icon-triangle-down.png\" class=\"icon-triangle-down\">\n</span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixReadingStageNumber"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<span style=\"font-size: 32px; width: 5%;\">RS "
-    + this.escapeExpression(((helper = (helper = helpers.readingStage || (depth0 != null ? depth0.readingStage : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"readingStage","hash":{},"data":data}) : helper)))
-    + "</span>\n";
+  return "<span class=\""
+    + alias3(((helper = (helper = helpers.changedStageStateClass || (depth0 != null ? depth0.changedStageStateClass : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"changedStageStateClass","hash":{},"data":data}) : helper)))
+    + "\" >RS "
+    + alias3(((helper = (helper = helpers.readingStage || (depth0 != null ? depth0.readingStage : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"readingStage","hash":{},"data":data}) : helper)))
+    + " </span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonMatrixReadingStageUp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<span class=\"js-buttonMatrixReadingStageUp\" style=\"font-size: 32px; width: 5%;\">A</span>\n";
+    return "<span class=\"js-buttonMatrixReadingStageUp\">\n  <img src=\"img/icons/icon-triangle-up.png\" class=\"icon-triangle-up\">\n</span>\n";
 },"useData":true});
 this["App"]["templates"]["buttonNeedsWork"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;

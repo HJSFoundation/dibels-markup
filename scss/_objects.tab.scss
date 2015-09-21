@@ -118,6 +118,18 @@
   }
  }
 
+ &.menu--tab--reading-stage {
+  padding: 0 1%;
+
+  img {
+    width: 20px;
+  }
+
+  .st-changed-stage {
+    color: $yellow;
+  }
+ }
+
   &.icon-triangle-up,
   &.icon-triangle-down {
     font-size: 32px;

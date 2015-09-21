@@ -2,6 +2,8 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
   template: App.templates.buttonMatrixReadingStageNumber,
 
   tagName: "a",
+  className: "menu--tab menu--tab--reading-stage",
+
 
   initialize: function() {
     _.bindAll(this);
@@ -18,9 +20,14 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
     return this;
   },
 
+  changedStageStateClass: function () {
+    return App.selectedStudent.displayedReadingStage() === App.selectedStudent.readingStage() ? "" : "st-changed-stage";
+  },
+
   templateJSON: function(){
     return {
-      readingStage: App.selectedStudent.displayedReadingStage()
+      readingStage: App.selectedStudent.displayedReadingStage(),
+      changedStageStateClass: this.changedStageStateClass()
     };
   },
 
