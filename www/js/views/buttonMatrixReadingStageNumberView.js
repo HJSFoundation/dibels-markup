@@ -42,6 +42,7 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
   },
 
   handleReadingStageDownRequest: function() {
+    this.stopListening();
     App.selectedStudent.set({displayedReadingStage: Math.max(App.selectedStudent.displayedReadingStage()-1, 1)});
     App.Dispatcher.trigger("matrixStudentSelectorTabActiveRequest",
       { current: App.selectedStudent,
@@ -49,6 +50,4 @@ App.Views.ButtonMatrixReadingStageNumber = Backbone.View.extend({
       }
     );
   }
-
-
 });

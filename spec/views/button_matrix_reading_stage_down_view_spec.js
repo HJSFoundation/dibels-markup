@@ -28,12 +28,10 @@ describe('App.Views.ButtonMatrixReadingStageDown', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  describe("handlers", function() {
-    xit("#handleReadingStageDownRequest", function() {
-      sinon.spy(App.Dispatcher, "trigger");
-      subject.handleReadingStageDownMatrix();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("ReadingStageDownMatrix");
-      App.Dispatcher.trigger.restore();
-    });
+  it("#readingStageDownRequest", function() {
+    sinon.spy(App.Dispatcher, "trigger");
+    subject.handleReadingStageDownRequest();
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("readingStageDownRequest");
+    App.Dispatcher.trigger.restore();
   });
 });

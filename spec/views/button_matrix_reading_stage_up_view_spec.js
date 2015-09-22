@@ -28,12 +28,10 @@ describe('App.Views.ButtonMatrixReadingStageUp', function() {
     expect(subject.$el).not.to.be.empty;
   });
 
-  describe("handlers", function() {
-    xit("#handleReadingStageUpRequest", function() {
-      sinon.spy(App.Dispatcher, "trigger");
-      subject.handleReadingStageUpMatrix();
-      expect(App.Dispatcher.trigger).to.have.been.calledWith("ReadingStageUpMatrix");
-      App.Dispatcher.trigger.restore();
-    });
+  it("#handleReadingStageUpRequest", function() {
+    sinon.spy(App.Dispatcher, "trigger");
+    subject.handleReadingStageUpRequest();
+    expect(App.Dispatcher.trigger).to.have.been.calledWith("readingStageUpRequest");
+    App.Dispatcher.trigger.restore();
   });
 });
